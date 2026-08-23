@@ -606,25 +606,25 @@
 
   <!-- SUB-PAGES ROUTING -->
   <sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}">
-    <div style="padding-top:{{ padTop }};"><dc-import name="BOTG Services" seed="{{ seed }}" hint-size="100%,900px"></dc-import></div>
+    <div><dc-import name="BOTG Services" seed="{{ seed }}" hint-size="100%,900px"></dc-import></div>
   </sc-if>
   <sc-if value="{{ isOccasions }}" hint-placeholder-val="{{ false }}">
-    <div style="padding-top:{{ padTop }};"><dc-import name="BOTG Occasions" seed="{{ seed }}" hint-size="100%,900px"></dc-import></div>
+    <div><dc-import name="BOTG Occasions" seed="{{ seed }}" hint-size="100%,900px"></dc-import></div>
   </sc-if>
   <sc-if value="{{ isTeam }}" hint-placeholder-val="{{ false }}">
-    <div style="padding-top:{{ padTop }};"><dc-import name="BOTG Team" hint-size="100%,900px"></dc-import></div>
+    <div><dc-import name="BOTG Team" hint-size="100%,900px"></dc-import></div>
   </sc-if>
   <sc-if value="{{ isProcess }}" hint-placeholder-val="{{ false }}">
-    <div style="padding-top:{{ padTop }};"><dc-import name="BOTG Process" hint-size="100%,900px"></dc-import></div>
+    <div><dc-import name="BOTG Process" hint-size="100%,900px"></dc-import></div>
   </sc-if>
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-    <div style="padding-top:{{ padTop }};"><dc-import name="BOTG About" hint-size="100%,900px"></dc-import></div>
+    <div><dc-import name="BOTG About" hint-size="100%,900px"></dc-import></div>
   </sc-if>
   <sc-if value="{{ isVisit }}" hint-placeholder-val="{{ false }}">
-    <div style="padding-top:{{ padTop }};"><dc-import name="BOTG Visit" onQuote="{{ goQuoteBlank }}" hint-size="100%,900px"></dc-import></div>
+    <div><dc-import name="BOTG Visit" onQuote="{{ goQuoteBlank }}" hint-size="100%,900px"></dc-import></div>
   </sc-if>
   <sc-if value="{{ isQuote }}" hint-placeholder-val="{{ false }}">
-    <div style="padding-top:{{ padTop }};"><dc-import name="BOTG Quote" seed="{{ seed }}" hint-size="100%,900px"></dc-import></div>
+    <div><dc-import name="BOTG Quote" seed="{{ seed }}" hint-size="100%,900px"></dc-import></div>
   </sc-if>
 
   <!-- FOOTER -->
@@ -840,7 +840,7 @@ class Component extends DCLogic {
 
     return {
       navRef: this.navRef,
-      padTop: 'var(--botg-nav, 62px)',
+      padTop: '0px',
       navItems: [
         nav('home', 'Home', () => this.go('home')),
         nav('about', 'About', () => this.go('about')),

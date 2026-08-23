@@ -7,10 +7,10 @@
 </head>
 <body>
 <x-dc>
-<div style="font-family:'Karla',sans-serif; color:#171512; background:#F2EDE3;">
+<div style="font-family:'Karla',sans-serif; color:#171512; background:#FAF7F2;">
 
     <!-- 1 · LUXURY ARTISAN ROSTER HERO -->
-  <section style="padding:14px 30px 44px; max-width:1440px; margin:0 auto;">
+  <section style="padding:24px 30px 44px; max-width:1440px; margin:0 auto;">
     <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:64px; align-items:center;">
       
       <!-- Left Column: Copy & Credentials -->
@@ -76,7 +76,7 @@
   <div style="padding:0 30px 130px;">
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(23,21,18,.13);">
       <sc-for list="{{ people }}" as="p" hint-placeholder-count="12">
-        <div style="background:#F2EDE3; display:flex; flex-direction:column;">
+        <div style="background:#FAF7F2; display:flex; flex-direction:column;">
           <div style="aspect-ratio:3/4; background:#E3DACA;">
             <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slot }}" placeholder="{{ p.placeholder }}" shape="rect" hint-size="100%,100%"></x-import>
           </div>
