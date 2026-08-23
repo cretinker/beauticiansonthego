@@ -117,35 +117,81 @@
     </div>
   </div>
 
-  <!-- FAQ -->
-  <div style="padding:120px 30px;">
-    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px; margin-bottom:52px;">
-      <div style="display:flex; flex-direction:column; gap:14px;">
-        <div style="display:flex; align-items:center; gap:14px;">
-          <div style="width:34px; height:1px; background:#A8562F;"></div>
-          <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Common Questions</div>
+    <!-- 3 · LUXURY ASYMMETRIC FAQ & CONCIERGE -->
+  <section style="padding:90px 30px 110px; max-width:1440px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:380px 1fr; gap:64px; align-items:start;">
+      
+      <!-- Left Column: Sticky Editorial Concierge Card -->
+      <div style="display:flex; flex-direction:column; gap:26px;">
+        
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:7px; height:7px; border-radius:50%; background:#C69B54;"></div>
+          <span style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Plain-English Policies</span>
         </div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.03em;">Before you <span style="font-style:italic; color:#A8562F;">book.</span></div>
-      </div>
-      <div style="font-size:16px; line-height:1.7; color:#4C463E; max-width:440px; padding-bottom:6px;">
-        Have a specific question about treatments or logistics? Call <span style="font-family:'Bodoni Moda',serif; font-weight:600; color:#171512; font-size:18px;">602-803-2827</span> to speak directly with our team.
-      </div>
-    </div>
-    <div style="display:flex; flex-direction:column;">
-      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="8">
-        <div onClick="{{ f.click }}" style="border-top:1px solid rgba(23,21,18,.14); padding:24px 0; cursor:pointer;">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:24px;">
-            <div style="font-size:19px; font-weight:600;">{{ f.q }}</div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; flex-shrink:0;">{{ f.mark }}</div>
+
+        <h2 style="font-family:'Bodoni Moda',serif; font-size:clamp(40px, 4vw, 56px); line-height:.96; letter-spacing:-.03em; margin:0; color:#171512;">
+          Before you <span style="font-style:italic; color:#A8562F;">book.</span>
+        </h2>
+
+        <p style="font-size:16.5px; line-height:1.7; color:#4C463E; margin:0;">
+          Every policy is designed for total transparency—zero surprise travel charges, confirmed arrival timelines, and verified hospital-grade sanitation.
+        </p>
+
+        <!-- Category Filter Pills -->
+        <div style="display:flex; flex-wrap:wrap; gap:8px; padding-top:4px;">
+          <div style="background:#E8E1D4; padding:6px 14px; border-radius:100px; font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#171512;">★ Minimums &amp; Rates</div>
+          <div style="background:#E8E1D4; padding:6px 14px; border-radius:100px; font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#171512;">★ Travel &amp; Venues</div>
+          <div style="background:#E8E1D4; padding:6px 14px; border-radius:100px; font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#171512;">★ Hospital Sanitation</div>
+          <div style="background:#E8E1D4; padding:6px 14px; border-radius:100px; font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#171512;">★ In-Care Adaptations</div>
+        </div>
+
+        <!-- Direct Dispatch Box -->
+        <div style="background:#171512; color:#FAF7F2; padding:32px 28px; border-radius:6px; border:1px solid rgba(198,155,84,.4); box-shadow:0 16px 36px rgba(23,21,18,.2); display:flex; flex-direction:column; gap:16px; margin-top:8px;">
+          <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">Have a Specific Question?</div>
+          <div style="font-size:14.5px; line-height:1.6; color:rgba(242,237,227,.8);">
+            Speak directly with our central dispatch team for gate clearance, hospital coordination, or multi-person bridal quotes.
           </div>
-          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
-            <div style="font-size:16px; line-height:1.72; color:#4C463E; max-width:920px; padding-top:14px;">{{ f.a }}</div>
-          </sc-if>
+          <a href="tel:6028032827" style="font-family:'Bodoni Moda',serif; font-size:24px; color:#FAF7F2; text-decoration:none; font-weight:600; display:flex; align-items:center; gap:8px;" onMouseOver="this.style.color='#C69B54';" onMouseOut="this.style.color='#FAF7F2';">
+            <span>(602) 803-2827</span>
+          </a>
+          <a href="./book.html" style="background:#A8562F; color:#FAF7F2; padding:13px 20px; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; text-align:center; text-decoration:none; border-radius:2px; transition:all .25s ease;" onMouseOver="this.style.background='#C69B54'; this.style.color='#171512';" onMouseOut="this.style.background='#A8562F'; this.style.color='#FAF7F2';">
+            Open Booking Wizard →
+          </a>
         </div>
-      </sc-for>
-      <div style="border-top:1px solid rgba(23,21,18,.14);"></div>
+
+      </div>
+
+      <!-- Right Column: Tactile Luxury Accordion Cards -->
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="8">
+          <div onClick="{{ f.click }}" style="background:{{ f.bg }}; border:1.2px solid {{ f.border }}; border-radius:6px; padding:22px 26px; cursor:pointer; transition:all .25s ease; box-shadow:{{ f.shadow }};">
+            
+            <!-- Question Header Row -->
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:20px;">
+              <div style="display:flex; align-items:baseline; gap:12px;">
+                <span style="font-size:11px; font-weight:700; color:#A8562F; letter-spacing:.12em; text-transform:uppercase; flex-shrink:0;">{{ f.tag }}</span>
+                <div style="font-size:17.5px; font-weight:600; color:#171512; line-height:1.4;">{{ f.q }}</div>
+              </div>
+              <div style="width:30px; height:30px; border-radius:50%; border:1px solid rgba(198,155,84,.45); background:rgba(198,155,84,.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:'Bodoni Moda',serif; font-size:20px; color:#A8562F; font-weight:600;">
+                {{ f.mark }}
+              </div>
+            </div>
+
+            <!-- Answer Body -->
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <div style="border-top:1px solid rgba(23,21,18,.08); margin-top:16px; padding-top:16px;">
+                <div style="font-size:15.5px; line-height:1.75; color:#4C463E; border-left:2.5px solid #C69B54; padding-left:16px;">
+                  {{ f.a }}
+                </div>
+              </div>
+            </sc-if>
+
+          </div>
+        </sc-for>
+      </div>
+
     </div>
-  </div>
+  </section>
 
   <!-- cancellation -->
   <div style="background:#E8E1D4; padding:110px 30px; display:flex; align-items:center; justify-content:space-between; gap:48px;">
@@ -164,24 +210,33 @@ class Component extends DCLogic {
 
   renderVals() {
     const items = [
-      { q: 'Do I need a minimum number of treatments?', a: 'Individual appointments require a minimum of two treatments booked together (e.g. Haircut + Color, Mani + Pedi, Facial + Massage). Group bookings of six or more and corporate packages have no treatment minimum.' },
-      { q: 'How is the travel fee calculated?', a: 'Travel is calculated based on distance from our Scottsdale hub. The exact amount is itemized on your quote before payment and is never added after the fact.' },
-      { q: 'Can you travel to a hotel, resort, or Airbnb?', a: 'Yes. We routinely service luxury resorts, boutique hotels, Airbnb and VRBO rentals, and wedding venues. Provide the property address and any gate or parking clearance instructions.' },
-      { q: 'How far in advance should I schedule?', a: 'Weekend dates and wedding seasons book out first. For weddings, reach out as soon as your venue is booked. For individual appointments, one to two weeks notice is usually sufficient.' },
-      { q: 'Do you bring all equipment and supplies?', a: 'Yes. Professional tables, styling chairs, portable shampoo basins, tools, fresh towels, products, and lighting all arrive with your beautician. You only provide open space, an outlet, lighting, and a water source.' },
-      { q: 'What are your hours of operation?', a: 'Monday through Saturday 8:00 AM to 7:00 PM, and Sunday 8:00 AM to 6:00 PM. We recommend allowing drive time between multi-room appointments.' },
-      { q: 'Are all beauticians licensed and insured?', a: 'Every specialist is state licensed with five to twenty-five years of experience, carrying active $2M liability insurance and trained in autoclaved hospital-grade sanitation.' },
-      { q: 'Can you work with bedridden or dementia clients?', a: 'Yes, and we do so regularly. Call and request in-care scheduling so we can discuss the client\'s specific mobility needs and match the ideal specialist.' },
-      { q: 'Do you offer gift certificates?', a: 'Yes. Gift certificates are available in any amount and apply toward all treatments. They make wonderful gifts for new mothers, surgery recovery, and birthdays.' },
-      { q: 'Are you hiring licensed professionals?', a: 'Continuously. We have twenty-five mobile beauticians and are always welcoming licensed professionals who want schedule independence.' }
+      { tag: '01 · Minimums', q: 'Do I need a minimum number of treatments?', a: 'Individual appointments require a minimum of two treatments booked together (e.g. Haircut + Color Retouch, Gel Mani + Pedi, Clinical Facial + Deep Tissue Massage). Group bookings of six or more and corporate packages have no treatment minimum.' },
+      { tag: '02 · Travel Rates', q: 'How is the travel fee calculated?', a: 'Travel is calculated based on exact road mileage from our Central Phoenix hub. The exact dollar amount is itemized on your quote before payment and is never adjusted or surged after your visit.' },
+      { tag: '03 · Venues & Hotels', q: 'Can you travel to a hotel, resort, or Airbnb?', a: 'Yes. We routinely service luxury resorts, boutique hotels, Airbnb / VRBO rentals, and private wedding estates across Scottsdale, Paradise Valley, and Sedona. Simply provide the property address and any gate access codes.' },
+      { tag: '04 · Scheduling', q: 'How far in advance should I schedule?', a: 'Weekend dates and bridal seasons book out quickly. For wedding parties, we recommend reaching out as soon as your venue date is locked. For individual residential appointments, 1 to 2 weeks notice is generally ideal.' },
+      { tag: '05 · Equipment', q: 'Do you bring all equipment and supplies?', a: 'Yes. Our specialists arrive with portable hydraulic tables, shampoo basins, daylight-balanced LED mirrors, autoclaved surgical tools, organic products, and floor drop-cloths. You only provide an electrical outlet and access to water.' },
+      { tag: '06 · Operating Hours', q: 'What are your hours of operation?', a: 'Monday through Saturday 8:00 AM to 7:00 PM, and Sunday 8:00 AM to 6:00 PM. Early morning bridal prep or evening corporate events can be accommodated upon request.' },
+      { tag: '07 · Credentials', q: 'Are all beauticians licensed and insured?', a: 'Every specialist is state board licensed with 5 to 25 years of chairside experience, carrying $2M general liability insurance, clean background checks, and certifications in autoclaved hospital-grade sanitation.' },
+      { tag: '08 · In-Care & Senior', q: 'Can you work with bedridden or dementia clients?', a: 'Yes, and we have done so for 25 years. Request in-care scheduling so we can understand your loved one\'s specific mobility needs and assign a specialist trained in gentle bedside pacing.' },
+      { tag: '09 · Gift Cards', q: 'Do you offer gift certificates?', a: 'Yes. Physical and digital gift certificates are available in any denomination and apply toward all treatments. They are non-expiring and popular for new mothers, surgical recovery, and birthdays.' },
+      { tag: '10 · Careers', q: 'Are you hiring licensed professionals?', a: 'We are continuously welcoming licensed cosmetologists, estheticians, and massage therapists with 5+ years of experience who value schedule autonomy over waiting for walk-ins.' }
     ];
+
     return {
-      faqs: items.map((f, i) => ({
-        q: f.q, a: f.a,
-        open: this.state.open === i,
-        mark: this.state.open === i ? '\u2212' : '+',
-        click: () => this.setState({ open: this.state.open === i ? -1 : i })
-      }))
+      faqs: items.map((f, i) => {
+        const isOpen = this.state.open === i;
+        return {
+          tag: f.tag,
+          q: f.q,
+          a: f.a,
+          open: isOpen,
+          mark: isOpen ? '\u2212' : '+',
+          bg: isOpen ? '#FAF7F2' : '#F7F2E8',
+          border: isOpen ? '#C69B54' : 'rgba(23,21,18,.12)',
+          shadow: isOpen ? '0 10px 24px -8px rgba(198,155,84,.25)' : 'none',
+          click: () => this.setState({ open: isOpen ? -1 : i })
+        };
+      })
     };
   }
 }
