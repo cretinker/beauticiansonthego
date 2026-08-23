@@ -7,234 +7,376 @@
 </head>
 <body>
 <x-dc>
-<div style="font-family:'Karla',sans-serif; color:#171512; background:#F2EDE3; min-height:80vh;">
+<div style="font-family:'Karla',sans-serif; color:#171512; background:#F2EDE3; min-height:85vh;">
 
-  <div style="display:grid; grid-template-columns:.9fr 1.1fr; align-items:start;">
+  <div style="display:grid; grid-template-columns:380px 1fr; align-items:start;">
 
-    <!-- left rail -->
-    <div style="padding:80px 56px; display:flex; flex-direction:column; gap:30px; position:sticky; top:var(--botg-nav, 62px);">
-      <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; font-weight:700;">Get a quote</div>
-      <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.92; letter-spacing:-.032em;">Where should<br>we <span style="font-style:italic; color:#A8562F;">come?</span></div>
-      <div style="font-size:17px; line-height:1.72; color:#4C463E; max-width:440px;">Four quick questions, about two minutes. A specialist from our Phoenix office calls you the same day to confirm the schedule and send an itemized invoice with travel included. Nothing is charged until you approve.</div>
+    <!-- LEFT RAIL: PROGRESS & APPOINTMENT SUMMARY -->
+    <div style="padding:60px 40px; display:flex; flex-direction:column; gap:26px; position:sticky; top:var(--botg-nav, 62px); border-right:1px solid rgba(23,21,18,.12); background:#EFE9DE; min-height:calc(100vh - 62px);">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="width:32px; height:1px; background:#A8562F;"></div>
+        <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Online Booking</div>
+      </div>
 
-      <div style="display:flex; flex-direction:column; gap:1px; background:rgba(23,21,18,.14); margin-top:8px;">
-        <sc-for list="{{ railSteps }}" as="s" hint-placeholder-count="4">
-          <div style="background:#F2EDE3; padding:16px 4px; display:grid; grid-template-columns:34px 1fr auto; gap:14px; align-items:center;">
-            <div style="font-family:'Bodoni Moda',serif; font-size:20px; color:{{ s.color }}; font-weight:600;">{{ s.n }}</div>
-            <div style="font-size:15px; color:{{ s.color }}; font-weight:{{ s.weight }};">{{ s.label }}</div>
-            <div style="font-size:13.5px; color:#7A736A; max-width:180px; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ s.value }}</div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:48px; line-height:.96; letter-spacing:-.03em;">Reserve your<br><span style="font-style:italic; color:#A8562F;">visit.</span></div>
+      
+      <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">
+        Every price published up front. Pick your treatments, choose a specialist, and select your date. Nothing is charged until confirmed by our Phoenix office.
+      </div>
+
+      <!-- Steps List -->
+      <div style="display:flex; flex-direction:column; gap:2px; background:rgba(23,21,18,.12); margin-top:4px;">
+        <sc-for list="{{ railSteps }}" as="s" hint-placeholder-count="5">
+          <div style="background:{{ s.bg }}; padding:14px 16px; display:grid; grid-template-columns:26px 1fr auto; gap:10px; align-items:center; transition:background .25s ease;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:17px; color:{{ s.color }}; font-weight:600;">{{ s.n }}</div>
+            <div style="font-size:13.5px; color:{{ s.color }}; font-weight:{{ s.weight }};">{{ s.label }}</div>
+            <div style="font-size:12px; color:#7A736A; max-width:130px; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ s.value }}</div>
           </div>
         </sc-for>
       </div>
 
-      <div style="border-top:1px solid rgba(23,21,18,.14); padding-top:22px; font-size:15px; line-height:1.7; color:#4C463E;">
-        Prefer to speak directly? Call <a href="tel:6028032827" style="font-family:'Bodoni Moda',serif; font-size:20px; color:#171512; font-weight:600; text-decoration:none;">602-803-2827</a><br>Monday–Saturday 8:00 AM – 7:00 PM, Sunday 8:00 AM – 6:00 PM.
+      <!-- Live Running Tally Box -->
+      <div style="background:#171512; color:#FAF7F2; padding:22px; display:flex; flex-direction:column; gap:12px; border:1px solid rgba(198,155,84,.35);">
+        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+          <span style="font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54; font-weight:700;">Estimate Tally</span>
+          <span style="font-size:11.5px; color:rgba(242,237,227,.6);">{{ selectedCount }} selected</span>
+        </div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:36px; line-height:1; color:#C69B54; font-weight:600;">
+          {{ estimate }}
+        </div>
+        <div style="font-size:12px; line-height:1.5; color:rgba(242,237,227,.65);">
+          {{ durationTally }} · Distance travel fee itemized prior to confirmation.
+        </div>
+      </div>
+
+      <!-- Direct Phone Help -->
+      <div style="border-top:1px solid rgba(23,21,18,.14); padding-top:16px; font-size:13.5px; line-height:1.6; color:#4C463E;">
+        Prefer personal booking? Call <a href="tel:6028032827" style="font-family:'Bodoni Moda',serif; font-size:18px; color:#171512; font-weight:600; text-decoration:none;">602-803-2827</a><br>
+        <span style="font-size:12px; color:#7A736A;">Open 8am–7pm daily across 16 Valley cities.</span>
       </div>
     </div>
 
-    <!-- form panel -->
-    <div style="background:#FDFBF7; border-left:1px solid rgba(23,21,18,.12); min-height:100vh; padding:80px 56px 96px;">
+    <!-- RIGHT MAIN FORM PANEL -->
+    <div style="background:#FDFBF7; min-height:100vh; padding:60px 64px 96px;">
 
-      <div style="display:flex; gap:7px; margin-bottom:34px;">
-        <sc-for list="{{ bars }}" as="b" hint-placeholder-count="4">
-          <div style="height:3px; flex:1; background:{{ b }};"></div>
+      <!-- Progress Bar -->
+      <div style="display:flex; gap:6px; margin-bottom:36px;">
+        <sc-for list="{{ bars }}" as="b" hint-placeholder-count="5">
+          <div style="height:3px; flex:1; background:{{ b }}; transition:background .3s ease;"></div>
         </sc-for>
       </div>
 
-      <!-- STEP 1 -->
+      <!-- ================= STEP 1: OCCASION ================= -->
       <sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
-      <div style="display:flex; flex-direction:column; gap:26px;">
+      <div style="display:flex; flex-direction:column; gap:28px;">
         <div>
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px; font-weight:700;">Step 1 of 4</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">What is the occasion?</div>
+          <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 1 of 5</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">Select your occasion</div>
+          <div style="font-size:16px; line-height:1.6; color:#4C463E; margin-top:8px;">Choose the setting for your appointment to help us dispatch the right equipment and specialists:</div>
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(23,21,18,.14);">
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
           <sc-for list="{{ occasions }}" as="o" hint-placeholder-count="6">
-            <div onClick="{{ o.click }}" style="background:{{ o.bg }}; color:{{ o.fg }}; padding:24px 24px 28px; cursor:pointer; display:flex; flex-direction:column; gap:6px; transition:all .2s ease;">
-              <div style="font-size:18px; font-weight:600;">{{ o.label }}</div>
+            <div onClick="{{ o.click }}" style="background:{{ o.bg }}; color:{{ o.fg }}; border:1px solid {{ o.border }}; padding:26px 24px; cursor:pointer; display:flex; flex-direction:column; gap:8px; transition:all .25s ease;" style-hover="transform:translateY(-2px);">
+              <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                <div style="font-size:18.5px; font-weight:600;">{{ o.label }}</div>
+                <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:{{ o.tagColor }}; font-weight:700;">{{ o.tag }}</div>
+              </div>
               <div style="font-size:14px; line-height:1.55; color:{{ o.sub }};">{{ o.note }}</div>
             </div>
           </sc-for>
         </div>
-        <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
-          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Continue</div>
-          <div style="font-size:14px; color:#7A736A;">{{ hint1 }}</div>
+
+        <div style="display:flex; gap:16px; align-items:center; padding-top:10px;">
+          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:18px 44px; cursor:{{ nextCursor }}; transition:all .2s ease;">Continue to Treatments →</div>
+          <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint1 }}</div>
         </div>
       </div>
       </sc-if>
 
-      <!-- STEP 2 -->
+      <!-- ================= STEP 2: TREATMENTS PICKER ================= -->
       <sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px; font-weight:700;">Step 2 of 4</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">Which treatments would you like?</div>
-          <div style="font-size:15.5px; line-height:1.65; color:#4C463E; margin-top:12px; max-width:520px;">{{ minNote }}</div>
+          <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 2 of 5</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">Choose your treatments</div>
+          <div style="font-size:15.5px; line-height:1.6; color:#4C463E; margin-top:8px;">{{ minNote }}</div>
         </div>
-        <div style="display:flex; flex-wrap:wrap; gap:9px;">
-          <sc-for list="{{ services }}" as="v" hint-placeholder-count="10">
-            <div onClick="{{ v.click }}" style="border:1px solid {{ v.border }}; background:{{ v.bg }}; color:{{ v.fg }}; padding:12px 20px; font-size:14.5px; font-weight:500; cursor:pointer; display:flex; gap:9px; align-items:baseline; transition:all .2s ease;">
-              <span>{{ v.label }}</span><span style="font-size:12px; color:{{ v.priceColor }}; font-weight:700;">{{ v.price }}</span>
+
+        <!-- Category Filter Pills -->
+        <div style="display:flex; flex-wrap:wrap; gap:8px; border-bottom:1px solid rgba(23,21,18,.1); padding-bottom:16px;">
+          <sc-for list="{{ categoryPills }}" as="cp" hint-placeholder-count="8">
+            <div onClick="{{ cp.click }}" style="border:1px solid {{ cp.border }}; background:{{ cp.bg }}; color:{{ cp.fg }}; padding:8px 16px; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; transition:all .2s ease;">
+              {{ cp.label }}
             </div>
           </sc-for>
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding-top:12px;">
-          <div style="display:flex; flex-direction:column; gap:10px;">
+        <!-- Treatment Selection Cards -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; max-height:480px; overflow-y:auto; padding-right:6px;">
+          <sc-for list="{{ treatmentList }}" as="t" hint-placeholder-count="12">
+            <div onClick="{{ t.click }}" style="background:{{ t.bg }}; border:1px solid {{ t.border }}; color:{{ t.fg }}; padding:18px 20px; cursor:pointer; display:flex; flex-direction:column; gap:6px; transition:all .2s ease;" style-hover="border-color:#C69B54;">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+                <div style="font-size:16px; font-weight:600; line-height:1.25;">{{ t.label }}</div>
+                <div style="font-family:'Bodoni Moda',serif; font-size:20px; color:{{ t.priceColor }}; font-weight:600; white-space:nowrap;">{{ t.price }}</div>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:{{ t.subColor }};">
+                <span>{{ t.duration }}</span>
+                <span style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:{{ t.statusColor }};">{{ t.status }}</span>
+              </div>
+              <div style="font-size:13px; line-height:1.45; color:{{ t.descColor }}; margin-top:2px;">{{ t.desc }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <!-- Guest Headcount -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding-top:12px; border-top:1px solid rgba(23,21,18,.1);">
+          <div style="display:flex; flex-direction:column; gap:8px;">
             <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Number of guests</div>
             <div style="display:flex; align-items:center; gap:2px; background:rgba(23,21,18,.14); width:fit-content;">
-              <div onClick="{{ dec }}" style="background:#FDFBF7; padding:14px 22px; font-size:19px; cursor:pointer; line-height:1; font-weight:700;">−</div>
-              <div style="background:#FDFBF7; padding:14px 30px; font-family:'Bodoni Moda',serif; font-size:22px; line-height:1; min-width:72px; text-align:center; font-weight:600;">{{ guests }}</div>
-              <div onClick="{{ inc }}" style="background:#FDFBF7; padding:14px 22px; font-size:19px; cursor:pointer; line-height:1; font-weight:700;">+</div>
+              <div onClick="{{ dec }}" style="background:#FDFBF7; padding:12px 20px; font-size:18px; cursor:pointer; line-height:1; font-weight:700;">−</div>
+              <div style="background:#FDFBF7; padding:12px 28px; font-family:'Bodoni Moda',serif; font-size:22px; line-height:1; min-width:68px; text-align:center; font-weight:600;">{{ guests }}</div>
+              <div onClick="{{ inc }}" style="background:#FDFBF7; padding:12px 20px; font-size:18px; cursor:pointer; line-height:1; font-weight:700;">+</div>
             </div>
-            <div style="font-size:13.5px; color:#A8562F; font-weight:600;">{{ guestNote }}</div>
+            <div style="font-size:13px; color:#A8562F; font-weight:600;">{{ guestNote }}</div>
           </div>
-          <div style="display:flex; flex-direction:column; gap:10px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Estimated treatments subtotal</div>
+
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Live Treatments Subtotal</div>
             <div style="font-family:'Bodoni Moda',serif; font-size:38px; line-height:1; font-weight:600; color:#171512;">{{ estimate }}</div>
-            <div style="font-size:13.5px; color:#7A736A;">Before distance travel fee. Confirmed on your call.</div>
+            <div style="font-size:13px; color:#7A736A;">{{ durationTally }} total session time</div>
           </div>
         </div>
 
         <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
-          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
-          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Continue</div>
-          <div style="font-size:14px; color:#7A736A;">{{ hint2 }}</div>
+          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
+          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 44px; cursor:{{ nextCursor }}; transition:all .2s ease;">Continue to Specialist →</div>
+          <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint2 }}</div>
         </div>
       </div>
       </sc-if>
 
-      <!-- STEP 3 -->
+      <!-- ================= STEP 3: SPECIALIST & SETUP ================= -->
       <sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px; font-weight:700;">Step 3 of 4</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">When and where?</div>
+          <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 3 of 5</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">Specialist &amp; setup</div>
+          <div style="font-size:15.5px; line-height:1.6; color:#4C463E; margin-top:8px;">Request a dedicated practitioner or let us match the best available licensed specialist for your treatments:</div>
         </div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">City</div>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <sc-for list="{{ cityOpts }}" as="c" hint-placeholder-count="16">
-              <div onClick="{{ c.click }}" style="border:1px solid {{ c.border }}; background:{{ c.bg }}; color:{{ c.fg }}; padding:10px 17px; font-size:14px; font-weight:500; cursor:pointer;">{{ c.label }}</div>
-            </sc-for>
+
+        <!-- Specialist Grid -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <sc-for list="{{ specialists }}" as="sp" hint-placeholder-count="8">
+            <div onClick="{{ sp.click }}" style="background:{{ sp.bg }}; border:1px solid {{ sp.border }}; color:{{ sp.fg }}; padding:20px 22px; cursor:pointer; display:flex; flex-direction:column; gap:6px; transition:all .2s ease;" style-hover="border-color:#C69B54;">
+              <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                <div style="font-size:17.5px; font-weight:600;">{{ sp.name }}</div>
+                <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:{{ sp.tagColor }}; font-weight:700;">{{ sp.role }}</div>
+              </div>
+              <div style="font-size:13.5px; line-height:1.5; color:{{ sp.sub }};">{{ sp.bio }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <!-- Equipment & Safety Assurance Card -->
+        <div style="background:#EFE9DE; border-left:3px solid #C69B54; padding:22px 24px; display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:#171512; font-weight:700;">What We Bring &amp; Hospital-Grade Sanitation</div>
+          <div style="font-size:14px; line-height:1.65; color:#4C463E;">
+            Your beautician arrives with professional hydraulic tables, styling chairs, sealed disposable pedicure liners, autoclaved stainless steel implements, daylight ring lights, and fresh linens. You only provide an open room, an electrical outlet, and access to a sink.
           </div>
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-          <div style="display:flex; flex-direction:column; gap:9px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Preferred date</div>
-            <input type="date" value="{{ date }}" onChange="{{ setDate }}" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
-          </div>
-          <div style="display:flex; flex-direction:column; gap:9px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Preferred start time</div>
-            <input type="time" value="{{ time }}" onChange="{{ setTime }}" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
-          </div>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Location type</div>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <sc-for list="{{ venueOpts }}" as="v" hint-placeholder-count="8">
-              <div onClick="{{ v.click }}" style="border:1px solid {{ v.border }}; background:{{ v.bg }}; color:{{ v.fg }}; padding:10px 17px; font-size:14px; font-weight:500; cursor:pointer;">{{ v.label }}</div>
-            </sc-for>
-          </div>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Address or venue name</div>
-          <input value="{{ address }}" onChange="{{ setAddress }}" placeholder="Street address, hotel, resort, venue or facility" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
-        </div>
+
         <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
-          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
-          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Continue</div>
-          <div style="font-size:14px; color:#7A736A;">{{ hint3 }}</div>
+          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
+          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:18px 44px; cursor:{{ nextCursor }}; transition:all .2s ease;">Continue to Schedule →</div>
+          <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint3 }}</div>
         </div>
       </div>
       </sc-if>
 
-      <!-- STEP 4 -->
+      <!-- ================= STEP 4: DATE, TIME & LOCATION ================= -->
       <sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px; font-weight:700;">Step 4 of 4</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">Who should we call?</div>
+          <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 4 of 5</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">When &amp; where?</div>
+          <div style="font-size:15.5px; line-height:1.6; color:#4C463E; margin-top:8px;">We service all 16 Valley cities and surrounding retreat destinations:</div>
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-          <div style="display:flex; flex-direction:column; gap:9px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Name</div>
-            <input value="{{ name }}" onChange="{{ setName }}" placeholder="First and last name" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
-          </div>
-          <div style="display:flex; flex-direction:column; gap:9px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Phone</div>
-            <input value="{{ phone }}" onChange="{{ setPhone }}" placeholder="(602) 000-0000" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
-          </div>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Email address</div>
-          <input value="{{ email }}" onChange="{{ setEmail }}" placeholder="you@email.com" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
-        </div>
-        <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Request a preferred beautician</div>
-          <div style="font-size:14px; color:#7A736A; margin-bottom:2px;">Worked with one of our specialists before? Select her name and we will dispatch her if available.</div>
+
+        <!-- City Options -->
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Service City</div>
           <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <sc-for list="{{ beauticianOpts }}" as="b" hint-placeholder-count="13">
-              <div onClick="{{ b.click }}" style="border:1px solid {{ b.border }}; background:{{ b.bg }}; color:{{ b.fg }}; padding:10px 17px; font-size:14px; font-weight:500; cursor:pointer;">{{ b.label }}</div>
+            <sc-for list="{{ cityOpts }}" as="c" hint-placeholder-count="16">
+              <div onClick="{{ c.click }}" style="border:1px solid {{ c.border }}; background:{{ c.bg }}; color:{{ c.fg }}; padding:9px 16px; font-size:13.5px; font-weight:500; cursor:pointer; transition:all .2s ease;">{{ c.label }}</div>
             </sc-for>
           </div>
         </div>
-        <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Special instructions or access notes</div>
-          <textarea value="{{ notes }}" onChange="{{ setNotes }}" placeholder="Gate access codes, mobility needs, allergies, run of show, parking details" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none; min-height:110px; resize:vertical;"></textarea>
-        </div>
 
-        <div style="background:#171512; color:#F2EDE3; padding:30px 32px; display:flex; flex-direction:column; gap:16px;">
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54; font-weight:700;">Your Appointment Request</div>
-          <sc-for list="{{ summary }}" as="r" hint-placeholder-count="5">
-            <div style="display:grid; grid-template-columns:150px 1fr; gap:20px; font-size:15.5px; line-height:1.55; padding-bottom:11px; border-bottom:1px solid rgba(242,237,227,.13);">
-              <div style="color:rgba(242,237,227,.5);">{{ r.k }}</div>
-              <div>{{ r.v }}</div>
-            </div>
-          </sc-for>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; padding-top:6px;">
-            <div style="font-size:15.5px; color:rgba(242,237,227,.5);">Estimated treatments subtotal</div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:32px; color:#C69B54; font-weight:600;">{{ estimate }}</div>
+        <!-- Location Type -->
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Venue Setting</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <sc-for list="{{ venueOpts }}" as="v" hint-placeholder-count="8">
+              <div onClick="{{ v.click }}" style="border:1px solid {{ v.border }}; background:{{ v.bg }}; color:{{ v.fg }}; padding:9px 16px; font-size:13.5px; font-weight:500; cursor:pointer; transition:all .2s ease;">{{ v.label }}</div>
+            </sc-for>
           </div>
-          <div style="font-size:13.5px; line-height:1.6; color:rgba(242,237,227,.5);">Travel fee is calculated by distance and confirmed on your call. This is an itemized estimate, not a charged invoice.</div>
         </div>
 
-        <div style="display:flex; gap:14px; align-items:center;">
-          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
-          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Send request</div>
-          <div style="font-size:14px; color:#7A736A;">{{ hint4 }}</div>
+        <!-- Street Address -->
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Street Address / Suite / Hotel Room</div>
+          <input value="{{ address }}" onChange="{{ setAddress }}" placeholder="e.g. 7400 E Camelback Rd, Apt 402 or The Phoenician Resort Suite 310" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none; transition:border-color .2s ease;" onFocus="this.style.borderColor='#A8562F'" onBlur="this.style.borderColor='rgba(23,21,18,.25)'">
+        </div>
+
+        <!-- Date & Time Slot -->
+        <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:20px;">
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Preferred Date</div>
+            <input type="date" value="{{ date }}" onChange="{{ setDate }}" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none; width:100%;">
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Preferred Time Slot</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px;">
+              <sc-for list="{{ timeSlots }}" as="ts" hint-placeholder-count="6">
+                <div onClick="{{ ts.click }}" style="border:1px solid {{ ts.border }}; background:{{ ts.bg }}; color:{{ ts.fg }}; padding:8px 12px; font-size:12.5px; font-weight:600; cursor:pointer; transition:all .2s ease;">{{ ts.label }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
+          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
+          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:18px 44px; cursor:{{ nextCursor }}; transition:all .2s ease;">Continue to Confirmation →</div>
+          <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint4 }}</div>
         </div>
       </div>
       </sc-if>
 
-      <!-- DONE -->
+      <!-- ================= STEP 5: CONTACT & CONFIRMATION ================= -->
+      <sc-if value="{{ s5 }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; flex-direction:column; gap:26px;">
+        <div>
+          <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 5 of 5</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">Review &amp; reserve</div>
+          <div style="font-size:15.5px; line-height:1.6; color:#4C463E; margin-top:8px;">Enter your contact information for appointment confirmation and day-before scheduling updates:</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Full Name</div>
+            <input value="{{ name }}" onChange="{{ setName }}" placeholder="Your first & last name" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Mobile Phone (for SMS dispatch)</div>
+            <input value="{{ phone }}" onChange="{{ setPhone }}" placeholder="(602) 000-0000" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Email Address (for itemized receipt)</div>
+          <input value="{{ email }}" onChange="{{ setEmail }}" placeholder="you@email.com" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Health, Mobility or Gate Access Notes</div>
+          <textarea value="{{ notes }}" onChange="{{ setNotes }}" placeholder="Gate code, parking instructions, product allergies, scalp sensitivity, quiet session request, or mobility considerations" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15px; color:#171512; outline:none; min-height:90px; resize:vertical;"></textarea>
+        </div>
+
+        <!-- Full Itemized Reservation Review Box -->
+        <div style="background:#171512; color:#F2EDE3; padding:28px 30px; display:flex; flex-direction:column; gap:14px; border:1px solid rgba(198,155,84,.4);">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <div style="font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">Itemized Reservation Summary</div>
+            <div style="font-size:12px; color:rgba(242,237,227,.55);">Ref: BOTG-2026-CONFIRM</div>
+          </div>
+
+          <sc-for list="{{ summary }}" as="r" hint-placeholder-count="6">
+            <div style="display:grid; grid-template-columns:140px 1fr; gap:16px; font-size:14.5px; line-height:1.5; padding-bottom:9px; border-bottom:1px solid rgba(242,237,227,.12);">
+              <div style="color:rgba(242,237,227,.5);">{{ r.k }}</div>
+              <div style="font-weight:500;">{{ r.v }}</div>
+            </div>
+          </sc-for>
+
+          <div style="display:flex; justify-content:space-between; align-items:baseline; padding-top:4px;">
+            <div>
+              <div style="font-size:15px; color:rgba(242,237,227,.7); font-weight:600;">Estimated Treatments Subtotal</div>
+              <div style="font-size:12px; color:rgba(242,237,227,.5);">{{ durationTally }} total session duration</div>
+            </div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:36px; color:#C69B54; font-weight:600;">{{ estimate }}</div>
+          </div>
+
+          <div style="font-size:12.5px; line-height:1.6; color:rgba(242,237,227,.55); border-top:1px solid rgba(242,237,227,.12); padding-top:10px;">
+            Distance travel is itemized and confirmed during your intake call. No payment is taken now. Free cancellation up to 24 hours prior.
+          </div>
+        </div>
+
+        <div style="display:flex; gap:14px; align-items:center;">
+          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
+          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:19px 48px; cursor:{{ nextCursor }}; transition:all .2s ease;">Confirm Reservation Request →</div>
+          <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint5 }}</div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ================= DONE / SUCCESS RECEIPT ================= -->
       <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
-      <div style="display:flex; flex-direction:column; gap:24px; padding-top:20px;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:52px; line-height:1.04;">Request received.<br><span style="font-style:italic; color:#A8562F;">We are on it.</span></div>
-        <div style="font-size:17px; line-height:1.72; color:#4C463E; max-width:520px;">{{ doneLine }}</div>
-        <div style="background:#E8E1D4; border-left:2px solid #A8562F; padding:24px 26px; font-size:15.5px; line-height:1.7; color:#2C2721; max-width:560px;">A team member from our Phoenix office will call to confirm beautician staffing, finalize timing, and provide your formal invoice. Nothing is charged until you approve, and we confirm again the day prior.</div>
-        <div onClick="{{ reset }}" style="font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; border-bottom:1px solid #171512; padding-bottom:5px; width:fit-content; cursor:pointer;">Start another request →</div>
+      <div style="display:flex; flex-direction:column; gap:26px; padding-top:10px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:10px; height:10px; border-radius:50%; background:#22C55E;"></div>
+          <div style="font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:#A8562F; font-weight:700;">Reservation Received</div>
+        </div>
+
+        <div style="font-family:'Bodoni Moda',serif; font-size:54px; line-height:1.0; letter-spacing:-.03em;">
+          Your appointment is<br><span style="font-style:italic; color:#A8562F;">in motion.</span>
+        </div>
+
+        <div style="font-size:16.5px; line-height:1.7; color:#4C463E; max-width:580px;">
+          {{ doneLine }}
+        </div>
+
+        <!-- Receipt Box -->
+        <div style="background:#EFE9DE; border:1px solid rgba(23,21,18,.15); padding:32px; display:flex; flex-direction:column; gap:16px; max-width:620px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid rgba(23,21,18,.12); padding-bottom:12px;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:22px; font-weight:600;">Booking Reference</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:700;">{{ bookingRef }}</div>
+          </div>
+          <div style="font-size:14.5px; line-height:1.65; color:#2C2721;">
+            <strong>Next Step:</strong> A team member from our Phoenix office will call you at <strong>{{ phone }}</strong> to confirm specialist dispatch, finalize equipment loading, and send your formal invoice.
+          </div>
+          <div style="font-size:13.5px; line-height:1.6; color:#7A736A;">
+            ✓ All equipment, tables, basins &amp; linens provided<br>
+            ✓ Hospital-grade sanitized tools opened in front of you<br>
+            ✓ Reminder call the day prior with vehicle arrival window
+          </div>
+        </div>
+
+        <div style="display:flex; gap:20px; align-items:center; padding-top:8px;">
+          <div onClick="{{ reset }}" style="font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; border-bottom:1px solid #171512; padding-bottom:5px; cursor:pointer;">Book another appointment →</div>
+          <a href="tel:6028032827" style="font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; text-decoration:none;">Call office direct: 602-803-2827</a>
+        </div>
       </div>
       </sc-if>
 
     </div>
   </div>
 
+  <!-- EXIT-INTENT ASSISTANCE MODAL -->
   <sc-if value="{{ exit }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed; inset:0; z-index:200; background:rgba(15,13,11,.72); display:flex; align-items:center; justify-content:center; padding:40px;">
-      <div style="background:#F2EDE3; max-width:620px; width:100%; padding:56px 56px 48px; display:flex; flex-direction:column; gap:24px; position:relative;">
-        <div onClick="{{ closeExit }}" style="position:absolute; top:22px; right:26px; font-size:22px; line-height:1; color:#7A736A; cursor:pointer;">×</div>
-        <div style="display:flex; align-items:center; gap:16px;">
-          <div style="width:44px; height:1px; background:#A8562F;"></div>
-          <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">Direct Phone Assistance</div>
+    <div style="position:fixed; inset:0; z-index:200; background:rgba(15,13,11,.76); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; padding:30px;">
+      <div style="background:#F2EDE3; max-width:600px; width:100%; padding:48px 48px 44px; display:flex; flex-direction:column; gap:22px; position:relative; border:1px solid #C69B54;">
+        <div onClick="{{ closeExit }}" style="position:absolute; top:20px; right:24px; font-size:24px; line-height:1; color:#7A736A; cursor:pointer;">×</div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:36px; height:1px; background:#A8562F;"></div>
+          <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Direct Phone Concierge</div>
         </div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:48px; line-height:.96; letter-spacing:-.028em;">Rather we<br>call <span style="font-style:italic; color:#A8562F;">you?</span></div>
-        <div style="font-size:16.5px; line-height:1.7; color:#4C463E;">Leave your phone number and someone from our office will call you back promptly during business hours.</div>
-        <div style="display:flex; gap:10px; padding-top:6px;">
-          <input placeholder="(602) 000-0000" style="flex:1; border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:17px 18px; font-family:'Karla',sans-serif; font-size:16px; color:#171512; outline:none;">
-          <div onClick="{{ closeExit }}" style="background:#171512; color:#F2EDE3; font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:19px 32px; cursor:pointer; white-space:nowrap;">Call me</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:.96; letter-spacing:-.028em;">Prefer we<br>call <span style="font-style:italic; color:#A8562F;">you?</span></div>
+        <div style="font-size:15.5px; line-height:1.65; color:#4C463E;">Enter your phone number and a mobile salon coordinator from our Phoenix hub will call you back to build your custom appointment.</div>
+        <div style="display:flex; gap:10px; padding-top:4px;">
+          <input value="{{ phone }}" onChange="{{ setPhone }}" placeholder="(602) 000-0000" style="flex:1; border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:16px 18px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
+          <div onClick="{{ closeExit }}" style="background:#171512; color:#F2EDE3; font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:18px 30px; cursor:pointer; white-space:nowrap;">Call me</div>
         </div>
-        <div onClick="{{ closeExit }}" style="font-size:14px; color:#7A736A; cursor:pointer; text-decoration:underline; width:fit-content;">No thanks, I will continue online</div>
+        <div onClick="{{ closeExit }}" style="font-size:13.5px; color:#7A736A; cursor:pointer; text-decoration:underline; width:fit-content;">Continue online booking</div>
       </div>
     </div>
   </sc-if>
@@ -244,13 +386,26 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = {
-    step: this.props.seed ? 2 : 1, occasion: this.props.seed || '', services: [], guests: 1,
-    city: '', date: '', time: '', venue: '', address: '',
-    name: '', phone: '', email: '', notes: '', beautician: '', done: false,
-    exit: false, exitDismissed: false
+    step: this.props.seed ? 2 : 1,
+    occasion: this.props.seed || '',
+    categoryTab: 'all',
+    services: [],
+    guests: 1,
+    specialist: 'best',
+    city: 'Scottsdale',
+    venue: 'Private home',
+    address: '',
+    date: '',
+    timeSlot: '11:00 AM',
+    name: '',
+    phone: '',
+    email: '',
+    notes: '',
+    done: false,
+    bookingRef: 'BOTG-' + Math.floor(1000 + Math.random() * 9000),
+    exit: false,
+    exitDismissed: false
   };
-
-  BEAUTICIANS = ['No preference','Carla','Saira','Marisol','Deanna','Priya','Tanya','Renata','Joelle','Adaeze','Kim','Brielle','Sofia'];
 
   onExit = (e) => {
     if (e.clientY > 12) return;
@@ -261,48 +416,70 @@ class Component extends DCLogic {
   componentDidMount() { document.addEventListener('mouseout', this.onExit); }
   componentWillUnmount() { document.removeEventListener('mouseout', this.onExit); }
 
-  OCC = [
-    { k: 'individual', label: 'Just me, at home', note: 'Two-service minimum applies' },
-    { k: 'wedding', label: 'Weddings & Bridal', note: 'Bride and bridal party on location' },
-    { k: 'corporate', label: 'Corporate Wellness', note: '$150/hr per tech, 4-hour minimum' },
-    { k: 'party', label: 'Spa Party', note: 'Group rates from six guests' },
-    { k: 'teens', label: 'Teens & Kids', note: 'Diva celebrations and prom styling' },
-    { k: 'incare', label: 'In-Care Visit', note: 'Senior, hospital, or assisted living' }
+  OCCASIONS_DATA = [
+    { k: 'individual', label: 'Just You (At-Home)', tag: '2-Treatment Min', note: 'Standing recurring or single appointment at your residence or hotel suite.' },
+    { k: 'wedding', label: 'Weddings & Bridal', tag: 'Bride Combo $380', note: 'Bride, bridesmaids, mothers, and flower girls ready on location.' },
+    { k: 'corporate', label: 'Corporate Wellness', tag: '$150/hr · 4hr Min', note: 'Chair massage, express manicures, facials, and braid bars at the office.' },
+    { k: 'party', label: 'Spa Parties & Groups', tag: 'From $55/guest', note: 'Bachelorettes, birthdays, and girls weekends for six or more guests.' },
+    { k: 'incare', label: 'In-Care & Seniors', tag: 'From $75', note: 'Gentle bedside and chairside visits for hospice, rehab, and memory care.' },
+    { k: 'teens', label: 'Teens & Kids Diva', tag: 'From $28', note: 'Prom styling, quinceañeras, and diva parties with gentle, non-toxic products.' }
   ];
 
-  SVC = [
-    { k: 'facial', label: 'Custom Facial', price: '$170', p: 170 },
-    { k: 'massage', label: 'Full Body Massage', price: '$160', p: 160 },
-    { k: 'mani', label: 'Manicure', price: '$75', p: 75 },
-    { k: 'pedi', label: 'Pedicure', price: '$85', p: 85 },
-    { k: 'cut', label: 'Haircut + blow dry style', price: '$165', p: 165 },
-    { k: 'blowout', label: 'Blowout / updo', price: '$175', p: 175 },
-    { k: 'color', label: 'Single process colour', price: 'from $180', p: 180 },
-    { k: 'highlights', label: 'Balayage / highlights', price: 'from $185', p: 185 },
-    { k: 'makeup', label: 'Makeup + lashes', price: '$185', p: 185 },
-    { k: 'bridal', label: 'Bride Deluxe Combo', price: '$380', p: 380 },
-    { k: 'wax', label: 'Facial waxing', price: 'from $180', p: 180 },
-    { k: 'needling', label: 'Micro-needling', price: '$350', p: 350 },
-    { k: 'blading', label: 'Microblading', price: '$450', p: 450 },
-    { k: 'chair', label: 'Chair massage', price: '$55', p: 55 }
+  TREATMENTS_DATA = [
+    // Hair & Styling
+    { k: 'cut_blowout', cat: 'hair', label: 'Haircut + Blow Dry Style', price: '$165', p: 165, duration: '55 min', desc: 'Precision cut, wash, and blowout styling right at your sink.' },
+    { k: 'color_retouch', cat: 'hair', label: 'Single Process Colour', price: '$180', p: 180, duration: '1 hr 30 min', desc: 'Full root retouch or single-process glaze with salon-grade Matrix formula.' },
+    { k: 'balayage', cat: 'hair', label: 'Balayage & Highlights', price: '$185', p: 185, duration: '2 hr', desc: 'Custom hand-painted balayage or foil highlights with toner.' },
+    { k: 'blowout_updo', cat: 'hair', label: 'Blowout & Updo Styling', price: '$175', p: 175, duration: '45 min', desc: 'Curling iron styling, volumizing blowout, or elegant formal pin-up.' },
+    { k: 'deep_condition', cat: 'hair', label: 'Botanical Hair Treatment', price: '$95', p: 95, duration: '30 min', desc: 'Intensive restorative moisture mask and scalp massage.' },
+
+    // Facials & Skin
+    { k: 'custom_facial', cat: 'skin', label: 'Custom Facial Treatment', price: '$170', p: 170, duration: '1 hr', desc: 'Deep cleanse, enzyme exfoliation, steam, gentle extractions, and restorative mask.' },
+    { k: 'anti_aging_facial', cat: 'skin', label: 'Anti-Aging Peptide Facial', price: '$210', p: 210, duration: '1 hr 15 min', desc: 'Collagen-stimulating serum infusion and lifting lymphatic facial massage.' },
+    { k: 'back_facial', cat: 'skin', label: 'Clarifying Back Treatment', price: '$185', p: 185, duration: '50 min', desc: 'Exfoliation, deep pore purification, and soothing mask for the back.' },
+    { k: 'microneedling', cat: 'skin', label: 'Clinical Micro-Needling', price: '$350', p: 350, duration: '1 hr 15 min', desc: 'Precision collagen induction with hyaluronic acid glide.' },
+
+    // Massage Therapy
+    { k: 'table_massage', cat: 'massage', label: 'Full Body Table Massage', price: '$160', p: 160, duration: '1 hr', desc: 'Deep tissue or Swedish pressure on our portable heated hydraulic table.' },
+    { k: 'table_massage_90', cat: 'massage', label: '90-Minute Table Massage', price: '$225', p: 225, duration: '1 hr 30 min', desc: 'Extended head-to-toe therapeutic bodywork with botanical aromatherapy.' },
+    { k: 'chair_massage', cat: 'massage', label: 'Therapeutic Chair Massage', price: '$55', p: 55, duration: '20 min', desc: 'Focused neck, shoulder, and upper back release on ergonomic chair.' },
+
+    // Nails & Pedicures
+    { k: 'manicure', cat: 'nails', label: 'Classic Manicure', price: '$75', p: 75, duration: '30 min', desc: 'Nail shaping, cuticle restoration, hand massage, and long-wear polish.' },
+    { k: 'pedicure', cat: 'nails', label: 'Botanical Pedicure', price: '$85', p: 85, duration: '35 min', desc: 'Foot soak in disposable sealed liner, scrub, callous buffing, and polish.' },
+    { k: 'gel_mani_pedi', cat: 'nails', label: 'Gel Mani + Pedi Combo', price: '$195', p: 195, duration: '1 hr 15 min', desc: 'Cured LED gel on hands and feet for zero dry-time smudging.' },
+
+    // Bridal & Makeup
+    { k: 'bride_combo', cat: 'bridal', label: 'Bride Deluxe Hair & Makeup', price: '$380', p: 380, duration: '2 hr', desc: 'Complete bridal hairstyle, airbrush or HD makeup, and premium strip lashes.' },
+    { k: 'bridal_party_hair', cat: 'bridal', label: 'Bridal Party Updo', price: '$165', p: 165, duration: '45 min', desc: 'Formal styling, waves, or braid updo for bridesmaid or mother of the bride.' },
+    { k: 'bridal_party_makeup', cat: 'bridal', label: 'Bridal Party Makeup', price: '$150', p: 150, duration: '45 min', desc: 'HD photo-ready makeup with individual lash application.' },
+
+    // Corporate & Packages
+    { k: 'corp_hourly', cat: 'corp', label: 'Corporate Wellness Hourly', price: '$150', p: 150, duration: '1 hr', desc: 'Per beautician per hour. 4-hour minimum. Chair massage, express facials or braid bar.' },
+    { k: 'combo_facial_massage', cat: 'packages', label: 'Facial & Massage Sanctuary', price: '$330', p: 330, duration: '2 hr', desc: '60 min custom facial followed immediately by 60 min table massage.' },
+    { k: 'combo_mani_pedi', cat: 'packages', label: 'Deluxe Mani-Pedi Duo', price: '$160', p: 160, duration: '1 hr 5 min', desc: 'Complete manicure and pedicure performed back-to-back with zero travel.' }
   ];
 
-  CITIES = ['Phoenix','Scottsdale','Paradise Valley','Peoria','Chandler','Ahwatukee','Mesa','Tucson','Flagstaff','Prescott','Sedona','Las Vegas','Los Angeles','Nashville','Napa','Sonoma'];
-  VENUES = ['Private home','Luxury Hotel','Airbnb / VRBO','Corporate Office','Wedding Venue','Retirement Community','Hospital or Rehab','Other'];
+  SPECIALISTS_DATA = [
+    { id: 'best', name: 'Best Available Specialist', role: 'Fastest Dispatch', bio: 'We allocate the highest-rated licensed specialist available in your area.' },
+    { id: 'saira', name: 'Saira M.', role: 'Master Bridal & Glamour', bio: '14 years experience specializing in bridal updos, HD makeup, and group weddings.' },
+    { id: 'carla', name: 'Carla T.', role: 'Master Colorist & Cuts', bio: '18 years experience in precision scissor cutting, corrective color, and blowouts.' },
+    { id: 'marisol', name: 'Marisol R.', role: 'Licensed Esthetician', bio: '11 years clinical skin experience specializing in custom facials and peel protocols.' },
+    { id: 'deanna', name: 'Deanna K.', role: 'Licensed Massage Therapist', bio: '16 years experience in deep tissue, trigger point, and therapeutic relaxation.' },
+    { id: 'priya', name: 'Priya N.', role: 'Senior Nail Artist', bio: '9 years specializing in waterless botanical pedicures and long-lasting gel manicures.' },
+    { id: 'sarah', name: 'Sarah L.', role: 'In-Care & Senior Specialist', bio: '21 years experience in compassionate bedside care, dementia, and gentle grooming.' },
+    { id: 'sofia', name: 'Sofia B.', role: 'Corporate Event Lead', bio: 'Event coordinator managing rapid corporate wellness sessions and retreat suites.' }
+  ];
+
+  CITIES = ['Scottsdale','Phoenix','Paradise Valley','Tempe','Chandler','Mesa','Gilbert','Glendale','Peoria','Fountain Hills','Cave Creek','Carefree','Ahwatukee','Surprise','Goodyear','Buckeye','Sedona','Las Vegas'];
+  VENUES = ['Private home','Luxury Hotel / Resort','Airbnb / VRBO','Corporate Office','Wedding Venue','Retirement / Assisted Living','Hospital / Rehab','Private Club / Other'];
+  TIME_SLOTS = ['8:00 AM','9:30 AM','11:00 AM','12:30 PM','2:00 PM','3:30 PM','4:30 PM','5:30 PM','6:30 PM'];
 
   pick(key, val) { const o = {}; o[key] = val; this.setState(o); }
 
   toggleSvc(k) {
     const cur = this.state.services;
     this.setState({ services: cur.indexOf(k) === -1 ? cur.concat([k]) : cur.filter(x => x !== k) });
-  }
-
-  chip(selected) {
-    return {
-      bg: selected ? '#171512' : 'transparent',
-      fg: selected ? '#F2EDE3' : '#2C2721',
-      border: selected ? '#171512' : 'rgba(23,21,18,.22)'
-    };
   }
 
   minServices() {
@@ -313,81 +490,135 @@ class Component extends DCLogic {
     const s = this.state;
     if (s.step === 1) return !!s.occasion;
     if (s.step === 2) return s.services.length >= this.minServices();
-    if (s.step === 3) return !!s.city && !!s.date && !!s.venue;
-    if (s.step === 4) return !!s.name && !!s.phone;
+    if (s.step === 3) return !!s.specialist;
+    if (s.step === 4) return !!s.city && !!s.address && !!s.date && !!s.timeSlot;
+    if (s.step === 5) return !!s.name && !!s.phone && !!s.email;
     return false;
   }
 
   advance() {
     if (!this.valid()) return;
-    if (this.state.step === 4) { this.setState({ done: true }); }
+    if (this.state.step === 5) { this.setState({ done: true }); }
     else { this.setState({ step: this.state.step + 1 }); }
-    if (typeof window !== 'undefined') window.scrollTo(0, 0);
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   renderVals() {
     const s = this.state;
-    const chosen = this.SVC.filter(v => s.services.indexOf(v.k) !== -1);
+    const chosen = this.TREATMENTS_DATA.filter(v => s.services.indexOf(v.k) !== -1);
     const perHead = s.occasion === 'individual' || s.occasion === 'incare' ? 1 : s.guests;
     const subtotal = chosen.reduce((a, v) => a + v.p, 0) * perHead;
-    const occObj = this.OCC.find(o => o.k === s.occasion) || {};
+    const occObj = this.OCCASIONS_DATA.find(o => o.k === s.occasion) || {};
     const occLabel = occObj.label || 'Not selected';
+    const specObj = this.SPECIALISTS_DATA.find(sp => sp.id === s.specialist) || this.SPECIALISTS_DATA[0];
     const ok = this.valid();
-    const barOn = (n) => s.step >= n || s.done ? '#A8562F' : 'rgba(23,21,18,.15)';
     const minS = this.minServices();
 
-    const hints = {
-      1: s.occasion ? '' : 'Select an occasion to continue',
-      2: s.services.length >= minS ? '' : (minS === 2 ? 'Individual appointments require at least two treatments' : 'Select at least one treatment'),
-      3: ok ? '' : 'City, date and location type are required',
-      4: ok ? '' : 'Name and phone number are required'
-    };
+    const barOn = (n) => s.step >= n || s.done ? '#A8562F' : 'rgba(23,21,18,.14)';
 
     const stepLabel = (n, name, val) => ({
       n: '0' + n,
       label: name,
       value: val,
       color: s.step === n ? '#171512' : (s.step > n || s.done ? '#A8562F' : '#7A736A'),
-      weight: s.step === n ? 700 : 500
+      weight: s.step === n ? 700 : 500,
+      bg: s.step === n ? '#FDFBF7' : 'transparent'
     });
+
+    const hints = {
+      1: s.occasion ? '' : 'Please select an occasion to proceed',
+      2: s.services.length >= minS ? '' : (minS === 2 ? 'Individual appointments require 2 treatments minimum' : 'Select at least 1 treatment'),
+      3: s.specialist ? '' : 'Select a specialist preference',
+      4: (s.city && s.address && s.date && s.timeSlot) ? '' : 'Address, date, and time slot are required',
+      5: (s.name && s.phone && s.email) ? '' : 'Name, phone, and email are required to confirm'
+    };
+
+    // Filter treatments
+    const filteredTreatments = s.categoryTab === 'all'
+      ? this.TREATMENTS_DATA
+      : this.TREATMENTS_DATA.filter(t => t.cat === s.categoryTab);
 
     return {
       railSteps: [
         stepLabel(1, 'Occasion', occObj.label || ''),
         stepLabel(2, 'Treatments', chosen.length ? chosen.length + ' selected' : ''),
-        stepLabel(3, 'Schedule', [s.city, s.date].filter(Boolean).join(', ')),
-        stepLabel(4, 'Contact', s.name || '')
+        stepLabel(3, 'Specialist', specObj.name || ''),
+        stepLabel(4, 'Location & Date', [s.city, s.date].filter(Boolean).join(' · ')),
+        stepLabel(5, 'Review & Confirm', s.name || '')
       ],
 
-      s1: !s.done && s.step === 1, s2: !s.done && s.step === 2,
-      s3: !s.done && s.step === 3, s4: !s.done && s.step === 4, done: s.done,
-      bars: [barOn(1), barOn(2), barOn(3), barOn(4)],
-      hint1: hints[1], hint2: hints[2], hint3: hints[3], hint4: hints[4],
-      nextBg: ok ? '#171512' : 'rgba(23,21,18,.28)',
+      bars: [barOn(1), barOn(2), barOn(3), barOn(4), barOn(5)],
+
+      s1: !s.done && s.step === 1,
+      s2: !s.done && s.step === 2,
+      s3: !s.done && s.step === 3,
+      s4: !s.done && s.step === 4,
+      s5: !s.done && s.step === 5,
+      done: s.done,
+
+      hint1: hints[1], hint2: hints[2], hint3: hints[3], hint4: hints[4], hint5: hints[5],
+
+      nextBg: ok ? '#171512' : 'rgba(23,21,18,.25)',
       nextCursor: ok ? 'pointer' : 'not-allowed',
       next: () => this.advance(),
       back: () => this.setState(st => ({ step: Math.max(1, st.step - 1) })),
-      reset: () => this.setState({ step: 1, occasion: '', services: [], guests: 1, city: '', date: '', time: '', venue: '', address: '', name: '', phone: '', email: '', notes: '', done: false }),
+      reset: () => this.setState({
+        step: 1, occasion: '', categoryTab: 'all', services: [], guests: 1,
+        specialist: 'best', city: 'Scottsdale', venue: 'Private home', address: '',
+        date: '', timeSlot: '11:00 AM', name: '', phone: '', email: '', notes: '', done: false,
+        bookingRef: 'BOTG-' + Math.floor(1000 + Math.random() * 9000)
+      }),
 
-      occasions: this.OCC.map(o => {
+      // Step 1: Occasions
+      occasions: this.OCCASIONS_DATA.map(o => {
         const sel = s.occasion === o.k;
         return {
-          label: o.label, note: o.note,
+          label: o.label, tag: o.tag, note: o.note,
           bg: sel ? '#171512' : '#FDFBF7',
           fg: sel ? '#F2EDE3' : '#171512',
-          sub: sel ? 'rgba(242,237,227,.6)' : '#7A736A',
+          sub: sel ? 'rgba(242,237,227,.7)' : '#4C463E',
+          border: sel ? '#171512' : 'rgba(23,21,18,.12)',
+          tagColor: sel ? '#C69B54' : '#A8562F',
           click: () => this.pick('occasion', o.k)
         };
       }),
 
+      // Step 2: Treatments
       minNote: minS === 2
-        ? 'Two treatments is the minimum for an individual appointment: choose your pairing and we schedule the visit to suit your day.'
-        : 'Select all desired treatments. For group parties, the estimate adjusts by headcount and we allocate the appropriate specialists.',
+        ? 'Two treatments minimum for an individual appointment. Select your desired combination below:'
+        : 'Select all treatments needed for your group. Total subtotal adjusts automatically by headcount:',
 
-      services: this.SVC.map(v => {
-        const sel = s.services.indexOf(v.k) !== -1;
-        const c = this.chip(sel);
-        return { label: v.label, price: v.price, bg: c.bg, fg: c.fg, border: c.border, priceColor: sel ? 'rgba(242,237,227,.6)' : '#A8562F', click: () => this.toggleSvc(v.k) };
+      categoryPills: [
+        { key: 'all', label: 'All Treatments' },
+        { key: 'hair', label: 'Hair & Styling' },
+        { key: 'skin', label: 'Skin & Facials' },
+        { key: 'massage', label: 'Massage Therapy' },
+        { key: 'nails', label: 'Nails & Pedicures' },
+        { key: 'bridal', label: 'Bridal & Makeup' },
+        { key: 'corp', label: 'Corporate' },
+        { key: 'packages', label: 'Packages' }
+      ].map(cp => ({
+        label: cp.label,
+        bg: s.categoryTab === cp.key ? '#171512' : '#FDFBF7',
+        fg: s.categoryTab === cp.key ? '#F2EDE3' : '#4C463E',
+        border: s.categoryTab === cp.key ? '#171512' : 'rgba(23,21,18,.2)',
+        click: () => this.pick('categoryTab', cp.key)
+      })),
+
+      treatmentList: filteredTreatments.map(t => {
+        const sel = s.services.indexOf(t.k) !== -1;
+        return {
+          label: t.label, price: t.price, duration: t.duration, desc: t.desc,
+          bg: sel ? '#171512' : '#FDFBF7',
+          fg: sel ? '#FAF7F2' : '#171512',
+          border: sel ? '#C69B54' : 'rgba(23,21,18,.12)',
+          priceColor: sel ? '#C69B54' : '#A8562F',
+          subColor: sel ? 'rgba(242,237,227,.65)' : '#7A736A',
+          descColor: sel ? 'rgba(242,237,227,.78)' : '#4C463E',
+          status: sel ? '✓ Selected' : '+ Add',
+          statusColor: sel ? '#C69B54' : '#7A736A',
+          click: () => this.toggleSvc(t.k)
+        };
       }),
 
       guests: s.guests,
@@ -395,48 +626,87 @@ class Component extends DCLogic {
       dec: () => this.setState(st => ({ guests: Math.max(1, st.guests - 1) })),
       guestNote: (s.occasion === 'party' || s.occasion === 'teens') && s.guests < 6
         ? 'Group rates unlock at six guests'
-        : (s.occasion === 'corporate' ? 'Billed hourly, four-hour minimum' : ''),
+        : (s.occasion === 'corporate' ? 'Billed per beautician hourly (4 hr min)' : ''),
 
+      selectedCount: chosen.length,
       estimate: subtotal > 0 ? '$' + subtotal.toLocaleString() : '—',
+      durationTally: chosen.length ? chosen.length * 50 + ' min est.' : '0 min',
 
+      // Step 3: Specialists
+      specialists: this.SPECIALISTS_DATA.map(sp => {
+        const sel = s.specialist === sp.id;
+        return {
+          name: sp.name, role: sp.role, bio: sp.bio,
+          bg: sel ? '#171512' : '#FDFBF7',
+          fg: sel ? '#FAF7F2' : '#171512',
+          sub: sel ? 'rgba(242,237,227,.7)' : '#4C463E',
+          border: sel ? '#C69B54' : 'rgba(23,21,18,.12)',
+          tagColor: sel ? '#C69B54' : '#A8562F',
+          click: () => this.pick('specialist', sp.id)
+        };
+      }),
+
+      // Step 4: Location & Time
       cityOpts: this.CITIES.map(c => {
-        const cc = this.chip(s.city === c);
-        return { label: c, bg: cc.bg, fg: cc.fg, border: cc.border, click: () => this.pick('city', c) };
+        const sel = s.city === c;
+        return {
+          label: c,
+          bg: sel ? '#171512' : '#FDFBF7',
+          fg: sel ? '#FAF7F2' : '#171512',
+          border: sel ? '#171512' : 'rgba(23,21,18,.16)',
+          click: () => this.pick('city', c)
+        };
       }),
+
       venueOpts: this.VENUES.map(v => {
-        const cc = this.chip(s.venue === v);
-        return { label: v, bg: cc.bg, fg: cc.fg, border: cc.border, click: () => this.pick('venue', v) };
+        const sel = s.venue === v;
+        return {
+          label: v,
+          bg: sel ? '#171512' : '#FDFBF7',
+          fg: sel ? '#FAF7F2' : '#171512',
+          border: sel ? '#171512' : 'rgba(23,21,18,.16)',
+          click: () => this.pick('venue', v)
+        };
       }),
 
-      date: s.date, time: s.time, address: s.address,
-      name: s.name, phone: s.phone, email: s.email, notes: s.notes,
+      timeSlots: this.TIME_SLOTS.map(ts => {
+        const sel = s.timeSlot === ts;
+        return {
+          label: ts,
+          bg: sel ? '#171512' : '#FDFBF7',
+          fg: sel ? '#FAF7F2' : '#171512',
+          border: sel ? '#171512' : 'rgba(23,21,18,.2)',
+          click: () => this.pick('timeSlot', ts)
+        };
+      }),
+
+      date: s.date,
       setDate: (e) => this.pick('date', e.target.value),
-      setTime: (e) => this.pick('time', e.target.value),
+      address: s.address,
       setAddress: (e) => this.pick('address', e.target.value),
-      setName: (e) => this.pick('name', e.target.value),
-      setPhone: (e) => this.pick('phone', e.target.value),
-      setEmail: (e) => this.pick('email', e.target.value),
-      setNotes: (e) => this.pick('notes', e.target.value),
 
-      exit: s.exit,
-      closeExit: () => this.setState({ exit: false, exitDismissed: true }),
-      beauticianOpts: this.BEAUTICIANS.map(b => {
-        const cc = this.chip(s.beautician === b || (!s.beautician && b === 'No preference'));
-        return { label: b, bg: cc.bg, fg: cc.fg, border: cc.border, click: () => this.pick('beautician', b) };
-      }),
+      // Step 5: Contact
+      name: s.name, setName: (e) => this.pick('name', e.target.value),
+      phone: s.phone, setPhone: (e) => this.pick('phone', e.target.value),
+      email: s.email, setEmail: (e) => this.pick('email', e.target.value),
+      notes: s.notes, setNotes: (e) => this.pick('notes', e.target.value),
 
       summary: [
         { k: 'Occasion', v: occLabel },
-        { k: 'Beautician', v: s.beautician || 'No preference' },
-        { k: 'Treatments', v: chosen.length ? chosen.map(c => c.label).join(', ') : 'None selected' },
-        { k: 'People', v: String(s.guests) },
-        { k: 'When', v: (s.date || 'Date TBC') + (s.time ? ' at ' + s.time : '') },
-        { k: 'Where', v: [s.venue, s.city, s.address].filter(Boolean).join(' · ') || 'Address pending' }
+        { k: 'Selected Treatments', v: chosen.length ? chosen.map(c => c.label).join(', ') : 'None selected' },
+        { k: 'Assigned Specialist', v: specObj.name + ' (' + specObj.role + ')' },
+        { k: 'Headcount', v: String(s.guests) + (s.guests > 1 ? ' guests' : ' guest') },
+        { k: 'Service Location', v: [s.venue, s.city, s.address].filter(Boolean).join(' · ') || 'Address required' },
+        { k: 'Date & Time', v: (s.date || 'Date pending') + ' at ' + (s.timeSlot || '11:00 AM') }
       ],
 
+      bookingRef: s.bookingRef,
       doneLine: s.name
-        ? 'Thank you, ' + s.name.split(' ')[0] + '. We have received your request for ' + occLabel.toLowerCase() + (s.city ? ' in ' + s.city : '') + (s.date ? ' on ' + s.date : '') + '.'
-        : 'We have received your appointment request.'
+        ? 'Thank you, ' + s.name.split(' ')[0] + '. We have received your reservation for ' + occLabel.toLowerCase() + ' in ' + s.city + (s.date ? ' on ' + s.date : '') + '.'
+        : 'Your mobile spa reservation request has been received.',
+
+      exit: s.exit,
+      closeExit: () => this.setState({ exit: false, exitDismissed: true })
     };
   }
 }
