@@ -9,19 +9,63 @@
 <x-dc>
 <div style="font-family:'Karla',sans-serif; color:#171512; background:#F2EDE3;">
 
-  <div style="padding:120px 30px 90px; display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:end;">
-    <div style="display:flex; flex-direction:column; gap:26px;">
-      <div style="display:flex; align-items:center; gap:16px;">
-        <div style="width:44px; height:1px; background:#A8562F;"></div>
-        <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">The Collective</div>
+    <!-- 1 · LUXURY ARTISAN ROSTER HERO -->
+  <section style="padding:100px 30px 70px; max-width:1440px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:64px; align-items:center;">
+      
+      <!-- Left Column: Copy & Credentials -->
+      <div style="display:flex; flex-direction:column; gap:26px;">
+        
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:8px; height:8px; border-radius:50%; background:#C69B54;"></div>
+          <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">The Artisan Roster · 25 State-Licensed Specialists</span>
+        </div>
+
+        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(44px, 5.5vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
+          Meet your specialist.<br>Keep her <span style="font-style:italic; color:#A8562F;">for years.</span>
+        </h1>
+
+        <p style="font-size:18.5px; line-height:1.75; color:#2C2721; max-width:700px; margin:0; text-wrap:pretty;">
+          Every provider in our collective carries five to twenty-five years of chairside mastery, state board licensing, background check verification, and $2M liability insurance. You select your provider by specialty and retain her across years of standing appointments.
+        </p>
+
+        <!-- Credential Badges -->
+        <div style="display:flex; flex-wrap:wrap; gap:10px; padding-top:4px;">
+          <div style="background:#E8E1D4; padding:8px 16px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#171512; display:flex; align-items:center; gap:6px;">
+            <span style="color:#C69B54;">★</span> 5–25 Years Experience
+          </div>
+          <div style="background:#E8E1D4; padding:8px 16px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#171512; display:flex; align-items:center; gap:6px;">
+            <span style="color:#C69B54;">★</span> State Board Licensed
+          </div>
+          <div style="background:#E8E1D4; padding:8px 16px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#171512; display:flex; align-items:center; gap:6px;">
+            <span style="color:#C69B54;">★</span> $2M General Liability
+          </div>
+          <div style="background:#E8E1D4; padding:8px 16px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#171512; display:flex; align-items:center; gap:6px;">
+            <span style="color:#C69B54;">★</span> Autoclave Sanitation Certified
+          </div>
+        </div>
+
       </div>
-      <div style="font-family:'Bodoni Moda',serif; font-size:96px; line-height:.9; letter-spacing:-.036em;">Find your specialist.<br>Keep her <span style="font-style:italic; color:#A8562F;">for years.</span></div>
+
+      <!-- Right Column: Retention & Trust Card -->
+      <div style="background:#171512; color:#FAF7F2; padding:44px 38px; border-radius:6px; border:1.2px solid rgba(198,155,84,.45); box-shadow:0 20px 50px rgba(23,21,18,.25); display:flex; flex-direction:column; gap:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(242,237,227,.15); padding-bottom:16px;">
+          <div style="font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">Specialist Continuity</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#C69B54; font-weight:600;">80%+ Retention</div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px; font-size:15px; line-height:1.65; color:rgba(242,237,227,.8);">
+          <div><strong style="color:#FAF7F2;">• Never a Random Gig Contractor:</strong> You build an authentic relationship with a trusted professional who knows your exact hair, skin, and pressure preferences.</div>
+          <div><strong style="color:#FAF7F2;">• Name Her In Your Quote:</strong> Request your preferred specialist directly when booking online or by phone.</div>
+        </div>
+
+        <a href="./book.html" style="background:#A8562F; color:#FAF7F2; padding:16px 28px; font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; text-align:center; text-decoration:none; margin-top:6px; transition:all .25s ease;" onMouseOver="this.style.background='#C69B54'; this.style.color='#171512';" onMouseOut="this.style.background='#A8562F'; this.style.color='#FAF7F2';">
+          Request Specialist In Booking →
+        </a>
+      </div>
+
     </div>
-    <div style="display:flex; flex-direction:column; gap:18px; padding-bottom:14px;">
-      <div style="font-size:17.5px; line-height:1.72; color:#4C463E;">Every single specialist is state licensed, with five to twenty-five years of mastery behind the chair. You are never assigned an arbitrary contractor: you choose your specialist, and most clients retain the same provider for years.</div>
-      <div style="font-size:17.5px; line-height:1.72; color:#4C463E;">Name her in your quote and we will dispatch her, in whichever of our sixteen cities you reside.</div>
-    </div>
-  </div>
+  </section>
 
   <div style="padding:0 30px 60px; display:flex; gap:9px; flex-wrap:wrap;">
     <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
