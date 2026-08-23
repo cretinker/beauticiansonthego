@@ -9,16 +9,64 @@
 <x-dc>
 <div style="font-family:'Karla',sans-serif; color:#171512; background:#FAF7F2;">
 
-  <div style="display:grid; grid-template-columns:1.05fr .95fr; border-bottom:1px solid rgba(23,21,18,.12);">
-    <div style="padding:120px 30px; display:flex; flex-direction:column; gap:24px; justify-content:center;">
-      <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; font-weight:700;">How It Works</div>
-      <div style="font-family:'Bodoni Moda',serif; font-size:92px; line-height:.9; letter-spacing:-.036em;">Booked in a day.<br>Done at <span style="font-style:italic; color:#A8562F;">your place.</span></div>
-      <div style="font-size:17px; line-height:1.7; color:#4C463E; max-width:520px; text-wrap:pretty;">No app downloads, no automated runaround, and no card charged before you review the exact numbers. Someone from our office calls you directly, confirms the plan, and provides an itemized invoice for your approval.</div>
-    </div>
-    <div style="background-image:url('https://static.wixstatic.com/media/182a82578f8721e3db24d6b1c2adf6e9.jpg/v1/fill/w_1100,h_900,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/182a82578f8721e3db24d6b1c2adf6e9.jpg'); background-size:cover; background-position:center; min-height:440px;"></div>
-  </div>
+    <!-- 1 · LUXURY HOW IT WORKS HERO -->
+  <section style="padding:24px 30px 44px; max-width:1440px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:64px; align-items:center;">
+      
+      <!-- Left Column: Copy & Badges -->
+      <div style="display:flex; flex-direction:column; gap:26px;">
+        
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:8px; height:8px; border-radius:50%; background:#C69B54;"></div>
+          <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">Seamless Dispatch Protocol · 4 Steps</span>
+        </div>
 
-  <div style="padding:120px 30px;">
+        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(44px, 5.5vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
+          Booked in a day.<br>Delivered at <span style="font-style:italic; color:#A8562F;">your place.</span>
+        </h1>
+
+        <p style="font-size:18.5px; line-height:1.75; color:#2C2721; max-width:700px; margin:0; text-wrap:pretty;">
+          No app downloads, no automated runaround, and zero surprise charges. Our central dispatch coordinates timing, dispatches state-licensed specialists, and confirms an itemized estimate before you pay.
+        </p>
+
+        <!-- Proof Badges -->
+        <div style="display:flex; flex-wrap:wrap; gap:10px; padding-top:4px;">
+          <div style="background:#E8E1D4; padding:8px 16px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#171512; display:flex; align-items:center; gap:6px;">
+            <span style="color:#C69B54;">✓</span> Zero App Downloads Required
+          </div>
+          <div style="background:#E8E1D4; padding:8px 16px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#171512; display:flex; align-items:center; gap:6px;">
+            <span style="color:#C69B54;">✓</span> Itemized Upfront Invoicing
+          </div>
+          <div style="background:#E8E1D4; padding:8px 16px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#171512; display:flex; align-items:center; gap:6px;">
+            <span style="color:#C69B54;">✓</span> Direct Concierge Coordination
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Dispatch Card -->
+      <div style="background:#171512; color:#FAF7F2; padding:44px 38px; border-radius:6px; border:1.2px solid rgba(198,155,84,.45); box-shadow:0 20px 50px rgba(23,21,18,.25); display:flex; flex-direction:column; gap:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(242,237,227,.15); padding-bottom:16px;">
+          <div style="font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">The Dispatch Flow</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#C69B54; font-weight:600;">24-Hr Booking</div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px; font-size:15px; line-height:1.65; color:rgba(242,237,227,.8);">
+          <div><strong style="color:#FAF7F2;">1. Request Online:</strong> Select treatments, guest count, and your location.</div>
+          <div><strong style="color:#FAF7F2;">2. Concierge Call:</strong> We review timing and assign your specialist.</div>
+          <div><strong style="color:#FAF7F2;">3. Upfront Quote:</strong> Itemized total confirmed with travel included.</div>
+          <div><strong style="color:#FAF7F2;">4. In-Home Arrival:</strong> Full mobile setup unpacked and serviced.</div>
+        </div>
+
+        <a href="./book.html" style="background:#A8562F; color:#FAF7F2; padding:16px 28px; font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; text-align:center; text-decoration:none; margin-top:6px; transition:all .25s ease;" onMouseOver="this.style.background='#C69B54'; this.style.color='#171512';" onMouseOut="this.style.background='#A8562F'; this.style.color='#FAF7F2';">
+          Start 4-Step Booking →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="padding:100px 30px;">
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(23,21,18,.13);">
       <div style="background:#FAF7F2; padding:36px 32px 42px; display:flex; flex-direction:column; gap:14px;">
         <div style="font-family:'Bodoni Moda',serif; font-size:44px; color:#A8562F; line-height:1; font-weight:600;">01</div>
