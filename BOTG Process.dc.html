@@ -70,10 +70,18 @@
   </div>
 
   <!-- FAQ -->
-  <div style="padding:120px 30px; display:grid; grid-template-columns:320px 1fr; gap:72px;">
-    <div style="display:flex; flex-direction:column; gap:16px;">
-      <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.03em;">Before you<br>book.</div>
-      <div style="font-size:15.5px; line-height:1.68; color:#4C463E;">Have a specific question? Call 602-803-2827 between 8:00 AM and 7:00 PM to speak directly with our team.</div>
+  <div style="padding:120px 30px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px; margin-bottom:52px;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:34px; height:1px; background:#A8562F;"></div>
+          <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Common Questions</div>
+        </div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.03em;">Before you <span style="font-style:italic; color:#A8562F;">book.</span></div>
+      </div>
+      <div style="font-size:16px; line-height:1.7; color:#4C463E; max-width:440px; padding-bottom:6px;">
+        Have a specific question about treatments or logistics? Call <span style="font-family:'Bodoni Moda',serif; font-weight:600; color:#171512; font-size:18px;">602-803-2827</span> to speak directly with our team.
+      </div>
     </div>
     <div style="display:flex; flex-direction:column;">
       <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="8">
@@ -83,7 +91,7 @@
             <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; flex-shrink:0;">{{ f.mark }}</div>
           </div>
           <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
-            <div style="font-size:16px; line-height:1.72; color:#4C463E; max-width:720px; padding-top:14px;">{{ f.a }}</div>
+            <div style="font-size:16px; line-height:1.72; color:#4C463E; max-width:920px; padding-top:14px;">{{ f.a }}</div>
           </sc-if>
         </div>
       </sc-for>

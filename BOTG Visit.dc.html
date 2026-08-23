@@ -27,19 +27,25 @@
 
   <!-- what a visit includes -->
   <div style="padding:120px 30px;">
-    <div style="display:grid; grid-template-columns:400px 1fr; gap:100px; align-items:start;">
-      <div style="display:flex; flex-direction:column; gap:20px;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em;">What arrives<br>with <span style="font-style:italic; color:#A8562F;">her.</span></div>
-        <div style="font-size:16.5px; line-height:1.72; color:#4C463E;">Nothing is borrowed from your house except an electrical outlet and access to a sink. Everything below comes through the door and leaves with her.</div>
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px; margin-bottom:56px;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:34px; height:1px; background:#A8562F;"></div>
+          <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Tactile Transparency</div>
+        </div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em;">What arrives with <span style="font-style:italic; color:#A8562F;">her.</span></div>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(23,21,18,.14);">
-        <sc-for list="{{ kit }}" as="k" hint-placeholder-count="6">
-          <div style="background:#F2EDE3; padding:30px 32px 36px; display:flex; flex-direction:column; gap:9px;">
-            <div style="font-family:'Bodoni Moda',serif; font-size:26px; line-height:1.05; font-weight:600;">{{ k.title }}</div>
-            <div style="font-size:15px; line-height:1.65; color:#4C463E;">{{ k.body }}</div>
-          </div>
-        </sc-for>
+      <div style="font-size:16.5px; line-height:1.72; color:#4C463E; max-width:480px; padding-bottom:6px;">
+        Nothing is borrowed from your house except an electrical outlet and access to a sink. Everything below comes through the door and leaves with her.
       </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(23,21,18,.14);">
+      <sc-for list="{{ kit }}" as="k" hint-placeholder-count="6">
+        <div style="background:#F2EDE3; padding:36px 32px 40px; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:26px; line-height:1.05; font-weight:600;">{{ k.title }}</div>
+          <div style="font-size:15px; line-height:1.65; color:#4C463E;">{{ k.body }}</div>
+        </div>
+      </sc-for>
     </div>
   </div>
 
