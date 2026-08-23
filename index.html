@@ -74,18 +74,18 @@
       </div>
     </div>
 
-    <!-- Mega Panel: Services -->
+    <!-- Mega Panel: Treatments -->
     <sc-if value="{{ menuServices }}" hint-placeholder-val="{{ false }}">
       <div style="background:#171512; border-bottom:2px solid #C69B54; padding:32px 30px 36px; animation:botgRise .35s cubic-bezier(.16,1,.3,1) both;">
         <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:20px;">
-          <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">Sixty-eight services: every rate published up front</div>
+          <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">Sixty-eight treatments: every rate published up front</div>
           <div onClick="{{ goServices }}" style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(242,237,227,.7); cursor:pointer;" style-hover="color:#C69B54;">View Master Menu →</div>
         </div>
         <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:2px; background:rgba(242,237,227,.12);">
           <sc-for list="{{ servicePanel }}" as="s" hint-placeholder-count="7">
             <div onClick="{{ s.click }}" style="background:#171512; padding:18px 16px 20px; cursor:pointer; display:flex; flex-direction:column; gap:6px;" style-hover="background:#221F19;">
               <div style="font-family:'Bodoni Moda',serif; font-size:20px; color:#FAF7F2; line-height:1.1;">{{ s.label }}</div>
-              <div style="font-size:12px; color:rgba(242,237,227,.55);">{{ s.count }} services</div>
+              <div style="font-size:12px; color:rgba(242,237,227,.55);">{{ s.count }} treatments</div>
               <div style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#C69B54; margin-top:2px;">From {{ s.from }}</div>
             </div>
           </sc-for>
@@ -181,7 +181,7 @@
           </div>
           <div>
             <div style="font-family:'Bodoni Moda',serif; font-size:36px; line-height:1; font-weight:600; color:#171512;">68</div>
-            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#7A736A; margin-top:6px; font-weight:600;">Published rates</div>
+            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#7A736A; margin-top:6px; font-weight:600;">Published treatments</div>
           </div>
         </div>
 
@@ -334,7 +334,7 @@
             <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">Rate Card</div>
             <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.92; letter-spacing:-.032em;">Every price,<br><span style="font-style:italic; color:#C69B54;">published.</span></div>
             <div style="font-size:16.5px; line-height:1.72; color:rgba(242,237,227,.65);">
-              Sixty-eight services, every single one priced on this site. No consultation required to find out what a treatment costs, and zero surprise fees added after the fact.
+              Sixty-eight treatments, every single one priced on this site. No consultation required to find out what a treatment costs, and zero surprise fees added after the fact.
             </div>
 
             <!-- Corporate Highlight Box -->
@@ -344,7 +344,7 @@
               <div style="font-size:13.5px; line-height:1.55; color:rgba(242,237,227,.6);">Four-hour minimum. Chair massage, express pedicures, facials, and braid bars.</div>
             </div>
 
-            <div onClick="{{ goServices }}" style="font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54; border-bottom:1px solid #C69B54; padding-bottom:5px; width:fit-content; cursor:pointer; font-weight:600;" style-hover="color:#FAF7F2; border-color:#FAF7F2;">Explore the complete 68-service menu →</div>
+            <div onClick="{{ goServices }}" style="font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54; border-bottom:1px solid #C69B54; padding-bottom:5px; width:fit-content; cursor:pointer; font-weight:600;" style-hover="color:#FAF7F2; border-color:#FAF7F2;">Explore the complete 68-treatment menu →</div>
           </div>
 
           <!-- Right Column: Rates Table -->
@@ -533,48 +533,74 @@
   <footer style="background:#171512; color:rgba(242,237,227,.6); padding:90px 30px 40px; border-top:1px solid rgba(198,155,84,.2);">
     <div style="max-width:1440px; margin:0 auto;">
       
-      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:56px; padding-bottom:56px; border-bottom:1px solid rgba(242,237,227,.12);">
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:56px; padding-bottom:56px; border-bottom:1px solid rgba(242,237,227,.12);">
         
-        <!-- Col 1: Identity & Contact -->
+        <!-- Col 1: Identity, Contact & Social Icons -->
         <div style="display:flex; flex-direction:column; gap:20px;">
           <div style="font-family:'Bodoni Moda',serif; font-size:32px; color:#FAF7F2; line-height:1.1; font-weight:600;">Beauticians<br>On The Go</div>
           <div style="font-size:14px; line-height:1.8;">2390 E Camelback Rd, Ste 130<br>Phoenix, AZ 85016</div>
           <div style="font-size:14px; line-height:1.8;">
-            <a href="tel:6028032827" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#C69B54; font-weight:600;">(602) 803-2827</a><br>
-            <a href="mailto:beauticiansonthego@gmail.com" style="color:rgba(242,237,227,.8);">beauticiansonthego@gmail.com</a>
+            <a href="tel:6028032827" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#C69B54; font-weight:600; text-decoration:none;">(602) 803-2827</a><br>
+            <a href="mailto:beauticiansonthego@gmail.com" style="color:rgba(242,237,227,.8); text-decoration:none;">beauticiansonthego@gmail.com</a>
           </div>
-          <div style="font-size:13.5px; line-height:1.6; color:rgba(242,237,227,.5);">Monday–Saturday 8:00 AM – 7:00 PM<br>Sunday 8:00 AM – 6:00 PM</div>
+          <div style="font-size:13px; line-height:1.6; color:rgba(242,237,227,.5);">Monday–Saturday 8:00 AM – 7:00 PM<br>Sunday 8:00 AM – 6:00 PM</div>
+          
+          <!-- Social Media Profile Icons Only -->
+          <div style="display:flex; gap:10px; align-items:center; margin-top:4px;">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/beauticiansonthego" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="width:38px; height:38px; border-radius:50%; border:1px solid rgba(198,155,84,.4); background:rgba(242,237,227,.06); color:#FAF7F2; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:all .25s ease;" style-hover="background:#C69B54; border-color:#C69B54; color:#171512;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <!-- Yelp -->
+            <a href="https://www.yelp.com/biz/beauticians-on-the-go-phoenix-5" target="_blank" rel="noopener noreferrer" aria-label="Yelp" style="width:38px; height:38px; border-radius:50%; border:1px solid rgba(198,155,84,.4); background:rgba(242,237,227,.06); color:#FAF7F2; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:all .25s ease;" style-hover="background:#C69B54; border-color:#C69B54; color:#171512;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.96 14.5c-.1.35-.35 1.7-1.12 3.12-.87 1.62-1.92 2.5-2.2 2.37-.3-.13-.37-1.2-.18-2.6.22-1.63.78-3.05 1.05-3.26.27-.22 1.3.08 1.95.25.32.08.55.02.5.12zm1.6-1.07c.3.17 1.67.7 3.3.73 1.84.03 3.1-.48 3.1-.8-.02-.32-.97-.93-2.36-1.52-1.6-.68-3.1-.88-3.44-.76-.33.12-.2.94-.03 1.58.08.31.2.62.43.77zm-.92-2.1c.2-.28.84-1.55 1.4-3.08.62-1.7.67-3.06.37-3.2-.3-.14-1.2.6-2.18 1.76-1.14 1.34-1.74 2.76-1.7 3.1.04.35.8.96 1.4 1.25.3.15.56.32.71.17zm-1.84 1.15c-.24-.26-1.62-.75-3.26-.8-1.83-.06-3.08.43-3.1.75.03.32.96.96 2.34 1.58 1.6.7 3.1.92 3.44.82.35-.1.24-.92.08-1.57-.08-.3-.26-.6-.5-.78zm1.08-.85c.1-.33.22-1.73.22-3.32 0-1.84-.52-3.1-.84-3.1-.33 0-.96.94-1.57 2.33-.7 1.6-.9 3.12-.78 3.46.12.35.94.27 1.6.14.33-.06.63-.12.87-.27l.5-.24z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@beauticiansonthego?_t=8fsgspReBYp&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok" style="width:38px; height:38px; border-radius:50%; border:1px solid rgba(198,155,84,.4); background:rgba(242,237,227,.06); color:#FAF7F2; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:all .25s ease;" style-hover="background:#C69B54; border-color:#C69B54; color:#171512;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.84 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.32 0 .63.05.92.14V9.37a6.33 6.33 0 0 0-.92-.07A6.34 6.34 0 0 0 3 15.64a6.34 6.34 0 0 0 6.34 6.36 6.34 6.34 0 0 0 6.34-6.36V8.71a8.21 8.21 0 0 0 4.91 1.62v-3.45a4.85 4.85 0 0 1-1-.19z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://web.facebook.com/Beauticiansonthegosalon?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="width:38px; height:38px; border-radius:50%; border:1px solid rgba(198,155,84,.4); background:rgba(242,237,227,.06); color:#FAF7F2; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:all .25s ease;" style-hover="background:#C69B54; border-color:#C69B54; color:#171512;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <!-- X / Twitter -->
+            <a href="https://x.com/BOTG_salon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" style="width:38px; height:38px; border-radius:50%; border:1px solid rgba(198,155,84,.4); background:rgba(242,237,227,.06); color:#FAF7F2; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:all .25s ease;" style-hover="background:#C69B54; border-color:#C69B54; color:#171512;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
         </div>
 
-        <!-- Col 2: Services & Bookings -->
+        <!-- Col 2: Treatments Menu -->
         <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
-          <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px; font-weight:700;">Services</div>
-          <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Master Rate Card</div>
+          <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px; font-weight:700;">Treatments</div>
+          <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Master Treatment Menu</div>
+          <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Hair &amp; Colour Treatments</div>
+          <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Custom Facials &amp; Esthetics</div>
+          <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Manicures &amp; Pedicures</div>
+          <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Therapeutic Massage</div>
+          <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Bridal &amp; Event Styling</div>
+          <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Microblading &amp; Needling</div>
+        </div>
+
+        <!-- Col 3: Occasions -->
+        <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
+          <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px; font-weight:700;">Occasions</div>
           <div onClick="{{ goWeddings }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Weddings &amp; Bridal</div>
           <div onClick="{{ goCorporate }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Corporate Wellness</div>
           <div onClick="{{ goParties }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Spa Parties (6+ Guests)</div>
-          <div onClick="{{ goIncare }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">In-Care &amp; Seniors</div>
-          <div onClick="{{ goQuoteBlank }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Get an Online Quote</div>
+          <div onClick="{{ goTeens }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Teens &amp; Kids Celebrations</div>
+          <div onClick="{{ goIncare }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">In-Care &amp; Senior Visits</div>
+          <div onClick="{{ goIndividual }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">At Home, Just You</div>
         </div>
 
-        <!-- Col 3: Company -->
+        <!-- Col 4: Company & Booking -->
         <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
           <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px; font-weight:700;">Company</div>
           <div onClick="{{ goTeam }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Meet the Specialists</div>
           <div onClick="{{ goAbout }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">About Our Collective</div>
           <div onClick="{{ goProcess }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">How A Visit Works</div>
           <div onClick="{{ goVisit }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">What Arrives In The Car</div>
-          <div style="cursor:pointer;" style-hover="color:#FAF7F2;">Join Our Mobile Team</div>
-        </div>
-
-        <!-- Col 4: Verified Social Profiles -->
-        <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
-          <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px; font-weight:700;">Verified Profiles</div>
-          <a href="https://www.yelp.com/biz/beauticians-on-the-go-phoenix-5" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">Yelp Phoenix (25 Reviews) ↗</a>
-          <a href="https://www.instagram.com/beauticiansonthego" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">Instagram (@beauticiansonthego) ↗</a>
-          <a href="https://www.tiktok.com/@beauticiansonthego?_t=8fsgspReBYp&_r=1" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">TikTok (@beauticiansonthego) ↗</a>
-          <a href="https://web.facebook.com/Beauticiansonthegosalon?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">Facebook (@Beauticiansonthegosalon) ↗</a>
-          <a href="https://x.com/BOTG_salon" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">X / Twitter (@BOTG_salon) ↗</a>
+          <div onClick="{{ goQuoteBlank }}" style="cursor:pointer; color:#C69B54; font-weight:600;" style-hover="color:#FAF7F2;">Get an Online Quote →</div>
         </div>
 
       </div>
@@ -713,7 +739,7 @@ class Component extends DCLogic {
       navItems: [
         nav('home', 'Home', () => this.go('home')),
         nav('about', 'About', () => this.go('about')),
-        nav('services', 'Services', () => this.go('services'), 'services'),
+        nav('services', 'Treatments', () => this.go('services'), 'services'),
         nav('occasions', 'Occasions', () => this.go('occasions'), 'occasions'),
         nav('team', 'Specialists', () => this.go('team')),
         nav('process', 'How It Works', () => this.go('process')),
@@ -742,7 +768,7 @@ class Component extends DCLogic {
         { label: 'Spa Parties', teaser: 'Bachelorette and birthday gatherings', from: 'From $55', click: () => this.go('occasions', 'party') },
         { label: 'Teens & Kids', teaser: 'Diva celebrations and prom styling', from: 'From $28', click: () => this.go('occasions', 'teens') },
         { label: 'In-Care Visits', teaser: 'Hospice, assisted living, memory care', from: '$75', click: () => this.go('occasions', 'incare') },
-        { label: 'Just You', teaser: 'Standing appointments at your residence', from: '2 Services', click: () => this.go('occasions', 'individual') }
+        { label: 'Just You', teaser: 'Standing appointments at your residence', from: '2 Treatments', click: () => this.go('occasions', 'individual') }
       ],
 
       isHome: p === 'home', isServices: p === 'services', isOccasions: p === 'occasions',

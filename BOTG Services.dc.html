@@ -16,11 +16,11 @@
     <div style="position:relative; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:0 30px 56px; gap:24px;">
       <div style="display:flex; align-items:center; gap:16px;">
         <div style="width:44px; height:1px; background:#C69B54;"></div>
-        <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; white-space:nowrap; font-weight:700;">Sixty-eight services: all rates published</div>
+        <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; white-space:nowrap; font-weight:700;">Sixty-eight treatments: all rates published</div>
       </div>
       <div style="font-family:'Bodoni Moda',serif; font-size:96px; line-height:.92; letter-spacing:-.038em; color:#FBF7F0; padding-bottom:12px;">Know the price<br>before you <span style="font-style:italic; color:#C69B54;">call.</span></div>
       <div style="display:flex; gap:44px; flex-wrap:wrap;">
-        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Book any two services and we travel directly to your door.</div>
+        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Book any two treatments and we travel directly to your door.</div>
         <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Six guests or more unlocks tiered per-person group pricing.</div>
         <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Travel fee is quoted up front. Zero surprise charges on the invoice.</div>
       </div>
@@ -45,7 +45,7 @@
           <div style="order:{{ g.oTxt }}; padding:80px 40px; display:flex; flex-direction:column; justify-content:center; gap:22px;">
             <div style="display:flex; align-items:center; gap:14px;">
               <div style="width:34px; height:1px; background:#A8562F;"></div>
-              <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">{{ g.count }} services</div>
+              <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">{{ g.count }} treatments</div>
             </div>
             <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.92; letter-spacing:-.034em;">{{ g.title }}</div>
             <div style="font-size:17px; line-height:1.7; color:#4C463E; max-width:440px;">{{ g.blurb }}</div>
@@ -75,7 +75,7 @@
   <!-- packages -->
   <div style="background:#E8E1D4; padding:130px 30px;">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px; margin-bottom:56px;">
-      <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.94; letter-spacing:-.032em;">Two services.<br>One afternoon<br><span style="font-style:italic; color:#A8562F;">at home.</span></div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.94; letter-spacing:-.032em;">Two treatments.<br>One afternoon<br><span style="font-style:italic; color:#A8562F;">at home.</span></div>
       <div style="font-size:16.5px; line-height:1.7; color:#4C463E; max-width:380px; padding-bottom:10px;">These three pairings account for most of what we do. Book one and your Saturday is your own again.</div>
     </div>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(23,21,18,.14);">
@@ -99,8 +99,8 @@
   <div style="background:#171512; color:rgba(242,237,227,.62); padding:110px 30px;">
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(242,237,227,.14);">
       <div style="background:#171512; padding:34px 32px 40px; display:flex; flex-direction:column; gap:11px;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54;">Two-service minimum</div>
-        <div style="font-size:14.5px; line-height:1.7;">Book any two services together and we travel to you. Group bookings of 6+ and corporate packages are exempt.</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54;">Two-treatment minimum</div>
+        <div style="font-size:14.5px; line-height:1.7;">Book any two treatments together and we travel to you. Group bookings of 6+ and corporate packages are exempt.</div>
       </div>
       <div style="background:#171512; padding:34px 32px 40px; display:flex; flex-direction:column; gap:11px;">
         <div style="font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54;">Travel fees</div>
@@ -245,7 +245,7 @@ class Component extends DCLogic {
     const all = this.data();
     const t = this.state.tab;
     const defs = [
-      { key: 'all', label: 'All services' },
+      { key: 'all', label: 'All treatments' },
       { key: 'hair', label: 'Hair & Styling' },
       { key: 'skin', label: 'Skin & Esthetics' },
       { key: 'nails', label: 'Nails & Manicures' },

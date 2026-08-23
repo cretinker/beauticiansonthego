@@ -68,7 +68,7 @@
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
           <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px; font-weight:700;">Step 2 of 4</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">What would you like done?</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">Which treatments would you like?</div>
           <div style="font-size:15.5px; line-height:1.65; color:#4C463E; margin-top:12px; max-width:520px;">{{ minNote }}</div>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:9px;">
@@ -90,7 +90,7 @@
             <div style="font-size:13.5px; color:#A8562F; font-weight:600;">{{ guestNote }}</div>
           </div>
           <div style="display:flex; flex-direction:column; gap:10px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Estimated services subtotal</div>
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Estimated treatments subtotal</div>
             <div style="font-family:'Bodoni Moda',serif; font-size:38px; line-height:1; font-weight:600; color:#171512;">{{ estimate }}</div>
             <div style="font-size:13.5px; color:#7A736A;">Before distance travel fee. Confirmed on your call.</div>
           </div>
@@ -193,7 +193,7 @@
             </div>
           </sc-for>
           <div style="display:flex; justify-content:space-between; align-items:baseline; padding-top:6px;">
-            <div style="font-size:15.5px; color:rgba(242,237,227,.5);">Estimated services subtotal</div>
+            <div style="font-size:15.5px; color:rgba(242,237,227,.5);">Estimated treatments subtotal</div>
             <div style="font-family:'Bodoni Moda',serif; font-size:32px; color:#C69B54; font-weight:600;">{{ estimate }}</div>
           </div>
           <div style="font-size:13.5px; line-height:1.6; color:rgba(242,237,227,.5);">Travel fee is calculated by distance and confirmed on your call. This is an itemized estimate, not a charged invoice.</div>
@@ -338,7 +338,7 @@ class Component extends DCLogic {
 
     const hints = {
       1: s.occasion ? '' : 'Select an occasion to continue',
-      2: s.services.length >= minS ? '' : (minS === 2 ? 'Individual appointments require at least two services' : 'Select at least one service'),
+      2: s.services.length >= minS ? '' : (minS === 2 ? 'Individual appointments require at least two treatments' : 'Select at least one treatment'),
       3: ok ? '' : 'City, date and location type are required',
       4: ok ? '' : 'Name and phone number are required'
     };
@@ -354,7 +354,7 @@ class Component extends DCLogic {
     return {
       railSteps: [
         stepLabel(1, 'Occasion', occObj.label || ''),
-        stepLabel(2, 'Services', chosen.length ? chosen.length + ' selected' : ''),
+        stepLabel(2, 'Treatments', chosen.length ? chosen.length + ' selected' : ''),
         stepLabel(3, 'Schedule', [s.city, s.date].filter(Boolean).join(', ')),
         stepLabel(4, 'Contact', s.name || '')
       ],
@@ -381,8 +381,8 @@ class Component extends DCLogic {
       }),
 
       minNote: minS === 2
-        ? 'Two services is the minimum for an individual appointment: choose your pairing and we schedule the visit to suit your day.'
-        : 'Select all desired services. For group parties, the estimate adjusts by headcount and we allocate the appropriate specialists.',
+        ? 'Two treatments is the minimum for an individual appointment: choose your pairing and we schedule the visit to suit your day.'
+        : 'Select all desired treatments. For group parties, the estimate adjusts by headcount and we allocate the appropriate specialists.',
 
       services: this.SVC.map(v => {
         const sel = s.services.indexOf(v.k) !== -1;
@@ -428,7 +428,7 @@ class Component extends DCLogic {
       summary: [
         { k: 'Occasion', v: occLabel },
         { k: 'Beautician', v: s.beautician || 'No preference' },
-        { k: 'Services', v: chosen.length ? chosen.map(c => c.label).join(', ') : 'None selected' },
+        { k: 'Treatments', v: chosen.length ? chosen.map(c => c.label).join(', ') : 'None selected' },
         { k: 'People', v: String(s.guests) },
         { k: 'When', v: (s.date || 'Date TBC') + (s.time ? ' at ' + s.time : '') },
         { k: 'Where', v: [s.venue, s.city, s.address].filter(Boolean).join(' · ') || 'Address pending' }
