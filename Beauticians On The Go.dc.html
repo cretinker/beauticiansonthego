@@ -10,354 +10,510 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,600&family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  html { overflow-x: hidden; }
-  body { margin: 0; background: #F2EDE3; }
-  a { color: #A8562F; text-decoration: none; }
+  html { overflow-x: hidden; scroll-behavior: smooth; }
+  body { margin: 0; background: #FAF7F2; color: #171512; font-family: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #A8562F; text-decoration: none; transition: color .2s ease; }
   a:hover { color: #7E3C1E; }
   * { box-sizing: border-box; }
   body::after {
-    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .045;
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .032;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  @keyframes botgRise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
-  [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+  @keyframes botgRise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
   [data-reveal][data-seen] { opacity: 1; transform: none; }
 </style>
 </helmet>
 
-<div style="background:#F2EDE3; color:#171512; font-family:'Karla',sans-serif; min-height:100vh;">
+<div style="background:#FAF7F2; color:#171512; font-family:'Karla',sans-serif; min-height:100vh;">
 
-  <!-- nav -->
-  <div onMouseLeave="{{ closeMenu }}" style="position:fixed; top:0; left:0; right:0; z-index:60; transform:translateY({{ navShift }}); transition:transform .5s cubic-bezier(.16,1,.3,1);">
-  <div ref="{{ navRef }}" style="position:relative; background:{{ navBg }}; backdrop-filter:blur(14px); display:flex; align-items:center; justify-content:space-between; gap:16px; padding:{{ navPad }} 22px; border-bottom:1px solid {{ navLine }}; transition:padding .45s cubic-bezier(.16,1,.3,1), background .45s ease, border-color .45s ease;">
-    <div style="position:absolute; left:0; bottom:-1px; height:1px; width:{{ progress }}; background:linear-gradient(90deg, rgba(198,155,84,.2), #C69B54); transition:width .12s linear;"></div>
-    <div onClick="{{ goHome }}" style="display:flex; align-items:center; gap:11px; flex-shrink:0; cursor:pointer;">
-      <div style="width:{{ markSize }}; height:{{ markSize }}; border:1px solid {{ markLine }}; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:width .45s cubic-bezier(.16,1,.3,1), height .45s cubic-bezier(.16,1,.3,1), border-color .45s ease;">
-        <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:{{ markGlyph }}; line-height:1; color:{{ markFg }}; transition:font-size .45s cubic-bezier(.16,1,.3,1), color .45s ease;">B</div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:3px; white-space:nowrap;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:{{ navLogo }}; line-height:1; letter-spacing:.005em; color:{{ navFg }}; transition:font-size .45s cubic-bezier(.16,1,.3,1), color .45s ease;">Beauticians On The Go</div>
-        <div style="font-size:7.5px; letter-spacing:.32em; text-transform:uppercase; color:{{ markLabel }}; transition:color .45s ease;">Mobile spa &amp; beauty</div>
-      </div>
+  <!-- TOP ANNOUNCEMENT TICKER -->
+  <div style="background:#171512; color:#F2EDE3; padding:9px 24px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(198,155,84,.25);">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <div style="width:6px; height:6px; border-radius:50%; background:#22C55E; animation:botgPulse 2s infinite;"></div>
+      <span style="color:#C69B54; font-weight:700;">Mobile Salon &amp; Day Spa</span>
+      <span style="color:rgba(242,237,227,.55);">· Phoenix, Scottsdale &amp; 14 Valley Cities</span>
     </div>
-    <div style="display:flex; gap:13px; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; white-space:nowrap; flex:0 1 auto; min-width:0;">
-      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
-        <div onClick="{{ n.click }}" onMouseEnter="{{ n.enter }}" style="cursor:pointer; color:{{ n.color }}; display:flex; align-items:center; gap:5px; transition:color .3s ease;" style-hover="color:#C69B54;">
-          <div style="width:4px; height:4px; border-radius:50%; background:{{ n.dot }}; transition:background .3s ease;"></div>
-          <span>{{ n.label }}</span>
-        </div>
-      </sc-for>
-    </div>
-    <div style="display:flex; align-items:center; gap:16px; flex-shrink:0; white-space:nowrap;">
-      <div onClick="{{ toggleQuoteMenu }}" onMouseEnter="{{ enterQuote }}" style="background:#C69B54; color:#171512; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:15px 28px; cursor:pointer; box-shadow:0 0 0 1px rgba(198,155,84,.35), 0 8px 24px -12px rgba(198,155,84,.7); transition:background .3s ease, color .3s ease, box-shadow .3s ease;" style-hover="background:#171512; color:#C69B54; box-shadow:0 0 0 1px #C69B54;">Get a quote</div>
+    <div style="display:flex; align-items:center; gap:20px;">
+      <span style="color:rgba(242,237,227,.7);">Open Today 8am–7pm</span>
+      <a href="tel:6028032827" style="color:#C69B54; font-weight:700;">Call (602) 803-2827</a>
     </div>
   </div>
 
-  <!-- Services panel -->
-  <sc-if value="{{ menuServices }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#171512; border-bottom:1px solid rgba(198,155,84,.28); padding:36px 30px 40px; animation:botgRise .4s cubic-bezier(.16,1,.3,1) both;">
-      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:24px;">
-        <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54;">Sixty-eight services, every price published</div>
-        <div onClick="{{ goServices }}" style="font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(242,237,227,.6); cursor:pointer;" style-hover="color:#C69B54;">The complete menu →</div>
+  <!-- FIXED NAVIGATION -->
+  <div onMouseLeave="{{ closeMenu }}" style="position:sticky; top:0; left:0; right:0; z-index:60; transform:translateY({{ navShift }}); transition:transform .4s cubic-bezier(.16,1,.3,1);">
+    <div ref="{{ navRef }}" style="position:relative; background:rgba(250,247,242,.96); backdrop-filter:blur(16px); display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 30px; border-bottom:1px solid rgba(23,21,18,.1); transition:all .3s ease;">
+      <div style="position:absolute; left:0; bottom:-1px; height:2px; width:{{ progress }}; background:linear-gradient(90deg, #A8562F, #C69B54); transition:width .12s linear;"></div>
+      
+      <!-- Brand Logo -->
+      <div onClick="{{ goHome }}" style="display:flex; align-items:center; gap:12px; flex-shrink:0; cursor:pointer;">
+        <div style="width:38px; height:38px; border:1px solid #C69B54; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:rgba(198,155,84,.08);">
+          <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:20px; line-height:1; color:#A8562F; font-weight:600;">B</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:2px; white-space:nowrap;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:17.5px; line-height:1; letter-spacing:.01em; color:#171512; font-weight:600;">Beauticians On The Go</div>
+          <div style="font-size:8px; letter-spacing:.28em; text-transform:uppercase; color:#7A736A; font-weight:600;">Mobile Spa &amp; Salon · Est. 2001</div>
+        </div>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:2px; background:rgba(242,237,227,.14);">
-        <sc-for list="{{ servicePanel }}" as="s" hint-placeholder-count="7">
-          <div onClick="{{ s.click }}" style="background:#171512; padding:20px 18px 24px; cursor:pointer; display:flex; flex-direction:column; gap:7px;" style-hover="background:#221F19;">
-            <div style="font-family:'Bodoni Moda',serif; font-size:21px; color:#F2EDE3; line-height:1.1;">{{ s.label }}</div>
-            <div style="font-size:12px; color:rgba(242,237,227,.5);">{{ s.count }} services</div>
-            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#C69B54; margin-top:2px;">From {{ s.from }}</div>
+
+      <!-- Links -->
+      <div style="display:flex; gap:16px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; flex:0 1 auto; min-width:0; font-weight:600;">
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+          <div onClick="{{ n.click }}" onMouseEnter="{{ n.enter }}" style="cursor:pointer; color:{{ n.color }}; display:flex; align-items:center; gap:6px; padding:6px 2px; transition:color .25s ease;" style-hover="color:#A8562F;">
+            <div style="width:4px; height:4px; border-radius:50%; background:{{ n.dot }}; transition:background .25s ease;"></div>
+            <span>{{ n.label }}</span>
           </div>
         </sc-for>
       </div>
-    </div>
-  </sc-if>
 
-  <!-- Occasions panel -->
-  <sc-if value="{{ menuOccasions }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#171512; border-bottom:1px solid rgba(198,155,84,.28); padding:36px 30px 40px; animation:botgRise .4s cubic-bezier(.16,1,.3,1) both;">
-      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:24px;">
-        <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54;">Six reasons people hand us an address</div>
-        <div onClick="{{ goOccasions }}" style="font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(242,237,227,.6); cursor:pointer;" style-hover="color:#C69B54;">All occasions →</div>
-      </div>
-      <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:2px; background:rgba(242,237,227,.14);">
-        <sc-for list="{{ occasionPanel }}" as="o" hint-placeholder-count="6">
-          <div onClick="{{ o.click }}" style="background:#171512; padding:20px 18px 24px; cursor:pointer; display:flex; flex-direction:column; gap:8px;" style-hover="background:#221F19;">
-            <div style="font-family:'Bodoni Moda',serif; font-size:21px; color:#F2EDE3; line-height:1.1;">{{ o.label }}</div>
-            <div style="font-size:12.5px; line-height:1.5; color:rgba(242,237,227,.5);">{{ o.teaser }}</div>
-            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#C69B54; margin-top:auto; padding-top:6px;">{{ o.from }}</div>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </sc-if>
-
-  <!-- Quote panel -->
-  <sc-if value="{{ menuQuote }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#A8562F; border-bottom:1px solid rgba(251,247,240,.28); padding:34px 30px 38px; animation:botgRise .4s cubic-bezier(.16,1,.3,1) both;">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:40px;">
-        <div style="display:flex; flex-direction:column; gap:14px;">
-          <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:rgba(251,247,240,.7);">Start your quote — what's the occasion?</div>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <sc-for list="{{ heroChips }}" as="c" hint-placeholder-count="6">
-              <div onClick="{{ c.click }}" style="border:1px solid rgba(251,247,240,.4); color:#FBF7F0; padding:12px 20px; font-size:13.5px; cursor:pointer; transition:background .25s ease, color .25s ease, border-color .25s ease;" style-hover="background:#FBF7F0; border-color:#FBF7F0; color:#171512;">{{ c.label }}</div>
-            </sc-for>
-          </div>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px; flex-shrink:0;">
-          <div style="font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:rgba(251,247,240,.6);">Or call, 8am–7pm</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; color:#FBF7F0; line-height:1;">602-803-2827</div>
-        </div>
-      </div>
-    </div>
-  </sc-if>
-  </div>
-
-  <!-- ══════ HOME ══════ -->
-  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
-  <div>
-
-    <!-- HERO — full bleed -->
-    <div style="position:relative; height:100vh; min-height:760px; overflow:hidden; background:#171512;">
-      <div ref="{{ heroRef }}" style="position:absolute; inset:-4%; background-image:url('https://static.wixstatic.com/media/6eaddd_ca61c1c3778e4f0f9e5c4c019f2cc98a~mv2.jpg/v1/fill/w_2000,h_1500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/6eaddd_ca61c1c3778e4f0f9e5c4c019f2cc98a~mv2.jpg'); background-size:cover; background-position:center 38%; will-change:transform;"></div>
-      <div style="position:absolute; inset:0; background:linear-gradient(105deg, rgba(15,13,11,.86) 0%, rgba(15,13,11,.62) 42%, rgba(15,13,11,.18) 72%, rgba(15,13,11,.42) 100%);"></div>
-
-      <div style="position:relative; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:0 30px 52px;">
-        <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px;">
-          <div style="display:flex; flex-direction:column; gap:22px; max-width:820px; flex-shrink:0;">
-            <div style="display:flex; align-items:center; gap:16px; animation:botgRise 1s cubic-bezier(.16,1,.3,1) .15s both;">
-              <div style="width:44px; height:1px; background:#C69B54;"></div>
-              <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; white-space:nowrap;">Since 2001 · Sixteen cities</div>
-            </div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:124px; line-height:.94; letter-spacing:-.036em; padding-bottom:14px; color:#FBF7F0; animation:botgRise 1.1s cubic-bezier(.16,1,.3,1) .28s both;">Stay where<br>you <span style="font-style:italic; color:#C69B54;">are.</span></div>
-            <div style="font-size:20px; line-height:1.5; color:rgba(251,247,240,.72); max-width:520px; animation:botgRise 1.1s cubic-bezier(.16,1,.3,1) .42s both;">Hair, colour, nails, facials, massage and makeup — delivered to your door by licensed professionals who bring everything with them.</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px; flex-shrink:0; animation:botgRise 1.1s cubic-bezier(.16,1,.3,1) .5s both;">
-            <div style="font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:rgba(251,247,240,.5);">Call to book</div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:38px; color:#FBF7F0; line-height:1;">602-803-2827</div>
-          </div>
-        </div>
-
-        <!-- occasion chips -->
-        <div style="margin-top:44px; display:flex; flex-direction:column; gap:15px; animation:botgRise 1.1s cubic-bezier(.16,1,.3,1) .6s both;">
-          <div style="font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:rgba(251,247,240,.5);">Start your quote — what's the occasion?</div>
-          <div style="display:flex; flex-wrap:wrap; gap:9px;">
-            <sc-for list="{{ heroChips }}" as="c" hint-placeholder-count="6">
-              <div onClick="{{ c.click }}" style="border:1px solid rgba(251,247,240,.34); color:#FBF7F0; padding:14px 24px; font-size:14px; cursor:pointer; transition:background .3s ease, border-color .3s ease, color .3s ease;" style-hover="background:#C69B54; border-color:#C69B54; color:#171512;">{{ c.label }}</div>
-            </sc-for>
-          </div>
-        </div>
+      <!-- Actions -->
+      <div style="display:flex; align-items:center; gap:14px; flex-shrink:0; white-space:nowrap;">
+        <a href="tel:6028032827" style="display:flex; flex-direction:column; align-items:flex-end; gap:2px; text-decoration:none;">
+          <span style="font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; font-weight:600;">Direct Phone</span>
+          <span style="font-family:'Bodoni Moda',serif; font-size:16px; color:#171512; font-weight:600;">602-803-2827</span>
+        </a>
+        <div onClick="{{ toggleQuoteMenu }}" onMouseEnter="{{ enterQuote }}" style="background:#171512; color:#FAF7F2; font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:12px 22px; cursor:pointer; border:1px solid #171512; transition:all .25s ease;" style-hover="background:#A8562F; border-color:#A8562F; color:#FAF7F2;">Get a quote</div>
       </div>
     </div>
 
-    <!-- venue marquee -->
-    <div style="background:#171512; color:#C69B54; padding:19px 30px; display:flex; justify-content:space-between; font-size:10.5px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;">
-      <div>Homes</div><div>Hotels</div><div>Offices</div><div>Wedding venues</div><div>Airbnb</div><div>Retirement communities</div><div>Hospitals</div><div>Hospice</div>
-    </div>
-
-    <!-- numbers -->
-    <div data-reveal style="display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid rgba(23,21,18,.13);">
-      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
-        <div style="padding:52px 40px; border-right:1px solid rgba(23,21,18,.13); display:flex; flex-direction:column; gap:10px;">
-          <div data-count="{{ s.to }}" data-suffix="{{ s.suffix }}" style="font-family:'Bodoni Moda',serif; font-size:60px; line-height:.9; letter-spacing:-.02em;">{{ s.to }}{{ s.suffix }}</div>
-          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A;">{{ s.label }}</div>
+    <!-- Mega Panel: Services -->
+    <sc-if value="{{ menuServices }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#171512; border-bottom:2px solid #C69B54; padding:32px 30px 36px; animation:botgRise .35s cubic-bezier(.16,1,.3,1) both;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:20px;">
+          <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">Sixty-eight services: every rate published up front</div>
+          <div onClick="{{ goServices }}" style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(242,237,227,.7); cursor:pointer;" style-hover="color:#C69B54;">View Master Menu →</div>
         </div>
-      </sc-for>
-    </div>
-
-    <!-- occasions — asymmetric editorial -->
-    <div style="padding:150px 30px 130px;">
-      <div data-reveal style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; margin-bottom:80px;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:80px; line-height:.94; letter-spacing:-.032em;">You pick the date.<br>We bring<br><span style="font-style:italic; color:#A8562F;">the salon.</span></div>
-        <div style="font-size:17px; line-height:1.72; color:#4C463E; max-width:420px; padding-bottom:12px;">Whatever the occasion, the whole team is already packed. Tell us how many people and what time, and we build the day around it.</div>
-      </div>
-
-      <div data-reveal style="display:grid; grid-template-columns:1.35fr 1fr; gap:2px; background:rgba(23,21,18,.13);">
-        <div onClick="{{ goWeddings }}" style="background:#F2EDE3; cursor:pointer; display:flex; flex-direction:column;">
-          <div style="height:520px; background-image:url('https://static.wixstatic.com/media/2cda2b_465da187efb44362a136e81354cc20df~mv2.jpg/v1/fill/w_1400,h_1100,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/2cda2b_465da187efb44362a136e81354cc20df~mv2.jpg'); background-size:cover; background-position:center;"></div>
-          <div style="padding:40px 44px 48px; display:flex; align-items:flex-end; justify-content:space-between; gap:32px;">
-            <div style="display:flex; flex-direction:column; gap:12px;">
-              <div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:1;">Weddings</div>
-              <div style="font-size:16px; line-height:1.6; color:#4C463E; max-width:400px;">Bride, bridesmaids, mothers, flower girls. Everyone ready at once, at the venue.</div>
-            </div>
-            <div style="text-align:right; flex-shrink:0;">
-              <div style="font-family:'Bodoni Moda',serif; font-size:34px; color:#A8562F; line-height:1;">$380</div>
-              <div style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; margin-top:6px;">Bride, complete</div>
-            </div>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-rows:1fr 1fr; gap:2px; background:rgba(23,21,18,.13);">
-          <div onClick="{{ goCorporate }}" style="background:#F2EDE3; cursor:pointer; display:grid; grid-template-columns:1fr 1fr;">
-            <div style="padding:36px 34px; display:flex; flex-direction:column; justify-content:center; gap:11px;">
-              <div style="font-family:'Bodoni Moda',serif; font-size:34px; line-height:1;">Corporate</div>
-              <div style="font-size:15px; line-height:1.58; color:#4C463E;">Chair massage and express pedicures, in the conference room.</div>
-              <div style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; margin-top:4px;">$150/hr · 4hr minimum</div>
-            </div>
-            <div style="background-image:url('https://static.wixstatic.com/media/f4e6b4d3adc942c2952a9a3198f6af00.jpg/v1/fill/w_700,h_700,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/f4e6b4d3adc942c2952a9a3198f6af00.jpg'); background-size:cover; background-position:center;"></div>
-          </div>
-          <div onClick="{{ goParties }}" style="background:#F2EDE3; cursor:pointer; display:grid; grid-template-columns:1fr 1fr;">
-            <div style="background-image:url('https://static.wixstatic.com/media/1e47b2_1686c3cb64984592a0fa5dba59ae2e9a.jpg/v1/fill/w_700,h_700,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e47b2_1686c3cb64984592a0fa5dba59ae2e9a.jpg'); background-size:cover; background-position:center;"></div>
-            <div style="padding:36px 34px; display:flex; flex-direction:column; justify-content:center; gap:11px;">
-              <div style="font-family:'Bodoni Moda',serif; font-size:34px; line-height:1;">Spa parties</div>
-              <div style="font-size:15px; line-height:1.58; color:#4C463E;">Several beauticians at once, so nobody sits waiting their turn.</div>
-              <div style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; margin-top:4px;">From $55 a guest</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div data-reveal style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(23,21,18,.13); margin-top:2px;">
-        <div onClick="{{ goTeens }}" style="background:#F2EDE3; padding:32px 34px 38px; cursor:pointer; display:flex; align-items:baseline; justify-content:space-between; gap:20px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:28px;">Teens &amp; kids</div>
-          <div style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F;">From $28</div>
-        </div>
-        <div onClick="{{ goIndividual }}" style="background:#F2EDE3; padding:32px 34px 38px; cursor:pointer; display:flex; align-items:baseline; justify-content:space-between; gap:20px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:28px;">At home, just you</div>
-          <div style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F;">Two services</div>
-        </div>
-        <div onClick="{{ goIncare }}" style="background:#171512; color:#FBF7F0; padding:32px 34px 38px; cursor:pointer; display:flex; align-items:baseline; justify-content:space-between; gap:20px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:28px;">In-care &amp; homebound</div>
-          <div style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#C69B54;">$75</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- rate card -->
-    <div style="background:#171512; color:#F2EDE3; padding:140px 30px;">
-      <div data-reveal style="display:grid; grid-template-columns:380px 1fr; gap:100px;">
-        <div style="display:flex; flex-direction:column; gap:26px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:76px; line-height:.92; letter-spacing:-.032em;">Every price,<br><span style="font-style:italic; color:#C69B54;">published.</span></div>
-          <div style="font-size:17px; line-height:1.72; color:rgba(242,237,227,.6);">Sixty-eight services, every one of them priced on this site. No consultation to find out what a facial costs, and no invoice you haven't already approved.</div>
-          <div style="border:1px solid rgba(198,155,84,.35); padding:28px; display:flex; flex-direction:column; gap:8px; margin-top:10px;">
-            <div style="font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#C69B54;">Corporate</div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:52px; line-height:1;">$150<span style="font-size:16px; font-family:'Karla',sans-serif; color:rgba(242,237,227,.55);"> / hour</span></div>
-            <div style="font-size:14px; line-height:1.6; color:rgba(242,237,227,.55);">Four-hour minimum. Pedicures, facials, chair massage, braid bars.</div>
-          </div>
-          <div onClick="{{ goServices }}" style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54; border-bottom:1px solid #C69B54; padding-bottom:6px; width:fit-content; cursor:pointer;">The complete menu</div>
-        </div>
-        <div style="display:flex; flex-direction:column;">
-          <sc-for list="{{ homeRates }}" as="r" hint-placeholder-count="8">
-            <div style="display:grid; grid-template-columns:1fr 110px 120px; gap:24px; padding:24px 0; border-bottom:1px solid rgba(242,237,227,.1); align-items:baseline;">
-              <div style="font-size:19px; font-weight:400;">{{ r.name }}</div>
-              <div style="color:rgba(242,237,227,.42); font-size:13.5px;">{{ r.time }}</div>
-              <div style="text-align:right; font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54;">{{ r.price }}</div>
+        <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:2px; background:rgba(242,237,227,.12);">
+          <sc-for list="{{ servicePanel }}" as="s" hint-placeholder-count="7">
+            <div onClick="{{ s.click }}" style="background:#171512; padding:18px 16px 20px; cursor:pointer; display:flex; flex-direction:column; gap:6px;" style-hover="background:#221F19;">
+              <div style="font-family:'Bodoni Moda',serif; font-size:20px; color:#FAF7F2; line-height:1.1;">{{ s.label }}</div>
+              <div style="font-size:12px; color:rgba(242,237,227,.55);">{{ s.count }} services</div>
+              <div style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#C69B54; margin-top:2px;">From {{ s.from }}</div>
             </div>
           </sc-for>
         </div>
       </div>
-    </div>
+    </sc-if>
 
-    <!-- in-care -->
-    <div style="display:grid; grid-template-columns:1fr 1fr;">
-      <div data-reveal style="padding:130px 30px 130px 30px; display:flex; flex-direction:column; gap:30px; justify-content:center;">
-        <div style="display:flex; align-items:center; gap:16px;">
-          <div style="width:44px; height:1px; background:#A8562F;"></div>
-          <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F;">In-care & homebound</div>
+    <!-- Mega Panel: Occasions -->
+    <sc-if value="{{ menuOccasions }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#171512; border-bottom:2px solid #C69B54; padding:32px 30px 36px; animation:botgRise .35s cubic-bezier(.16,1,.3,1) both;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:20px;">
+          <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">Six tailored occasions: we build the day around your schedule</div>
+          <div onClick="{{ goOccasions }}" style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(242,237,227,.7); cursor:pointer;" style-hover="color:#C69B54;">All Occasions →</div>
         </div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.96; letter-spacing:-.03em; max-width:540px;">When she can't get to the salon, we bring it to her.</div>
-        <div style="font-size:17.5px; line-height:1.75; color:#4C463E; max-width:520px;">Hospitals, hospice, retirement communities, assisted living, rehab centers and private homes. For a mother who still wants her hair done, a client recovering from surgery, or someone living with dementia who is calmer at home. Book it once and we will keep the appointment standing.</div>
-        <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:26px; line-height:1.55; color:#2C2721; max-width:520px; border-left:1px solid #A8562F; padding-left:28px;">"She handled my mom's sensitivities and fears and made her look stunning."
-          <div style="font-family:'Karla',sans-serif; font-style:normal; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-top:18px;">Natalie B.</div>
-        </div>
-        <div onClick="{{ goIncare }}" style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; border-bottom:1px solid #171512; padding-bottom:6px; width:fit-content; cursor:pointer;" style-hover="color:#A8562F; border-bottom-color:#A8562F;">Elderly haircut + style · $75</div>
-      </div>
-      <div style="background-image:url('https://static.wixstatic.com/media/1c1fcfb3c2fa41a58394493406e03029.jpg/v1/fill/w_1200,h_1500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1c1fcfb3c2fa41a58394493406e03029.jpg'); background-size:cover; background-position:center; min-height:700px;"></div>
-    </div>
-
-    <!-- team teaser -->
-    <div style="background:#E8E1D4; padding:130px 30px;">
-      <div data-reveal style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px; margin-bottom:60px;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.94; letter-spacing:-.03em;">The same beautician,<br>every time you <span style="font-style:italic; color:#A8562F;">book.</span></div>
-        <div style="display:flex; flex-direction:column; gap:18px; max-width:400px; padding-bottom:10px;">
-          <div style="font-size:17px; line-height:1.72; color:#4C463E;">Licensed, with five to fifteen years behind the chair. Find someone you like and ask for them by name — most of our clients never book anyone else.</div>
-          <div onClick="{{ goTeam }}" style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; border-bottom:1px solid #171512; padding-bottom:6px; width:fit-content; cursor:pointer;" style-hover="color:#A8562F; border-bottom-color:#A8562F;">Meet the team</div>
-        </div>
-      </div>
-      <div data-reveal style="display:grid; grid-template-columns:repeat(5,1fr); gap:2px; background:rgba(23,21,18,.14);">
-        <sc-for list="{{ teamTeaser }}" as="t" hint-placeholder-count="5">
-          <div onClick="{{ goTeam }}" style="background:#E8E1D4; cursor:pointer; display:flex; flex-direction:column;">
-            <div style="aspect-ratio:3/4; background:#DCD3C2;">
-              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ t.slot }}" placeholder="{{ t.placeholder }}" shape="rect" hint-size="100%,100%"></x-import>
+        <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:2px; background:rgba(242,237,227,.12);">
+          <sc-for list="{{ occasionPanel }}" as="o" hint-placeholder-count="6">
+            <div onClick="{{ o.click }}" style="background:#171512; padding:18px 16px 20px; cursor:pointer; display:flex; flex-direction:column; gap:6px;" style-hover="background:#221F19;">
+              <div style="font-family:'Bodoni Moda',serif; font-size:19px; color:#FAF7F2; line-height:1.1;">{{ o.label }}</div>
+              <div style="font-size:12px; line-height:1.45; color:rgba(242,237,227,.55);">{{ o.teaser }}</div>
+              <div style="font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:#C69B54; margin-top:auto; padding-top:4px;">{{ o.from }}</div>
             </div>
-            <div style="padding:20px 22px 26px; display:flex; flex-direction:column; gap:5px;">
-              <div style="font-family:'Bodoni Moda',serif; font-size:23px;">{{ t.name }}</div>
-              <div style="font-size:13px; color:#7A736A;">{{ t.role }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- Mega Panel: Quick Quote -->
+    <sc-if value="{{ menuQuote }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#A8562F; border-bottom:2px solid #171512; padding:30px 30px 34px; animation:botgRise .35s cubic-bezier(.16,1,.3,1) both;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:40px;">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:rgba(251,247,240,.8); font-weight:700;">Start your quote: what is the occasion?</div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <sc-for list="{{ heroChips }}" as="c" hint-placeholder-count="6">
+                <div onClick="{{ c.click }}" style="border:1px solid rgba(251,247,240,.45); color:#FBF7F0; padding:10px 18px; font-size:13px; font-weight:600; cursor:pointer; transition:all .25s ease;" style-hover="background:#FBF7F0; border-color:#FBF7F0; color:#171512;">{{ c.label }}</div>
+              </sc-for>
             </div>
           </div>
-        </sc-for>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0;">
+            <div style="font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(251,247,240,.75); font-weight:600;">Or call the office directly</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:30px; color:#FBF7F0; line-height:1; font-weight:600;">602-803-2827</div>
+          </div>
+        </div>
       </div>
+    </sc-if>
+  </div>
+
+  <!-- ══════ HOMEPAGE CONTENT ══════ -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <div>
+
+    <!-- 1 · LUXURY 2-COLUMN HERO (JVEE / ARUNA / EDEN ARCHITECTURE) -->
+    <section style="padding:64px 30px 80px; max-width:1440px; margin:0 auto; display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:center;">
+      
+      <!-- Left Column: Copy & Command -->
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="background:#171512; color:#C69B54; font-size:10px; font-weight:800; letter-spacing:.24em; text-transform:uppercase; padding:6px 14px; border-radius:2px;">Established 2001</div>
+          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; font-weight:600;">25 Licensed Beauticians · 16 Cities</div>
+        </div>
+
+        <div style="font-family:'Bodoni Moda',serif; font-size:84px; line-height:.92; letter-spacing:-.038em; color:#171512;">
+          The salon travels.<br>You stay where <span style="font-style:italic; color:#A8562F;">you are.</span>
+        </div>
+
+        <div style="font-size:19px; line-height:1.68; color:#4C463E; max-width:580px;">
+          Full salon and day-spa treatments delivered directly to your home, hotel, wedding venue, office, or care facility. Our licensed master specialists arrive with professional tables, portable basins, sterilized tools, and salon lighting.
+        </div>
+
+        <!-- Dual CTA Row -->
+        <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; padding-top:6px;">
+          <div onClick="{{ goQuoteBlank }}" style="background:#A8562F; color:#FAF7F2; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:20px 42px; cursor:pointer; box-shadow:0 8px 24px -10px rgba(168,86,47,.6); transition:all .25s ease;" style-hover="background:#171512; color:#C69B54;">Build Your Quote</div>
+          <a href="tel:6028032827" style="border:1px solid rgba(23,21,18,.35); color:#171512; font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:19px 32px; display:flex; align-items:center; gap:10px; transition:all .25s ease;" style-hover="border-color:#171512; background:#171512; color:#FAF7F2;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Call 602-803-2827</span>
+          </a>
+        </div>
+
+        <!-- In-Hero Proof Metrics -->
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; padding-top:24px; border-top:1px solid rgba(23,21,18,.12);">
+          <div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:36px; line-height:1; font-weight:600; color:#171512;">25+</div>
+            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#7A736A; margin-top:6px; font-weight:600;">Years in business</div>
+          </div>
+          <div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:36px; line-height:1; font-weight:600; color:#171512;">25</div>
+            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#7A736A; margin-top:6px; font-weight:600;">Licensed beauticians</div>
+          </div>
+          <div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:36px; line-height:1; font-weight:600; color:#171512;">16</div>
+            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#7A736A; margin-top:6px; font-weight:600;">Cities served</div>
+          </div>
+          <div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:36px; line-height:1; font-weight:600; color:#171512;">68</div>
+            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#7A736A; margin-top:6px; font-weight:600;">Published rates</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Framed Editorial Artwork & Floating Trust Badge -->
+      <div style="position:relative; display:flex; justify-content:center;">
+        <div style="position:relative; width:100%; max-width:540px; aspect-ratio:4/5; background:#E8E1D4; overflow:hidden; box-shadow:0 24px 60px -20px rgba(23,21,18,.35); border:1px solid rgba(198,155,84,.4);">
+          <div style="position:absolute; inset:0; background-image:url('https://static.wixstatic.com/media/6eaddd_ca61c1c3778e4f0f9e5c4c019f2cc98a~mv2.jpg/v1/fill/w_1200,h_1500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/6eaddd_ca61c1c3778e4f0f9e5c4c019f2cc98a~mv2.jpg'); background-size:cover; background-position:center 30%;"></div>
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,13,11,0) 55%, rgba(15,13,11,.85) 100%);"></div>
+          
+          <!-- Tactile Badge in Image Frame -->
+          <div style="position:absolute; bottom:24px; left:24px; right:24px; background:rgba(23,21,18,.92); backdrop-filter:blur(10px); border:1px solid rgba(198,155,84,.4); padding:16px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+            <div style="display:flex; flex-direction:column; gap:3px;">
+              <div style="font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">100% Mobile Service</div>
+              <div style="font-size:13.5px; color:#F2EDE3; font-weight:500;">Tables, basins, lighting and products all arrive with us.</div>
+            </div>
+            <div style="width:32px; height:32px; border-radius:50%; background:#C69B54; color:#171512; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:800; font-size:15px;">✓</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 2 · VENUE MARQUEE STRIP -->
+    <div style="background:#171512; color:#C69B54; padding:20px 30px; display:flex; justify-content:space-between; font-size:11px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; overflow-x:auto; white-space:nowrap; border-top:1px solid rgba(198,155,84,.25); border-bottom:1px solid rgba(198,155,84,.25);">
+      <div>Private Homes</div><div>·</div><div>Hotel Suites</div><div>·</div><div>Corporate Offices</div><div>·</div><div>Wedding Venues</div><div>·</div><div>Airbnb &amp; VRBO</div><div>·</div><div>Assisted Living</div><div>·</div><div>Hospitals</div><div>·</div><div>Hospice Care</div>
     </div>
 
-    <!-- proof -->
-    <div style="padding:130px 30px;">
-      <div data-reveal style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px; background:rgba(23,21,18,.13);">
-        <div style="background:#F2EDE3; padding:44px 40px 50px; display:flex; flex-direction:column; gap:24px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:19px; line-height:1.65;">"I hired these amazing women for my bachelorette party and it was such a nice treat for my girls. Saira also did my hair and makeup on my wedding day and it was perfect."</div>
-          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; margin-top:auto;">Kristen H. · Bride</div>
-        </div>
-        <div style="background:#F2EDE3; padding:44px 40px 50px; display:flex; flex-direction:column; gap:24px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:19px; line-height:1.65;">"My mom has dementia and terrible back pain, but her hair has to be done. It's really important to her. Saira made her look stunning. We're making standing appointments now."</div>
-          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; margin-top:auto;">Natalie B. · Daughter of a client</div>
-        </div>
-        <div style="background:#F2EDE3; padding:44px 40px 50px; display:flex; flex-direction:column; gap:24px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:19px; line-height:1.65;">"Prompt, professional and so sweet. I live out of state now but make it a priority to schedule appointments when I'm in town."</div>
-          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; margin-top:auto;">Rebecca B. · Client</div>
-        </div>
+    <!-- 3 · INTERACTIVE "CHOOSE YOUR OCCASION" NAVIGATOR (JVEE GOAL CARDS) -->
+    <section style="padding:110px 30px; max-width:1440px; margin:0 auto;">
+      <div data-reveal style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; margin-bottom:56px;">
+        <div style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">Start Here</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.96; letter-spacing:-.032em;">Six reasons people hand us an address.</div>
+        <div style="font-size:17.5px; line-height:1.7; color:#4C463E; max-width:600px;">Tell us how many people and what time. We send the right specialists and build the day around your schedule.</div>
       </div>
 
-      <div data-reveal style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(23,21,18,.13); margin-top:2px;">
-        <div style="background:#F2EDE3; padding:30px 40px 36px; display:flex; flex-direction:column; gap:7px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1;">Licensed</div>
-          <div style="font-size:13.5px; line-height:1.55; color:#7A736A;">Every beautician, in every state we serve</div>
+      <div data-reveal style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+        
+        <!-- Occasion 1: Weddings -->
+        <div onClick="{{ goWeddings }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">01</span>
+            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">Bride Combo $380</span>
+          </div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">Weddings &amp; Bridal</div>
+          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Bride, bridesmaids, mothers, and flower girls. Everyone ready together on location before the photographer arrives.</div>
+          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Explore Bridal →</div>
         </div>
-        <div style="background:#F2EDE3; padding:30px 40px 36px; display:flex; flex-direction:column; gap:7px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1;">Insured</div>
-          <div style="font-size:13.5px; line-height:1.55; color:#7A736A;">Certificates available for venues and facilities</div>
-        </div>
-        <div style="background:#F2EDE3; padding:30px 40px 36px; display:flex; flex-direction:column; gap:7px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1;">Yelp</div>
-          <div style="font-size:13.5px; line-height:1.55; color:#7A736A;">26 reviews · 102 photos · Phoenix</div>
-        </div>
-        <div style="background:#F2EDE3; padding:30px 40px 36px; display:flex; flex-direction:column; gap:7px;">
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1;">@beauticiansonthego</div>
-          <div style="font-size:13.5px; line-height:1.55; color:#7A736A;">1,420 followers · 728 posts</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- gallery -->
-    <div style="background:#171512; padding:130px 30px;">
-      <div data-reveal style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px; margin-bottom:52px;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.94; letter-spacing:-.03em; color:#F2EDE3;">This is what<br>it looks like <span style="font-style:italic; color:#C69B54;">at home.</span></div>
-        <div style="font-size:16.5px; line-height:1.7; color:rgba(242,237,227,.55); max-width:380px; padding-bottom:10px;">A kitchen becomes a colour bar. A hotel suite becomes a bridal salon. A conference room becomes a spa for the afternoon.</div>
+        <!-- Occasion 2: Corporate -->
+        <div onClick="{{ goCorporate }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">02</span>
+            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">$150/hr · 4hr Min</span>
+          </div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">Corporate Wellness</div>
+          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Chair massage, express pedicures, and braid bars right in the conference room. Turnkey employee perk with zero travel.</div>
+          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Corporate Details →</div>
+        </div>
+
+        <!-- Occasion 3: At Home Just You -->
+        <div onClick="{{ goIndividual }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">03</span>
+            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">2-Service Min</span>
+          </div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">At Home, Just You</div>
+          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Standing bi-weekly or monthly appointments. Cuts, color, manicure, and massage while dinner is in the oven. Zero driving.</div>
+          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Individual Care →</div>
+        </div>
+
+        <!-- Occasion 4: Spa Parties -->
+        <div onClick="{{ goParties }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">04</span>
+            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">From $55 / Guest</span>
+          </div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">Spa Parties &amp; Bachelorettes</div>
+          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Six guests or more. We dispatch multiple beauticians simultaneously so guests enjoy treatments in parallel with no long queues.</div>
+          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Party Packages →</div>
+        </div>
+
+        <!-- Occasion 5: In-Care & Seniors -->
+        <div onClick="{{ goIncare }}" style="background:#171512; color:#FAF7F2; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid #C69B54; transition:all .3s ease;" style-hover="transform:translateY(-4px); box-shadow:0 12px 30px -10px rgba(198,155,84,.4);">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#C69B54; font-weight:600;">05</span>
+            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#C69B54; font-weight:700;">Elderly Cut $75</span>
+          </div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05; color:#FAF7F2;">In-Care &amp; Seniors</div>
+          <div style="font-size:15px; line-height:1.65; color:rgba(242,237,227,.75);">Hospitals, hospice, assisted living, rehab, and memory care. Dedicated, gentle specialists trained in limited mobility and dementia.</div>
+          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#C69B54; font-weight:700; margin-top:auto; padding-top:12px;">In-Care Support →</div>
+        </div>
+
+        <!-- Occasion 6: Teens & Kids -->
+        <div onClick="{{ goTeens }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">06</span>
+            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">From $28 / Child</span>
+          </div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">Teens &amp; Kids Diva Parties</div>
+          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Kids diva celebrations, prom hair and makeup, and quinceañeras. Short, age-appropriate sessions with gentle, non-toxic products.</div>
+          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Kids &amp; Prom →</div>
+        </div>
+
       </div>
-      <div data-reveal style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:230px; gap:2px;">
-        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="7">
-          <div style="grid-column:{{ g.col }}; grid-row:{{ g.row }}; background-color:#221F1A; background-image:url({{ g.imgCss }}); background-size:cover; background-position:{{ g.pos }}; position:relative; overflow:hidden;">
-            <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,13,11,0) 45%, rgba(15,13,11,.78) 100%); display:flex; align-items:flex-end; padding:22px 24px;">
-              <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:rgba(251,247,240,.9);">{{ g.caption }}</div>
+    </section>
+
+    <!-- 4 · "WHAT ARRIVES IN THE CAR" (TACTILE TRANSPARENCY STRIP) -->
+    <section style="background:#E8E1D4; padding:110px 30px; border-top:1px solid rgba(23,21,18,.1); border-bottom:1px solid rgba(23,21,18,.1);">
+      <div style="max-width:1440px; margin:0 auto;">
+        
+        <div data-reveal style="display:grid; grid-template-columns:380px 1fr; gap:64px; align-items:end; margin-bottom:56px;">
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Tactile Transparency</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:54px; line-height:.96; letter-spacing:-.03em;">What arrives in the car with us.</div>
+          </div>
+          <div style="font-size:17px; line-height:1.7; color:#4C463E; max-width:540px;">
+            We do not borrow anything from your house except an electrical outlet and access to a sink. Everything below comes through your door, fully sanitized, and leaves with us.
+          </div>
+        </div>
+
+        <div data-reveal style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(23,21,18,.14);">
+          <div style="background:#E8E1D4; padding:32px 28px 36px; display:flex; flex-direction:column; gap:10px;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#171512;">01 · The Tables &amp; Chairs</div>
+            <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">Hydraulic massage and facial tables, plus ergonomic styling and chair massage stations carried directly to your chosen room.</div>
+          </div>
+          <div style="background:#E8E1D4; padding:32px 28px 36px; display:flex; flex-direction:column; gap:10px;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#171512;">02 · Individual Basins</div>
+            <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">Sealed single-use pedicure liners and portable shampoo bowls so nothing is shared with any other client.</div>
+          </div>
+          <div style="background:#E8E1D4; padding:32px 28px 36px; display:flex; flex-direction:column; gap:10px;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#171512;">03 · Autoclaved Kits</div>
+            <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">Hospital-grade sterilized stainless implements opened in front of you, along with salon-grade hair, skin, and nail formulas.</div>
+          </div>
+          <div style="background:#E8E1D4; padding:32px 28px 36px; display:flex; flex-direction:column; gap:10px;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#171512;">04 · Lighting &amp; Linens</div>
+            <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">Daylight-balanced LED ring lights for color matching in dark rooms, plus fresh laundered linens and disposable floor protection.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5 · RATE CARD: HIGH-LOW ANCHORING -->
+    <section style="background:#171512; color:#FAF7F2; padding:120px 30px;">
+      <div style="max-width:1440px; margin:0 auto;">
+        
+        <div data-reveal style="display:grid; grid-template-columns:380px 1fr; gap:80px; align-items:start;">
+          
+          <!-- Left Column: Pricing Philosophy -->
+          <div style="display:flex; flex-direction:column; gap:24px; position:sticky; top:120px;">
+            <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">Rate Card</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.92; letter-spacing:-.032em;">Every price,<br><span style="font-style:italic; color:#C69B54;">published.</span></div>
+            <div style="font-size:16.5px; line-height:1.72; color:rgba(242,237,227,.65);">
+              Sixty-eight services, every single one priced on this site. No consultation required to find out what a treatment costs, and zero surprise fees added after the fact.
+            </div>
+
+            <!-- Corporate Highlight Box -->
+            <div style="border:1px solid rgba(198,155,84,.35); padding:26px; display:flex; flex-direction:column; gap:8px; margin-top:8px; background:rgba(198,155,84,.05);">
+              <div style="font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#C69B54;">Corporate Wellness Rate</div>
+              <div style="font-family:'Bodoni Moda',serif; font-size:48px; line-height:1; color:#FAF7F2;">$150<span style="font-size:15px; font-family:'Karla',sans-serif; color:rgba(242,237,227,.55);"> / hour per beautician</span></div>
+              <div style="font-size:13.5px; line-height:1.55; color:rgba(242,237,227,.6);">Four-hour minimum. Chair massage, express pedicures, facials, and braid bars.</div>
+            </div>
+
+            <div onClick="{{ goServices }}" style="font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54; border-bottom:1px solid #C69B54; padding-bottom:5px; width:fit-content; cursor:pointer; font-weight:600;" style-hover="color:#FAF7F2; border-color:#FAF7F2;">Explore the complete 68-service menu →</div>
+          </div>
+
+          <!-- Right Column: Rates Table -->
+          <div style="display:flex; flex-direction:column;">
+            <sc-for list="{{ homeRates }}" as="r" hint-placeholder-count="8">
+              <div style="display:grid; grid-template-columns:1fr 120px 110px; gap:20px; padding:22px 0; border-bottom:1px solid rgba(242,237,227,.12); align-items:baseline;">
+                <div style="font-size:18px; font-weight:500; color:#FAF7F2;">{{ r.name }}</div>
+                <div style="color:rgba(242,237,227,.45); font-size:13.5px;">{{ r.time }}</div>
+                <div style="text-align:right; font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54; font-weight:600;">{{ r.price }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6 · IN-CARE & SENIORS SPOTLIGHT -->
+    <section style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid rgba(23,21,18,.12);">
+      <div data-reveal style="padding:110px 48px 110px 64px; display:flex; flex-direction:column; gap:28px; justify-content:center;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:40px; height:1px; background:#A8562F;"></div>
+          <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">In-Care &amp; Homebound</div>
+        </div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:60px; line-height:.96; letter-spacing:-.03em;">
+          When she cannot get to the salon, we bring it to her.
+        </div>
+        <div style="font-size:17.5px; line-height:1.75; color:#4C463E; max-width:540px;">
+          Hospitals, hospice, retirement communities, assisted living, rehab centers, and private residences. For a mother who still wants her weekly hair set, a client recovering from surgery, or someone living with dementia who feels safest at home. Book it once and we will keep the standing appointment.
+        </div>
+        
+        <!-- Real Verified Quote -->
+        <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:24px; line-height:1.55; color:#171512; max-width:520px; border-left:2px solid #A8562F; padding-left:24px;">
+          "She handled my mom's sensitivities and fears and made her look stunning. We are making standing appointments now."
+          <div style="font-family:'Karla',sans-serif; font-style:normal; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-top:16px; font-weight:700;">Natalie B. · Daughter of an In-Care Client</div>
+        </div>
+
+        <div onClick="{{ goIncare }}" style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; border-bottom:1px solid #171512; padding-bottom:6px; width:fit-content; cursor:pointer; font-weight:700; margin-top:8px;" style-hover="color:#A8562F; border-bottom-color:#A8562F;">
+          Elderly Haircut &amp; Style: $75 · Learn More →
+        </div>
+      </div>
+      
+      <div style="background-image:url('https://static.wixstatic.com/media/1c1fcfb3c2fa41a58394493406e03029.jpg/v1/fill/w_1200,h_1500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1c1fcfb3c2fa41a58394493406e03029.jpg'); background-size:cover; background-position:center; min-height:600px;"></div>
+    </section>
+
+    <!-- 7 · VERIFIED REVIEWS & SOCIAL PROOF -->
+    <section style="padding:110px 30px; max-width:1440px; margin:0 auto;">
+      
+      <div data-reveal style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; margin-bottom:56px;">
+        <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Client Testimonials</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:60px; line-height:.96; letter-spacing:-.03em;">Verified feedback from real appointments.</div>
+      </div>
+
+      <div data-reveal style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+        
+        <div style="background:#F2EDE3; padding:40px 36px 44px; display:flex; flex-direction:column; gap:20px; border:1px solid rgba(23,21,18,.08);">
+          <div style="color:#C69B54; font-size:16px;">★★★★★</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:19px; line-height:1.6; color:#171512;">
+            "I hired these amazing women for my bachelorette party and it was such a nice treat for my girls. Saira also did my hair and makeup on my wedding day and it was perfect."
+          </div>
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; margin-top:auto; font-weight:600;">Kristen H. · Bride &amp; Bachelorette Host</div>
+        </div>
+
+        <div style="background:#F2EDE3; padding:40px 36px 44px; display:flex; flex-direction:column; gap:20px; border:1px solid rgba(23,21,18,.08);">
+          <div style="color:#C69B54; font-size:16px;">★★★★★</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:19px; line-height:1.6; color:#171512;">
+            "My mom has dementia and terrible back pain, but her hair has to be done. It is really important to her. Saira made her look stunning. We are making standing appointments now."
+          </div>
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; margin-top:auto; font-weight:600;">Natalie B. · Family Caregiver</div>
+        </div>
+
+        <div style="background:#F2EDE3; padding:40px 36px 44px; display:flex; flex-direction:column; gap:20px; border:1px solid rgba(23,21,18,.08);">
+          <div style="color:#C69B54; font-size:16px;">★★★★★</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:19px; line-height:1.6; color:#171512;">
+            "Prompt, professional and so sweet. I live out of state now but make it an absolute priority to schedule appointments whenever I am in town."
+          </div>
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; margin-top:auto; font-weight:600;">Rebecca B. · Regular Travel Client</div>
+        </div>
+
+      </div>
+
+      <!-- Trust Badges Strip with Live External Links -->
+      <div data-reveal style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:16px;">
+        
+        <div style="background:#FAF7F2; border:1px solid rgba(23,21,18,.12); padding:26px 30px; display:flex; flex-direction:column; gap:6px;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:26px; line-height:1; font-weight:600;">State Licensed</div>
+          <div style="font-size:13.5px; line-height:1.5; color:#7A736A;">Every beautician licensed in every jurisdiction we serve</div>
+        </div>
+
+        <div style="background:#FAF7F2; border:1px solid rgba(23,21,18,.12); padding:26px 30px; display:flex; flex-direction:column; gap:6px;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:26px; line-height:1; font-weight:600;">$2M Insured</div>
+          <div style="font-size:13.5px; line-height:1.5; color:#7A736A;">Certificates provided to luxury venues and care centers</div>
+        </div>
+
+        <a href="https://www.yelp.com/biz/beauticians-on-the-go-phoenix-5" target="_blank" rel="noopener noreferrer" style="background:#FAF7F2; border:1px solid rgba(23,21,18,.12); padding:26px 30px; display:flex; flex-direction:column; gap:6px; text-decoration:none;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:26px; line-height:1; color:#D32323; font-weight:600;">Yelp Phoenix</div>
+            <span style="font-size:11px; color:#A8562F;">Visit ↗</span>
+          </div>
+          <div style="font-size:13.5px; line-height:1.5; color:#7A736A;">25 Reviews · 102 Photos · 2390 E Camelback Rd</div>
+        </a>
+
+        <a href="https://www.instagram.com/beauticiansonthego" target="_blank" rel="noopener noreferrer" style="background:#FAF7F2; border:1px solid rgba(23,21,18,.12); padding:26px 30px; display:flex; flex-direction:column; gap:6px; text-decoration:none;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:26px; line-height:1; color:#171512; font-weight:600;">Instagram</div>
+            <span style="font-size:11px; color:#A8562F;">Visit ↗</span>
+          </div>
+          <div style="font-size:13.5px; line-height:1.5; color:#7A736A;">@beauticiansonthego · On-location portfolio</div>
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- 8 · VISUAL GALLERY -->
+    <section style="background:#171512; padding:110px 30px;">
+      <div style="max-width:1440px; margin:0 auto;">
+        
+        <div data-reveal style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-bottom:48px;">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">The Experience</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.03em; color:#FAF7F2;">
+              This is what it looks like <span style="font-style:italic; color:#C69B54;">at your door.</span>
             </div>
           </div>
-        </sc-for>
-      </div>
-    </div>
+          <div style="font-size:16px; line-height:1.7; color:rgba(242,237,227,.6); max-width:420px;">
+            A kitchen becomes a color bar. A resort suite becomes a bridal salon. A conference room becomes a relaxing corporate spa for the afternoon.
+          </div>
+        </div>
 
-    <!-- CTA -->
-    <div style="background:#A8562F; color:#FBF7F0; padding:150px 30px;">
-      <div data-reveal style="display:flex; flex-direction:column; align-items:center; gap:34px; text-align:center;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:112px; line-height:.9; letter-spacing:-.038em;">Give us an address.</div>
-        <div style="font-size:19px; line-height:1.6; color:rgba(251,247,240,.82); max-width:540px;">Four questions is all it takes. Someone from the office calls you back the same day, and nothing is charged until you say yes to the number.</div>
-        <div style="display:flex; gap:16px; align-items:center; padding-top:8px;">
-          <div onClick="{{ goQuoteBlank }}" style="background:#171512; color:#FBF7F0; font-size:12px; letter-spacing:.16em; text-transform:uppercase; padding:23px 46px; cursor:pointer;" style-hover="background:#0C0A08;">Build your quote</div>
-          <div style="border:1px solid rgba(251,247,240,.4); font-size:12px; letter-spacing:.16em; text-transform:uppercase; padding:23px 46px;">602-803-2827</div>
+        <div data-reveal style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:240px; gap:2px;">
+          <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="7">
+            <div style="grid-column:{{ g.col }}; grid-row:{{ g.row }}; background-color:#221F1A; background-image:url({{ g.imgCss }}); background-size:cover; background-position:{{ g.pos }}; position:relative; overflow:hidden;">
+              <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,13,11,0) 45%, rgba(15,13,11,.82) 100%); display:flex; align-items:flex-end; padding:20px 22px;">
+                <div style="font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#FAF7F2; font-weight:600;">{{ g.caption }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 9 · CTA SECTION -->
+    <section style="background:#A8562F; color:#FAF7F2; padding:120px 30px;">
+      <div data-reveal style="display:flex; flex-direction:column; align-items:center; gap:28px; text-align:center; max-width:880px; margin:0 auto;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:92px; line-height:.9; letter-spacing:-.038em;">Give us an address.</div>
+        <div style="font-size:19px; line-height:1.65; color:rgba(251,247,240,.9); max-width:580px;">
+          Four questions is all it takes. Someone from our office calls you back the same day, and nothing is charged until you approve the number.
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; padding-top:8px;">
+          <div onClick="{{ goQuoteBlank }}" style="background:#171512; color:#FAF7F2; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:22px 46px; cursor:pointer; transition:all .25s ease;" style-hover="background:#0C0A08; color:#C69B54;">Build Your Quote</div>
+          <a href="tel:6028032827" style="border:1px solid rgba(251,247,240,.5); color:#FAF7F2; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:21px 36px; text-decoration:none;">Call 602-803-2827</a>
         </div>
       </div>
-    </div>
+    </section>
 
   </div>
   </sc-if>
 
+  <!-- SUB-PAGES ROUTING -->
   <sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}">
     <div style="padding-top:{{ padTop }};"><dc-import name="BOTG Services" seed="{{ seed }}" hint-size="100%,900px"></dc-import></div>
   </sc-if>
@@ -380,61 +536,79 @@
     <div style="padding-top:{{ padTop }};"><dc-import name="BOTG Quote" seed="{{ seed }}" hint-size="100%,900px"></dc-import></div>
   </sc-if>
 
-  <!-- footer -->
-  <div style="background:#171512; color:rgba(242,237,227,.55); padding:96px 30px 44px;">
-    <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:56px; padding-bottom:60px; border-bottom:1px solid rgba(242,237,227,.13);">
-      <div style="display:flex; flex-direction:column; gap:22px;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:34px; color:#F2EDE3; line-height:1.05;">Beauticians<br>On The Go</div>
-        <div style="font-size:14px; line-height:1.9;">2390 E Camelback Rd, Ste 130<br>Phoenix, AZ 85016</div>
-        <div style="font-size:14px; line-height:1.9;"><span style="font-family:'Bodoni Moda',serif; font-size:22px; color:#F2EDE3;">602-803-2827</span><br>beauticiansonthego@gmail.com</div>
-        <div style="font-size:14px; line-height:1.9;">Mon–Sat 8am–7pm<br>Sunday 8am–6pm</div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
-        <div style="font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px;">Book</div>
-        <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#F2EDE3;">Services &amp; rates</div>
-        <div onClick="{{ goWeddings }}" style="cursor:pointer;" style-hover="color:#F2EDE3;">Weddings</div>
-        <div onClick="{{ goCorporate }}" style="cursor:pointer;" style-hover="color:#F2EDE3;">Corporate spa</div>
-        <div onClick="{{ goParties }}" style="cursor:pointer;" style-hover="color:#F2EDE3;">Spa parties</div>
-        <div onClick="{{ goIncare }}" style="cursor:pointer;" style-hover="color:#F2EDE3;">In-care services</div>
-        <div onClick="{{ goQuoteBlank }}" style="cursor:pointer;" style-hover="color:#F2EDE3;">Get a quote</div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
-        <div style="font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px;">Company</div>
-        <div onClick="{{ goTeam }}" style="cursor:pointer;" style-hover="color:#F2EDE3;">The team</div>
-        <div onClick="{{ goAbout }}" style="cursor:pointer;" style-hover="color:#F2EDE3;">About</div>
-        <div onClick="{{ goProcess }}" style="cursor:pointer;" style-hover="color:#F2EDE3;">How it works</div>
-        <div style="cursor:pointer;" style-hover="color:#F2EDE3;">Join our mobile team</div>
-        <div style="cursor:pointer;" style-hover="color:#F2EDE3;">Gift cards</div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
-        <div style="font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px;">Elsewhere</div>
-        <div style="cursor:pointer;" style-hover="color:#F2EDE3;">Instagram</div>
-        <div style="cursor:pointer;" style-hover="color:#F2EDE3;">Yelp</div>
-        <div style="cursor:pointer;" style-hover="color:#F2EDE3;">Facebook</div>
-        <div style="cursor:pointer;" style-hover="color:#F2EDE3;">TikTok</div>
-        <div style="cursor:pointer;" style-hover="color:#F2EDE3;">Cancellation policy</div>
-      </div>
-    </div>
-    <div style="padding-top:30px; display:flex; justify-content:space-between; font-size:12.5px; color:rgba(242,237,227,.38);">
-      <div>© 2026 Beauticians On The Go Mobile Spa &amp; Beauty Services</div>
-      <div>Phoenix · Scottsdale · Paradise Valley · Peoria · Chandler · Ahwatukee · Mesa · Tucson · Flagstaff · Prescott · Sedona · Las Vegas · Los Angeles · Nashville · Napa · Sonoma</div>
-    </div>
-  </div>
+  <!-- FOOTER -->
+  <footer style="background:#171512; color:rgba(242,237,227,.6); padding:90px 30px 40px; border-top:1px solid rgba(198,155,84,.2);">
+    <div style="max-width:1440px; margin:0 auto;">
+      
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:56px; padding-bottom:56px; border-bottom:1px solid rgba(242,237,227,.12);">
+        
+        <!-- Col 1: Identity & Contact -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:32px; color:#FAF7F2; line-height:1.1; font-weight:600;">Beauticians<br>On The Go</div>
+          <div style="font-size:14px; line-height:1.8;">2390 E Camelback Rd, Ste 130<br>Phoenix, AZ 85016</div>
+          <div style="font-size:14px; line-height:1.8;">
+            <a href="tel:6028032827" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#C69B54; font-weight:600;">(602) 803-2827</a><br>
+            <a href="mailto:beauticiansonthego@gmail.com" style="color:rgba(242,237,227,.8);">beauticiansonthego@gmail.com</a>
+          </div>
+          <div style="font-size:13.5px; line-height:1.6; color:rgba(242,237,227,.5);">Monday–Saturday 8:00 AM – 7:00 PM<br>Sunday 8:00 AM – 6:00 PM</div>
+        </div>
 
-  <!-- persistent booking bar -->
+        <!-- Col 2: Services & Bookings -->
+        <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
+          <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px; font-weight:700;">Services</div>
+          <div onClick="{{ goServices }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Master Rate Card</div>
+          <div onClick="{{ goWeddings }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Weddings &amp; Bridal</div>
+          <div onClick="{{ goCorporate }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Corporate Wellness</div>
+          <div onClick="{{ goParties }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Spa Parties (6+ Guests)</div>
+          <div onClick="{{ goIncare }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">In-Care &amp; Seniors</div>
+          <div onClick="{{ goQuoteBlank }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Get an Online Quote</div>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
+          <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px; font-weight:700;">Company</div>
+          <div onClick="{{ goTeam }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">Meet the Specialists</div>
+          <div onClick="{{ goAbout }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">About Our Collective</div>
+          <div onClick="{{ goProcess }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">How A Visit Works</div>
+          <div onClick="{{ goVisit }}" style="cursor:pointer;" style-hover="color:#FAF7F2;">What Arrives In The Car</div>
+          <div style="cursor:pointer;" style-hover="color:#FAF7F2;">Join Our Mobile Team</div>
+        </div>
+
+        <!-- Col 4: Verified Social Profiles -->
+        <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
+          <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; margin-bottom:6px; font-weight:700;">Verified Profiles</div>
+          <a href="https://www.yelp.com/biz/beauticians-on-the-go-phoenix-5" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">Yelp Phoenix (25 Reviews) ↗</a>
+          <a href="https://www.instagram.com/beauticiansonthego" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">Instagram (@beauticiansonthego) ↗</a>
+          <a href="https://www.tiktok.com/@beauticiansonthego?_t=8fsgspReBYp&_r=1" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">TikTok (@beauticiansonthego) ↗</a>
+          <a href="https://web.facebook.com/Beauticiansonthegosalon?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">Facebook (@Beauticiansonthegosalon) ↗</a>
+          <a href="https://x.com/BOTG_salon" target="_blank" rel="noopener noreferrer" style="color:rgba(242,237,227,.75);" style-hover="color:#FAF7F2;">X / Twitter (@BOTG_salon) ↗</a>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div style="padding-top:28px; display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(242,237,227,.4); flex-wrap:wrap; gap:16px;">
+        <div>© 2026 Beauticians On The Go. All Rights Reserved.</div>
+        <div>Phoenix · Scottsdale · Paradise Valley · Peoria · Chandler · Ahwatukee · Mesa · Tucson · Flagstaff · Prescott · Sedona · Las Vegas · Los Angeles · Nashville · Napa · Sonoma</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- PERSISTENT FLOATING BOOKING DOCK -->
   <sc-if value="{{ showBar }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed; bottom:0; left:0; right:0; z-index:70; background:#171512; color:#F2EDE3; padding:16px 30px; display:flex; align-items:center; justify-content:space-between; gap:28px; border-top:1px solid rgba(198,155,84,.3); animation:botgRise .6s cubic-bezier(.16,1,.3,1) both;">
-      <div style="display:flex; align-items:center; gap:22px;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:20px; white-space:nowrap;">Book a mobile appointment</div>
-        <div style="display:flex; gap:7px;">
+    <div style="position:fixed; bottom:0; left:0; right:0; z-index:70; background:#171512; color:#FAF7F2; padding:15px 30px; display:flex; align-items:center; justify-content:space-between; gap:24px; border-top:1px solid rgba(198,155,84,.35); animation:botgRise .5s cubic-bezier(.16,1,.3,1) both;">
+      <div style="display:flex; align-items:center; gap:20px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:19px; white-space:nowrap;">Book a Mobile Appointment</div>
+        <div style="display:flex; gap:8px;">
           <sc-for list="{{ barChips }}" as="b" hint-placeholder-count="4">
-            <div onClick="{{ b.click }}" style="border:1px solid rgba(242,237,227,.26); padding:9px 16px; font-size:12.5px; cursor:pointer; white-space:nowrap; transition:background .25s ease, color .25s ease, border-color .25s ease;" style-hover="background:#C69B54; border-color:#C69B54; color:#171512;">{{ b.label }}</div>
+            <div onClick="{{ b.click }}" style="border:1px solid rgba(242,237,227,.25); padding:8px 14px; font-size:12px; cursor:pointer; white-space:nowrap; transition:all .2s ease;" style-hover="background:#C69B54; border-color:#C69B54; color:#171512;">{{ b.label }}</div>
           </sc-for>
         </div>
       </div>
-      <div style="display:flex; align-items:center; gap:18px; flex-shrink:0;">
-        <div style="font-size:13.5px; color:rgba(242,237,227,.6); white-space:nowrap;">{{ availability }}</div>
-        <div onClick="{{ goQuoteBlank }}" style="background:#C69B54; color:#171512; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:14px 26px; cursor:pointer; white-space:nowrap;">Get a quote</div>
+      <div style="display:flex; align-items:center; gap:16px; flex-shrink:0;">
+        <div style="font-size:13px; color:rgba(242,237,227,.65); white-space:nowrap;">{{ availability }}</div>
+        <div onClick="{{ goQuoteBlank }}" style="background:#C69B54; color:#171512; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; padding:13px 24px; cursor:pointer; white-space:nowrap;">Get a quote</div>
       </div>
     </div>
   </sc-if>
@@ -447,7 +621,6 @@ class Component extends DCLogic {
   state = { page: 'home', seed: '', scrolled: false, showBar: false, menu: '', hidden: false, progress: 0 };
   lastY = 0;
   navRef = React.createRef();
-  heroRef = React.createRef();
 
   syncNav = () => {
     const el = this.navRef.current;
@@ -457,58 +630,33 @@ class Component extends DCLogic {
   onScroll = () => {
     const y = window.scrollY || 0;
     const sc = y > 60;
-    const bar = y > 900 && this.state.page === 'home';
+    const bar = y > 750 && this.state.page === 'home';
     const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     const pct = Math.round(Math.min(100, (y / max) * 100));
     const goingDown = y > this.lastY + 6;
     const goingUp = y < this.lastY - 6;
     let hide = this.state.hidden;
     if (this.state.menu) hide = false;
-    else if (goingDown && y > 260) hide = true;
+    else if (goingDown && y > 300) hide = true;
     else if (goingUp || y < 120) hide = false;
     this.lastY = y;
     if (sc !== this.state.scrolled || bar !== this.state.showBar || hide !== this.state.hidden || pct !== this.state.progress) {
       this.setState({ scrolled: sc, showBar: bar, hidden: hide, progress: pct });
     }
-    const h = this.heroRef.current;
-    if (h && y < window.innerHeight * 1.2) h.style.transform = 'translateY(' + (y * 0.16) + 'px) scale(1.02)';
     this.sweep();
   };
-
-  runCounter(el) {
-    if (el.dataset.done) return;
-    el.dataset.done = '1';
-    const target = parseFloat(el.dataset.count);
-    if (isNaN(target)) return;
-    const suffix = el.dataset.suffix || '';
-    el.textContent = target + suffix;
-    const t0 = performance.now(), dur = 1400;
-    const tick = (t) => {
-      const p = Math.min(1, (t - t0) / dur);
-      const e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * e) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }
 
   reveal = (el) => {
     if (el.getAttribute('data-seen')) return;
     el.setAttribute('data-seen', '1');
-    el.querySelectorAll('[data-count]').forEach(c => this.runCounter(c));
     if (this._io) this._io.unobserve(el);
   };
 
-  // Fallback so blocks can never be stranded invisible if IO misbehaves.
   sweep = () => {
     const vh = window.innerHeight || 800;
     document.querySelectorAll('[data-reveal]:not([data-seen])').forEach(el => {
       if (el.getBoundingClientRect().top < vh * 0.92) this.reveal(el);
     });
-  };
-
-  revealAll = () => {
-    document.querySelectorAll('[data-reveal]:not([data-seen])').forEach(el => this.reveal(el));
   };
 
   scan = () => {
@@ -528,11 +676,11 @@ class Component extends DCLogic {
 
     this._io = new IntersectionObserver((entries) => {
       entries.forEach(en => { if (en.isIntersecting) this.reveal(en.target); });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
 
     this.scan();
-    [80, 400, 900, 1800].forEach(ms => setTimeout(this.sweep, ms));
-    this._sweepTimer = setInterval(this.sweep, 700);
+    [80, 300, 700, 1500].forEach(ms => setTimeout(this.sweep, ms));
+    this._sweepTimer = setInterval(this.sweep, 800);
     this._mo = new MutationObserver(() => this.scan());
     this._mo.observe(document.body, { childList: true, subtree: true });
   }
@@ -557,44 +705,29 @@ class Component extends DCLogic {
   openMenu(m) { if (this.state.menu !== m) this.setState({ menu: m, hidden: false }); }
 
   renderVals() {
-    const p = this.state.page, sc = this.state.scrolled;
-    const onDarkHero = p === 'home' && !sc;
+    const p = this.state.page;
     const nav = (k, label, fn, menu) => ({
       label: label,
-      color: p === k ? '#C69B54' : (onDarkHero ? 'rgba(251,247,240,.82)' : '#4C463E'),
-      dot: p === k ? '#C69B54' : 'transparent',
+      color: p === k ? '#A8562F' : '#4C463E',
+      dot: p === k ? '#A8562F' : 'transparent',
       click: fn,
       enter: () => this.openMenu(menu || '')
     });
 
     return {
-      navRef: this.navRef, heroRef: this.heroRef,
-      navBg: onDarkHero ? 'rgba(15,13,11,0)' : 'rgba(242,237,227,.93)',
-      navLine: onDarkHero ? 'transparent' : 'rgba(23,21,18,.1)',
-      navFg: onDarkHero ? '#FBF7F0' : '#171512',
-      navPad: onDarkHero ? '20px' : '13px',
-      navLogo: onDarkHero ? '18px' : '15.5px',
-      markSize: onDarkHero ? '40px' : '34px',
-      markGlyph: onDarkHero ? '21px' : '18px',
-      markLine: onDarkHero ? 'rgba(198,155,84,.75)' : '#C69B54',
-      markFg: onDarkHero ? '#C69B54' : '#A8562F',
-      markLabel: onDarkHero ? 'rgba(251,247,240,.55)' : '#7A736A',
-      navBtnBg: onDarkHero ? 'rgba(251,247,240,.12)' : '#171512',
-      navBtnFg: onDarkHero ? '#FBF7F0' : '#F2EDE3',
-      padTop: 'var(--botg-nav, 58px)',
-
+      navRef: this.navRef,
+      padTop: 'var(--botg-nav, 62px)',
       navItems: [
         nav('home', 'Home', () => this.go('home')),
         nav('about', 'About', () => this.go('about')),
         nav('services', 'Services', () => this.go('services'), 'services'),
         nav('occasions', 'Occasions', () => this.go('occasions'), 'occasions'),
-        nav('team', 'Team', () => this.go('team')),
-        nav('process', 'Process', () => this.go('process')),
-        nav('visit', 'Visit', () => this.go('visit'))
+        nav('team', 'Specialists', () => this.go('team')),
+        nav('process', 'How It Works', () => this.go('process')),
+        nav('visit', 'What We Bring', () => this.go('visit'))
       ],
       navShift: this.state.hidden ? '-100%' : '0px',
       progress: this.state.progress + '%',
-      navPhone: onDarkHero ? 'rgba(251,247,240,.75)' : '#4C463E',
       menuServices: this.state.menu === 'services',
       menuOccasions: this.state.menu === 'occasions',
       menuQuote: this.state.menu === 'quote',
@@ -602,21 +735,21 @@ class Component extends DCLogic {
       enterQuote: () => this.openMenu('quote'),
       toggleQuoteMenu: () => this.setState({ menu: this.state.menu === 'quote' ? '' : 'quote', hidden: false }),
       servicePanel: [
-        { label: 'Hair', count: 18, from: '$75', click: () => this.go('services', 'hair') },
-        { label: 'Skin', count: 5, from: '$170', click: () => this.go('services', 'skin') },
-        { label: 'Nails', count: 7, from: '$75', click: () => this.go('services', 'nails') },
-        { label: 'Massage', count: 4, from: '$55', click: () => this.go('services', 'massage') },
-        { label: 'Bridal', count: 9, from: '$55', click: () => this.go('services', 'bridal') },
-        { label: 'Corporate', count: 4, from: '$150', click: () => this.go('services', 'corp') },
-        { label: 'Groups', count: 18, from: '$28', click: () => this.go('services', 'group') }
+        { label: 'Hair & Colour', count: 18, from: '$75', click: () => this.go('services', 'hair') },
+        { label: 'Skin & Esthetics', count: 5, from: '$170', click: () => this.go('services', 'skin') },
+        { label: 'Nails & Manicures', count: 7, from: '$75', click: () => this.go('services', 'nails') },
+        { label: 'Therapeutic Massage', count: 4, from: '$55', click: () => this.go('services', 'massage') },
+        { label: 'Bridal & Makeup', count: 9, from: '$55', click: () => this.go('services', 'bridal') },
+        { label: 'Corporate Wellness', count: 4, from: '$150', click: () => this.go('services', 'corp') },
+        { label: 'Groups & Parties', count: 18, from: '$28', click: () => this.go('services', 'group') }
       ],
       occasionPanel: [
-        { label: 'Weddings', teaser: 'Bride and party, at the venue', from: 'Bride $380', click: () => this.go('occasions', 'wedding') },
-        { label: 'Corporate', teaser: 'Express services at the office', from: '$150/hr', click: () => this.go('occasions', 'corporate') },
-        { label: 'Spa parties', teaser: 'Bachelorette and birthdays', from: 'From $55', click: () => this.go('occasions', 'party') },
-        { label: 'Teens & kids', teaser: 'Diva parties and proms', from: 'From $28', click: () => this.go('occasions', 'teens') },
-        { label: 'In-care', teaser: 'Hospice, assisted living, home', from: '$75', click: () => this.go('occasions', 'incare') },
-        { label: 'Just you', teaser: 'Standing appointments at home', from: 'Two services', click: () => this.go('occasions', 'individual') }
+        { label: 'Weddings', teaser: 'Bride and bridal party ready at the venue', from: 'Bride $380', click: () => this.go('occasions', 'wedding') },
+        { label: 'Corporate', teaser: 'Express wellness sessions in the office', from: '$150/hr', click: () => this.go('occasions', 'corporate') },
+        { label: 'Spa Parties', teaser: 'Bachelorette and birthday gatherings', from: 'From $55', click: () => this.go('occasions', 'party') },
+        { label: 'Teens & Kids', teaser: 'Diva celebrations and prom styling', from: 'From $28', click: () => this.go('occasions', 'teens') },
+        { label: 'In-Care Visits', teaser: 'Hospice, assisted living, memory care', from: '$75', click: () => this.go('occasions', 'incare') },
+        { label: 'Just You', teaser: 'Standing appointments at your residence', from: '2 Services', click: () => this.go('occasions', 'individual') }
       ],
 
       isHome: p === 'home', isServices: p === 'services', isOccasions: p === 'occasions',
@@ -624,7 +757,7 @@ class Component extends DCLogic {
       isVisit: p === 'visit',
       seed: this.state.seed,
       showBar: this.state.showBar,
-      availability: 'Saturdays in October are filling',
+      availability: 'Now booking September & October dates',
 
       goHome: () => this.go('home'),
       goServices: () => this.go('services'),
@@ -632,6 +765,7 @@ class Component extends DCLogic {
       goTeam: () => this.go('team'),
       goProcess: () => this.go('process'),
       goAbout: () => this.go('about'),
+      goVisit: () => this.go('visit'),
       goQuoteBlank: () => this.go('quote'),
       goWeddings: () => this.go('occasions', 'wedding'),
       goCorporate: () => this.go('occasions', 'corporate'),
@@ -642,53 +776,39 @@ class Component extends DCLogic {
 
       heroChips: [
         { label: 'Just me, at home', click: () => this.go('quote', 'individual') },
-        { label: 'Wedding', click: () => this.go('quote', 'wedding') },
-        { label: 'Corporate', click: () => this.go('quote', 'corporate') },
-        { label: 'Spa party', click: () => this.go('quote', 'party') },
-        { label: 'Teens & kids', click: () => this.go('quote', 'teens') },
-        { label: 'In-care visit', click: () => this.go('quote', 'incare') }
+        { label: 'Wedding & Bridal', click: () => this.go('quote', 'wedding') },
+        { label: 'Corporate Wellness', click: () => this.go('quote', 'corporate') },
+        { label: 'Spa Party (6+ Guests)', click: () => this.go('quote', 'party') },
+        { label: 'Teens & Kids', click: () => this.go('quote', 'teens') },
+        { label: 'In-Care & Seniors', click: () => this.go('quote', 'incare') }
       ],
       barChips: [
-        { label: 'At home', click: () => this.go('quote', 'individual') },
+        { label: 'At Home', click: () => this.go('quote', 'individual') },
         { label: 'Wedding', click: () => this.go('quote', 'wedding') },
         { label: 'Corporate', click: () => this.go('quote', 'corporate') },
-        { label: 'Spa party', click: () => this.go('quote', 'party') }
-      ],
-
-      stats: [
-        { to: 25, suffix: '', label: 'Years in business' },
-        { to: 25, suffix: '', label: 'Licensed beauticians' },
-        { to: 16, suffix: '', label: 'Cities served' },
-        { to: 68, suffix: '', label: 'Published services' }
+        { label: 'In-Care', click: () => this.go('quote', 'incare') }
       ],
 
       homeRates: [
         { name: 'Microblading', time: '1 hr 20 min', price: '$450' },
-        { name: 'Bride — updo, makeup and lashes', time: '2 hr', price: '$380' },
-        { name: 'Micro-needling', time: '1 hr', price: '$350' },
-        { name: 'Balayage, long hair, with style', time: '3 hr', price: '$325' },
-        { name: 'Makeup application with lashes', time: '1 hr', price: '$185' },
-        { name: 'Facial', time: '1 hr', price: '$170' },
-        { name: 'Haircut and blow dry style', time: '55 min', price: '$165' },
-        { name: 'Elderly haircut and style', time: '45 min', price: '$75' }
-      ],
-
-      teamTeaser: [
-        { name: 'Saira', role: 'Bridal, colour · 14 years', slot: 'botg-team-1', placeholder: 'Saira — portrait' },
-        { name: 'Carla', role: 'Owner, corporate · 25 years', slot: 'botg-team-2', placeholder: 'Carla — portrait' },
-        { name: 'Marisol', role: 'Skin, micro-needling · 11 years', slot: 'botg-team-3', placeholder: 'Marisol — portrait' },
-        { name: 'Deanna', role: 'Nails, group events · 8 years', slot: 'botg-team-4', placeholder: 'Deanna — portrait' },
-        { name: 'Priya', role: 'Massage, in-care · 12 years', slot: 'botg-team-5', placeholder: 'Priya — portrait' }
+        { name: 'Bride Combo: Updo, Makeup & Lashes', time: '2 hr', price: '$380' },
+        { name: 'Micro-Needling Treatment', time: '1 hr', price: '$350' },
+        { name: 'Balayage, Long Hair with Style', time: '3 hr', price: '$325' },
+        { name: 'Single Process Colour (Long Hair)', time: '2 hr', price: '$280' },
+        { name: 'Custom Facial Treatment', time: '1 hr', price: '$170' },
+        { name: 'Haircut & Blow Dry Style', time: '55 min', price: '$165' },
+        { name: 'Full Body Table Massage', time: '1 hr', price: '$160' },
+        { name: 'Elderly Haircut & Style', time: '45 min', price: '$75' }
       ],
 
       gallery: [
-        { col: '1 / 3', row: '1 / 3', pos: 'center 30%', caption: 'Bridal, on location', imgCss: "'https://static.wixstatic.com/media/2cda2b_465da187efb44362a136e81354cc20df~mv2.jpg/v1/fill/w_1400,h_1000,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/2cda2b_465da187efb44362a136e81354cc20df~mv2.jpg'" },
-        { col: '3 / 4', row: '1 / 2', pos: 'center', caption: 'Pedicures', imgCss: "'https://static.wixstatic.com/media/f4e6b4d3adc942c2952a9a3198f6af00.jpg/v1/fill/w_700,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/f4e6b4d3adc942c2952a9a3198f6af00.jpg'" },
-        { col: '4 / 5', row: '1 / 2', pos: 'center', caption: 'Massage', imgCss: "'https://static.wixstatic.com/media/182a82578f8721e3db24d6b1c2adf6e9.jpg/v1/fill/w_700,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/182a82578f8721e3db24d6b1c2adf6e9.jpg'" },
-        { col: '3 / 5', row: '2 / 3', pos: 'center', caption: 'Colour and highlights', imgCss: "'https://static.wixstatic.com/media/95ab9aa30c01451283acc3e10cb9f16a.jpg/v1/crop/x_1523,y_85,w_2901,h_2900/fill/w_1200,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/95ab9aa30c01451283acc3e10cb9f16a.jpg'" },
-        { col: '1 / 2', row: '3 / 4', pos: 'center', caption: 'Manicures', imgCss: "'https://static.wixstatic.com/media/1e47b2_1686c3cb64984592a0fa5dba59ae2e9a.jpg/v1/fill/w_700,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e47b2_1686c3cb64984592a0fa5dba59ae2e9a.jpg'" },
-        { col: '2 / 4', row: '3 / 4', pos: 'center 30%', caption: 'Facials and skin', imgCss: "'https://static.wixstatic.com/media/6eaddd_e8f1c62b149b4626ad06d17f22a8ce33~mv2.jpg/v1/crop/x_249,y_0,w_1080,h_1080/fill/w_1200,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/Services1d_edited.jpg'" },
-        { col: '4 / 5', row: '3 / 4', pos: 'center', caption: 'In-care visits', imgCss: "'https://static.wixstatic.com/media/1c1fcfb3c2fa41a58394493406e03029.jpg/v1/fill/w_700,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1c1fcfb3c2fa41a58394493406e03029.jpg'" }
+        { col: '1 / 3', row: '1 / 3', pos: 'center 30%', caption: 'Bridal on location', imgCss: "'https://static.wixstatic.com/media/2cda2b_465da187efb44362a136e81354cc20df~mv2.jpg/v1/fill/w_1400,h_1000,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/2cda2b_465da187efb44362a136e81354cc20df~mv2.jpg'" },
+        { col: '3 / 4', row: '1 / 2', pos: 'center', caption: 'Individual Pedicures', imgCss: "'https://static.wixstatic.com/media/f4e6b4d3adc942c2952a9a3198f6af00.jpg/v1/fill/w_700,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/f4e6b4d3adc942c2952a9a3198f6af00.jpg'" },
+        { col: '4 / 5', row: '1 / 2', pos: 'center', caption: 'Massage Therapy', imgCss: "'https://static.wixstatic.com/media/182a82578f8721e3db24d6b1c2adf6e9.jpg/v1/fill/w_700,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/182a82578f8721e3db24d6b1c2adf6e9.jpg'" },
+        { col: '3 / 5', row: '2 / 3', pos: 'center', caption: 'Colour & Balayage', imgCss: "'https://static.wixstatic.com/media/95ab9aa30c01451283acc3e10cb9f16a.jpg/v1/crop/x_1523,y_85,w_2901,h_2900/fill/w_1200,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/95ab9aa30c01451283acc3e10cb9f16a.jpg'" },
+        { col: '1 / 2', row: '3 / 4', pos: 'center', caption: 'Manicure Station', imgCss: "'https://static.wixstatic.com/media/1e47b2_1686c3cb64984592a0fa5dba59ae2e9a.jpg/v1/fill/w_700,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e47b2_1686c3cb64984592a0fa5dba59ae2e9a.jpg'" },
+        { col: '2 / 4', row: '3 / 4', pos: 'center 30%', caption: 'Facials & Esthetics', imgCss: "'https://static.wixstatic.com/media/6eaddd_e8f1c62b149b4626ad06d17f22a8ce33~mv2.jpg/v1/crop/x_249,y_0,w_1080,h_1080/fill/w_1200,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/Services1d_edited.jpg'" },
+        { col: '4 / 5', row: '3 / 4', pos: 'center', caption: 'In-Care Bedside Visits', imgCss: "'https://static.wixstatic.com/media/1c1fcfb3c2fa41a58394493406e03029.jpg/v1/fill/w_700,h_500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1c1fcfb3c2fa41a58394493406e03029.jpg'" }
       ]
     };
   }

@@ -13,14 +13,14 @@
 
     <!-- left rail -->
     <div style="padding:80px 56px; display:flex; flex-direction:column; gap:30px; position:sticky; top:var(--botg-nav, 62px);">
-      <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F;">Get a quote</div>
+      <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; font-weight:700;">Get a quote</div>
       <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.92; letter-spacing:-.032em;">Where should<br>we <span style="font-style:italic; color:#A8562F;">come?</span></div>
-      <div style="font-size:17px; line-height:1.72; color:#4C463E; max-width:440px;">Four questions, about two minutes. Then a call from our office the same day to confirm the plan and send an invoice with travel included. Nothing is charged until you say yes.</div>
+      <div style="font-size:17px; line-height:1.72; color:#4C463E; max-width:440px;">Four quick questions, about two minutes. A specialist from our Phoenix office calls you the same day to confirm the schedule and send an itemized invoice with travel included. Nothing is charged until you approve.</div>
 
       <div style="display:flex; flex-direction:column; gap:1px; background:rgba(23,21,18,.14); margin-top:8px;">
         <sc-for list="{{ railSteps }}" as="s" hint-placeholder-count="4">
           <div style="background:#F2EDE3; padding:16px 4px; display:grid; grid-template-columns:34px 1fr auto; gap:14px; align-items:center;">
-            <div style="font-family:'Bodoni Moda',serif; font-size:20px; color:{{ s.color }};">{{ s.n }}</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:20px; color:{{ s.color }}; font-weight:600;">{{ s.n }}</div>
             <div style="font-size:15px; color:{{ s.color }}; font-weight:{{ s.weight }};">{{ s.label }}</div>
             <div style="font-size:13.5px; color:#7A736A; max-width:180px; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ s.value }}</div>
           </div>
@@ -28,7 +28,7 @@
       </div>
 
       <div style="border-top:1px solid rgba(23,21,18,.14); padding-top:22px; font-size:15px; line-height:1.7; color:#4C463E;">
-        Rather just talk? Call <span style="font-family:'Bodoni Moda',serif; font-size:20px; color:#171512;">602-803-2827</span><br>Monday–Saturday 8am–7pm, Sunday to 6pm.
+        Prefer to speak directly? Call <a href="tel:6028032827" style="font-family:'Bodoni Moda',serif; font-size:20px; color:#171512; font-weight:600; text-decoration:none;">602-803-2827</a><br>Monday–Saturday 8:00 AM – 7:00 PM, Sunday 8:00 AM – 6:00 PM.
       </div>
     </div>
 
@@ -45,19 +45,19 @@
       <sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px;">Step 1 of 4</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">What's the occasion?</div>
+          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px; font-weight:700;">Step 1 of 4</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">What is the occasion?</div>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(23,21,18,.14);">
           <sc-for list="{{ occasions }}" as="o" hint-placeholder-count="6">
-            <div onClick="{{ o.click }}" style="background:{{ o.bg }}; color:{{ o.fg }}; padding:24px 24px 28px; cursor:pointer; display:flex; flex-direction:column; gap:6px;">
+            <div onClick="{{ o.click }}" style="background:{{ o.bg }}; color:{{ o.fg }}; padding:24px 24px 28px; cursor:pointer; display:flex; flex-direction:column; gap:6px; transition:all .2s ease;">
               <div style="font-size:18px; font-weight:600;">{{ o.label }}</div>
               <div style="font-size:14px; line-height:1.55; color:{{ o.sub }};">{{ o.note }}</div>
             </div>
           </sc-for>
         </div>
         <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
-          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Continue</div>
+          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Continue</div>
           <div style="font-size:14px; color:#7A736A;">{{ hint1 }}</div>
         </div>
       </div>
@@ -67,38 +67,38 @@
       <sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px;">Step 2 of 4</div>
+          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px; font-weight:700;">Step 2 of 4</div>
           <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">What would you like done?</div>
           <div style="font-size:15.5px; line-height:1.65; color:#4C463E; margin-top:12px; max-width:520px;">{{ minNote }}</div>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:9px;">
           <sc-for list="{{ services }}" as="v" hint-placeholder-count="10">
-            <div onClick="{{ v.click }}" style="border:1px solid {{ v.border }}; background:{{ v.bg }}; color:{{ v.fg }}; padding:12px 20px; font-size:14.5px; cursor:pointer; display:flex; gap:9px; align-items:baseline;">
-              <span>{{ v.label }}</span><span style="font-size:12px; color:{{ v.priceColor }};">{{ v.price }}</span>
+            <div onClick="{{ v.click }}" style="border:1px solid {{ v.border }}; background:{{ v.bg }}; color:{{ v.fg }}; padding:12px 20px; font-size:14.5px; font-weight:500; cursor:pointer; display:flex; gap:9px; align-items:baseline; transition:all .2s ease;">
+              <span>{{ v.label }}</span><span style="font-size:12px; color:{{ v.priceColor }}; font-weight:700;">{{ v.price }}</span>
             </div>
           </sc-for>
         </div>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding-top:12px;">
           <div style="display:flex; flex-direction:column; gap:10px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">How many people</div>
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Number of guests</div>
             <div style="display:flex; align-items:center; gap:2px; background:rgba(23,21,18,.14); width:fit-content;">
-              <div onClick="{{ dec }}" style="background:#FDFBF7; padding:14px 22px; font-size:19px; cursor:pointer; line-height:1;">−</div>
-              <div style="background:#FDFBF7; padding:14px 30px; font-family:'Bodoni Moda',serif; font-size:22px; line-height:1; min-width:72px; text-align:center;">{{ guests }}</div>
-              <div onClick="{{ inc }}" style="background:#FDFBF7; padding:14px 22px; font-size:19px; cursor:pointer; line-height:1;">+</div>
+              <div onClick="{{ dec }}" style="background:#FDFBF7; padding:14px 22px; font-size:19px; cursor:pointer; line-height:1; font-weight:700;">−</div>
+              <div style="background:#FDFBF7; padding:14px 30px; font-family:'Bodoni Moda',serif; font-size:22px; line-height:1; min-width:72px; text-align:center; font-weight:600;">{{ guests }}</div>
+              <div onClick="{{ inc }}" style="background:#FDFBF7; padding:14px 22px; font-size:19px; cursor:pointer; line-height:1; font-weight:700;">+</div>
             </div>
-            <div style="font-size:13.5px; color:#A8562F;">{{ guestNote }}</div>
+            <div style="font-size:13.5px; color:#A8562F; font-weight:600;">{{ guestNote }}</div>
           </div>
           <div style="display:flex; flex-direction:column; gap:10px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Estimated services subtotal</div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:38px; line-height:1;">{{ estimate }}</div>
-            <div style="font-size:13.5px; color:#7A736A;">Before travel fee. Confirmed on your call.</div>
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Estimated services subtotal</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:38px; line-height:1; font-weight:600; color:#171512;">{{ estimate }}</div>
+            <div style="font-size:13.5px; color:#7A736A;">Before distance travel fee. Confirmed on your call.</div>
           </div>
         </div>
 
         <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
-          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:13px; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
-          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Continue</div>
+          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
+          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Continue</div>
           <div style="font-size:14px; color:#7A736A;">{{ hint2 }}</div>
         </div>
       </div>
@@ -108,42 +108,42 @@
       <sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px;">Step 3 of 4</div>
+          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px; font-weight:700;">Step 3 of 4</div>
           <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">When and where?</div>
         </div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">City</div>
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">City</div>
           <div style="display:flex; flex-wrap:wrap; gap:8px;">
             <sc-for list="{{ cityOpts }}" as="c" hint-placeholder-count="16">
-              <div onClick="{{ c.click }}" style="border:1px solid {{ c.border }}; background:{{ c.bg }}; color:{{ c.fg }}; padding:10px 17px; font-size:14px; cursor:pointer;">{{ c.label }}</div>
+              <div onClick="{{ c.click }}" style="border:1px solid {{ c.border }}; background:{{ c.bg }}; color:{{ c.fg }}; padding:10px 17px; font-size:14px; font-weight:500; cursor:pointer;">{{ c.label }}</div>
             </sc-for>
           </div>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
           <div style="display:flex; flex-direction:column; gap:9px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Preferred date</div>
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Preferred date</div>
             <input type="date" value="{{ date }}" onChange="{{ setDate }}" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
           </div>
           <div style="display:flex; flex-direction:column; gap:9px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Preferred start time</div>
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Preferred start time</div>
             <input type="time" value="{{ time }}" onChange="{{ setTime }}" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
           </div>
         </div>
         <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Location type</div>
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Location type</div>
           <div style="display:flex; flex-wrap:wrap; gap:8px;">
             <sc-for list="{{ venueOpts }}" as="v" hint-placeholder-count="8">
-              <div onClick="{{ v.click }}" style="border:1px solid {{ v.border }}; background:{{ v.bg }}; color:{{ v.fg }}; padding:10px 17px; font-size:14px; cursor:pointer;">{{ v.label }}</div>
+              <div onClick="{{ v.click }}" style="border:1px solid {{ v.border }}; background:{{ v.bg }}; color:{{ v.fg }}; padding:10px 17px; font-size:14px; font-weight:500; cursor:pointer;">{{ v.label }}</div>
             </sc-for>
           </div>
         </div>
         <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Address or venue name</div>
-          <input value="{{ address }}" onChange="{{ setAddress }}" placeholder="Street address, hotel, venue or facility" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Address or venue name</div>
+          <input value="{{ address }}" onChange="{{ setAddress }}" placeholder="Street address, hotel, resort, venue or facility" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
         </div>
         <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
-          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:13px; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
-          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Continue</div>
+          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
+          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Continue</div>
           <div style="font-size:14px; color:#7A736A;">{{ hint3 }}</div>
         </div>
       </div>
@@ -153,39 +153,39 @@
       <sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px;">Step 4 of 4</div>
+          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-bottom:10px; font-weight:700;">Step 4 of 4</div>
           <div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1.08;">Who should we call?</div>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
           <div style="display:flex; flex-direction:column; gap:9px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Name</div>
-            <input value="{{ name }}" onChange="{{ setName }}" placeholder="First and last" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Name</div>
+            <input value="{{ name }}" onChange="{{ setName }}" placeholder="First and last name" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
           </div>
           <div style="display:flex; flex-direction:column; gap:9px;">
-            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Phone</div>
+            <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Phone</div>
             <input value="{{ phone }}" onChange="{{ setPhone }}" placeholder="(602) 000-0000" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
           </div>
         </div>
         <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Email</div>
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Email address</div>
           <input value="{{ email }}" onChange="{{ setEmail }}" placeholder="you@email.com" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
         </div>
         <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Request a beautician</div>
-          <div style="font-size:14px; color:#7A736A; margin-bottom:2px;">Worked with one of ours before? Name her and we will send her if she is free.</div>
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Request a preferred beautician</div>
+          <div style="font-size:14px; color:#7A736A; margin-bottom:2px;">Worked with one of our specialists before? Select her name and we will dispatch her if available.</div>
           <div style="display:flex; flex-wrap:wrap; gap:8px;">
             <sc-for list="{{ beauticianOpts }}" as="b" hint-placeholder-count="13">
-              <div onClick="{{ b.click }}" style="border:1px solid {{ b.border }}; background:{{ b.bg }}; color:{{ b.fg }}; padding:10px 17px; font-size:14px; cursor:pointer;">{{ b.label }}</div>
+              <div onClick="{{ b.click }}" style="border:1px solid {{ b.border }}; background:{{ b.bg }}; color:{{ b.fg }}; padding:10px 17px; font-size:14px; font-weight:500; cursor:pointer;">{{ b.label }}</div>
             </sc-for>
           </div>
         </div>
         <div style="display:flex; flex-direction:column; gap:9px;">
-          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">Anything we should know</div>
-          <textarea value="{{ notes }}" onChange="{{ setNotes }}" placeholder="Access instructions, mobility needs, allergies, run of show, parking" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none; min-height:110px; resize:vertical;"></textarea>
+          <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Special instructions or access notes</div>
+          <textarea value="{{ notes }}" onChange="{{ setNotes }}" placeholder="Gate access codes, mobility needs, allergies, run of show, parking details" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none; min-height:110px; resize:vertical;"></textarea>
         </div>
 
         <div style="background:#171512; color:#F2EDE3; padding:30px 32px; display:flex; flex-direction:column; gap:16px;">
-          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54;">Your request</div>
+          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54; font-weight:700;">Your Appointment Request</div>
           <sc-for list="{{ summary }}" as="r" hint-placeholder-count="5">
             <div style="display:grid; grid-template-columns:150px 1fr; gap:20px; font-size:15.5px; line-height:1.55; padding-bottom:11px; border-bottom:1px solid rgba(242,237,227,.13);">
               <div style="color:rgba(242,237,227,.5);">{{ r.k }}</div>
@@ -194,14 +194,14 @@
           </sc-for>
           <div style="display:flex; justify-content:space-between; align-items:baseline; padding-top:6px;">
             <div style="font-size:15.5px; color:rgba(242,237,227,.5);">Estimated services subtotal</div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:32px; color:#C69B54;">{{ estimate }}</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:32px; color:#C69B54; font-weight:600;">{{ estimate }}</div>
           </div>
-          <div style="font-size:13.5px; line-height:1.6; color:rgba(242,237,227,.5);">Travel fee is added by distance and confirmed on your call. This is an estimate, not an invoice.</div>
+          <div style="font-size:13.5px; line-height:1.6; color:rgba(242,237,227,.5);">Travel fee is calculated by distance and confirmed on your call. This is an itemized estimate, not a charged invoice.</div>
         </div>
 
         <div style="display:flex; gap:14px; align-items:center;">
-          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:13px; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
-          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Send request</div>
+          <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
+          <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:19px 40px; cursor:{{ nextCursor }};">Send request</div>
           <div style="font-size:14px; color:#7A736A;">{{ hint4 }}</div>
         </div>
       </div>
@@ -210,10 +210,10 @@
       <!-- DONE -->
       <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex; flex-direction:column; gap:24px; padding-top:20px;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:52px; line-height:1.04;">That's the hard part<br><span style="font-style:italic; color:#A8562F;">over with.</span></div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:52px; line-height:1.04;">Request received.<br><span style="font-style:italic; color:#A8562F;">We are on it.</span></div>
         <div style="font-size:17px; line-height:1.72; color:#4C463E; max-width:520px;">{{ doneLine }}</div>
-        <div style="background:#E8E1D4; border-left:2px solid #A8562F; padding:24px 26px; font-size:15.5px; line-height:1.7; color:#2C2721; max-width:560px;">Someone will call to confirm how many beauticians your booking needs and send an invoice with travel included. Nothing is charged until you approve it, and we call again the day before so nothing is left to chance.</div>
-        <div onClick="{{ reset }}" style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; border-bottom:1px solid #171512; padding-bottom:5px; width:fit-content; cursor:pointer;">Start another request</div>
+        <div style="background:#E8E1D4; border-left:2px solid #A8562F; padding:24px 26px; font-size:15.5px; line-height:1.7; color:#2C2721; max-width:560px;">A team member from our Phoenix office will call to confirm beautician staffing, finalize timing, and provide your formal invoice. Nothing is charged until you approve, and we confirm again the day prior.</div>
+        <div onClick="{{ reset }}" style="font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; border-bottom:1px solid #171512; padding-bottom:5px; width:fit-content; cursor:pointer;">Start another request →</div>
       </div>
       </sc-if>
 
@@ -226,15 +226,15 @@
         <div onClick="{{ closeExit }}" style="position:absolute; top:22px; right:26px; font-size:22px; line-height:1; color:#7A736A; cursor:pointer;">×</div>
         <div style="display:flex; align-items:center; gap:16px;">
           <div style="width:44px; height:1px; background:#A8562F;"></div>
-          <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F;">Before you go</div>
+          <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">Direct Phone Assistance</div>
         </div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:48px; line-height:.96; letter-spacing:-.028em;">Rather we<br>called <span style="font-style:italic; color:#A8562F;">you?</span></div>
-        <div style="font-size:16.5px; line-height:1.7; color:#4C463E;">Leave a number and someone from the Scottsdale office will call within the hour, between 8am and 7pm. No form to finish.</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:48px; line-height:.96; letter-spacing:-.028em;">Rather we<br>call <span style="font-style:italic; color:#A8562F;">you?</span></div>
+        <div style="font-size:16.5px; line-height:1.7; color:#4C463E;">Leave your phone number and someone from our office will call you back promptly during business hours.</div>
         <div style="display:flex; gap:10px; padding-top:6px;">
           <input placeholder="(602) 000-0000" style="flex:1; border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:17px 18px; font-family:'Karla',sans-serif; font-size:16px; color:#171512; outline:none;">
-          <div onClick="{{ closeExit }}" style="background:#171512; color:#F2EDE3; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; padding:19px 32px; cursor:pointer; white-space:nowrap;">Call me</div>
+          <div onClick="{{ closeExit }}" style="background:#171512; color:#F2EDE3; font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:19px 32px; cursor:pointer; white-space:nowrap;">Call me</div>
         </div>
-        <div onClick="{{ closeExit }}" style="font-size:14px; color:#7A736A; cursor:pointer; text-decoration:underline; width:fit-content;">No thanks, I'll keep going</div>
+        <div onClick="{{ closeExit }}" style="font-size:14px; color:#7A736A; cursor:pointer; text-decoration:underline; width:fit-content;">No thanks, I will continue online</div>
       </div>
     </div>
   </sc-if>
@@ -250,7 +250,7 @@ class Component extends DCLogic {
     exit: false, exitDismissed: false
   };
 
-  BEAUTICIANS = ['No preference','Saira','Carla','Marisol','Deanna','Priya','Tanya','Renata','Joelle','Adaeze','Kim','Brielle','Sofia'];
+  BEAUTICIANS = ['No preference','Carla','Saira','Marisol','Deanna','Priya','Tanya','Renata','Joelle','Adaeze','Kim','Brielle','Sofia'];
 
   onExit = (e) => {
     if (e.clientY > 12) return;
@@ -263,32 +263,32 @@ class Component extends DCLogic {
 
   OCC = [
     { k: 'individual', label: 'Just me, at home', note: 'Two-service minimum applies' },
-    { k: 'wedding', label: 'Wedding', note: 'Bride and party, at the venue' },
-    { k: 'corporate', label: 'Corporate', note: '$150/hr, four-hour minimum' },
-    { k: 'party', label: 'Spa party', note: 'Group rates from six guests' },
-    { k: 'teens', label: 'Teens & kids', note: 'Shorter services, group rates' },
-    { k: 'incare', label: 'In-care visit', note: 'Senior, homebound or facility' }
+    { k: 'wedding', label: 'Weddings & Bridal', note: 'Bride and bridal party on location' },
+    { k: 'corporate', label: 'Corporate Wellness', note: '$150/hr per tech, 4-hour minimum' },
+    { k: 'party', label: 'Spa Party', note: 'Group rates from six guests' },
+    { k: 'teens', label: 'Teens & Kids', note: 'Diva celebrations and prom styling' },
+    { k: 'incare', label: 'In-Care Visit', note: 'Senior, hospital, or assisted living' }
   ];
 
   SVC = [
-    { k: 'facial', label: 'Facial', price: '$170', p: 170 },
-    { k: 'massage', label: 'Massage', price: '$160', p: 160 },
+    { k: 'facial', label: 'Custom Facial', price: '$170', p: 170 },
+    { k: 'massage', label: 'Full Body Massage', price: '$160', p: 160 },
     { k: 'mani', label: 'Manicure', price: '$75', p: 75 },
     { k: 'pedi', label: 'Pedicure', price: '$85', p: 85 },
-    { k: 'cut', label: 'Haircut + style', price: '$165', p: 165 },
+    { k: 'cut', label: 'Haircut + blow dry style', price: '$165', p: 165 },
     { k: 'blowout', label: 'Blowout / updo', price: '$175', p: 175 },
-    { k: 'color', label: 'Colour', price: 'from $180', p: 180 },
-    { k: 'highlights', label: 'Highlights / balayage', price: 'from $185', p: 185 },
+    { k: 'color', label: 'Single process colour', price: 'from $180', p: 180 },
+    { k: 'highlights', label: 'Balayage / highlights', price: 'from $185', p: 185 },
     { k: 'makeup', label: 'Makeup + lashes', price: '$185', p: 185 },
-    { k: 'bridal', label: 'Bridal hair + makeup', price: '$380', p: 380 },
-    { k: 'wax', label: 'Waxing', price: 'from $180', p: 180 },
+    { k: 'bridal', label: 'Bride Deluxe Combo', price: '$380', p: 380 },
+    { k: 'wax', label: 'Facial waxing', price: 'from $180', p: 180 },
     { k: 'needling', label: 'Micro-needling', price: '$350', p: 350 },
     { k: 'blading', label: 'Microblading', price: '$450', p: 450 },
     { k: 'chair', label: 'Chair massage', price: '$55', p: 55 }
   ];
 
   CITIES = ['Phoenix','Scottsdale','Paradise Valley','Peoria','Chandler','Ahwatukee','Mesa','Tucson','Flagstaff','Prescott','Sedona','Las Vegas','Los Angeles','Nashville','Napa','Sonoma'];
-  VENUES = ['Private home','Hotel','Airbnb / VRBO','Office','Wedding venue','Retirement or assisted living','Hospital or rehab','Other'];
+  VENUES = ['Private home','Luxury Hotel','Airbnb / VRBO','Corporate Office','Wedding Venue','Retirement Community','Hospital or Rehab','Other'];
 
   pick(key, val) { const o = {}; o[key] = val; this.setState(o); }
 
@@ -330,19 +330,35 @@ class Component extends DCLogic {
     const chosen = this.SVC.filter(v => s.services.indexOf(v.k) !== -1);
     const perHead = s.occasion === 'individual' || s.occasion === 'incare' ? 1 : s.guests;
     const subtotal = chosen.reduce((a, v) => a + v.p, 0) * perHead;
-    const occLabel = (this.OCC.find(o => o.k === s.occasion) || {}).label || '—';
+    const occObj = this.OCC.find(o => o.k === s.occasion) || {};
+    const occLabel = occObj.label || 'Not selected';
     const ok = this.valid();
     const barOn = (n) => s.step >= n || s.done ? '#A8562F' : 'rgba(23,21,18,.15)';
     const minS = this.minServices();
 
     const hints = {
-      1: s.occasion ? '' : 'Choose one to continue',
-      2: s.services.length >= minS ? '' : (minS === 2 ? 'Individual bookings need at least two services' : 'Select at least one service'),
+      1: s.occasion ? '' : 'Select an occasion to continue',
+      2: s.services.length >= minS ? '' : (minS === 2 ? 'Individual appointments require at least two services' : 'Select at least one service'),
       3: ok ? '' : 'City, date and location type are required',
-      4: ok ? '' : 'Name and phone are required'
+      4: ok ? '' : 'Name and phone number are required'
     };
 
+    const stepLabel = (n, name, val) => ({
+      n: '0' + n,
+      label: name,
+      value: val,
+      color: s.step === n ? '#171512' : (s.step > n || s.done ? '#A8562F' : '#7A736A'),
+      weight: s.step === n ? 700 : 500
+    });
+
     return {
+      railSteps: [
+        stepLabel(1, 'Occasion', occObj.label || ''),
+        stepLabel(2, 'Services', chosen.length ? chosen.length + ' selected' : ''),
+        stepLabel(3, 'Schedule', [s.city, s.date].filter(Boolean).join(', ')),
+        stepLabel(4, 'Contact', s.name || '')
+      ],
+
       s1: !s.done && s.step === 1, s2: !s.done && s.step === 2,
       s3: !s.done && s.step === 3, s4: !s.done && s.step === 4, done: s.done,
       bars: [barOn(1), barOn(2), barOn(3), barOn(4)],
@@ -365,8 +381,8 @@ class Component extends DCLogic {
       }),
 
       minNote: minS === 2
-        ? 'Two services is the minimum for an individual visit — pick what you want and we will fit the timing around your day.'
-        : 'Pick everything you want. For groups the estimate multiplies by headcount, and we will tell you how many beauticians that needs.',
+        ? 'Two services is the minimum for an individual appointment: choose your pairing and we schedule the visit to suit your day.'
+        : 'Select all desired services. For group parties, the estimate adjusts by headcount and we allocate the appropriate specialists.',
 
       services: this.SVC.map(v => {
         const sel = s.services.indexOf(v.k) !== -1;
@@ -378,7 +394,7 @@ class Component extends DCLogic {
       inc: () => this.setState(st => ({ guests: st.guests + 1 })),
       dec: () => this.setState(st => ({ guests: Math.max(1, st.guests - 1) })),
       guestNote: (s.occasion === 'party' || s.occasion === 'teens') && s.guests < 6
-        ? 'Group rates start at six guests'
+        ? 'Group rates unlock at six guests'
         : (s.occasion === 'corporate' ? 'Billed hourly, four-hour minimum' : ''),
 
       estimate: subtotal > 0 ? '$' + subtotal.toLocaleString() : '—',
@@ -412,15 +428,15 @@ class Component extends DCLogic {
       summary: [
         { k: 'Occasion', v: occLabel },
         { k: 'Beautician', v: s.beautician || 'No preference' },
-        { k: 'Services', v: chosen.length ? chosen.map(c => c.label).join(', ') : '—' },
+        { k: 'Services', v: chosen.length ? chosen.map(c => c.label).join(', ') : 'None selected' },
         { k: 'People', v: String(s.guests) },
         { k: 'When', v: (s.date || 'Date TBC') + (s.time ? ' at ' + s.time : '') },
-        { k: 'Where', v: [s.venue, s.city, s.address].filter(Boolean).join(' · ') || '—' }
+        { k: 'Where', v: [s.venue, s.city, s.address].filter(Boolean).join(' · ') || 'Address pending' }
       ],
 
       doneLine: s.name
-        ? 'Thank you, ' + s.name.split(' ')[0] + '. We have your request for ' + occLabel.toLowerCase() + (s.city ? ' in ' + s.city : '') + (s.date ? ' on ' + s.date : '') + '.'
-        : 'We have your request.'
+        ? 'Thank you, ' + s.name.split(' ')[0] + '. We have received your request for ' + occLabel.toLowerCase() + (s.city ? ' in ' + s.city : '') + (s.date ? ' on ' + s.date : '') + '.'
+        : 'We have received your appointment request.'
     };
   }
 }

@@ -16,13 +16,13 @@
     <div style="position:relative; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:0 30px 56px; gap:24px;">
       <div style="display:flex; align-items:center; gap:16px;">
         <div style="width:44px; height:1px; background:#C69B54;"></div>
-        <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; white-space:nowrap;">Sixty-eight services, all priced</div>
+        <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; white-space:nowrap; font-weight:700;">Sixty-eight services: all rates published</div>
       </div>
-      <div style="font-family:'Bodoni Moda',serif; font-size:108px; line-height:.92; letter-spacing:-.038em; color:#FBF7F0; padding-bottom:12px;">Know the price<br>before you <span style="font-style:italic; color:#C69B54;">call.</span></div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:96px; line-height:.92; letter-spacing:-.038em; color:#FBF7F0; padding-bottom:12px;">Know the price<br>before you <span style="font-style:italic; color:#C69B54;">call.</span></div>
       <div style="display:flex; gap:44px; flex-wrap:wrap;">
-        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Book any two services and we come to you.</div>
-        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Six guests or more and the per-person rate drops.</div>
-        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Travel is quoted up front. No surprises on the invoice.</div>
+        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Book any two services and we travel directly to your door.</div>
+        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Six guests or more unlocks tiered per-person group pricing.</div>
+        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Travel fee is quoted up front. Zero surprise charges on the invoice.</div>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
   <!-- filter -->
   <div ref="{{ barRef }}" style="position:sticky; top:var(--botg-nav, 58px); z-index:40; background:rgba(242,237,227,.95); backdrop-filter:blur(14px); padding:18px 30px; border-bottom:1px solid rgba(23,21,18,.12); display:flex; flex-wrap:wrap; gap:9px;">
     <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
-      <div onClick="{{ t.click }}" style="border:1px solid {{ t.border }}; background:{{ t.bg }}; color:{{ t.fg }}; padding:11px 20px; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; cursor:pointer;">{{ t.label }}</div>
+      <div onClick="{{ t.click }}" style="border:1px solid {{ t.border }}; background:{{ t.bg }}; color:{{ t.fg }}; padding:11px 20px; font-size:11.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; cursor:pointer; transition:all .2s ease;">{{ t.label }}</div>
     </sc-for>
   </div>
 
@@ -45,13 +45,13 @@
           <div style="order:{{ g.oTxt }}; padding:80px 40px; display:flex; flex-direction:column; justify-content:center; gap:22px;">
             <div style="display:flex; align-items:center; gap:14px;">
               <div style="width:34px; height:1px; background:#A8562F;"></div>
-              <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F;">{{ g.count }} services</div>
+              <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">{{ g.count }} services</div>
             </div>
             <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.92; letter-spacing:-.034em;">{{ g.title }}</div>
             <div style="font-size:17px; line-height:1.7; color:#4C463E; max-width:440px;">{{ g.blurb }}</div>
             <div style="display:flex; align-items:baseline; gap:14px; padding-top:6px;">
-              <div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:1; color:#A8562F;">{{ g.from }}</div>
-              <div style="font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A;">{{ g.note }}</div>
+              <div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:1; color:#A8562F; font-weight:600;">{{ g.from }}</div>
+              <div style="font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:600;">{{ g.note }}</div>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@
                 <div style="font-size:17px; font-weight:500; line-height:1.35;">{{ i.n }}</div>
                 <div style="font-size:12.5px; letter-spacing:.06em; color:#7A736A;">{{ i.t }}</div>
               </div>
-              <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; white-space:nowrap;">{{ i.p }}</div>
+              <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600; white-space:nowrap;">{{ i.p }}</div>
             </div>
           </sc-for>
         </div>
@@ -86,8 +86,8 @@
             <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.02;">{{ p.title }}</div>
             <div style="font-size:15px; line-height:1.62; color:#4C463E;">{{ p.body }}</div>
             <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-top:auto; padding-top:20px; border-top:1px solid rgba(23,21,18,.16);">
-              <div style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A;">{{ p.time }}</div>
-              <div style="font-family:'Bodoni Moda',serif; font-size:30px; color:#A8562F;">{{ p.price }}</div>
+              <div style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">{{ p.time }}</div>
+              <div style="font-family:'Bodoni Moda',serif; font-size:30px; color:#A8562F; font-weight:600;">{{ p.price }}</div>
             </div>
           </div>
         </div>
@@ -100,19 +100,19 @@
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(242,237,227,.14);">
       <div style="background:#171512; padding:34px 32px 40px; display:flex; flex-direction:column; gap:11px;">
         <div style="font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54;">Two-service minimum</div>
-        <div style="font-size:14.5px; line-height:1.7;">Book any two and we come to you. Groups and corporate bookings have no minimum.</div>
+        <div style="font-size:14.5px; line-height:1.7;">Book any two services together and we travel to you. Group bookings of 6+ and corporate packages are exempt.</div>
       </div>
       <div style="background:#171512; padding:34px 32px 40px; display:flex; flex-direction:column; gap:11px;">
         <div style="font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54;">Travel fees</div>
-        <div style="font-size:14.5px; line-height:1.7;">Quoted with your services, up front. Never added to the invoice afterwards.</div>
+        <div style="font-size:14.5px; line-height:1.7;">Calculated by distance and confirmed before payment. Never added to the invoice afterwards.</div>
       </div>
       <div style="background:#171512; padding:34px 32px 40px; display:flex; flex-direction:column; gap:11px;">
         <div style="font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54;">Group pricing</div>
-        <div style="font-size:14.5px; line-height:1.7;">Per person from six guests, with several beauticians working at once.</div>
+        <div style="font-size:14.5px; line-height:1.7;">Per-person rates start from six guests, with multiple beauticians dispatched to work simultaneously.</div>
       </div>
       <div style="background:#171512; padding:34px 32px 40px; display:flex; flex-direction:column; gap:11px;">
         <div style="font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54;">What we need</div>
-        <div style="font-size:14.5px; line-height:1.7;">Open space, an outlet, good light and a sink. We bring the rest.</div>
+        <div style="font-size:14.5px; line-height:1.7;">Open space, an electrical outlet, ample light and a sink. We bring every table, basin, tool and towel.</div>
       </div>
     </div>
   </div>
@@ -152,8 +152,8 @@ class Component extends DCLogic {
 
   data() {
     return [
-      { key: 'hair', title: 'Hair', img: this.IMG.hair, from: '$75', note: 'Elderly haircut and style',
-        blurb: 'Roots, cuts, updos and full colour work — done at your own sink, with a professional bowl and lighting brought in.', items: [
+      { key: 'hair', title: 'Hair & Styling', img: this.IMG.hair, from: '$75', note: 'Elderly haircut and style',
+        blurb: 'Roots, precision cuts, updos and full colour work: completed at your own sink with portable shampoo bowls and professional lighting brought in.', items: [
         { n: 'Haircut + blow dry style', t: '55 min', p: '$165' },
         { n: 'Blow dry and soft curls / updo (add $25)', t: '45 min', p: '$175' },
         { n: "Men's haircut / barbering", t: '45 min', p: '$125' },
@@ -173,57 +173,57 @@ class Component extends DCLogic {
         { n: 'Perm, medium hair + trim', t: '2 hr', p: '$260' },
         { n: 'Perm & spiral, long hair + trim', t: '3 hr', p: '$450' }
       ]},
-      { key: 'skin', title: 'Skin & advanced', img: this.IMG.skin, from: '$170', note: 'Facial, one hour',
-        blurb: 'Licensed estheticians, clinical-grade treatments, and no waiting room. Book a facial for a Tuesday evening.', items: [
-        { n: 'Facial', t: '1 hr', p: '$170' },
-        { n: 'Micro-needling', t: '1 hr', p: '$350' },
-        { n: 'Microblading', t: '1 hr 20 min', p: '$450' },
+      { key: 'skin', title: 'Skin & Esthetics', img: this.IMG.skin, from: '$170', note: 'Custom Facial, one hour',
+        blurb: 'Licensed estheticians, clinical-grade skincare, and no waiting room. Relax in your own quiet bedroom on a professional hydraulic facial table.', items: [
+        { n: 'Custom Facial Treatment', t: '1 hr', p: '$170' },
+        { n: 'Micro-needling Treatment', t: '1 hr', p: '$350' },
+        { n: 'Microblading Treatment', t: '1 hr 20 min', p: '$450' },
         { n: 'Eyebrows, chin and upper lip waxing', t: '45 min', p: '$180' },
         { n: 'Bikini hair removal', t: '30 min', p: '$250' }
       ]},
-      { key: 'nails', title: 'Nails', img: this.IMG.nails, from: '$75', note: 'Manicure, regular polish',
-        blurb: 'Your own basin, your own tools, opened in front of you. Nothing is shared with anyone.', items: [
+      { key: 'nails', title: 'Nails & Manicures', img: this.IMG.nails, from: '$75', note: 'Manicure, regular polish',
+        blurb: 'Your own dedicated basin, single-use disposable liners, and medical-grade autoclaved implements opened in front of you.', items: [
         { n: 'Manicure, regular polish', t: '30 min', p: '$75' },
         { n: 'Pedicure, regular polish', t: '30 min', p: '$85' },
-        { n: 'Acrylic nails + gel polish + design', t: '1 hr', p: '$175' },
+        { n: 'Acrylic nails + gel polish + custom design', t: '1 hr', p: '$175' },
         { n: 'Nail polish change', t: '1 hr', p: '$150' },
         { n: "Men's manicure", t: '30 min', p: '$75' },
         { n: "Men's pedicure", t: '30 min', p: '$85' },
         { n: "Men's pedicure and manicure combo", t: '1 hr', p: '$140' }
       ]},
-      { key: 'massage', title: 'Massage', img: this.IMG.massage, from: '$55', note: 'Group chair massage',
-        blurb: 'The table comes in and goes wherever you want it. Get up afterwards and you are already home.', items: [
-        { n: 'Full body massage', t: '1 hr', p: '$160' },
-        { n: 'Group massage, 30 min each, 6+ guests', t: '30 min', p: '$85' },
+      { key: 'massage', title: 'Therapeutic Massage', img: this.IMG.massage, from: '$55', note: 'Group chair massage',
+        blurb: 'A professional massage table is carried in and set up in your room of choice. When the session finishes, you are already home in your robe.', items: [
+        { n: 'Full body table massage', t: '1 hr', p: '$160' },
+        { n: 'Group table massage, 30 min each, 6+ guests', t: '30 min', p: '$85' },
         { n: 'Group chair massage, 20 min each, 6+ guests', t: '20 min', p: '$55' },
         { n: 'Group foot massage, 20 min each, 6+ guests', t: '20 min', p: '$65' }
       ]},
-      { key: 'bridal', title: 'Bridal & makeup', img: this.IMG.bridal, from: '$55', note: 'Flower girl styling',
-        blurb: 'We arrive at the venue, work through the party in order, and have everyone ready before the photographer does.', items: [
-        { n: 'Bride \u2014 combo hair updo + makeup + lashes', t: '2 hr', p: '$380' },
-        { n: 'Combo \u2014 bride makeup + lashes + hair updo', t: '2 hr', p: '$300' },
-        { n: 'Bride makeup + fake lashes only', t: '50 min', p: '$210' },
-        { n: 'Bride updo only', t: '1 hr', p: '$185' },
+      { key: 'bridal', title: 'Bridal & Makeup', img: this.IMG.bridal, from: '$55', note: 'Flower girl styling',
+        blurb: 'We arrive at the wedding venue, work through the bridal party on schedule, and have everyone flawless before the photographer arrives.', items: [
+        { n: 'Bride Combo: Hair Updo + Makeup + Lashes', t: '2 hr', p: '$380' },
+        { n: 'Bride Combo: Makeup + Lashes + Hair Updo', t: '2 hr', p: '$300' },
+        { n: 'Bride Makeup + Lashes only', t: '50 min', p: '$210' },
+        { n: 'Bride Updo only', t: '1 hr', p: '$185' },
         { n: 'Bridesmaid hair and makeup, 3+ minimum', t: '1 hr 45 min', p: '$380' },
         { n: 'Flower girl hair style or updo, 3+ minimum', t: '1 hr', p: '$55' },
         { n: 'Makeup application + fake lashes', t: '1 hr', p: '$185' },
         { n: 'Night out hair and makeup, 3+ minimum', t: '1 hr 30 min', p: '$340' },
         { n: 'Prom hair and makeup, 3+ minimum', t: '1 hr', p: '$210' }
       ]},
-      { key: 'corp', title: 'Corporate', img: this.IMG.corp, from: '$150', note: 'Per hour, 4 hour minimum',
-        blurb: 'Fifteen-minute slots at the office. The easiest perk you will ever be thanked for.', items: [
+      { key: 'corp', title: 'Corporate Wellness', img: this.IMG.corp, from: '$150', note: 'Per hour, 4 hour minimum',
+        blurb: 'Fifteen-minute stress-relief slots right at the workplace. Turnkey corporate wellness with zero transit friction for employees.', items: [
         { n: 'Corporate express pedicures', t: '1 hr', p: '$150' },
         { n: 'Corporate express facials', t: '1 hr', p: '$150' },
         { n: 'Corporate express massage', t: '1 hr', p: '$150' },
         { n: 'Corporate express curls or braids', t: '1 hr', p: '$150' }
       ]},
-      { key: 'group', title: 'Groups, teens & kids', img: this.IMG.group, from: '$28', note: 'Kids group manicure',
-        blurb: 'Six guests and up. We send enough beauticians that nobody sits waiting their turn.', items: [
+      { key: 'group', title: 'Groups, Teens & Kids', img: this.IMG.group, from: '$28', note: 'Kids group manicure',
+        blurb: 'Six guests or more. We dispatch multiple beauticians simultaneously so guests enjoy treatments in parallel with no long queues.', items: [
         { n: 'Group facials, 30 min per person, 6+ guests', t: '30 min', p: '$85' },
         { n: 'Group manicures, 30 min per person, 6+ guests', t: '30 min', p: '$75' },
         { n: 'Group pedicures, 30 min per person, 6+ guests', t: '30 min', p: '$80' },
-        { n: 'Combo \u2014 manicure + pedicure, 6+ guests', t: '1 hr', p: '$150' },
-        { n: 'Combo \u2014 facial + massage, 6+ guests', t: '1 hr', p: '$170' },
+        { n: 'Group Combo: Manicure + Pedicure, 6+ guests', t: '1 hr', p: '$150' },
+        { n: 'Group Combo: Facial + Massage, 6+ guests', t: '1 hr', p: '$170' },
         { n: 'Teen group facials, 30 min each, 6+ guests', t: '30 min', p: '$65' },
         { n: 'Teen group manicures, 25 min each, 6+ guests', t: '25 min', p: '$55' },
         { n: 'Teen group pedicures, 25 min each, 6+ guests', t: '25 min', p: '$55' },
@@ -235,8 +235,8 @@ class Component extends DCLogic {
         { n: 'Kids group pedicures, 15 min each, 6+ guests', t: '15 min', p: '$35' },
         { n: 'Kids group facials, 20 min, 6+ guests', t: '20 min', p: '$45' },
         { n: 'Kids group Swedish massage, 20 min, 6+', t: '20 min', p: '$45' },
-        { n: 'Kids combo \u2014 pedicure + manicure, 6+ kids', t: '3 hr', p: '$50' },
-        { n: 'Kids combo \u2014 facial + massage, 6+ kids', t: '3 hr', p: '$70' }
+        { n: 'Kids Combo: Pedicure + Manicure, 6+ kids', t: '3 hr', p: '$50' },
+        { n: 'Kids Combo: Facial + Massage, 6+ kids', t: '3 hr', p: '$70' }
       ]}
     ];
   }
@@ -246,13 +246,13 @@ class Component extends DCLogic {
     const t = this.state.tab;
     const defs = [
       { key: 'all', label: 'All services' },
-      { key: 'hair', label: 'Hair' },
-      { key: 'skin', label: 'Skin' },
-      { key: 'nails', label: 'Nails' },
-      { key: 'massage', label: 'Massage' },
-      { key: 'bridal', label: 'Bridal & makeup' },
-      { key: 'corp', label: 'Corporate' },
-      { key: 'group', label: 'Groups, teens & kids' }
+      { key: 'hair', label: 'Hair & Styling' },
+      { key: 'skin', label: 'Skin & Esthetics' },
+      { key: 'nails', label: 'Nails & Manicures' },
+      { key: 'massage', label: 'Therapeutic Massage' },
+      { key: 'bridal', label: 'Bridal & Makeup' },
+      { key: 'corp', label: 'Corporate Wellness' },
+      { key: 'group', label: 'Groups, Teens & Kids' }
     ];
     const shown = t === 'all' ? all : all.filter(g => g.key === t);
 
@@ -272,9 +272,9 @@ class Component extends DCLogic {
         oTxt: i % 2 === 0 ? 2 : 1
       })),
       packages: [
-        { title: 'Facial and massage', body: 'An hour of skin, an hour of quiet. Booked back to back so you never get up from the table.', time: '2 hr', price: '$330', imgCss: "'" + this.IMG.towel + "'" },
-        { title: 'Manicure and pedicure', body: 'Both stations come through the door together, and the polish is dry before we leave.', time: '1 hr', price: '$160', imgCss: "'" + this.IMG.nails + "'" },
-        { title: 'Colour and blowout', body: 'Roots covered and a finished style, at your own sink. Most of our regulars book this every four weeks.', time: '2 hr 15 min', price: '$355', imgCss: "'" + this.IMG.makeup + "'" }
+        { title: 'Facial and massage', body: 'An hour of custom facial treatment followed by an hour of full body massage, booked back-to-back on your table.', time: '2 hr', price: '$330', imgCss: "'" + this.IMG.towel + "'" },
+        { title: 'Manicure and pedicure', body: 'Both stations set up together with individual disposable basins. Your polish is dry before we leave.', time: '1 hr', price: '$160', imgCss: "'" + this.IMG.nails + "'" },
+        { title: 'Colour and blowout', body: 'Retouch color and finished styling right at your sink. Our regulars book this standing appointment every four weeks.', time: '2 hr 15 min', price: '$355', imgCss: "'" + this.IMG.makeup + "'" }
       ]
     };
   }
