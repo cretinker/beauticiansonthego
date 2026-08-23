@@ -24,6 +24,103 @@
   @keyframes botgRise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
   [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
   [data-reveal][data-seen] { opacity: 1; transform: none; }
+
+  /* Occasion Cards Hover State */
+  .botg-occ-card {
+    background: #F2EDE3;
+    padding: 36px 32px 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid rgba(23,21,18,.08);
+    transition: all .32s cubic-bezier(.16,1,.3,1);
+  }
+  .botg-occ-card:hover {
+    background: #171512 !important;
+    border-color: #C69B54 !important;
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -10px rgba(23,21,18,.4);
+  }
+  .botg-occ-card .occ-num {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 24px;
+    color: #A8562F;
+    font-weight: 600;
+    transition: color .3s ease;
+  }
+  .botg-occ-card:hover .occ-num {
+    color: #C69B54 !important;
+  }
+  .botg-occ-card .occ-badge {
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #7A736A;
+    font-weight: 600;
+    transition: color .3s ease;
+  }
+  .botg-occ-card:hover .occ-badge {
+    color: #C69B54 !important;
+  }
+  .botg-occ-card .occ-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 32px;
+    line-height: 1.05;
+    color: #171512;
+    transition: color .3s ease;
+  }
+  .botg-occ-card:hover .occ-title {
+    color: #FAF7F2 !important;
+  }
+  .botg-occ-card .occ-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #4C463E;
+    transition: color .3s ease;
+  }
+  .botg-occ-card:hover .occ-desc {
+    color: rgba(242,237,227,.85) !important;
+  }
+  .botg-occ-card .occ-link {
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #A8562F;
+    font-weight: 700;
+    margin-top: auto;
+    padding-top: 12px;
+    transition: color .3s ease;
+  }
+  .botg-occ-card:hover .occ-link {
+    color: #C69B54 !important;
+  }
+
+  /* Featured Card 05 */
+  .botg-occ-card.featured {
+    background: #171512;
+    border-color: #C69B54;
+  }
+  .botg-occ-card.featured .occ-num {
+    color: #C69B54;
+  }
+  .botg-occ-card.featured .occ-badge {
+    color: #C69B54;
+    font-weight: 700;
+  }
+  .botg-occ-card.featured .occ-title {
+    color: #FAF7F2;
+  }
+  .botg-occ-card.featured .occ-desc {
+    color: rgba(242,237,227,.8);
+  }
+  .botg-occ-card.featured .occ-link {
+    color: #C69B54;
+  }
+  .botg-occ-card.featured:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -10px rgba(198,155,84,.35);
+  }
 </style>
 </helmet>
 
@@ -219,69 +316,69 @@
       <div data-reveal style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
         
         <!-- Occasion 1: Weddings -->
-        <div onClick="{{ goWeddings }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+        <div class="botg-occ-card" onClick="{{ goWeddings }}">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">01</span>
-            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">Bride Combo $380</span>
+            <span class="occ-num">01</span>
+            <span class="occ-badge">Bride Combo $380</span>
           </div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">Weddings &amp; Bridal</div>
-          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Bride, bridesmaids, mothers, and flower girls. Everyone ready together on location before the photographer arrives.</div>
-          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Explore Bridal →</div>
+          <div class="occ-title">Weddings &amp; Bridal</div>
+          <div class="occ-desc">Bride, bridesmaids, mothers, and flower girls. Everyone ready together on location before the photographer arrives.</div>
+          <div class="occ-link">Explore Bridal →</div>
         </div>
 
         <!-- Occasion 2: Corporate -->
-        <div onClick="{{ goCorporate }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+        <div class="botg-occ-card" onClick="{{ goCorporate }}">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">02</span>
-            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">$150/hr · 4hr Min</span>
+            <span class="occ-num">02</span>
+            <span class="occ-badge">$150/hr · 4hr Min</span>
           </div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">Corporate Wellness</div>
-          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Chair massage, express pedicures, and braid bars right in the conference room. Turnkey employee perk with zero travel.</div>
-          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Corporate Details →</div>
+          <div class="occ-title">Corporate Wellness</div>
+          <div class="occ-desc">Chair massage, express pedicures, and braid bars right in the conference room. Turnkey employee perk with zero travel.</div>
+          <div class="occ-link">Corporate Details →</div>
         </div>
 
         <!-- Occasion 3: At Home Just You -->
-        <div onClick="{{ goIndividual }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+        <div class="botg-occ-card" onClick="{{ goIndividual }}">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">03</span>
-            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">2-Service Min</span>
+            <span class="occ-num">03</span>
+            <span class="occ-badge">2-Treatment Min</span>
           </div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">At Home, Just You</div>
-          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Standing bi-weekly or monthly appointments. Cuts, color, manicure, and massage while dinner is in the oven. Zero driving.</div>
-          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Individual Care →</div>
+          <div class="occ-title">At Home, Just You</div>
+          <div class="occ-desc">Standing bi-weekly or monthly appointments. Cuts, color, manicure, and massage while dinner is in the oven. Zero driving.</div>
+          <div class="occ-link">Individual Care →</div>
         </div>
 
         <!-- Occasion 4: Spa Parties -->
-        <div onClick="{{ goParties }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+        <div class="botg-occ-card" onClick="{{ goParties }}">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">04</span>
-            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">From $55 / Guest</span>
+            <span class="occ-num">04</span>
+            <span class="occ-badge">From $55 / Guest</span>
           </div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">Spa Parties &amp; Bachelorettes</div>
-          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Six guests or more. We dispatch multiple beauticians simultaneously so guests enjoy treatments in parallel with no long queues.</div>
-          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Party Packages →</div>
+          <div class="occ-title">Spa Parties &amp; Bachelorettes</div>
+          <div class="occ-desc">Six guests or more. We dispatch multiple beauticians simultaneously so guests enjoy treatments in parallel with no long queues.</div>
+          <div class="occ-link">Party Packages →</div>
         </div>
 
         <!-- Occasion 5: In-Care & Seniors -->
-        <div onClick="{{ goIncare }}" style="background:#171512; color:#FAF7F2; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid #C69B54; transition:all .3s ease;" style-hover="transform:translateY(-4px); box-shadow:0 12px 30px -10px rgba(198,155,84,.4);">
+        <div class="botg-occ-card featured" onClick="{{ goIncare }}">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#C69B54; font-weight:600;">05</span>
-            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#C69B54; font-weight:700;">Elderly Cut $75</span>
+            <span class="occ-num">05</span>
+            <span class="occ-badge">Elderly Cut $75</span>
           </div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05; color:#FAF7F2;">In-Care &amp; Seniors</div>
-          <div style="font-size:15px; line-height:1.65; color:rgba(242,237,227,.75);">Hospitals, hospice, assisted living, rehab, and memory care. Dedicated, gentle specialists trained in limited mobility and dementia.</div>
-          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#C69B54; font-weight:700; margin-top:auto; padding-top:12px;">In-Care Support →</div>
+          <div class="occ-title">In-Care &amp; Seniors</div>
+          <div class="occ-desc">Hospitals, hospice, assisted living, rehab, and memory care. Dedicated, gentle specialists trained in limited mobility and dementia.</div>
+          <div class="occ-link">In-Care Support →</div>
         </div>
 
         <!-- Occasion 6: Teens & Kids -->
-        <div onClick="{{ goTeens }}" style="background:#F2EDE3; padding:36px 32px 40px; cursor:pointer; display:flex; flex-direction:column; gap:16px; border:1px solid rgba(23,21,18,.08); transition:all .3s ease;" style-hover="background:#171512; border-color:#C69B54; transform:translateY(-4px);">
+        <div class="botg-occ-card" onClick="{{ goTeens }}">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; font-weight:600;">06</span>
-            <span style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; font-weight:600;">From $28 / Child</span>
+            <span class="occ-num">06</span>
+            <span class="occ-badge">From $28 / Child</span>
           </div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:32px; line-height:1.05;">Teens &amp; Kids Diva Parties</div>
-          <div style="font-size:15px; line-height:1.65; color:#4C463E;">Kids diva celebrations, prom hair and makeup, and quinceañeras. Short, age-appropriate sessions with gentle, non-toxic products.</div>
-          <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#A8562F; font-weight:700; margin-top:auto; padding-top:12px;">Kids &amp; Prom →</div>
+          <div class="occ-title">Teens &amp; Kids Diva Parties</div>
+          <div class="occ-desc">Kids diva celebrations, prom hair and makeup, and quinceañeras. Short, age-appropriate sessions with gentle, non-toxic products.</div>
+          <div class="occ-link">Kids &amp; Prom →</div>
         </div>
 
       </div>
