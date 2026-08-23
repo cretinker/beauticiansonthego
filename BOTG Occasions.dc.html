@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="font-family:'Karla',sans-serif; color:#171512; background:#F2EDE3;">
+
+  <!-- editorial hero -->
+  <div style="position:relative; height:62vh; min-height:520px; overflow:hidden; background:#171512;">
+    <div style="position:absolute; inset:0; background-image:url('https://static.wixstatic.com/media/2cda2b_04cb4718bba7465987726b29410a2b1d~mv2.jpg/v1/fill/w_1800,h_1200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/2cda2b_04cb4718bba7465987726b29410a2b1d~mv2.jpg'); background-size:cover; background-position:center 35%;"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(100deg, rgba(15,13,11,.9) 0%, rgba(15,13,11,.62) 48%, rgba(15,13,11,.2) 100%);"></div>
+    <div style="position:relative; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:0 30px 56px; gap:24px;">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="width:44px; height:1px; background:#C69B54;"></div>
+        <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; white-space:nowrap;">Six occasions</div>
+      </div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:100px; line-height:.92; letter-spacing:-.038em; color:#FBF7F0; padding-bottom:12px;">Tell us the occasion.<br>We do the <span style="font-style:italic; color:#C69B54;">rest.</span></div>
+      <div style="display:flex; gap:44px; flex-wrap:wrap;">
+        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">The whole team is already packed.</div>
+        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">Tell us how many people and what time.</div>
+        <div style="font-size:15.5px; line-height:1.6; color:rgba(251,247,240,.72); max-width:300px;">We build the day around it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div ref="{{ barRef }}" style="position:sticky; top:var(--botg-nav, 58px); z-index:40; background:rgba(242,237,227,.95); backdrop-filter:blur(14px); padding:18px 30px; border-bottom:1px solid rgba(23,21,18,.12); display:flex; flex-wrap:wrap; gap:9px;">
+    <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
+      <div onClick="{{ t.click }}" style="border:1px solid {{ t.border }}; background:{{ t.bg }}; color:{{ t.fg }}; padding:11px 20px; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; cursor:pointer;">{{ t.label }}</div>
+    </sc-for>
+  </div>
+
+  <div style="display:flex; flex-direction:column;">
+    <sc-for list="{{ shown }}" as="s" hint-placeholder-count="3">
+      <div style="border-bottom:1px solid rgba(23,21,18,.13);">
+
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); min-height:520px;">
+          <div style="order:{{ s.oImg }}; background-image:url({{ s.imgCss }}); background-size:cover; background-position:center; min-height:460px;"></div>
+          <div style="order:{{ s.oTxt }}; padding:90px 40px; display:flex; flex-direction:column; justify-content:center; gap:24px;">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div style="width:34px; height:1px; background:#A8562F;"></div>
+              <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F;">{{ s.kicker }}</div>
+            </div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em; text-wrap:balance;">{{ s.head }}</div>
+            <div style="font-size:17px; line-height:1.72; color:#4C463E; max-width:480px;">{{ s.body }}</div>
+            <div style="display:flex; gap:44px; padding-top:6px;">
+              <div><div style="font-family:'Bodoni Moda',serif; font-size:38px; color:#A8562F; line-height:1;">{{ s.statA }}</div><div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; margin-top:7px;">{{ s.statAL }}</div></div>
+              <div><div style="font-family:'Bodoni Moda',serif; font-size:38px; color:#A8562F; line-height:1;">{{ s.statB }}</div><div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; margin-top:7px;">{{ s.statBL }}</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:70px 30px 80px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:90px;">
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#7A736A;">What's included</div>
+            <div style="display:flex; flex-direction:column;">
+              <sc-for list="{{ s.included }}" as="x" hint-placeholder-count="6">
+                <div style="display:grid; grid-template-columns:22px 1fr; gap:14px; padding:15px 0; border-top:1px solid rgba(23,21,18,.14); font-size:16.5px; line-height:1.6; color:#2C2721;">
+                  <div style="color:#A8562F; font-family:'Bodoni Moda',serif;">&mdash;</div>
+                  <div>{{ x }}</div>
+                </div>
+              </sc-for>
+              <div style="border-top:1px solid rgba(23,21,18,.14);"></div>
+            </div>
+            <div style="background:#E8E1D4; padding:22px 24px; font-size:14.5px; line-height:1.7; color:#2C2721; border-left:2px solid #A8562F;">{{ s.note }}</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#7A736A;">Typical pricing</div>
+            <div style="display:flex; flex-direction:column;">
+              <sc-for list="{{ s.rates }}" as="r" hint-placeholder-count="6">
+                <div style="display:grid; grid-template-columns:1fr auto; gap:20px; padding:17px 0; border-top:1px solid rgba(23,21,18,.14); align-items:baseline;">
+                  <div style="display:flex; flex-direction:column; gap:3px;">
+                    <div style="font-size:16.5px; font-weight:500; line-height:1.35;">{{ r.n }}</div>
+                    <div style="font-size:12.5px; letter-spacing:.06em; color:#7A736A;">{{ r.t }}</div>
+                  </div>
+                  <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#A8562F; white-space:nowrap;">{{ r.p }}</div>
+                </div>
+              </sc-for>
+              <div style="border-top:1px solid rgba(23,21,18,.14);"></div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:12px; padding-top:8px;">
+              <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:22px; line-height:1.55; color:#2C2721; border-left:1px solid #A8562F; padding-left:24px;">{{ s.quote }}</div>
+              <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; padding-left:25px;">{{ s.quoteBy }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="background:#A8562F; color:#FBF7F0; padding:130px 30px; display:flex; flex-direction:column; align-items:center; gap:30px; text-align:center;">
+    <div style="font-family:'Bodoni Moda',serif; font-size:92px; line-height:.9; letter-spacing:-.036em;">Whatever the day is,<br>we can be there.</div>
+    <div style="font-size:18px; line-height:1.6; color:rgba(251,247,240,.82); max-width:540px;">Four questions, about two minutes. Someone from the office calls you back the same day with the plan and the number.</div>
+    <div style="font-family:'Bodoni Moda',serif; font-size:34px;">602-803-2827</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { seg: '' };
+  barRef = React.createRef();
+
+  pickSeg(key) {
+    this.setState({ seg: key });
+    requestAnimationFrame(() => {
+      var el = this.barRef.current;
+      if (!el) return;
+      var navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--botg-nav')) || 58;
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+    });
+  }
+
+  mapSeed(v) {
+    var m = { wedding: 'weddings', weddings: 'weddings', corporate: 'corporate', party: 'parties', parties: 'parties', teens: 'teens', incare: 'incare', individual: 'individual' };
+    return m[v] || '';
+  }
+
+  componentDidUpdate(prev) {
+    var next = this.mapSeed(this.props.seed);
+    if (prev.seed !== this.props.seed && next) this.setState({ seg: next });
+  }
+
+  segs() {
+    return [
+      { key: 'weddings', label: 'Weddings', from: 'Bride combo $380',
+        teaser: 'Bride, bridesmaids, mothers and flower girls, all ready at the same time.',
+        kicker: 'Weddings & bridal parties',
+        head: 'Everyone ready at once, at the venue, on time.',
+        body: 'We arrive with the tables, mirrors, lighting and products, work through the party in order, and stay until the last person is done. Trials are booked the same way. Twenty-five years of Arizona wedding venues means we know how long each head actually takes.',
+        statA: '2 hr', statAL: 'Bride, start to finish', statB: '3+', statBL: 'Minimum party size',
+        img: 'https://static.wixstatic.com/media/2cda2b_465da187efb44362a136e81354cc20df~mv2.jpg/v1/fill/w_1200,h_1100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2cda2b_465da187efb44362a136e81354cc20df~mv2.jpg',
+        included: ['On-location setup at the venue, hotel suite or house','Hair updos, blowouts and soft curls','Airbrush-finish makeup application with lashes','Flower girl and junior bridesmaid styling','A run-of-show so each person knows their slot','Touch-up kit left with the bride'],
+        rates: [
+          { n: 'Bride \u2014 updo + makeup + lashes', t: '2 hr', p: '$380' },
+          { n: 'Combo \u2014 makeup + lashes + updo', t: '2 hr', p: '$300' },
+          { n: 'Bride makeup + lashes only', t: '50 min', p: '$210' },
+          { n: 'Bride updo only', t: '1 hr', p: '$185' },
+          { n: 'Bridesmaids, 3+ minimum', t: '1 hr 45 min', p: '$380' },
+          { n: 'Flower girls, 3+ minimum', t: '1 hr', p: '$55' }
+        ],
+        note: 'Bridal parties book a date, not a service. Send us the ceremony time and the headcount and we work backwards from there.',
+        quote: '\u201CSaira did my hair and makeup on the day of my wedding and it was perfect. I got so many compliments on how great the makeup came out.\u201D',
+        quoteBy: 'Kristen H. \u00b7 Bride',
+        close: 'Wedding dates fill first. We recommend reaching out as soon as the venue is booked, and we will hold a date while the details get worked out.' },
+
+      { key: 'corporate', label: 'Corporate', from: '$150 per hour',
+        teaser: 'Express services at the office, billed hourly with a four-hour minimum.',
+        kicker: 'Corporate & office spa days',
+        head: 'The perk your team will still be talking about in June.',
+        body: 'We set up in a conference room or an empty corner and run people through in fifteen and twenty minute slots. Chair massage during a long quarter, express pedicures before a company party, a braid bar at an offsite. Everything is portable, quiet and cleaned between guests.',
+        statA: '$150', statAL: 'Per hour', statB: '4 hr', statBL: 'Minimum booking',
+        img: 'https://static.wixstatic.com/media/f4e6b4d3adc942c2952a9a3198f6af00.jpg/v1/fill/w_1200,h_1100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f4e6b4d3adc942c2952a9a3198f6af00.jpg',
+        included: ['Setup and breakdown inside your booking window','Chair massage, express pedicures, facials, curls or braids','Multiple beauticians so the queue keeps moving','A signup sheet or slot schedule if you want one','Invoicing and W-9 handled through our Scottsdale office','Sanitation between every guest'],
+        rates: [
+          { n: 'Corporate express massage', t: '1 hr', p: '$150' },
+          { n: 'Corporate express pedicures', t: '1 hr', p: '$150' },
+          { n: 'Corporate express facials', t: '1 hr', p: '$150' },
+          { n: 'Corporate express curls or braids', t: '1 hr', p: '$150' }
+        ],
+        note: 'Billed per beautician per hour. Two beauticians for four hours is eight billable hours. We will tell you how many you need for your headcount.',
+        quote: '\u201CAll we need from you is an open space, a power outlet, ample lighting and access to water. Everything else arrives in the car.\u201D',
+        quoteBy: 'How a corporate day is set up',
+        close: 'We work with offices, hospitals, conference organizers and event planners across Phoenix, Scottsdale, Las Vegas and Nashville.' },
+
+      { key: 'parties', label: 'Spa parties', from: 'From $55 per guest',
+        teaser: 'Bachelorette, birthdays and girls\u2019 weekends, from six guests up.',
+        kicker: 'Spa parties & bachelorettes',
+        head: 'Turn the living room into a spa for the afternoon.',
+        body: 'Per-person pricing kicks in at six guests, and we send enough beauticians that services run in parallel instead of one long queue. Manicures and pedicures at the kitchen table, chair massage in the corner, facials in the back bedroom. Everyone is done at roughly the same time.',
+        statA: '6+', statAL: 'Guests for group rates', statB: '$55', statBL: 'Lowest per-guest rate',
+        img: 'https://static.wixstatic.com/media/1e47b2_1686c3cb64984592a0fa5dba59ae2e9a.jpg/v1/fill/w_1200,h_1100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e47b2_1686c3cb64984592a0fa5dba59ae2e9a.jpg',
+        included: ['Multiple beauticians working simultaneously','Portable pedicure stations, massage tables and nail setups','Combo packages so guests get two services each','Airbnb, VRBO, hotel suites and private homes','Setup and full cleanup','Gift cards available for the host'],
+        rates: [
+          { n: 'Group pedicures, 30 min each, 6+', t: '30 min', p: '$80' },
+          { n: 'Group manicures, 30 min each, 6+', t: '30 min', p: '$75' },
+          { n: 'Group facials, 30 min each, 6+', t: '30 min', p: '$85' },
+          { n: 'Group massage, 30 min each, 6+', t: '30 min', p: '$85' },
+          { n: 'Group chair massage, 20 min each, 6+', t: '20 min', p: '$55' },
+          { n: 'Combo \u2014 manicure + pedicure, 6+', t: '1 hr', p: '$150' }
+        ],
+        note: 'Rates are per person, per service. A ten-guest mani-pedi combo party is priced at ten combos, not one flat fee.',
+        quote: '\u201CI hired these amazing women for my bachelorette party and it was such a nice treat for my girls. They did a great job and they were fun to have around.\u201D',
+        quoteBy: 'Kristen H. \u00b7 Bachelorette party',
+        close: 'Weekends book out furthest ahead. Send the date and the headcount and we will tell you what fits in the time you have.' },
+
+      { key: 'teens', label: 'Teens & kids', from: 'From $28 per guest',
+        teaser: 'Diva parties, proms and quincea\u00f1eras with age-appropriate services.',
+        kicker: 'Teens & kids',
+        head: 'The full treatment, sized for a twelve-year-old.',
+        body: 'Kids\u2019 services run fifteen to twenty minutes so nobody loses interest, and everything used on them is chosen for young skin and nails. Teen parties get the full treatment at a scale that suits the occasion, and we handle prom and quincea\u00f1era groups the same way we handle a bridal party.',
+        statA: '15 min', statAL: 'Kids\u2019 service length', statB: '$28', statBL: 'Kids\u2019 group manicure',
+        img: 'https://static.wixstatic.com/media/1e47b2_3e10f00d758d437c8025127b98a2892d.jpg/v1/fill/w_1200,h_1100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e47b2_3e10f00d758d437c8025127b98a2892d.jpg',
+        included: ['Age-appropriate products for skin and nails','Short service times built for shorter attention spans','Diva party hair and makeup for kids','Prom and quincea\u00f1era hair and makeup for groups','Parent present throughout','Full cleanup, including glitter'],
+        rates: [
+          { n: 'Kids group manicures, 15 min each, 6+', t: '15 min', p: '$28' },
+          { n: 'Kids group pedicures, 15 min each, 6+', t: '15 min', p: '$35' },
+          { n: 'Kids group facials, 20 min, 6+', t: '20 min', p: '$45' },
+          { n: 'Kids diva party hair & makeup, 3+', t: '45 min', p: '$95' },
+          { n: 'Teen group manicures, 25 min each, 6+', t: '25 min', p: '$55' },
+          { n: 'Teen hair style + makeup', t: '1 hr', p: '$110' },
+          { n: 'Prom hair and makeup, 3+ minimum', t: '1 hr', p: '$210' }
+        ],
+        note: 'Kids\u2019 combo packages are the best value at scale \u2014 pedicure and manicure together runs $50 per child for groups of six or more.',
+        quote: '\u201CWhether you want to pamper yourself, get together with your girlfriends, or do something special \u2014 we\u2019re here for your mobile spa and beauty needs.\u201D',
+        quoteBy: 'From the original site, still true',
+        close: 'We also work with schools, dance studios and pageant groups on larger bookings.' },
+
+      { key: 'incare', label: 'In-care & homebound', from: 'Elderly haircut $75',
+        teaser: 'Hospice, assisted living, rehab and private homes. Standing appointments.',
+        kicker: 'In-care & homebound services',
+        head: 'When she can\u2019t get to the salon, we bring it to her.',
+        body: 'We work in hospitals, hospice, retirement communities, assisted living, rehab centers and private homes \u2014 with clients who are bedridden, living with dementia, recovering from surgery, or simply unable to sit in a salon chair for an hour. The beauticians who do this work have been doing it for years and ask for it by name.',
+        statA: '$75', statAL: 'Elderly haircut + style', statB: '25 yrs', statBL: 'Doing this work',
+        img: 'https://static.wixstatic.com/media/1c1fcfb3c2fa41a58394493406e03029.jpg/v1/fill/w_1200,h_1100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1c1fcfb3c2fa41a58394493406e03029.jpg',
+        included: ['Bedside and chairside service where a client cannot be moved','Experience with dementia, chronic pain and limited mobility','Standing recurring appointments on a fixed schedule','Coordination with family members or facility staff','Facility-wide days for retirement and assisted living communities','No two-service minimum on in-care visits'],
+        rates: [
+          { n: 'Elderly haircut + style', t: '45 min', p: '$75' },
+          { n: 'Manicure, regular polish', t: '30 min', p: '$75' },
+          { n: 'Pedicure, regular polish', t: '30 min', p: '$85' },
+          { n: 'Blow dry and soft curls', t: '45 min', p: '$175' },
+          { n: 'Full body massage', t: '1 hr', p: '$160' }
+        ],
+        note: 'Facilities can book a full day and we will rotate through residents. Families can set a standing weekly or monthly appointment.',
+        quote: '\u201CShe handled my mom\u2019s sensitivities and fears and made her look stunning. Do not be concerned at all if you or someone you love needs in-home salon services.\u201D',
+        quoteBy: 'Natalie B. \u00b7 Daughter of a client',
+        close: 'Call and ask for in-care scheduling. We will talk through the client\u2019s situation before booking anything.' },
+
+      { key: 'individual', label: 'At home, just you', from: 'Two-service minimum',
+        teaser: 'Standing appointments for people who\u2019d rather not spend a Saturday in a salon.',
+        kicker: 'Individual appointments',
+        head: 'Get your Saturday back and your hair done.',
+        body: 'The most common booking we take is one person, at home, twice a month. Colour and a blowout while dinner is in the oven; a facial and a manicure without the drive. Individual appointments require a minimum of two services, which is usually what you were going to book anyway.',
+        statA: '2', statAL: 'Service minimum', statB: '0', statBL: 'Miles you drive',
+        img: 'https://static.wixstatic.com/media/6eaddd_e8f1c62b149b4626ad06d17f22a8ce33~mv2.jpg/v1/crop/x_249,y_0,w_1080,h_1080/fill/w_1100,h_1100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Services1d_edited.jpg',
+        included: ['Any two or more services from the full menu','The same beautician every time, if you want one','Home, hotel, Airbnb, VRBO or your office','Evening and weekend slots','Recurring appointments booked in advance','Everything carried in and carried out'],
+        rates: [
+          { n: 'Haircut + blow dry style', t: '55 min', p: '$165' },
+          { n: 'Facial', t: '1 hr', p: '$170' },
+          { n: 'Manicure, regular polish', t: '30 min', p: '$75' },
+          { n: 'Pedicure, regular polish', t: '30 min', p: '$85' },
+          { n: 'Full body massage', t: '1 hr', p: '$160' },
+          { n: 'Retouch color + blow dry style', t: '1 hr 30 min', p: '$180' }
+        ],
+        note: 'A travel fee is added by distance and confirmed in your quote. Allow at least one hour of drive time between appointments when booking back to back.',
+        quote: '\u201CI live out of state now but make it a priority to schedule appointments when I\u2019m in town, because it\u2019s worth it.\u201D',
+        quoteBy: 'Rebecca B. \u00b7 Client',
+        close: 'Most individual clients settle into a rhythm \u2014 same beautician, same day of the month, booked out a season at a time.' }
+    ];
+  }
+
+  renderVals() {
+    const list = this.segs();
+    const k = this.state.seg || this.mapSeed(this.props.seed) || 'all';
+    const defs = [{ key: 'all', label: 'All occasions' }].concat(list.map(s => ({ key: s.key, label: s.label })));
+    const shown = k === 'all' ? list : list.filter(s => s.key === k);
+    return {
+      barRef: this.barRef,
+      tabs: defs.map(d => ({
+        label: d.label,
+        bg: k === d.key ? '#171512' : 'transparent',
+        fg: k === d.key ? '#F2EDE3' : '#4C463E',
+        border: k === d.key ? '#171512' : 'rgba(23,21,18,.22)',
+        click: () => this.pickSeg(d.key)
+      })),
+      shown: shown.map((s, i) => Object.assign({}, s, {
+        imgCss: "'" + s.img + "'",
+        oImg: i % 2 === 0 ? 2 : 1,
+        oTxt: i % 2 === 0 ? 1 : 2
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

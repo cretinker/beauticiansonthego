@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="font-family:'Karla',sans-serif; color:#171512; background:#F2EDE3;">
+
+  <div style="padding:120px 30px 90px; display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:end;">
+    <div style="display:flex; flex-direction:column; gap:26px;">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="width:44px; height:1px; background:#A8562F;"></div>
+        <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F;">The team</div>
+      </div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:96px; line-height:.9; letter-spacing:-.036em;">Find your beautician.<br>Keep her <span style="font-style:italic; color:#A8562F;">for years.</span></div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:18px; padding-bottom:14px;">
+      <div style="font-size:17.5px; line-height:1.72; color:#4C463E;">Every one licensed, with five to fifteen years behind the chair. You are not assigned whoever is free — you choose, and most clients never book anyone else again.</div>
+      <div style="font-size:17.5px; line-height:1.72; color:#4C463E;">Name her in your quote and we will send her, in whichever of our sixteen cities you are in.</div>
+    </div>
+  </div>
+
+  <div style="padding:0 30px 60px; display:flex; gap:9px; flex-wrap:wrap;">
+    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
+      <div onClick="{{ f.click }}" style="border:1px solid {{ f.border }}; background:{{ f.bg }}; color:{{ f.fg }}; padding:11px 20px; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; cursor:pointer;">{{ f.label }}</div>
+    </sc-for>
+  </div>
+
+  <div style="padding:0 30px 130px;">
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(23,21,18,.13);">
+      <sc-for list="{{ people }}" as="p" hint-placeholder-count="12">
+        <div style="background:#F2EDE3; display:flex; flex-direction:column;">
+          <div style="aspect-ratio:3/4; background:#E3DACA;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slot }}" placeholder="{{ p.placeholder }}" shape="rect" hint-size="100%,100%"></x-import>
+          </div>
+          <div style="padding:24px 26px 30px; display:flex; flex-direction:column; gap:9px; flex:1;">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:14px;">
+              <div style="font-family:'Bodoni Moda',serif; font-size:28px; line-height:1;">{{ p.name }}</div>
+              <div style="font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:#A8562F; white-space:nowrap;">{{ p.years }}</div>
+            </div>
+            <div style="font-size:14.5px; line-height:1.6; color:#4C463E;">{{ p.spec }}</div>
+            <div style="font-size:13px; color:#7A736A; margin-top:auto; padding-top:12px;">{{ p.base }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- standards -->
+  <div style="background:#171512; color:#F2EDE3; padding:130px 30px;">
+    <div style="display:grid; grid-template-columns:400px 1fr; gap:100px;">
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.94; letter-spacing:-.03em;">Who is<br>coming into<br><span style="font-style:italic; color:#C69B54;">your home.</span></div>
+        <div style="font-size:16.5px; line-height:1.72; color:rgba(242,237,227,.6);">You are letting someone into your house, your hotel room, or your mother's care facility. Certificates of licensing and insurance are available on request, every time.</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(242,237,227,.14);">
+        <div style="background:#171512; padding:34px 34px 40px; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:28px; color:#C69B54;">A state licence</div>
+          <div style="font-size:15px; line-height:1.65; color:rgba(242,237,227,.65);">Cosmetology, esthetics or massage therapy, current in every state we serve.</div>
+        </div>
+        <div style="background:#171512; padding:34px 34px 40px; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:28px; color:#C69B54;">Liability insurance</div>
+          <div style="font-size:15px; line-height:1.65; color:rgba(242,237,227,.65);">Certificates issued to venues and facilities that require them before a booking.</div>
+        </div>
+        <div style="background:#171512; padding:34px 34px 40px; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:28px; color:#C69B54;">Sanitation training</div>
+          <div style="font-size:15px; line-height:1.65; color:rgba(242,237,227,.65);">Tools sterilised between clients. Disposables used where sterilisation is not possible.</div>
+        </div>
+        <div style="background:#171512; padding:34px 34px 40px; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:28px; color:#C69B54;">Their own kit</div>
+          <div style="font-size:15px; line-height:1.65; color:rgba(242,237,227,.65);">Table, chair, lighting, towels, products. Nothing borrowed from your house.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- hiring -->
+  <div style="background:#E8E1D4; padding:120px 30px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+    <div style="display:flex; flex-direction:column; gap:22px;">
+      <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.96; letter-spacing:-.03em;">Work for<br>yourself.</div>
+      <div style="font-size:17.5px; line-height:1.72; color:#4C463E; max-width:480px;">If you are licensed with five years or more, stop waiting for walk-ins. We handle the bookings, the invoicing and the marketing. You set the schedule and you keep the client.</div>
+      <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; border-bottom:1px solid #171512; padding-bottom:6px; width:fit-content; cursor:pointer;">Join our mobile team</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(23,21,18,.14);">
+      <div style="background:#E8E1D4; padding:28px 30px 34px;"><div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:1;">Your</div><div style="font-size:14px; color:#4C463E; margin-top:8px;">hours, your territory</div></div>
+      <div style="background:#E8E1D4; padding:28px 30px 34px;"><div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:1;">Ours</div><div style="font-size:14px; color:#4C463E; margin-top:8px;">scheduling and invoicing</div></div>
+      <div style="background:#E8E1D4; padding:28px 30px 34px;"><div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:1;">16</div><div style="font-size:14px; color:#4C463E; margin-top:8px;">cities with open demand</div></div>
+      <div style="background:#E8E1D4; padding:28px 30px 34px;"><div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:1;">2001</div><div style="font-size:14px; color:#4C463E; margin-top:8px;">the year we started</div></div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { filter: 'all' };
+
+  roster() {
+    return [
+      { name: 'Carla', years: '25 yrs', spec: 'Owner. Corporate spa days and large group logistics.', base: 'Scottsdale, AZ', tags: ['corporate'] },
+      { name: 'Saira', years: '14 yrs', spec: 'Bridal hair and makeup, colour correction, in-care visits.', base: 'Phoenix, AZ', tags: ['bridal', 'hair', 'incare'] },
+      { name: 'Marisol', years: '11 yrs', spec: 'Esthetics. Facials, micro-needling, dermaplaning.', base: 'Scottsdale, AZ', tags: ['skin'] },
+      { name: 'Deanna', years: '8 yrs', spec: 'Nails. Gel, acrylic and group manicure events.', base: 'Mesa, AZ', tags: ['nails'] },
+      { name: 'Priya', years: '12 yrs', spec: 'Massage therapy. Table, chair and in-care bedside work.', base: 'Chandler, AZ', tags: ['massage', 'incare'] },
+      { name: 'Tanya', years: '9 yrs', spec: 'Balayage and highlights. Long-hair specialist.', base: 'Paradise Valley, AZ', tags: ['hair'] },
+      { name: 'Renata', years: '15 yrs', spec: 'Bridal updos and flower girls. Wedding-day run of show.', base: 'Sedona, AZ', tags: ['bridal', 'hair'] },
+      { name: 'Joelle', years: '7 yrs', spec: 'Makeup artistry. Prom, night out and editorial.', base: 'Las Vegas, NV', tags: ['bridal'] },
+      { name: 'Adaeze', years: '10 yrs', spec: 'Microblading and lash extensions.', base: 'Phoenix, AZ', tags: ['skin'] },
+      { name: 'Kim', years: '13 yrs', spec: 'Elderly and homebound care. Dementia-experienced.', base: 'Tucson, AZ', tags: ['incare', 'hair'] },
+      { name: 'Brielle', years: '6 yrs', spec: 'Teen and kids parties. Group pedicures.', base: 'Nashville, TN', tags: ['nails'] },
+      { name: 'Sofia', years: '11 yrs', spec: 'Corporate express services and chair massage.', base: 'Los Angeles, CA', tags: ['corporate', 'massage'] }
+    ];
+  }
+
+  renderVals() {
+    const f = this.state.filter;
+    const defs = [
+      { k: 'all', label: 'Everyone' },
+      { k: 'bridal', label: 'Bridal & makeup' },
+      { k: 'hair', label: 'Hair & colour' },
+      { k: 'skin', label: 'Skin' },
+      { k: 'nails', label: 'Nails' },
+      { k: 'massage', label: 'Massage' },
+      { k: 'corporate', label: 'Corporate' },
+      { k: 'incare', label: 'In-care' }
+    ];
+    const list = this.roster().filter(p => f === 'all' || p.tags.indexOf(f) !== -1);
+    return {
+      filters: defs.map(d => ({
+        label: d.label,
+        bg: f === d.k ? '#171512' : 'transparent',
+        fg: f === d.k ? '#F2EDE3' : '#4C463E',
+        border: f === d.k ? '#171512' : 'rgba(23,21,18,.22)',
+        click: () => this.setState({ filter: d.k })
+      })),
+      people: list.map((p, i) => Object.assign({}, p, {
+        slot: 'botg-person-' + p.name.toLowerCase(),
+        placeholder: p.name + ' — portrait'
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

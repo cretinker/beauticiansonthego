@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #0E0C0A; }
+  a { color: #C69B54; text-decoration: none; }
+  a:hover { color: #E0B972; }
+</style>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+  <!-- 1 · TITLE -->
+  <section data-label="Title" data-speaker-notes="Do not open by talking about the website. Open by talking about bookings. The site is the machine, not the product." style="background:#171512; color:#F2EDE3; font-family:'Karla',sans-serif; display:grid; grid-template-columns:1fr 1fr;">
+    <div style="padding:110px 90px; display:flex; flex-direction:column; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="width:60px; height:60px; border:1px solid #C69B54; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:30px; color:#C69B54; line-height:1;">B</div>
+        </div>
+        <div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:28px; line-height:1;">Beauticians On The Go</div>
+          <div style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:#7A736A; margin-top:6px;">Mobile spa &amp; beauty · Est. 2001</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:30px;">
+        <div style="font-size:13px; letter-spacing:.3em; text-transform:uppercase; color:#C69B54;">A booking engine, not a brochure</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:100px; line-height:.88; letter-spacing:-.038em;">Let's fill<br>your <span style="font-style:italic; color:#C69B54;">calendar.</span></div>
+        <div style="font-size:23px; line-height:1.55; color:rgba(242,237,227,.62); max-width:640px;">I've built the asset that turns strangers into booked appointments. It's live, it works, and it's ready to point advertising at.</div>
+      </div>
+      <div style="font-size:15px; letter-spacing:.22em; text-transform:uppercase; color:#7A736A;">Prepared for the owner · August 2026</div>
+    </div>
+    <div style="background-image:url('https://static.wixstatic.com/media/6eaddd_ca61c1c3778e4f0f9e5c4c019f2cc98a~mv2.jpg/v1/fill/w_1400,h_1600,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/6eaddd_ca61c1c3778e4f0f9e5c4c019f2cc98a~mv2.jpg'); background-size:cover; background-position:center 35%;"></div>
+  </section>
+
+  <!-- 2 · THE PRIZE -->
+  <section data-label="The prize" data-speaker-notes="Lead with money. These are THEIR published prices — not invented. One extra booking a week per line is a conservative ask." style="background:#A8562F; color:#FBF7F0; font-family:'Karla',sans-serif; padding:90px; display:flex; flex-direction:column; gap:44px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:60px; flex-shrink:0;">
+      <div style="font-family:'Bodoni Moda',serif; font-size:86px; line-height:.92; letter-spacing:-.034em; flex:0 0 auto; white-space:nowrap;">What one extra booking<br>a week is worth.</div>
+      <div style="font-size:19px; line-height:1.6; color:rgba(251,247,240,.8); max-width:400px; padding-bottom:12px; flex:0 1 auto; min-width:0;">Your own published rates. Not projections — arithmetic.</div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(251,247,240,.28); flex:1;">
+      <div style="background:#A8562F; padding:38px 34px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:rgba(251,247,240,.7);">One corporate day</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:66px; line-height:1;">$600</div>
+        <div style="font-size:16px; line-height:1.55; color:rgba(251,247,240,.78);">$150 an hour at the four-hour minimum.</div>
+        <div style="margin-top:auto; padding-top:18px; border-top:1px solid rgba(251,247,240,.3);"><div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1;">$31,200</div><div style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(251,247,240,.7); margin-top:7px;">Weekly, all year</div></div>
+      </div>
+      <div style="background:#A8562F; padding:38px 34px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:rgba(251,247,240,.7);">One wedding party</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:66px; line-height:1;">$760</div>
+        <div style="font-size:16px; line-height:1.55; color:rgba(251,247,240,.78);">Bride at $380 plus one bridesmaid set.</div>
+        <div style="margin-top:auto; padding-top:18px; border-top:1px solid rgba(251,247,240,.3);"><div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1;">$39,520</div><div style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(251,247,240,.7); margin-top:7px;">Weekly, all year</div></div>
+      </div>
+      <div style="background:#A8562F; padding:38px 34px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:rgba(251,247,240,.7);">One ten-guest party</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:66px; line-height:1;">$1,500</div>
+        <div style="font-size:16px; line-height:1.55; color:rgba(251,247,240,.78);">Ten mani-pedi combos at $150 each.</div>
+        <div style="margin-top:auto; padding-top:18px; border-top:1px solid rgba(251,247,240,.3);"><div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1;">$78,000</div><div style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(251,247,240,.7); margin-top:7px;">Weekly, all year</div></div>
+      </div>
+      <div style="background:#171512; padding:38px 34px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54;">One in-care client</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:66px; line-height:1; color:#C69B54;">$1,800</div>
+        <div style="font-size:16px; line-height:1.55; color:rgba(242,237,227,.75);">$75 twice a month. And they don't leave.</div>
+        <div style="margin-top:auto; padding-top:18px; border-top:1px solid rgba(198,155,84,.4);"><div style="font-family:'Bodoni Moda',serif; font-size:40px; line-height:1; color:#C69B54;">Every year</div><div style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(242,237,227,.6); margin-top:7px;">The compounding one</div></div>
+      </div>
+    </div>
+    <div style="font-size:17px; line-height:1.6; color:rgba(251,247,240,.75); flex-shrink:0;">The website isn't the goal. The goal is that the phone rings more often, from people who already know your prices and have chosen you.</div>
+  </section>
+
+  <!-- 3 · THE LEAK -->
+  <section data-label="The leak" data-speaker-notes="This is the pivot: they cannot advertise profitably today. Not a criticism of them — a structural fact." style="background:#F2EDE3; color:#171512; font-family:'Karla',sans-serif; padding:90px; display:flex; flex-direction:column; gap:44px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:60px; flex-shrink:0;">
+      <div style="font-family:'Bodoni Moda',serif; font-size:86px; line-height:.92; letter-spacing:-.034em; flex:0 0 auto; white-space:nowrap;">Right now, every ad<br>dollar would <span style="font-style:italic; color:#A8562F;">leak out.</span></div>
+      <div style="font-size:19px; line-height:1.6; color:#4C463E; max-width:400px; padding-bottom:12px; flex:0 1 auto; min-width:0;">You can't run ads to a page that has nowhere to convert. That's the honest reason to fix the site first.</div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(23,21,18,.14); flex:1;">
+      <div style="background:#F2EDE3; padding:38px 34px; display:flex; flex-direction:column; gap:13px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#A8562F; line-height:1;">01</div>
+        <div style="font-size:25px; font-weight:600; line-height:1.2;">Nowhere to land</div>
+        <div style="font-size:17px; line-height:1.6; color:#4C463E;">An ad for weddings has to land on a weddings page. Send everyone to one homepage and most of them bounce.</div>
+        <div style="font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#A8562F; margin-top:auto; padding-top:14px;">Now: six landing pages</div>
+      </div>
+      <div style="background:#F2EDE3; padding:38px 34px; display:flex; flex-direction:column; gap:13px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#A8562F; line-height:1;">02</div>
+        <div style="font-size:25px; font-weight:600; line-height:1.2;">Nothing to click</div>
+        <div style="font-size:17px; line-height:1.6; color:#4C463E;">A phone number is a dead end after 7pm and to anyone who'd rather not call. Most enquiries never happen.</div>
+        <div style="font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#A8562F; margin-top:auto; padding-top:14px;">Now: quote in two minutes</div>
+      </div>
+      <div style="background:#F2EDE3; padding:38px 34px; display:flex; flex-direction:column; gap:13px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#A8562F; line-height:1;">03</div>
+        <div style="font-size:25px; font-weight:600; line-height:1.2;">Nothing to measure</div>
+        <div style="font-size:17px; line-height:1.6; color:#4C463E;">With no form, there's no way to know which ad produced which booking, so spend can never be optimised.</div>
+        <div style="font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#A8562F; margin-top:auto; padding-top:14px;">Now: every quote tracked</div>
+      </div>
+      <div style="background:#F2EDE3; padding:38px 34px; display:flex; flex-direction:column; gap:13px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#A8562F; line-height:1;">04</div>
+        <div style="font-size:25px; font-weight:600; line-height:1.2;">Nothing to believe</div>
+        <div style="font-size:17px; line-height:1.6; color:#4C463E;">Cold traffic doesn't know you. Without prices, faces and proof on the page, they leave to go and check.</div>
+        <div style="font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#A8562F; margin-top:auto; padding-top:14px;">Now: 68 prices, 25 faces</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · THE ASSET -->
+  <section data-label="The asset" data-speaker-notes="Now show it. Scroll the frame. Let them see it is real and finished." style="background:#171512; display:grid; grid-template-columns:480px 1440px;">
+    <div style="padding:80px 56px; display:flex; flex-direction:column; justify-content:space-between; font-family:'Karla',sans-serif; color:#F2EDE3;">
+      <div style="font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54;">The asset · Homepage</div>
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:58px; line-height:.94; letter-spacing:-.03em;">Built. Live.<br>Ready for<br>traffic.</div>
+        <div style="font-size:18px; line-height:1.65; color:rgba(242,237,227,.6);">A visitor picks their occasion in the first three seconds and is already inside the quote. That single move is what makes advertising pay.</div>
+        <div style="display:flex; flex-direction:column; gap:11px; font-size:16px; color:rgba(242,237,227,.75);">
+          <div>· Six occasion chips, straight into the quote</div>
+          <div>· Prices published, anchored high to low</div>
+          <div>· A booking bar that follows the scroll</div>
+        </div>
+      </div>
+      <div style="font-size:14px; color:#7A736A;">Live — scroll inside the frame</div>
+    </div>
+    <iframe src="./Beauticians On The Go.dc.html" style="width:1440px; height:1080px; border:0; display:block;"></iframe>
+  </section>
+
+  <!-- 5 · CAMPAIGN LANDING PAGES -->
+  <section data-label="Landing pages" data-speaker-notes="Each occasion is a campaign. This is the slide that makes them see ads working." style="background:#171512; display:grid; grid-template-columns:480px 1440px;">
+    <div style="padding:80px 56px; display:flex; flex-direction:column; justify-content:space-between; font-family:'Karla',sans-serif; color:#F2EDE3;">
+      <div style="font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54;">Six campaigns, six pages</div>
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:58px; line-height:.94; letter-spacing:-.03em;">Every ad has<br>somewhere<br>to land.</div>
+        <div style="font-size:18px; line-height:1.65; color:rgba(242,237,227,.6);">A bride searching "wedding hair Scottsdale" lands on weddings, sees $380, and starts a quote. She never sees a kids' party price.</div>
+        <div style="background:rgba(198,155,84,.14); border-left:2px solid #C69B54; padding:18px 20px; font-size:15.5px; line-height:1.6; color:rgba(242,237,227,.82);">Weddings · Corporate · Spa parties · Teens &amp; kids · In-care · At home</div>
+      </div>
+      <div style="font-size:14px; color:#7A736A;">Live — switch between them</div>
+    </div>
+    <iframe data-page="Occasions" src="./Beauticians On The Go.dc.html" style="width:1440px; height:1080px; border:0; display:block;"></iframe>
+  </section>
+
+  <!-- 6 · THE QUOTE ENGINE -->
+  <section data-label="Quote engine" data-speaker-notes="Demo this live. Pick an occasion, add two services, let them watch the number move. This is the moment the deal closes." style="background:#171512; display:grid; grid-template-columns:480px 1440px;">
+    <div style="padding:80px 56px; display:flex; flex-direction:column; justify-content:space-between; font-family:'Karla',sans-serif; color:#F2EDE3;">
+      <div style="font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54;">The engine</div>
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:58px; line-height:.94; letter-spacing:-.03em;">Where the<br>money<br>gets made.</div>
+        <div style="font-size:18px; line-height:1.65; color:rgba(242,237,227,.6);">Four questions. A live estimate that moves as services are added. A named beautician if they want one. And if they try to leave, a callback offer instead of a lost lead.</div>
+        <div style="font-size:16px; line-height:1.6; color:#C69B54;">Every completed quote is a qualified lead with a date, a headcount, an address and a budget already agreed.</div>
+      </div>
+      <div style="font-size:14px; color:#7A736A;">Live — fill it in</div>
+    </div>
+    <iframe data-page="quote" src="./Beauticians On The Go.dc.html" style="width:1440px; height:1080px; border:0; display:block;"></iframe>
+  </section>
+
+  <!-- 7 · IN-CARE GOLDMINE -->
+  <section data-label="In-care" data-speaker-notes="Slow down. This is the one nobody else can copy and the one with the best economics." style="background:#F2EDE3; color:#171512; font-family:'Karla',sans-serif; display:grid; grid-template-columns:1fr 1fr;">
+    <div style="padding:100px 80px; display:flex; flex-direction:column; justify-content:center; gap:30px;">
+      <div style="display:flex; align-items:center; gap:18px;">
+        <div style="width:56px; height:1px; background:#A8562F;"></div>
+        <div style="font-size:13px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F;">The market nobody is advertising in</div>
+      </div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:76px; line-height:.92; letter-spacing:-.034em;">Your competitors can't follow you here.</div>
+      <div style="font-size:20px; line-height:1.65; color:#4C463E;">Hospice, assisted living, rehab and homebound clients. A daughter searching for someone to do her mother's hair is not comparing prices — she is looking for someone she can trust. She books, and she keeps booking.</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(23,21,18,.16);">
+        <div style="background:#F2EDE3; padding:24px 26px;"><div style="font-family:'Bodoni Moda',serif; font-size:44px; color:#A8562F; line-height:1;">$1,800</div><div style="font-size:14px; color:#4C463E; margin-top:8px;">One client, one year, twice a month</div></div>
+        <div style="background:#F2EDE3; padding:24px 26px;"><div style="font-family:'Bodoni Moda',serif; font-size:44px; color:#A8562F; line-height:1;">Zero</div><div style="font-size:14px; color:#4C463E; margin-top:8px;">Local competitors leading with this</div></div>
+      </div>
+      <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:23px; line-height:1.55; border-left:1px solid #A8562F; padding-left:28px; color:#2C2721;">"She handled my mom's sensitivities and fears and made her look stunning."
+        <div style="font-family:'Karla',sans-serif; font-style:normal; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-top:14px;">Natalie B. · Daughter of a client</div>
+      </div>
+    </div>
+    <div style="background-image:url('https://static.wixstatic.com/media/1c1fcfb3c2fa41a58394493406e03029.jpg/v1/fill/w_1200,h_1400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/1c1fcfb3c2fa41a58394493406e03029.jpg'); background-size:cover; background-position:center;"></div>
+  </section>
+
+  <!-- 8 · THE AD PLAN -->
+  <section data-label="The ad plan" data-speaker-notes="This is the upsell, offered as help rather than a pitch. Give them the plan whether or not they buy it." style="background:#171512; color:#F2EDE3; font-family:'Karla',sans-serif; padding:90px; display:flex; flex-direction:column; gap:44px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:60px; flex-shrink:0;">
+      <div style="font-family:'Bodoni Moda',serif; font-size:86px; line-height:.92; letter-spacing:-.034em; flex:0 0 auto; white-space:nowrap;">Then we point<br>traffic <span style="font-style:italic; color:#C69B54;">at it.</span></div>
+      <div style="font-size:19px; line-height:1.6; color:rgba(242,237,227,.6); max-width:400px; padding-bottom:12px; flex:0 1 auto; min-width:0;">Four campaigns, each to its own page, each measurable from click to booked appointment.</div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(242,237,227,.14); flex:1;">
+      <div style="background:#171512; padding:36px 32px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54;">Search · Google</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:34px; line-height:1.05;">Wedding hair Scottsdale</div>
+        <div style="font-size:16px; line-height:1.6; color:rgba(242,237,227,.6);">High intent, high value. Brides search months ahead and book the first person who answers properly.</div>
+        <div style="font-size:14px; color:#C69B54; margin-top:auto; padding-top:12px;">→ Weddings page</div>
+      </div>
+      <div style="background:#171512; padding:36px 32px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54;">Social · Meta</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:34px; line-height:1.05;">Bachelorette weekends</div>
+        <div style="font-size:16px; line-height:1.6; color:rgba(242,237,227,.6);">Video of a living room becoming a spa. Highest basket size of any segment at ten guests and up.</div>
+        <div style="font-size:14px; color:#C69B54; margin-top:auto; padding-top:12px;">→ Spa parties page</div>
+      </div>
+      <div style="background:#171512; padding:36px 32px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54;">B2B · LinkedIn</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:34px; line-height:1.05;">Office spa days</div>
+        <div style="font-size:16px; line-height:1.6; color:rgba(242,237,227,.6);">HR and office managers in Phoenix and Scottsdale. One yes becomes a recurring quarterly booking.</div>
+        <div style="font-size:14px; color:#C69B54; margin-top:auto; padding-top:12px;">→ Corporate page</div>
+      </div>
+      <div style="background:#171512; padding:36px 32px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54;">Local · Search &amp; referral</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:34px; line-height:1.05;">In-home care &amp; seniors</div>
+        <div style="font-size:16px; line-height:1.6; color:rgba(242,237,227,.6);">Cheapest clicks, longest retention, and partnerships with facilities that send clients repeatedly.</div>
+        <div style="font-size:14px; color:#C69B54; margin-top:auto; padding-top:12px;">→ In-care page</div>
+      </div>
+    </div>
+    <div style="font-size:17px; line-height:1.6; color:rgba(242,237,227,.65); flex-shrink:0; flex-shrink:0;">Every quote request carries the campaign that produced it, so within a month you know exactly which ads to keep and which to cut. I can run this with you, or hand it to whoever does your marketing.</div>
+  </section>
+
+  <!-- 9 · WHAT HAPPENS NEXT -->
+  <section data-label="What happens next" data-speaker-notes="Make yes feel small. The only real ask is photography." style="background:#F2EDE3; color:#171512; font-family:'Karla',sans-serif; padding:90px; display:flex; flex-direction:column; gap:44px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:60px; flex-shrink:0;">
+      <div style="font-family:'Bodoni Moda',serif; font-size:86px; line-height:.92; letter-spacing:-.034em; flex:0 0 auto; white-space:nowrap;">Two weeks to<br><span style="font-style:italic; color:#A8562F;">live.</span></div>
+      <div style="font-size:19px; line-height:1.6; color:#4C463E; max-width:400px; padding-bottom:12px; flex:0 1 auto; min-width:0;">The site is built. What's left is your material and a launch date.</div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(23,21,18,.14); flex:1;">
+      <div style="background:#F2EDE3; padding:42px 38px; display:flex; flex-direction:column; gap:15px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#A8562F; line-height:1;">01</div>
+        <div style="font-size:28px; font-weight:600; line-height:1.15;">You say go</div>
+        <div style="font-size:18px; line-height:1.6; color:#4C463E;">Today. Tell me what to keep and what to change. Nothing else is needed to start.</div>
+        <div style="font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; margin-top:auto; padding-top:14px;">Day one</div>
+      </div>
+      <div style="background:#F2EDE3; padding:42px 38px; display:flex; flex-direction:column; gap:15px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#A8562F; line-height:1;">02</div>
+        <div style="font-size:28px; font-weight:600; line-height:1.15;">Photos and names</div>
+        <div style="font-size:18px; line-height:1.6; color:#4C463E;">Fifteen to twenty photographs of your beauticians working, plus their real names and specialties.</div>
+        <div style="font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; margin-top:auto; padding-top:14px;">Week one</div>
+      </div>
+      <div style="background:#171512; color:#F2EDE3; padding:42px 38px; display:flex; flex-direction:column; gap:15px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#C69B54; line-height:1;">03</div>
+        <div style="font-size:28px; font-weight:600; line-height:1.15;">Live, and taking quotes</div>
+        <div style="font-size:18px; line-height:1.6; color:rgba(242,237,227,.7);">Domain pointed, quotes routed to your inbox and phone, tracking in place, and the first campaign ready to switch on.</div>
+        <div style="font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:#C69B54; margin-top:auto; padding-top:14px;">Week two</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · CLOSE -->
+  <section data-label="Close" data-speaker-notes="Ask for the yes. Then stop talking." style="background:#171512; color:#F2EDE3; font-family:'Karla',sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:36px; text-align:center; padding:90px;">
+    <div style="width:76px; height:76px; border:1px solid #C69B54; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+      <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:38px; color:#C69B54; line-height:1;">B</div>
+    </div>
+    <div style="font-family:'Bodoni Moda',serif; font-size:110px; line-height:.9; letter-spacing:-.04em;">Shall we switch<br>it <span style="font-style:italic; color:#C69B54;">on?</span></div>
+    <div style="font-size:23px; line-height:1.6; color:rgba(242,237,227,.6); max-width:800px;">The asset is built and the campaigns are mapped. Say yes today and you'll be taking quotes online inside a fortnight — and running ads to them the week after.</div>
+    <div style="display:flex; gap:60px; padding-top:14px;">
+      <div><div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#C69B54; line-height:1;">8</div><div style="font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; margin-top:10px;">Pages built</div></div>
+      <div><div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#C69B54; line-height:1;">6</div><div style="font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; margin-top:10px;">Campaign landing pages</div></div>
+      <div><div style="font-family:'Bodoni Moda',serif; font-size:52px; color:#C69B54; line-height:1;">2 wks</div><div style="font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; margin-top:10px;">To live</div></div>
+    </div>
+  </section>
+
+</x-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const drive = () => {
+      document.querySelectorAll('iframe[data-page]').forEach(f => {
+        if (f.dataset.done) return;
+        const label = f.dataset.page;
+        try {
+          const d = f.contentDocument;
+          if (!d || d.readyState !== 'complete') return;
+          const isQuote = label === 'quote';
+          const marker = isQuote ? /Step 1 of 4|Where should/ : /Tell us the occasion/;
+          if (marker.test(d.body.innerText)) { f.dataset.done = '1'; return; }
+          const nodes = Array.from(d.querySelectorAll('div'));
+          const hit = isQuote
+            ? nodes.filter(n => n.children.length === 0 && n.textContent.trim() === 'Build your quote')[0]
+            : nodes.filter(n => n.children.length === 2 && n.textContent.trim() === label)[0];
+          if (hit) hit.click();
+        } catch (e) { /* not ready */ }
+      });
+    };
+    this._t = setInterval(drive, 500);
+    setTimeout(() => { if (this._t) clearInterval(this._t); }, 40000);
+  }
+  componentWillUnmount() { if (this._t) clearInterval(this._t); }
+}
+</script>
+</body>
+</html>

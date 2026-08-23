@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="font-family:'Karla',sans-serif; color:#171512; background:#F2EDE3;">
+
+  <div style="display:grid; grid-template-columns:1.05fr .95fr; border-bottom:1px solid rgba(23,21,18,.13);">
+    <div style="padding:120px 30px; display:flex; flex-direction:column; gap:26px; justify-content:center;">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="width:44px; height:1px; background:#A8562F;"></div>
+        <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F;">Visit</div>
+      </div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:92px; line-height:.9; letter-spacing:-.036em;">Book a visit.<br>Stay in your<br><span style="font-style:italic; color:#A8562F;">dressing gown.</span></div>
+      <div style="font-size:18px; line-height:1.7; color:#4C463E; max-width:500px;">A visit is one beautician, at your address, for as long as your services take. Two services is the minimum, six guests unlocks group pricing, and everything arrives in the car.</div>
+      <div style="display:flex; gap:14px; align-items:center; padding-top:6px;">
+        <div onClick="{{ onQuote }}" style="background:#171512; color:#F2EDE3; font-size:12px; letter-spacing:.16em; text-transform:uppercase; padding:20px 38px; cursor:pointer;" style-hover="background:#A8562F;">Request a visit</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:30px;">602-803-2827</div>
+      </div>
+    </div>
+    <div style="background-image:url('https://static.wixstatic.com/media/1e47b2_3e10f00d758d437c8025127b98a2892d.jpg/v1/fill/w_1200,h_1300,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e47b2_3e10f00d758d437c8025127b98a2892d.jpg'); background-size:cover; background-position:center; min-height:560px;"></div>
+  </div>
+
+  <!-- what a visit includes -->
+  <div style="padding:120px 30px;">
+    <div style="display:grid; grid-template-columns:400px 1fr; gap:100px; align-items:start;">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em;">What arrives<br>with <span style="font-style:italic; color:#A8562F;">her.</span></div>
+        <div style="font-size:16.5px; line-height:1.72; color:#4C463E;">Nothing is borrowed from your house except the outlet and the sink. Everything below comes through the door and leaves with her.</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(23,21,18,.14);">
+        <sc-for list="{{ kit }}" as="k" hint-placeholder-count="6">
+          <div style="background:#F2EDE3; padding:30px 32px 36px; display:flex; flex-direction:column; gap:9px;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:26px; line-height:1.05;">{{ k.title }}</div>
+            <div style="font-size:15px; line-height:1.65; color:#4C463E;">{{ k.body }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- office -->
+  <div style="background:#171512; color:#F2EDE3; padding:120px 30px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:100px;">
+      <div style="display:flex; flex-direction:column; gap:22px;">
+        <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54;">Our office</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em;">Scheduling lives<br>in <span style="font-style:italic; color:#C69B54;">Phoenix.</span></div>
+        <div style="font-size:16.5px; line-height:1.72; color:rgba(242,237,227,.6); max-width:460px;">The office handles bookings, invoicing and in-care coordination. The beauticians are out in the field, which is where you want them. Drop in only by appointment.</div>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <sc-for list="{{ contact }}" as="c" hint-placeholder-count="4">
+          <div style="display:grid; grid-template-columns:150px 1fr; gap:32px; padding:26px 0; border-top:1px solid rgba(242,237,227,.15); align-items:baseline;">
+            <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#C69B54;">{{ c.k }}</div>
+            <div style="font-size:20px; line-height:1.6;">{{ c.v }}</div>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid rgba(242,237,227,.15);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- before we arrive -->
+  <div style="background:#E8E1D4; padding:120px 30px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px; margin-bottom:52px;">
+      <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em;">Before we<br><span style="font-style:italic; color:#A8562F;">knock.</span></div>
+      <div style="font-size:16.5px; line-height:1.7; color:#4C463E; max-width:400px; padding-bottom:8px;">Four things, and they are already in your house. Clear them and the visit runs on time.</div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(23,21,18,.14);">
+      <sc-for list="{{ prep }}" as="p" hint-placeholder-count="4">
+        <div style="background:#E8E1D4; padding:32px 30px 38px; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:36px; color:#A8562F; line-height:1;">{{ p.n }}</div>
+          <div style="font-size:20px; font-weight:600;">{{ p.title }}</div>
+          <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">{{ p.body }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:#A8562F; color:#FBF7F0; padding:130px 30px; display:flex; flex-direction:column; align-items:center; gap:30px; text-align:center;">
+    <div style="font-family:'Bodoni Moda',serif; font-size:92px; line-height:.9; letter-spacing:-.036em;">Give us an address.</div>
+    <div style="font-size:18px; line-height:1.6; color:rgba(251,247,240,.82); max-width:520px;">Four questions, about two minutes. Someone calls you back the same day and nothing is charged until you approve the number.</div>
+    <div onClick="{{ onQuote }}" style="background:#171512; color:#FBF7F0; font-size:12px; letter-spacing:.16em; text-transform:uppercase; padding:22px 44px; cursor:pointer;" style-hover="background:#0C0A08;">Request a visit</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      onQuote: this.props.onQuote,
+      kit: [
+        { title: 'The table', body: 'A professional massage or facial table, carried in and set up wherever you point.' },
+        { title: 'The chair', body: 'A styling chair for cuts and colour, or a massage chair for express office visits.' },
+        { title: 'The basin', body: 'Portable shampoo bowls and pedicure basins. Yours alone, opened in front of you.' },
+        { title: 'The products', body: 'Salon-grade colour, skincare and polish. Tell us your allergies and we will bring alternatives.' },
+        { title: 'The lighting', body: 'Supplemental lighting for colour matching and makeup when the room runs dark.' },
+        { title: 'The linens', body: 'Fresh towels, capes and covers for every client. Nothing is reused between visits.' }
+      ],
+      contact: [
+        { k: 'Address', v: '2390 E Camelback Rd, Ste 130, Phoenix, AZ 85016' },
+        { k: 'Phone', v: '602-803-2827' },
+        { k: 'Email', v: 'beauticiansonthego@gmail.com' },
+        { k: 'Hours', v: 'Monday to Saturday, 8am–7pm · Sunday, 8am–6pm' }
+      ],
+      prep: [
+        { n: '01', title: 'Open space', body: 'Enough to set up a table and move around it. A kitchen, spare bedroom or conference room.' },
+        { n: '02', title: 'A power outlet', body: 'Dryers, lamps, nail equipment and warming units. One accessible outlet per station.' },
+        { n: '03', title: 'Good light', body: 'Natural light for colour matching and makeup. We bring our own when a room is dark.' },
+        { n: '04', title: 'Access to water', body: 'A sink or bathtub for shampooing, rinsing and filling basins.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
