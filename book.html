@@ -3,177 +3,195 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Book an Appointment | Beauticians On The Go — Phoenix & Scottsdale Mobile Spa</title>
-<meta name="description" content="Reserve your mobile hair styling, therapeutic massage, custom facials, nails, or bridal glam online. 68 published treatments across 16 Valley cities.">
+<script src="./support.js"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,600&family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="./support.js"></script>
 <style>
-  html { overflow-x: hidden; scroll-behavior: smooth; }
-  body { margin: 0; background: #FAF7F2; color: #171512; font-family: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; }
+  /* ================= MASTER RESPONSIVE ENGINE (ZERO OVERFLOW) ================= */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    background: #FAF7F2;
+    color: #171512;
+    font-family: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
+  *, *:before, *:after {
+    box-sizing: border-box !important;
+    max-width: 100%;
+  }
   a { color: #A8562F; text-decoration: none; transition: color .2s ease; }
   a:hover { color: #7E3C1E; }
-  * { box-sizing: border-box; }
+
   body::after {
     content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .032;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  @keyframes botgPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: .7; } }
 
-  /* Responsive Overrides & Mobile Utilities */
-  .desktop-nav-links { display: flex !important; }
-  .desktop-nav-actions { display: flex !important; }
-  .mobile-nav-toggle { display: none !important; }
-  
-  @media (max-width: 992px) {
-    .desktop-nav-links { display: none !important; }
-    .desktop-nav-actions { display: none !important; }
-    .mobile-nav-toggle { display: flex !important; }
-    
-    .botg-grid-2col { grid-template-columns: 1fr !important; gap: 36px !important; }
-    .botg-grid-3col { grid-template-columns: 1fr !important; gap: 24px !important; }
-    .botg-grid-4col { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
-    .botg-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 40px !important; }
-    .botg-section-pad { padding: 60px 20px !important; }
-  }
+  @keyframes botgRise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+  [data-reveal][data-seen] { opacity: 1; transform: none; }
 
-  @media (max-width: 640px) {
-    .botg-grid-4col { grid-template-columns: 1fr !important; }
-    .botg-footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-    .botg-top-ticker { flex-direction: column !important; gap: 6px !important; align-items: flex-start !important; padding: 8px 16px !important; }
+  /* Occasion Cards */
+  .botg-occ-card {
+    background: #F2EDE3;
+    padding: 36px 32px 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid rgba(23,21,18,.08);
+    transition: all .32s cubic-bezier(.16,1,.3,1);
   }
+  .botg-occ-card:hover {
+    background: #171512 !important;
+    border-color: #C69B54 !important;
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -10px rgba(23,21,18,.4);
+  }
+  .botg-occ-card .occ-num { font-family: 'Bodoni Moda', serif; font-size: 24px; color: #A8562F; font-weight: 600; transition: color .3s ease; }
+  .botg-occ-card:hover .occ-num { color: #C69B54 !important; }
+  .botg-occ-card .occ-badge { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #7A736A; font-weight: 600; transition: color .3s ease; }
+  .botg-occ-card:hover .occ-badge { color: #C69B54 !important; }
+  .botg-occ-card .occ-title { font-family: 'Bodoni Moda', serif; font-size: 32px; line-height: 1.05; color: #171512; transition: color .3s ease; }
+  .botg-occ-card:hover .occ-title { color: #FAF7F2 !important; }
+  .botg-occ-card .occ-desc { font-size: 15px; line-height: 1.65; color: #4C463E; transition: color .3s ease; }
+  .botg-occ-card:hover .occ-desc { color: rgba(242,237,227,.85) !important; }
+  .botg-occ-card .occ-link { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #A8562F; font-weight: 700; margin-top: auto; padding-top: 12px; transition: color .3s ease; }
+  .botg-occ-card:hover .occ-link { color: #C69B54 !important; }
 
-  /* ================= MASTER MOBILE RESPONSIVE ENGINE (ZERO OVERFLOW) ================= */
-  html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-  }
-  
-  *, *:before, *:after {
-    box-sizing: border-box !important;
-  }
+  .botg-occ-card.featured { background: #171512; border-color: #C69B54; }
+  .botg-occ-card.featured .occ-num { color: #C69B54; }
+  .botg-occ-card.featured .occ-badge { color: #C69B54; font-weight: 700; }
+  .botg-occ-card.featured .occ-title { color: #FAF7F2; }
+  .botg-occ-card.featured .occ-desc { color: rgba(242,237,227,.8); }
+  .botg-occ-card.featured .occ-link { color: #C69B54; }
+  .botg-occ-card.featured:hover { transform: translateY(-4px); box-shadow: 0 16px 36px -10px rgba(198,155,84,.35); }
 
+  /* ================= DESKTOP DEFAULTS (> 992px) ================= */
+  .desktop-only { display: block !important; }
+  .mobile-only { display: none !important; }
   .desktop-nav-links { display: flex !important; }
   .desktop-nav-actions { display: flex !important; }
   .mobile-nav-toggle { display: none !important; }
   .mobile-bottom-bar { display: none !important; }
-  .mobile-only { display: none !important; }
-  .desktop-only { display: block !important; }
 
+  .botg-hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: center; }
+  .botg-occasions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .botg-arrives-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .botg-arrives-header { display: grid; grid-template-columns: 380px 1fr; gap: 64px; align-items: end; }
+  .botg-rates-grid { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
+  .botg-incare-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .botg-reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .botg-trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .botg-gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; gap: 2px; }
+  .botg-cta-box { display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center; max-width: 880px; margin: 0 auto; }
+  .botg-footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 64px; }
+  .botg-section-pad { padding: 110px 30px; }
+  .botg-hero-pad { padding: 24px 30px 48px; }
+
+  .botg-narrative-split { display: grid; grid-template-columns: 380px 1fr; gap: 72px; }
+  .botg-metrics-5col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+  .botg-timeline-5col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+  .botg-team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .botg-services-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
+  .botg-faq-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
+
+  /* ================= DEDICATED MOBILE RESPONSIVE ENGINE (<= 992px) ================= */
   @media (max-width: 992px) {
+    .desktop-only { display: none !important; }
+    .mobile-only { display: block !important; }
     .desktop-nav-links { display: none !important; }
     .desktop-nav-actions { display: none !important; }
     .mobile-nav-toggle { display: flex !important; }
     .mobile-bottom-bar { display: flex !important; }
-    .mobile-only { display: block !important; }
-    .desktop-only { display: none !important; }
-    
-    /* Section & Container Padding for Mobile */
-    section, div {
-      max-width: 100% !important;
-    }
-    .botg-hero-pad { padding: 20px 16px 36px !important; }
-    .botg-section-pad { padding: 48px 16px !important; }
-    
-    /* UNIVERSAL GRID COLLAPSE TO 1-COLUMN ON MOBILE */
-    .botg-grid-2col, 
-    .botg-grid-3col, 
-    .botg-grid-4col, 
-    .botg-grid-5col, 
-    .botg-grid-6col,
-    .botg-split-narrative,
-    .botg-split-faq,
-    [style*="grid-template-columns:1.2fr 0.8fr"],
-    [style*="grid-template-columns:1.2fr .8fr"],
-    [style*="grid-template-columns:1.15fr .85fr"],
-    [style*="grid-template-columns:1.05fr 1fr"],
-    [style*="grid-template-columns:380px 1fr"],
-    [style*="grid-template-columns:360px 1fr"],
-    [style*="grid-template-columns:340px 1fr"],
-    [style*="grid-template-columns:460px 1fr"],
-    [style*="grid-template-columns:minmax(0,1fr) minmax(0,1fr)"],
-    [style*="grid-template-columns:1fr 1fr"],
-    [style*="grid-template-columns:repeat(2,1fr)"],
-    [style*="grid-template-columns:repeat(3,1fr)"],
-    [style*="grid-template-columns:1fr 1fr 1fr"],
-    [style*="grid-template-columns:repeat(4,1fr)"],
-    [style*="grid-template-columns:repeat(5,1fr)"],
-    [style*="grid-template-columns:repeat(6,1fr)"],
-    [style*="grid-template-columns:repeat(7,1fr)"],
-    [style*="grid-template-columns:1.4fr 1fr 1fr 1fr"] {
-      grid-template-columns: 1fr !important;
-      gap: 20px !important;
+
+    .botg-section-pad { padding: 48px 18px !important; }
+    .botg-hero-pad { padding: 16px 18px 36px !important; }
+
+    /* Universal Section Collapse */
+    .botg-hero-grid,
+    .botg-occasions-grid,
+    .botg-arrives-grid,
+    .botg-arrives-header,
+    .botg-rates-grid,
+    .botg-incare-grid,
+    .botg-reviews-grid,
+    .botg-trust-grid,
+    .botg-gallery-grid,
+    .botg-footer-grid,
+    .botg-narrative-split,
+    .botg-metrics-5col,
+    .botg-timeline-5col,
+    .botg-team-grid,
+    .botg-services-split,
+    .botg-faq-split {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 24px !important;
     }
 
-    /* Mobile Typography Scaling */
-    h1, [style*="font-family:'Bodoni Moda'"][style*="font-size:8"], [style*="font-family:'Bodoni Moda'"][style*="font-size:7"], [style*="font-family:'Bodoni Moda'"][style*="font-size:9"] {
-      font-size: clamp(32px, 8.5vw, 48px) !important;
+    /* Mobile Hero Specifics */
+    .botg-hero-grid { gap: 24px !important; }
+    .botg-hero-art { width: 100% !important; max-width: 100% !important; height: 260px !important; }
+    .botg-hero-metrics { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+
+    /* Mobile Typography */
+    h1, .botg-title-hero, [style*="font-family:'Bodoni Moda'"][style*="font-size:clamp"] {
+      font-size: clamp(32px, 8vw, 44px) !important;
       line-height: 1.05 !important;
     }
-    h2, [style*="font-family:'Bodoni Moda'"][style*="font-size:6"], [style*="font-family:'Bodoni Moda'"][style*="font-size:5"] {
-      font-size: clamp(28px, 7vw, 38px) !important;
+    h2, .botg-title-section, [style*="font-family:'Bodoni Moda'"][style*="font-size:6"], [style*="font-family:'Bodoni Moda'"][style*="font-size:7"], [style*="font-family:'Bodoni Moda'"][style*="font-size:9"] {
+      font-size: clamp(28px, 7vw, 36px) !important;
       line-height: 1.1 !important;
     }
 
-    /* Occasion Cards on Mobile */
-    .mobile-occasions-scroll {
+    .botg-occ-card { padding: 24px 20px !important; border-radius: 6px !important; }
+
+    /* Rate Table Row on Mobile */
+    [style*="grid-template-columns:1fr 120px 110px"] {
       display: flex !important;
       flex-direction: column !important;
-      gap: 16px !important;
-      padding: 0 !important;
+      gap: 4px !important;
+      padding: 14px 0 !important;
     }
-    .botg-occ-card {
-      padding: 24px 20px !important;
+
+    /* Mobile Gallery */
+    .botg-gallery-grid > div, [style*="grid-template-columns:repeat(4,1fr); grid-auto-rows"] > div {
+      min-height: 220px !important;
+      height: 220px !important;
       border-radius: 6px !important;
-    }
-
-    /* Rates Table Rows */
-    [style*="grid-template-columns:1fr 120px 110px"] {
-      grid-template-columns: 1fr auto !important;
-      row-gap: 6px !important;
-      column-gap: 12px !important;
-      padding: 16px 0 !important;
-    }
-    [style*="grid-template-columns:1fr 120px 110px"] > div:nth-child(2) {
-      grid-column: 1 / -1 !important;
-      font-size: 13px !important;
-    }
-
-    /* Gallery Grid Reset */
-    [style*="grid-template-columns:repeat(4,1fr); grid-auto-rows"], .botg-mosaic-grid {
-      grid-template-columns: 1fr !important;
-      grid-auto-rows: auto !important;
-      gap: 12px !important;
-    }
-    [style*="grid-template-columns:repeat(4,1fr); grid-auto-rows"] > div, .botg-mosaic-grid > div {
       grid-column: auto !important;
       grid-row: auto !important;
-      min-height: 220px !important;
+      width: 100% !important;
+    }
+
+    /* In-Care Spotlight */
+    [style*="min-height:600px"] {
+      min-height: 260px !important;
+      height: 260px !important;
       border-radius: 6px !important;
     }
 
-    /* Booking Engine Split */
-    .botg-booking-split { grid-template-columns: 1fr !important; }
-    .botg-booking-rail { position: static !important; min-height: auto !important; border-right: none !important; border-bottom: 1px solid rgba(23,21,18,.12) !important; padding: 28px 18px !important; }
-    .botg-booking-main { padding: 28px 18px 80px !important; min-height: auto !important; }
-    .botg-form-2col { grid-template-columns: 1fr !important; }
+    /* CTA Section */
+    .botg-cta-buttons { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 12px !important; }
+    .botg-cta-buttons > * { width: 100% !important; text-align: center !important; padding: 18px !important; box-sizing: border-box !important; }
 
-    /* Footer */
-    .botg-footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-  }
+    /* Trust Badges */
+    .botg-trust-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    .botg-trust-grid > * { padding: 18px 16px !important; }
 
-  @media (max-width: 640px) {
     .botg-top-ticker { display: none !important; }
-    .botg-hero-metrics { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
-    .botg-hero-art { width: 100% !important; max-width: 100% !important; height: 280px !important; }
   }
-
 </style>
+
 </head>
 <body>
 <x-dc>
