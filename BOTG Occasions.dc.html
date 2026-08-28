@@ -9,7 +9,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,600&family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ================= RESET & GLOBAL DEFAULTS ================= */
+  /* ================= WORLD-CLASS RESPONSIVE SYSTEM ================= */
+  :root {
+    --botg-obsidian: #171512;
+    --botg-gold: #C69B54;
+    --botg-terracotta: #A8562F;
+    --botg-silk: #FAF7F2;
+    --botg-sand: #F2EDE3;
+    --botg-charcoal: #2C2721;
+    --botg-muted: #7A736A;
+  }
+
   html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -17,17 +27,19 @@
     max-width: 100vw !important;
     overflow-x: hidden !important;
     box-sizing: border-box !important;
-    background: #FAF7F2;
-    color: #171512;
+    background: var(--botg-silk);
+    color: var(--botg-obsidian);
     font-family: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
   }
+
   *, *:before, *:after {
     box-sizing: border-box !important;
     max-width: 100%;
   }
-  a { color: #A8562F; text-decoration: none; transition: color .2s ease; }
+
+  a { color: var(--botg-terracotta); text-decoration: none; transition: color .2s ease; }
   a:hover { color: #7E3C1E; }
 
   body::after {
@@ -35,13 +47,13 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  @keyframes botgRise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
-  [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+  @keyframes botgRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
   [data-reveal][data-seen] { opacity: 1; transform: none; }
 
-  /* Occasion Cards Desktop */
+  /* ================= OCCASION CARDS ================= */
   .botg-occ-card {
-    background: #F2EDE3;
+    background: var(--botg-sand);
     padding: 36px 32px 40px;
     cursor: pointer;
     display: flex;
@@ -51,28 +63,28 @@
     transition: all .32s cubic-bezier(.16,1,.3,1);
   }
   .botg-occ-card:hover {
-    background: #171512 !important;
-    border-color: #C69B54 !important;
+    background: var(--botg-obsidian) !important;
+    border-color: var(--botg-gold) !important;
     transform: translateY(-4px);
     box-shadow: 0 16px 36px -10px rgba(23,21,18,.4);
   }
-  .botg-occ-card .occ-num { font-family: 'Bodoni Moda', serif; font-size: 24px; color: #A8562F; font-weight: 600; transition: color .3s ease; }
-  .botg-occ-card:hover .occ-num { color: #C69B54 !important; }
-  .botg-occ-card .occ-badge { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #7A736A; font-weight: 600; transition: color .3s ease; }
-  .botg-occ-card:hover .occ-badge { color: #C69B54 !important; }
-  .botg-occ-card .occ-title { font-family: 'Bodoni Moda', serif; font-size: 32px; line-height: 1.05; color: #171512; transition: color .3s ease; }
-  .botg-occ-card:hover .occ-title { color: #FAF7F2 !important; }
+  .botg-occ-card .occ-num { font-family: 'Bodoni Moda', serif; font-size: 24px; color: var(--botg-terracotta); font-weight: 600; transition: color .3s ease; }
+  .botg-occ-card:hover .occ-num { color: var(--botg-gold) !important; }
+  .botg-occ-card .occ-badge { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--botg-muted); font-weight: 600; transition: color .3s ease; }
+  .botg-occ-card:hover .occ-badge { color: var(--botg-gold) !important; }
+  .botg-occ-card .occ-title { font-family: 'Bodoni Moda', serif; font-size: 32px; line-height: 1.05; color: var(--botg-obsidian); transition: color .3s ease; }
+  .botg-occ-card:hover .occ-title { color: var(--botg-silk) !important; }
   .botg-occ-card .occ-desc { font-size: 15px; line-height: 1.65; color: #4C463E; transition: color .3s ease; }
   .botg-occ-card:hover .occ-desc { color: rgba(242,237,227,.85) !important; }
-  .botg-occ-card .occ-link { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #A8562F; font-weight: 700; margin-top: auto; padding-top: 12px; transition: color .3s ease; }
-  .botg-occ-card:hover .occ-link { color: #C69B54 !important; }
+  .botg-occ-card .occ-link { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--botg-terracotta); font-weight: 700; margin-top: auto; padding-top: 12px; transition: color .3s ease; }
+  .botg-occ-card:hover .occ-link { color: var(--botg-gold) !important; }
 
-  .botg-occ-card.featured { background: #171512; border-color: #C69B54; }
-  .botg-occ-card.featured .occ-num { color: #C69B54; }
-  .botg-occ-card.featured .occ-badge { color: #C69B54; font-weight: 700; }
-  .botg-occ-card.featured .occ-title { color: #FAF7F2; }
+  .botg-occ-card.featured { background: var(--botg-obsidian); border-color: var(--botg-gold); }
+  .botg-occ-card.featured .occ-num { color: var(--botg-gold); }
+  .botg-occ-card.featured .occ-badge { color: var(--botg-gold); font-weight: 700; }
+  .botg-occ-card.featured .occ-title { color: var(--botg-silk); }
   .botg-occ-card.featured .occ-desc { color: rgba(242,237,227,.8); }
-  .botg-occ-card.featured .occ-link { color: #C69B54; }
+  .botg-occ-card.featured .occ-link { color: var(--botg-gold); }
   .botg-occ-card.featured:hover { transform: translateY(-4px); box-shadow: 0 16px 36px -10px rgba(198,155,84,.35); }
 
   /* ================= DESKTOP LAYOUT (> 992px) ================= */
@@ -97,7 +109,6 @@
   .botg-section-pad { padding: 110px 30px; }
   .botg-hero-pad { padding: 24px 30px 48px; }
 
-  /* Subpage Grids */
   .botg-narrative-split { display: grid; grid-template-columns: 380px 1fr; gap: 72px; }
   .botg-metrics-5col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
   .botg-timeline-5col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
@@ -105,7 +116,7 @@
   .botg-services-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
   .botg-faq-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
 
-  /* ================= DEDICATED MOBILE DESIGN SYSTEM (<= 992px) ================= */
+  /* ================= WORLD-CLASS MOBILE EXPERIENCE (<= 992px) ================= */
   @media (max-width: 992px) {
     .desktop-only { display: none !important; }
     .mobile-only { display: block !important; }
@@ -115,11 +126,11 @@
     .mobile-bottom-bar { display: flex !important; }
     .botg-top-ticker { display: none !important; }
 
-    /* Controlled Section Spacing (No 240px gaps!) */
-    .botg-section-pad { padding: 42px 18px !important; }
-    .botg-hero-pad { padding: 20px 18px 36px !important; }
+    /* Compact Spatial Rhythm */
+    .botg-section-pad { padding: 40px 18px !important; }
+    .botg-hero-pad { padding: 16px 18px 32px !important; }
 
-    /* Universal 1-Column Collapse for All Grids */
+    /* Universal 1-Column Grid Reset */
     .botg-hero-grid,
     .botg-occasions-grid,
     .botg-arrives-grid,
@@ -148,81 +159,96 @@
       box-sizing: border-box !important;
     }
 
-    /* Strict Mobile Typography Rules (Prevent Single-Word 6-Line Wraps) */
-    h1, .botg-title-hero, [style*="font-family:'Bodoni Moda'"][style*="font-size:clamp"], [style*="font-family:'Bodoni Moda'"][style*="font-size:92px"], [style*="font-family:'Bodoni Moda'"][style*="font-size:8"], [style*="font-family:'Bodoni Moda'"][style*="font-size:7"] {
-      font-size: clamp(30px, 8vw, 40px) !important;
-      line-height: 1.1 !important;
+    /* Flawless Mobile Editorial Typography */
+    h1, .botg-title-hero {
+      font-size: clamp(30px, 8vw, 38px) !important;
+      line-height: 1.08 !important;
       letter-spacing: -0.025em !important;
       text-wrap: balance !important;
     }
 
-    h2, .botg-title-section, [style*="font-family:'Bodoni Moda'"][style*="font-size:64px"], [style*="font-family:'Bodoni Moda'"][style*="font-size:60px"], [style*="font-family:'Bodoni Moda'"][style*="font-size:54px"], [style*="font-family:'Bodoni Moda'"][style*="font-size:48px"] {
-      font-size: clamp(26px, 7vw, 34px) !important;
-      line-height: 1.15 !important;
+    h2, .botg-title-section {
+      font-size: clamp(25px, 6.8vw, 32px) !important;
+      line-height: 1.14 !important;
       letter-spacing: -0.02em !important;
       text-wrap: balance !important;
     }
 
-    /* Paragraphs and descriptions */
-    p, [style*="font-size:18.5px"], [style*="font-size:17.5px"], [style*="font-size:19px"], [style*="font-size:17px"], [style*="font-size:16.5px"] {
+    p, .botg-lead {
       font-size: 15px !important;
       line-height: 1.62 !important;
     }
 
-    /* Section headers gap */
-    [data-reveal][style*="margin-bottom:56px"], [data-reveal][style*="margin-bottom:48px"] {
-      margin-bottom: 24px !important;
-      gap: 10px !important;
+    /* Section Heading Containers */
+    [data-reveal][style*="margin-bottom:56px"], 
+    [data-reveal][style*="margin-bottom:48px"] {
+      margin-bottom: 20px !important;
+      gap: 8px !important;
     }
 
-    /* Mobile Hero Artwork Card */
+    /* Mobile Hero Artwork */
     .botg-hero-art {
       width: 100% !important;
       max-width: 100% !important;
-      height: 240px !important;
+      height: 220px !important;
       border-radius: 8px !important;
-      margin-top: 8px !important;
+      margin-top: 6px !important;
     }
+
+    /* Hero Micro Metrics */
     .botg-hero-metrics {
       display: grid !important;
       grid-template-columns: repeat(2, 1fr) !important;
-      gap: 12px !important;
-      padding-top: 16px !important;
+      gap: 10px !important;
+      padding-top: 14px !important;
+      border-top: 1px solid rgba(23,21,18,.1) !important;
+    }
+    .botg-hero-metrics > div {
+      background: rgba(23,21,18,.03);
+      padding: 12px 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(23,21,18,.06);
     }
     .botg-hero-metrics [style*="font-size:36px"] {
-      font-size: 28px !important;
+      font-size: 26px !important;
+      line-height: 1 !important;
+    }
+    .botg-hero-metrics [style*="font-size:11px"] {
+      font-size: 10px !important;
+      margin-top: 4px !important;
     }
 
-    /* Mobile Occasions Cards (Full-Width, Zero Horizontal Cutoff) */
+    /* Mobile Occasions Cards (Full-Width, Elevated Touch) */
     .botg-occasions-grid {
       display: flex !important;
       flex-direction: column !important;
-      gap: 14px !important;
+      gap: 12px !important;
       width: 100% !important;
     }
     .botg-occ-card {
       width: 100% !important;
       max-width: 100% !important;
       box-sizing: border-box !important;
-      padding: 22px 20px !important;
+      padding: 22px 18px !important;
       border-radius: 6px !important;
-      gap: 12px !important;
+      gap: 10px !important;
     }
     .botg-occ-card .occ-title {
-      font-size: 24px !important;
+      font-size: 23px !important;
     }
 
-    /* Mobile What Arrives In Car Cards */
+    /* What Arrives Cards */
     .botg-arrives-grid > div {
-      padding: 22px 20px !important;
+      padding: 20px 18px !important;
       border-radius: 6px !important;
       border: 1px solid rgba(23,21,18,.08) !important;
+      background: var(--botg-silk) !important;
     }
     .botg-arrives-grid > div [style*="font-size:24px"] {
-      font-size: 20px !important;
+      font-size: 19px !important;
     }
 
-    /* Rates Table Rows on Mobile */
+    /* Rate Table Rows */
     [style*="grid-template-columns:1fr 120px 110px"] {
       display: flex !important;
       flex-direction: column !important;
@@ -240,58 +266,58 @@
       margin-top: 2px !important;
     }
 
-    /* In-Care Spotlight on Mobile */
+    /* In-Care Spotlight */
     .botg-incare-grid {
       display: flex !important;
       flex-direction: column !important;
       gap: 0 !important;
     }
     .botg-incare-grid > div:first-child {
-      padding: 42px 18px !important;
-      gap: 20px !important;
+      padding: 36px 18px !important;
+      gap: 16px !important;
     }
     .botg-incare-grid > div:last-child {
-      min-height: 240px !important;
-      height: 240px !important;
+      min-height: 220px !important;
+      height: 220px !important;
       width: 100% !important;
     }
 
-    /* Client Reviews Cards */
+    /* Reviews Cards */
     .botg-reviews-grid > div {
-      padding: 24px 20px !important;
+      padding: 22px 18px !important;
       border-radius: 6px !important;
-      gap: 14px !important;
+      gap: 12px !important;
     }
     .botg-reviews-grid > div [style*="font-size:19px"] {
-      font-size: 16px !important;
+      font-size: 15.5px !important;
       line-height: 1.55 !important;
     }
 
-    /* Trust Badges on Mobile */
+    /* Trust Badges 2x2 Grid */
     .botg-trust-grid {
       display: grid !important;
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 10px !important;
       width: 100% !important;
-      margin-top: 14px !important;
+      margin-top: 12px !important;
     }
     .botg-trust-grid > * {
-      padding: 18px 16px !important;
+      padding: 16px 14px !important;
       border-radius: 6px !important;
     }
     .botg-trust-grid [style*="font-size:26px"] {
-      font-size: 19px !important;
+      font-size: 18px !important;
     }
 
     /* Mobile Gallery */
     .botg-gallery-grid {
       display: flex !important;
       flex-direction: column !important;
-      gap: 12px !important;
+      gap: 10px !important;
     }
     .botg-gallery-grid > div {
-      min-height: 200px !important;
-      height: 200px !important;
+      min-height: 190px !important;
+      height: 190px !important;
       border-radius: 6px !important;
       grid-column: auto !important;
       grid-row: auto !important;
@@ -300,29 +326,43 @@
 
     /* Bottom CTA Box */
     .botg-cta-box {
-      gap: 20px !important;
+      gap: 18px !important;
     }
     .botg-cta-buttons {
       display: flex !important;
       flex-direction: column !important;
       width: 100% !important;
-      gap: 12px !important;
+      gap: 10px !important;
     }
     .botg-cta-buttons > * {
       width: 100% !important;
       text-align: center !important;
-      padding: 18px !important;
+      padding: 17px !important;
       box-sizing: border-box !important;
       border-radius: 4px !important;
     }
 
-    /* Marquee Strip */
-    .botg-top-ticker, .botg-marquee-strip {
+    /* Marquee Strip Mobile Constraint */
+    .botg-marquee-strip {
       padding: 14px 16px !important;
       gap: 16px !important;
       width: 100% !important;
       max-width: 100vw !important;
       overflow-x: auto !important;
+    }
+
+    /* Subpage Timeline */
+    .botg-timeline-5col > div {
+      padding: 18px 16px !important;
+      border-left: 2px solid var(--botg-gold) !important;
+      background: var(--botg-silk) !important;
+      margin-bottom: 8px !important;
+    }
+
+    /* Subpage Specialists */
+    .botg-team-grid > div {
+      border-radius: 8px !important;
+      overflow: hidden !important;
     }
 
     /* Footer on Mobile */
