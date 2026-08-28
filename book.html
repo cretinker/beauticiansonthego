@@ -9,12 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,600&family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ================= MASTER RESPONSIVE ENGINE (ZERO OVERFLOW) ================= */
+  /* ================= RESET & GLOBAL DEFAULTS ================= */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 100vw !important;
     overflow-x: hidden !important;
     box-sizing: border-box !important;
     background: #FAF7F2;
@@ -39,7 +39,7 @@
   [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
   [data-reveal][data-seen] { opacity: 1; transform: none; }
 
-  /* Occasion Cards */
+  /* Occasion Cards Desktop */
   .botg-occ-card {
     background: #F2EDE3;
     padding: 36px 32px 40px;
@@ -75,7 +75,7 @@
   .botg-occ-card.featured .occ-link { color: #C69B54; }
   .botg-occ-card.featured:hover { transform: translateY(-4px); box-shadow: 0 16px 36px -10px rgba(198,155,84,.35); }
 
-  /* ================= DESKTOP DEFAULTS (> 992px) ================= */
+  /* ================= DESKTOP LAYOUT (> 992px) ================= */
   .desktop-only { display: block !important; }
   .mobile-only { display: none !important; }
   .desktop-nav-links { display: flex !important; }
@@ -97,6 +97,7 @@
   .botg-section-pad { padding: 110px 30px; }
   .botg-hero-pad { padding: 24px 30px 48px; }
 
+  /* Subpage Grids */
   .botg-narrative-split { display: grid; grid-template-columns: 380px 1fr; gap: 72px; }
   .botg-metrics-5col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
   .botg-timeline-5col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
@@ -104,7 +105,7 @@
   .botg-services-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
   .botg-faq-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
 
-  /* ================= DEDICATED MOBILE RESPONSIVE ENGINE (<= 992px) ================= */
+  /* ================= DEDICATED MOBILE DESIGN SYSTEM (<= 992px) ================= */
   @media (max-width: 992px) {
     .desktop-only { display: none !important; }
     .mobile-only { display: block !important; }
@@ -112,11 +113,13 @@
     .desktop-nav-actions { display: none !important; }
     .mobile-nav-toggle { display: flex !important; }
     .mobile-bottom-bar { display: flex !important; }
+    .botg-top-ticker { display: none !important; }
 
-    .botg-section-pad { padding: 48px 18px !important; }
-    .botg-hero-pad { padding: 16px 18px 36px !important; }
+    /* Controlled Section Spacing (No 240px gaps!) */
+    .botg-section-pad { padding: 42px 18px !important; }
+    .botg-hero-pad { padding: 20px 18px 36px !important; }
 
-    /* Universal Section Collapse */
+    /* Universal 1-Column Collapse for All Grids */
     .botg-hero-grid,
     .botg-occasions-grid,
     .botg-arrives-grid,
@@ -124,7 +127,6 @@
     .botg-rates-grid,
     .botg-incare-grid,
     .botg-reviews-grid,
-    .botg-trust-grid,
     .botg-gallery-grid,
     .botg-footer-grid,
     .botg-narrative-split,
@@ -132,63 +134,201 @@
     .botg-timeline-5col,
     .botg-team-grid,
     .botg-services-split,
-    .botg-faq-split {
+    .botg-faq-split,
+    .botg-grid-2col,
+    .botg-grid-3col,
+    .botg-grid-4col,
+    .botg-grid-5col,
+    .botg-grid-6col {
       display: flex !important;
       flex-direction: column !important;
-      gap: 24px !important;
+      gap: 16px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
 
-    /* Mobile Hero Specifics */
-    .botg-hero-grid { gap: 24px !important; }
-    .botg-hero-art { width: 100% !important; max-width: 100% !important; height: 260px !important; }
-    .botg-hero-metrics { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
-
-    /* Mobile Typography */
-    h1, .botg-title-hero, [style*="font-family:'Bodoni Moda'"][style*="font-size:clamp"] {
-      font-size: clamp(32px, 8vw, 44px) !important;
-      line-height: 1.05 !important;
-    }
-    h2, .botg-title-section, [style*="font-family:'Bodoni Moda'"][style*="font-size:6"], [style*="font-family:'Bodoni Moda'"][style*="font-size:7"], [style*="font-family:'Bodoni Moda'"][style*="font-size:9"] {
-      font-size: clamp(28px, 7vw, 36px) !important;
+    /* Strict Mobile Typography Rules (Prevent Single-Word 6-Line Wraps) */
+    h1, .botg-title-hero, [style*="font-family:'Bodoni Moda'"][style*="font-size:clamp"], [style*="font-family:'Bodoni Moda'"][style*="font-size:92px"], [style*="font-family:'Bodoni Moda'"][style*="font-size:8"], [style*="font-family:'Bodoni Moda'"][style*="font-size:7"] {
+      font-size: clamp(30px, 8vw, 40px) !important;
       line-height: 1.1 !important;
+      letter-spacing: -0.025em !important;
+      text-wrap: balance !important;
     }
 
-    .botg-occ-card { padding: 24px 20px !important; border-radius: 6px !important; }
+    h2, .botg-title-section, [style*="font-family:'Bodoni Moda'"][style*="font-size:64px"], [style*="font-family:'Bodoni Moda'"][style*="font-size:60px"], [style*="font-family:'Bodoni Moda'"][style*="font-size:54px"], [style*="font-family:'Bodoni Moda'"][style*="font-size:48px"] {
+      font-size: clamp(26px, 7vw, 34px) !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.02em !important;
+      text-wrap: balance !important;
+    }
 
-    /* Rate Table Row on Mobile */
+    /* Paragraphs and descriptions */
+    p, [style*="font-size:18.5px"], [style*="font-size:17.5px"], [style*="font-size:19px"], [style*="font-size:17px"], [style*="font-size:16.5px"] {
+      font-size: 15px !important;
+      line-height: 1.62 !important;
+    }
+
+    /* Section headers gap */
+    [data-reveal][style*="margin-bottom:56px"], [data-reveal][style*="margin-bottom:48px"] {
+      margin-bottom: 24px !important;
+      gap: 10px !important;
+    }
+
+    /* Mobile Hero Artwork Card */
+    .botg-hero-art {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 240px !important;
+      border-radius: 8px !important;
+      margin-top: 8px !important;
+    }
+    .botg-hero-metrics {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+      padding-top: 16px !important;
+    }
+    .botg-hero-metrics [style*="font-size:36px"] {
+      font-size: 28px !important;
+    }
+
+    /* Mobile Occasions Cards (Full-Width, Zero Horizontal Cutoff) */
+    .botg-occasions-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 14px !important;
+      width: 100% !important;
+    }
+    .botg-occ-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 22px 20px !important;
+      border-radius: 6px !important;
+      gap: 12px !important;
+    }
+    .botg-occ-card .occ-title {
+      font-size: 24px !important;
+    }
+
+    /* Mobile What Arrives In Car Cards */
+    .botg-arrives-grid > div {
+      padding: 22px 20px !important;
+      border-radius: 6px !important;
+      border: 1px solid rgba(23,21,18,.08) !important;
+    }
+    .botg-arrives-grid > div [style*="font-size:24px"] {
+      font-size: 20px !important;
+    }
+
+    /* Rates Table Rows on Mobile */
     [style*="grid-template-columns:1fr 120px 110px"] {
       display: flex !important;
       flex-direction: column !important;
       gap: 4px !important;
       padding: 14px 0 !important;
+      border-bottom: 1px solid rgba(242,237,227,.12) !important;
+    }
+    [style*="grid-template-columns:1fr 120px 110px"] > div:first-child {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+    }
+    [style*="grid-template-columns:1fr 120px 110px"] > div:last-child {
+      font-size: 22px !important;
+      text-align: left !important;
+      margin-top: 2px !important;
+    }
+
+    /* In-Care Spotlight on Mobile */
+    .botg-incare-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0 !important;
+    }
+    .botg-incare-grid > div:first-child {
+      padding: 42px 18px !important;
+      gap: 20px !important;
+    }
+    .botg-incare-grid > div:last-child {
+      min-height: 240px !important;
+      height: 240px !important;
+      width: 100% !important;
+    }
+
+    /* Client Reviews Cards */
+    .botg-reviews-grid > div {
+      padding: 24px 20px !important;
+      border-radius: 6px !important;
+      gap: 14px !important;
+    }
+    .botg-reviews-grid > div [style*="font-size:19px"] {
+      font-size: 16px !important;
+      line-height: 1.55 !important;
+    }
+
+    /* Trust Badges on Mobile */
+    .botg-trust-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+      width: 100% !important;
+      margin-top: 14px !important;
+    }
+    .botg-trust-grid > * {
+      padding: 18px 16px !important;
+      border-radius: 6px !important;
+    }
+    .botg-trust-grid [style*="font-size:26px"] {
+      font-size: 19px !important;
     }
 
     /* Mobile Gallery */
-    .botg-gallery-grid > div, [style*="grid-template-columns:repeat(4,1fr); grid-auto-rows"] > div {
-      min-height: 220px !important;
-      height: 220px !important;
+    .botg-gallery-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+    .botg-gallery-grid > div {
+      min-height: 200px !important;
+      height: 200px !important;
       border-radius: 6px !important;
       grid-column: auto !important;
       grid-row: auto !important;
       width: 100% !important;
     }
 
-    /* In-Care Spotlight */
-    [style*="min-height:600px"] {
-      min-height: 260px !important;
-      height: 260px !important;
-      border-radius: 6px !important;
+    /* Bottom CTA Box */
+    .botg-cta-box {
+      gap: 20px !important;
+    }
+    .botg-cta-buttons {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+      gap: 12px !important;
+    }
+    .botg-cta-buttons > * {
+      width: 100% !important;
+      text-align: center !important;
+      padding: 18px !important;
+      box-sizing: border-box !important;
+      border-radius: 4px !important;
     }
 
-    /* CTA Section */
-    .botg-cta-buttons { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 12px !important; }
-    .botg-cta-buttons > * { width: 100% !important; text-align: center !important; padding: 18px !important; box-sizing: border-box !important; }
+    /* Marquee Strip */
+    .botg-top-ticker, .botg-marquee-strip {
+      padding: 14px 16px !important;
+      gap: 16px !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      overflow-x: auto !important;
+    }
 
-    /* Trust Badges */
-    .botg-trust-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-    .botg-trust-grid > * { padding: 18px 16px !important; }
-
-    .botg-top-ticker { display: none !important; }
+    /* Footer on Mobile */
+    .botg-footer-grid {
+      gap: 28px !important;
+    }
   }
 </style>
 
@@ -271,7 +411,7 @@
         </div>
       </div>
 
-      <div class="botg-grid-4col" style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(23,21,18,.14);">
+      <div class="botg-grid-4col" class="botg-team-grid" style=" gap:2px; background:rgba(23,21,18,.14);">
         <div style="background:#E8E1D4; padding:30px 26px 34px; display:flex; flex-direction:column; gap:10px;">
           <div style="font-family:'Bodoni Moda',serif; font-size:22px; color:#171512;">01 · The Tables &amp; Chairs</div>
           <div style="font-size:14px; line-height:1.65; color:#4C463E;">Hydraulic massage &amp; facial tables, plus ergonomic styling chairs carried into your chosen room.</div>
