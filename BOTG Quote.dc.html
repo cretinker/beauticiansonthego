@@ -7,12 +7,29 @@
 </head>
 <body>
 <x-dc>
+<style>
+  .botg-booking-split { display: grid; grid-template-columns: 380px 1fr; align-items: start; }
+  .botg-booking-rail { padding: 60px 40px; display: flex; flex-direction: column; gap: 26px; position: sticky; top: var(--botg-nav, 62px); border-right: 1px solid rgba(23,21,18,.12); background: #EFE9DE; min-height: calc(100vh - 62px); }
+  .botg-booking-main { background: #FDFBF7; min-height: 100vh; padding: 60px 64px 96px; }
+  .botg-form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  @media (max-width: 992px) {
+    .botg-booking-split { grid-template-columns: 1fr !important; }
+    .botg-booking-rail { position: static !important; min-height: auto !important; border-right: none !important; border-bottom: 1px solid rgba(23,21,18,.12) !important; padding: 32px 20px !important; }
+    .botg-booking-main { padding: 32px 20px 60px !important; min-height: auto !important; }
+  }
+
+  @media (max-width: 768px) {
+    .botg-form-2col { grid-template-columns: 1fr !important; }
+  }
+</style>
+
 <div style="font-family:'Karla',sans-serif; color:#171512; background:#F2EDE3; min-height:85vh;">
 
-  <div style="display:grid; grid-template-columns:380px 1fr; align-items:start;">
+  <div class="botg-booking-split">
 
     <!-- LEFT RAIL: PROGRESS & APPOINTMENT SUMMARY -->
-    <div style="padding:60px 40px; display:flex; flex-direction:column; gap:26px; position:sticky; top:var(--botg-nav, 62px); border-right:1px solid rgba(23,21,18,.12); background:#EFE9DE; min-height:calc(100vh - 62px);">
+    <div class="botg-booking-rail">
       <div style="display:flex; align-items:center; gap:12px;">
         <div style="width:32px; height:1px; background:#A8562F;"></div>
         <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Online Booking</div>
@@ -57,7 +74,7 @@
     </div>
 
     <!-- RIGHT MAIN FORM PANEL -->
-    <div style="background:#FDFBF7; min-height:100vh; padding:60px 64px 96px;">
+    <div class="botg-booking-main">
 
       <!-- Progress Bar -->
       <div style="display:flex; gap:6px; margin-bottom:36px;">
@@ -75,7 +92,7 @@
           <div style="font-size:16px; line-height:1.6; color:#4C463E; margin-top:8px;">Choose the setting for your appointment to help us dispatch the right equipment and specialists:</div>
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="botg-form-2col" style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
           <sc-for list="{{ occasions }}" as="o" hint-placeholder-count="6">
             <div onClick="{{ o.click }}" style="background:{{ o.bg }}; color:{{ o.fg }}; border:1px solid {{ o.border }}; padding:26px 24px; cursor:pointer; display:flex; flex-direction:column; gap:8px; transition:all .25s ease;" style-hover="transform:translateY(-2px);">
               <div style="display:flex; justify-content:space-between; align-items:baseline;">
@@ -166,7 +183,7 @@
         </div>
 
         <!-- Specialist Grid -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="botg-form-2col" style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
           <sc-for list="{{ specialists }}" as="sp" hint-placeholder-count="8">
             <div onClick="{{ sp.click }}" style="background:{{ sp.bg }}; border:1px solid {{ sp.border }}; color:{{ sp.fg }}; padding:20px 22px; cursor:pointer; display:flex; flex-direction:column; gap:6px; transition:all .2s ease;" style-hover="border-color:#C69B54;">
               <div style="display:flex; justify-content:space-between; align-items:baseline;">
