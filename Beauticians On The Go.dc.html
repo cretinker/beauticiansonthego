@@ -365,9 +365,46 @@
       overflow: hidden !important;
     }
 
-    /* Footer on Mobile */
+    /* Footer on Mobile — override inline grid */
     .botg-footer-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-columns: none !important;
       gap: 28px !important;
+      padding-bottom: 28px !important;
+      width: 100% !important;
+    }
+    .botg-footer-grid > div {
+      width: 100% !important;
+    }
+    .botg-footer-bottom {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      font-size: 11.5px !important;
+    }
+    footer.botg-section-pad {
+      padding: 40px 18px 100px !important;
+    }
+
+    /* Hero artwork on mobile */
+    .botg-hero-art {
+      width: 100% !important;
+      max-width: 100% !important;
+      aspect-ratio: 3/2 !important;
+      height: auto !important;
+    }
+
+    /* Hero metrics 2x2 on mobile — override inline grid-template-columns */
+    .botg-hero-metrics {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+    }
+
+    /* Ensure body has space for the fixed bottom bar */
+    body {
+      padding-bottom: 72px !important;
     }
   }
 </style>
@@ -737,9 +774,46 @@
       overflow: hidden !important;
     }
 
-    /* Footer on Mobile */
+    /* Footer on Mobile — override inline grid */
     .botg-footer-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-columns: none !important;
       gap: 28px !important;
+      padding-bottom: 28px !important;
+      width: 100% !important;
+    }
+    .botg-footer-grid > div {
+      width: 100% !important;
+    }
+    .botg-footer-bottom {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      font-size: 11.5px !important;
+    }
+    footer.botg-section-pad {
+      padding: 40px 18px 100px !important;
+    }
+
+    /* Hero artwork on mobile */
+    .botg-hero-art {
+      width: 100% !important;
+      max-width: 100% !important;
+      aspect-ratio: 3/2 !important;
+      height: auto !important;
+    }
+
+    /* Hero metrics 2x2 on mobile — override inline grid-template-columns */
+    .botg-hero-metrics {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+    }
+
+    /* Ensure body has space for the fixed bottom bar */
+    body {
+      padding-bottom: 72px !important;
     }
   }
 </style>
@@ -902,11 +976,11 @@
           <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">Mobile Salon &amp; Day Spa · Established 2001</span>
         </div>
 
-        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(44px, 5.5vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
-          The salon travels.<br>You stay where <span style="font-style:italic; color:#A8562F;">you are.</span>
+        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 82px); line-height:1.02; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
+          The salon travels. You stay where <span style="font-style:italic; color:#A8562F;">you are.</span>
         </h1>
 
-        <p style="font-size:18.5px; line-height:1.75; color:#2C2721; max-width:700px; margin:0; text-wrap:pretty;">
+        <p style="font-size:clamp(15px, 4vw, 18.5px); line-height:1.7; color:#2C2721; max-width:700px; margin:0; text-wrap:pretty;">
           Full salon and day-spa treatments delivered directly to your home, hotel, wedding venue, office, or care facility. Our licensed master specialists arrive with professional tables, portable basins, sterilized tools, and salon lighting.
         </p>
 
@@ -920,16 +994,16 @@
         </div>
 
         <!-- Dual CTA Row -->
-        <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; padding-top:4px;">
-          <div onClick="{{ goQuoteBlank }}" style="background:#A8562F; color:#FAF7F2; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:18px 40px; cursor:pointer; box-shadow:0 8px 24px -8px rgba(168,86,47,.6); transition:all .25s ease;" style-hover="background:#171512; color:#C69B54;">Book Appointment</div>
-          <a href="tel:6028032827" style="border:1.2px solid rgba(23,21,18,.35); color:#171512; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:17px 30px; display:flex; align-items:center; gap:10px; transition:all .25s ease;" style-hover="border-color:#171512; background:#171512; color:#FAF7F2;">
+        <div class="botg-cta-buttons" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; padding-top:4px;">
+          <div onClick="{{ goQuoteBlank }}" style="background:#A8562F; color:#FAF7F2; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:16px 28px; cursor:pointer; box-shadow:0 8px 24px -8px rgba(168,86,47,.6); transition:all .25s ease; text-align:center;" style-hover="background:#171512; color:#C69B54;">Book Appointment</div>
+          <a href="tel:6028032827" style="border:1.2px solid rgba(23,21,18,.35); color:#171512; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:15px 22px; display:flex; align-items:center; gap:10px; transition:all .25s ease; text-align:center; justify-content:center;" style-hover="border-color:#171512; background:#171512; color:#FAF7F0;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span>Call 602-803-2827</span>
           </a>
         </div>
 
         <!-- In-Hero Proof Metrics -->
-        <div class="botg-hero-metrics" class="botg-arrives-grid" style=" gap:16px; padding-top:20px; border-top:1px solid rgba(23,21,18,.12);">
+        <div class="botg-hero-metrics" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; padding-top:20px; border-top:1px solid rgba(23,21,18,.12);">
           <div>
             <div style="font-family:'Bodoni Moda',serif; font-size:36px; line-height:1; font-weight:600; color:#171512;">25+</div>
             <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#7A736A; margin-top:6px; font-weight:600;">Years in business</div>
@@ -952,7 +1026,7 @@
 
       <!-- Right Column: Framed Editorial Artwork -->
       <div style="position:relative; display:flex; justify-content:center;">
-        <div class="botg-hero-art" style="position:relative; width:100%; max-width:480px; height:480px; background:#E8E1D4; border-radius:6px; overflow:hidden; box-shadow:0 20px 50px -15px rgba(23,21,18,.35); border:1.2px solid rgba(198,155,84,.45);">
+        <div class="botg-hero-art" style="position:relative; width:100%; max-width:480px; aspect-ratio:4/5; background:#E8E1D4; border-radius:6px; overflow:hidden; box-shadow:0 20px 50px -15px rgba(23,21,18,.35); border:1.2px solid rgba(198,155,84,.45);">
           <div style="position:absolute; inset:0; background-image:url('https://static.wixstatic.com/media/6eaddd_ca61c1c3778e4f0f9e5c4c019f2cc98a~mv2.jpg/v1/fill/w_1200,h_1500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/6eaddd_ca61c1c3778e4f0f9e5c4c019f2cc98a~mv2.jpg'); background-size:cover; background-position:center 30%;"></div>
           <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,13,11,0) 55%, rgba(15,13,11,.88) 100%);"></div>
           
@@ -1294,10 +1368,10 @@
   </sc-if>
 
   <!-- FOOTER -->
-  <footer style="background:#171512; color:rgba(242,237,227,.6); padding:90px 30px 40px; border-top:1px solid rgba(198,155,84,.2);">
+  <footer class="botg-section-pad" style="background:#171512; color:rgba(242,237,227,.6); padding:90px 30px 40px; border-top:1px solid rgba(198,155,84,.2);">
     <div style="max-width:1440px; margin:0 auto;">
       
-      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:56px; padding-bottom:56px; border-bottom:1px solid rgba(242,237,227,.12);">
+      <div class="botg-footer-grid" style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:56px; padding-bottom:56px; border-bottom:1px solid rgba(242,237,227,.12);">
         
         <!-- Col 1: Identity, Contact & Social Icons -->
         <div style="display:flex; flex-direction:column; gap:20px;">
@@ -1377,8 +1451,14 @@
       </div>
 
       <!-- Footer Bottom -->
-      <div style="padding-top:28px; display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(242,237,227,.4); flex-wrap:wrap; gap:16px;">
-        <div>© 2001–2026 Beauticians On The Go, LLC. All Rights Reserved. · <a href="./cancellation.html" style="color:inherit; text-decoration:underline;">Cancellation Policy</a> · <a href="./privacy.html" style="color:inherit; text-decoration:underline;">Privacy</a> · <a href="./careers.html" style="color:inherit; text-decoration:underline;">Careers</a> · <a href="./contact.html" style="color:inherit; text-decoration:underline;">Contact</a></div>
+      <div class="botg-footer-bottom" style="padding-top:28px; display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(242,237,227,.4); flex-wrap:wrap; gap:12px;">
+        <div>© 2001–2026 Beauticians On The Go, LLC. All Rights Reserved.</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <a href="./cancellation.html" style="color:inherit; text-decoration:underline;">Cancellation</a> ·
+          <a href="./privacy.html" style="color:inherit; text-decoration:underline;">Privacy</a> ·
+          <a href="./careers.html" style="color:inherit; text-decoration:underline;">Careers</a> ·
+          <a href="./contact.html" style="color:inherit; text-decoration:underline;">Contact</a>
+        </div>
         <div>Phoenix · Scottsdale · Paradise Valley · 14 Valley Cities</div>
       </div>
 
