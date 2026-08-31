@@ -402,6 +402,22 @@
       gap: 10px !important;
     }
 
+    
+    /* In-Care text padding and photo height on mobile */
+    .botg-incare-text {
+      padding: 36px 18px !important;
+    }
+    .botg-incare-photo {
+      min-height: 260px !important;
+      height: 260px !important;
+    }
+
+    /* Review quote text mobile override */
+    .botg-reviews-grid > div [style*="font-size:19px"] {
+      font-size: 16px !important;
+      line-height: 1.55 !important;
+    }
+
     /* Ensure body has space for the fixed bottom bar */
     body {
       padding-bottom: 72px !important;
@@ -811,6 +827,22 @@
       gap: 10px !important;
     }
 
+    
+    /* In-Care text padding and photo height on mobile */
+    .botg-incare-text {
+      padding: 36px 18px !important;
+    }
+    .botg-incare-photo {
+      min-height: 260px !important;
+      height: 260px !important;
+    }
+
+    /* Review quote text mobile override */
+    .botg-reviews-grid > div [style*="font-size:19px"] {
+      font-size: 16px !important;
+      line-height: 1.55 !important;
+    }
+
     /* Ensure body has space for the fixed bottom bar */
     body {
       padding-bottom: 72px !important;
@@ -1049,8 +1081,8 @@
     <section class="botg-section-pad" style="padding:110px 30px; max-width:1440px; margin:0 auto;">
       <div data-reveal style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; margin-bottom:56px;">
         <div style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">Start Here</div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.96; letter-spacing:-.032em;">Six reasons people hand us an address.</div>
-        <div style="font-size:17.5px; line-height:1.7; color:#4C463E; max-width:600px;">Tell us how many people and what time. We send the right specialists and build the day around your schedule.</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 64px); line-height:.96; letter-spacing:-.032em;">Six reasons people hand us an address.</div>
+        <div style="font-size:clamp(14px, 3.8vw, 17.5px); line-height:1.7; color:#4C463E; max-width:600px;">Tell us how many people and what time. We send the right specialists and build the day around your schedule.</div>
       </div>
 
       <div data-reveal class="botg-occasions-grid">
@@ -1125,34 +1157,34 @@
     </section>
 
     <!-- 4 · "WHAT ARRIVES IN THE CAR" (TACTILE TRANSPARENCY STRIP) -->
-    <section style="background:#E8E1D4; padding:110px 30px; border-top:1px solid rgba(23,21,18,.1); border-bottom:1px solid rgba(23,21,18,.1);">
+    <section class="botg-section-pad" style="background:#E8E1D4; padding:110px 30px; border-top:1px solid rgba(23,21,18,.1); border-bottom:1px solid rgba(23,21,18,.1);">
       <div style="max-width:1440px; margin:0 auto;">
         
         <div data-reveal class="botg-arrives-header" style="margin-bottom:56px;">
           <div style="display:flex; flex-direction:column; gap:14px;">
             <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Tactile Transparency</div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:54px; line-height:.96; letter-spacing:-.03em;">What arrives in the car with us.</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:clamp(25px, 6.5vw, 54px); line-height:.96; letter-spacing:-.03em;">What arrives in the car with us.</div>
           </div>
-          <div style="font-size:17px; line-height:1.7; color:#4C463E; max-width:540px;">
+          <div style="font-size:clamp(14px, 3.8vw, 17px); line-height:1.7; color:#4C463E; max-width:540px;">
             We do not borrow anything from your house except an electrical outlet and access to a sink. Everything below comes through your door, fully sanitized, and leaves with us.
           </div>
         </div>
 
         <div data-reveal class="botg-arrives-grid" style="background:rgba(23,21,18,.14);">
           <div style="background:#E8E1D4; padding:32px 28px 36px; display:flex; flex-direction:column; gap:10px;">
-            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#171512;">01 · The Tables &amp; Chairs</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:clamp(18px, 5vw, 24px); color:#171512;">01 · The Tables &amp; Chairs</div>
             <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">Hydraulic massage and facial tables, plus ergonomic styling and chair massage stations carried directly to your chosen room.</div>
           </div>
           <div style="background:#E8E1D4; padding:32px 28px 36px; display:flex; flex-direction:column; gap:10px;">
-            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#171512;">02 · Individual Basins</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:clamp(18px, 5vw, 24px); color:#171512;">02 · Individual Basins</div>
             <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">Sealed single-use pedicure liners and portable shampoo bowls so nothing is shared with any other client.</div>
           </div>
           <div style="background:#E8E1D4; padding:32px 28px 36px; display:flex; flex-direction:column; gap:10px;">
-            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#171512;">03 · Autoclaved Kits</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:clamp(18px, 5vw, 24px); color:#171512;">03 · Autoclaved Kits</div>
             <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">Hospital-grade sterilized stainless implements opened in front of you, along with salon-grade hair, skin, and nail formulas.</div>
           </div>
           <div style="background:#E8E1D4; padding:32px 28px 36px; display:flex; flex-direction:column; gap:10px;">
-            <div style="font-family:'Bodoni Moda',serif; font-size:24px; color:#171512;">04 · Lighting &amp; Linens</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:clamp(18px, 5vw, 24px); color:#171512;">04 · Lighting &amp; Linens</div>
             <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">Daylight-balanced LED ring lights for color matching in dark rooms, plus fresh laundered linens and disposable floor protection.</div>
           </div>
         </div>
@@ -1161,7 +1193,7 @@
     </section>
 
     <!-- 5 · RATE CARD: HIGH-LOW ANCHORING -->
-    <section style="background:#171512; color:#FAF7F2; padding:120px 30px;">
+    <section class="botg-section-pad" style="background:#171512; color:#FAF7F2; padding:120px 30px;">
       <div style="max-width:1440px; margin:0 auto;">
         
         <div data-reveal class="botg-rates-grid">
@@ -1169,15 +1201,15 @@
           <!-- Left Column: Pricing Philosophy -->
           <div style="display:flex; flex-direction:column; gap:24px;">
             <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">Rate Card</div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.92; letter-spacing:-.032em;">Every price,<br><span style="font-style:italic; color:#C69B54;">published.</span></div>
-            <div style="font-size:16.5px; line-height:1.72; color:rgba(242,237,227,.65);">
+            <div style="font-family:'Bodoni Moda',serif; font-size:clamp(30px, 7vw, 72px); line-height:.92; letter-spacing:-.032em;">Every price,<br><span style="font-style:italic; color:#C69B54;">published.</span></div>
+            <div style="font-size:clamp(14px, 3.8vw, 16.5px); line-height:1.72; color:rgba(242,237,227,.65);">
               Sixty-eight treatments, every single one priced on this site. No consultation required to find out what a treatment costs, and zero surprise fees added after the fact.
             </div>
 
             <!-- Corporate Highlight Box -->
             <div style="border:1px solid rgba(198,155,84,.35); padding:26px; display:flex; flex-direction:column; gap:8px; margin-top:8px; background:rgba(198,155,84,.05);">
               <div style="font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#C69B54;">Corporate Wellness Rate</div>
-              <div style="font-family:'Bodoni Moda',serif; font-size:48px; line-height:1; color:#FAF7F2;">$150<span style="font-size:15px; font-family:'Karla',sans-serif; color:rgba(242,237,227,.55);"> / hour per beautician</span></div>
+              <div style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 6vw, 48px); line-height:1; color:#FAF7F2;">$150<span style="font-size:15px; font-family:'Karla',sans-serif; color:rgba(242,237,227,.55);"> / hour per beautician</span></div>
               <div style="font-size:13.5px; line-height:1.55; color:rgba(242,237,227,.6);">Four-hour minimum. Chair massage, express pedicures, facials, and braid bars.</div>
             </div>
 
@@ -1202,20 +1234,20 @@
 
     <!-- 6 · IN-CARE & SENIORS SPOTLIGHT -->
     <section class="botg-incare-grid" style="border-bottom:1px solid rgba(23,21,18,.12);">
-      <div data-reveal style="padding:110px 48px 110px 64px; display:flex; flex-direction:column; gap:28px; justify-content:center;">
+      <div data-reveal class="botg-incare-text" style="padding:110px 48px 110px 64px; display:flex; flex-direction:column; gap:28px; justify-content:center;">
         <div style="display:flex; align-items:center; gap:14px;">
           <div style="width:40px; height:1px; background:#A8562F;"></div>
           <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">In-Care &amp; Homebound</div>
         </div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:60px; line-height:.96; letter-spacing:-.03em;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 60px); line-height:.96; letter-spacing:-.03em;">
           When she cannot get to the salon, we bring it to her.
         </div>
-        <div style="font-size:17.5px; line-height:1.75; color:#4C463E; max-width:540px;">
+        <div style="font-size:clamp(14px, 3.8vw, 17.5px); line-height:1.75; color:#4C463E; max-width:540px;">
           Hospitals, hospice, retirement communities, assisted living, rehab centers, and private residences. For a mother who still wants her weekly hair set, a client recovering from surgery, or someone living with dementia who feels safest at home. Book it once and we will keep the standing appointment.
         </div>
         
         <!-- Real Verified Quote -->
-        <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:24px; line-height:1.55; color:#171512; max-width:520px; border-left:2px solid #A8562F; padding-left:24px;">
+        <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-size:clamp(18px, 5vw, 24px); line-height:1.55; color:#171512; max-width:520px; border-left:2px solid #A8562F; padding-left:24px;">
           "She handled my mom's sensitivities and fears and made her look stunning. We are making standing appointments now."
           <div style="font-family:'Karla',sans-serif; font-style:normal; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#A8562F; margin-top:16px; font-weight:700;">Natalie B. · Daughter of an In-Care Client</div>
         </div>
@@ -1225,7 +1257,7 @@
         </div>
       </div>
       
-      <div style="background-image:url('https://static.wixstatic.com/media/1c1fcfb3c2fa41a58394493406e03029.jpg/v1/fill/w_1200,h_1500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1c1fcfb3c2fa41a58394493406e03029.jpg'); background-size:cover; background-position:center; min-height:600px;"></div>
+      <div class="botg-incare-photo" style="background-image:url('https://static.wixstatic.com/media/1c1fcfb3c2fa41a58394493406e03029.jpg/v1/fill/w_1200,h_1500,al_c,q_88,usm_0.66_1.00_0.01,enc_avif,quality_auto/1c1fcfb3c2fa41a58394493406e03029.jpg'); background-size:cover; background-position:center; min-height:600px;"></div>
     </section>
 
     <!-- 7 · CLIENT STORIES -->
@@ -1233,8 +1265,8 @@
       
       <div data-reveal style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; margin-bottom:56px;">
         <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Client Stories</div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:60px; line-height:.96; letter-spacing:-.03em;">What our clients say about us.</div>
-        <div style="font-size:16.5px; line-height:1.65; color:#4C463E; max-width:540px;">Twenty-five years of repeat visits across the Valley. In the words of the brides, families, and hosts we visit:</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 60px); line-height:.96; letter-spacing:-.03em;">What our clients say about us.</div>
+        <div style="font-size:clamp(14px, 3.8vw, 16.5px); line-height:1.65; color:#4C463E; max-width:540px;">Twenty-five years of repeat visits across the Valley. In the words of the brides, families, and hosts we visit:</div>
       </div>
 
       <div data-reveal class="botg-reviews-grid">
@@ -1299,13 +1331,13 @@
     </section>
 
     <!-- 8 · VISUAL GALLERY -->
-    <section style="background:#171512; padding:110px 30px;">
+    <section class="botg-section-pad" style="background:#171512; padding:110px 30px;">
       <div style="max-width:1440px; margin:0 auto;">
         
         <div data-reveal style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-bottom:48px;">
           <div style="display:flex; flex-direction:column; gap:12px;">
             <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">The Experience</div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.03em; color:#FAF7F2;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 64px); line-height:.94; letter-spacing:-.03em; color:#FAF7F2;">
               This is what it looks like <span style="font-style:italic; color:#C69B54;">at your door.</span>
             </div>
           </div>
@@ -1328,10 +1360,10 @@
     </section>
 
     <!-- 9 · CTA SECTION -->
-    <section style="background:#A8562F; color:#FAF7F2; padding:120px 30px;">
+    <section class="botg-section-pad" style="background:#A8562F; color:#FAF7F2; padding:120px 30px;">
       <div data-reveal style="display:flex; flex-direction:column; align-items:center; gap:28px; text-align:center; max-width:880px; margin:0 auto;">
-        <div style="font-family:'Bodoni Moda',serif; font-size:92px; line-height:.9; letter-spacing:-.038em;">Give us an address.</div>
-        <div style="font-size:19px; line-height:1.65; color:rgba(251,247,240,.9); max-width:580px;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:clamp(32px, 8.5vw, 92px); line-height:.9; letter-spacing:-.038em;">Give us an address.</div>
+        <div style="font-size:clamp(15px, 4vw, 19px); line-height:1.65; color:rgba(251,247,240,.9); max-width:580px;">
           Four questions is all it takes. Someone from our office calls you back the same day, and nothing is charged until you approve the number.
         </div>
         <div class="botg-cta-buttons" style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; padding-top:8px;">
