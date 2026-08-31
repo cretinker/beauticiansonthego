@@ -417,6 +417,21 @@
       line-height: 1.55 !important;
     }
 
+    /* Mobile Fullscreen Navigation Modal */
+    .botg-mobile-nav-modal {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      z-index: 99999 !important;
+      background: #171512 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+
     /* Ensure body has space for the fixed bottom bar */
     body {
       padding-bottom: 72px !important;
@@ -841,6 +856,21 @@
       line-height: 1.55 !important;
     }
 
+    /* Mobile Fullscreen Navigation Modal */
+    .botg-mobile-nav-modal {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      z-index: 99999 !important;
+      background: #171512 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+
     /* Ensure body has space for the fixed bottom bar */
     body {
       padding-bottom: 72px !important;
@@ -907,31 +937,6 @@
 
     </div>
 
-    <!-- Mobile Navigation Drawer -->
-    <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
-      <div style="position:fixed; inset:0; top:var(--botg-nav, 62px); background:rgba(23,21,18,.98); backdrop-filter:blur(24px); z-index:100; padding:28px 24px 60px; overflow-y:auto; display:flex; flex-direction:column; gap:24px; animation:botgRise .25s cubic-bezier(.16,1,.3,1) both;">
-        <div style="display:flex; flex-direction:column; gap:4px;">
-          <div style="font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; font-weight:700; margin-bottom:8px;">Menu Directory</div>
-          <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
-            <div onClick="{{ n.mobileClick }}" style="font-family:'Bodoni Moda',serif; font-size:24px; color:#FAF7F2; padding:12px 0; border-bottom:1px solid rgba(242,237,227,.1); display:flex; justify-content:space-between; align-items:center; cursor:pointer;">
-              <span>{{ n.label }}</span>
-              <span style="font-size:16px; color:#C69B54;">→</span>
-            </div>
-          </sc-for>
-        </div>
-
-        <div style="display:flex; flex-direction:column; gap:12px; margin-top:auto; padding-top:16px;">
-          <div onClick="{{ goQuoteBlank }}" style="background:#A8562F; color:#FAF7F2; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:18px; text-align:center; cursor:pointer; box-shadow:0 8px 24px -10px rgba(168,86,47,.6);">
-            Book Appointment Online
-          </div>
-          <a href="tel:6028032827" style="border:1.2px solid rgba(198,155,84,.4); color:#FAF7F2; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:16px; display:flex; align-items:center; justify-content:center; gap:10px; text-decoration:none;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C69B54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>Call (602) 803-2827</span>
-          </a>
-        </div>
-      </div>
-    </sc-if>
-
     <!-- Mega Panel: Treatments -->
     <sc-if value="{{ menuServices }}" hint-placeholder-val="{{ false }}">
       <div style="background:#171512; border-bottom:2px solid #C69B54; padding:32px 30px 36px; animation:botgRise .35s cubic-bezier(.16,1,.3,1) both;">
@@ -990,6 +995,76 @@
       </div>
     </sc-if>
   </div>
+
+  <!-- MOBILE FULLSCREEN NAVIGATION MODAL -->
+  <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="botg-mobile-nav-modal" style="position:fixed; inset:0; width:100vw; height:100vh; height:100dvh; z-index:99999; background:#171512; display:flex; flex-direction:column; overflow-y:auto; -webkit-overflow-scrolling:touch; animation:botgRise .25s cubic-bezier(.16,1,.3,1) both;">
+      
+      <!-- Sticky Mobile Nav Header -->
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid rgba(198,155,84,.25); background:rgba(23,21,18,.98); backdrop-filter:blur(16px); position:sticky; top:0; z-index:10;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:38px; height:38px; border-radius:7px; overflow:hidden; border:1.2px solid rgba(198,155,84,.55); background:#171512; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <img src="./botg-logo.jpg" alt="Logo" style="width:100%; height:100%; object-fit:cover; transform:scale(1.48); filter:contrast(1.18) brightness(1.04); display:block;">
+          </div>
+          <div style="display:flex; flex-direction:column;">
+            <div style="font-family:'Bodoni Moda',serif; font-size:16px; color:#FAF7F2; font-weight:600; line-height:1.1;">Beauticians On The Go</div>
+            <div style="font-size:8px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">Mobile Salon &amp; Day Spa</div>
+          </div>
+        </div>
+        
+        <!-- Close Button (X) -->
+        <div onClick="{{ closeMobileNav }}" style="width:38px; height:38px; border-radius:4px; border:1px solid rgba(198,155,84,.35); background:rgba(255,255,255,.06); color:#FAF7F2; display:flex; align-items:center; justify-content:center; cursor:pointer;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C69B54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Scrollable Mobile Nav Body -->
+      <div style="padding:24px 20px 48px; display:flex; flex-direction:column; gap:20px; flex:1;">
+        <div style="font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; font-weight:700;">Menu Directory</div>
+        
+        <!-- Primary Nav Links -->
+        <div style="display:flex; flex-direction:column;">
+          <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+            <div onClick="{{ n.mobileClick }}" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#FAF7F2; padding:14px 0; border-bottom:1px solid rgba(242,237,227,.1); display:flex; justify-content:space-between; align-items:center; cursor:pointer;" style-hover="color:#C69B54;">
+              <span>{{ n.label }}</span>
+              <span style="font-size:16px; color:#C69B54;">→</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <!-- Direct Occasion Booking Shortcuts -->
+        <div style="background:rgba(255,255,255,.03); border:1px solid rgba(198,155,84,.25); padding:16px; border-radius:6px; display:flex; flex-direction:column; gap:10px; margin-top:6px;">
+          <div style="font-size:9.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">Direct Occasion Booking</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div onClick="{{ goWeddingsMobile }}" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); padding:11px 10px; font-size:12px; font-weight:600; color:#FAF7F2; text-align:center; cursor:pointer; border-radius:3px;">★ Weddings</div>
+            <div onClick="{{ goCorporateMobile }}" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); padding:11px 10px; font-size:12px; font-weight:600; color:#FAF7F2; text-align:center; cursor:pointer; border-radius:3px;">★ Corporate</div>
+            <div onClick="{{ goPartiesMobile }}" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); padding:11px 10px; font-size:12px; font-weight:600; color:#FAF7F2; text-align:center; cursor:pointer; border-radius:3px;">★ Spa Parties</div>
+            <div onClick="{{ goIncareMobile }}" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); padding:11px 10px; font-size:12px; font-weight:600; color:#FAF7F2; text-align:center; cursor:pointer; border-radius:3px;">★ In-Care &amp; Seniors</div>
+          </div>
+        </div>
+
+        <!-- Action CTAs inside Menu -->
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+          <div onClick="{{ goQuoteBlankMobile }}" style="background:#A8562F; color:#FAF7F2; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:16px; text-align:center; cursor:pointer; border-radius:4px; box-shadow:0 8px 24px -8px rgba(168,86,47,.7);">
+            Book Appointment Online →
+          </div>
+          <a href="tel:6028032827" style="border:1px solid rgba(198,155,84,.45); background:rgba(198,155,84,.08); color:#FAF7F2; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:14px; display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C69B54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Call (602) 803-2827</span>
+          </a>
+        </div>
+
+        <div style="font-size:11px; color:rgba(242,237,227,.45); text-align:center; margin-top:4px; line-height:1.5;">
+          Phoenix · Scottsdale · Paradise Valley · 14 Valley Cities<br>
+          Monday–Saturday 8am–7pm · Sunday 8am–6pm
+        </div>
+
+      </div>
+    </div>
+  </sc-if>
 
   <!-- ══════ HOMEPAGE CONTENT ══════ -->
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
@@ -1595,19 +1670,27 @@ class Component extends DCLogic {
     this._mo.observe(document.body, { childList: true, subtree: true });
   }
 
-  componentDidUpdate() { this.syncNav(); this.scan(); }
+  componentDidUpdate() {
+    this.syncNav();
+    this.scan();
+    if (typeof document !== 'undefined' && document.body) {
+      document.body.style.overflow = this.state.mobileNav ? 'hidden' : '';
+    }
+  }
 
   componentWillUnmount() {
     if (this._ro) this._ro.disconnect();
     if (this._io) this._io.disconnect();
     if (this._mo) this._mo.disconnect();
     if (this._sweepTimer) clearInterval(this._sweepTimer);
+    if (typeof document !== 'undefined' && document.body) document.body.style.overflow = '';
     window.removeEventListener('resize', this.syncNav);
     window.removeEventListener('scroll', this.onScroll);
   }
 
   go(page, seed) {
     this.setState({ page: page, seed: seed || '', showBar: false, menu: '', hidden: false, mobileNav: false });
+    if (typeof document !== 'undefined' && document.body) document.body.style.overflow = '';
     this.lastY = 0;
     window.scrollTo(0, 0);
   }
@@ -1621,7 +1704,7 @@ class Component extends DCLogic {
       color: p === k ? '#A8562F' : '#4C463E',
       dot: p === k ? '#A8562F' : 'transparent',
       click: fn,
-      mobileClick: () => { fn(); this.setState({ mobileNav: false }); },
+      mobileClick: () => { fn(); this.setState({ mobileNav: false }); if (typeof document !== 'undefined' && document.body) document.body.style.overflow = ''; },
       enter: () => this.openMenu(menu || '')
     });
 
@@ -1630,7 +1713,7 @@ class Component extends DCLogic {
       padTop: '0px',
       mobileNavOpen: this.state.mobileNav,
       toggleMobileNav: () => this.setState({ mobileNav: !this.state.mobileNav, hidden: false }),
-      closeMobileNav: () => this.setState({ mobileNav: false }),
+      closeMobileNav: () => { this.setState({ mobileNav: false }); if (typeof document !== 'undefined' && document.body) document.body.style.overflow = ''; },
       navItems: [
         nav('home', 'Home', () => this.go('home')),
         nav('about', 'About', () => this.go('about')),
@@ -1687,6 +1770,12 @@ class Component extends DCLogic {
       goTeens: () => this.go('occasions', 'teens'),
       goIncare: () => this.go('occasions', 'incare'),
       goIndividual: () => this.go('occasions', 'individual'),
+
+      goWeddingsMobile: () => this.go('occasions', 'wedding'),
+      goCorporateMobile: () => this.go('occasions', 'corporate'),
+      goPartiesMobile: () => this.go('occasions', 'party'),
+      goIncareMobile: () => this.go('occasions', 'incare'),
+      goQuoteBlankMobile: () => this.go('quote'),
 
       heroChips: [
         { label: 'Just me, at home', click: () => this.go('quote', 'individual') },
