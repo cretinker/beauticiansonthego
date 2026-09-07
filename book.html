@@ -437,6 +437,373 @@
       font-size: 16px !important;
     }
 
+
+  /* ================= LUXURY MOBILE FOOTER SYSTEM ================= */
+  .botg-mobile-footer {
+    display: none;
+  }
+
+  @media (max-width: 992px) {
+    /* Ensure footer container has safe-area bottom clearance for the floating mobile bar (~65px) */
+    footer.botg-section-pad,
+    footer {
+      padding: 56px 18px 125px !important;
+    }
+
+    /* Hide the desktop 4-column footer on mobile */
+    .botg-footer-desktop-grid {
+      display: none !important;
+    }
+
+    .botg-footer-bottom {
+      display: none !important;
+    }
+
+    /* Show the luxury mobile footer */
+    .botg-mobile-footer {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 1. Brand Card (Double-Bezel Architecture) */
+    .botg-footer-m-brand-card {
+      background: rgba(242, 237, 227, 0.03) !important;
+      border: 1px solid rgba(198, 155, 84, 0.22) !important;
+      border-radius: 16px !important;
+      padding: 22px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+      box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.45) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-brand-card::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, transparent, rgba(198, 155, 84, 0.6), transparent) !important;
+    }
+
+    .botg-footer-m-brand-header {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+    }
+
+    .botg-footer-m-logo {
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 10px !important;
+      overflow: hidden !important;
+      border: 1.5px solid rgba(198, 155, 84, 0.6) !important;
+      background: #171512 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .botg-footer-m-logo img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      transform: scale(1.48) !important;
+      filter: contrast(1.18) brightness(1.04) !important;
+      display: block !important;
+    }
+
+    .botg-footer-m-brand-title {
+      font-family: 'Bodoni Moda', serif !important;
+      font-size: 22px !important;
+      color: #FAF7F2 !important;
+      line-height: 1.15 !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .botg-footer-m-brand-subtitle {
+      font-size: 11px !important;
+      color: #C69B54 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      margin-top: 3px !important;
+      font-weight: 600 !important;
+    }
+
+    /* Trust Chips Row */
+    .botg-footer-m-trust-chips {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+
+    .botg-footer-m-chip {
+      display: inline-flex !important;
+      align-items: center !important;
+      background: rgba(198, 155, 84, 0.08) !important;
+      border: 1px solid rgba(198, 155, 84, 0.28) !important;
+      border-radius: 999px !important;
+      padding: 4px 10px !important;
+      font-size: 10.5px !important;
+      font-weight: 600 !important;
+      color: #FAF7F2 !important;
+      letter-spacing: 0.04em !important;
+    }
+
+    /* Quick Actions (Call & Email) */
+    .botg-footer-m-actions {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 10px !important;
+      margin-top: 2px !important;
+    }
+
+    .botg-footer-m-btn-call,
+    .botg-footer-m-btn-email {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      padding: 12px 10px !important;
+      min-height: 44px !important;
+      border-radius: 8px !important;
+      text-decoration: none !important;
+      font-size: 11.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      transition: all 0.2s ease !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-btn-call {
+      background: #C69B54 !important;
+      color: #171512 !important;
+      border: 1px solid #C69B54 !important;
+      box-shadow: 0 4px 14px rgba(198, 155, 84, 0.25) !important;
+    }
+
+    .botg-footer-m-btn-call:active {
+      transform: scale(0.98) !important;
+    }
+
+    .botg-footer-m-btn-email {
+      background: rgba(242, 237, 227, 0.05) !important;
+      color: #FAF7F2 !important;
+      border: 1px solid rgba(242, 237, 227, 0.18) !important;
+    }
+
+    .botg-footer-m-btn-email:active {
+      background: rgba(242, 237, 227, 0.1) !important;
+      transform: scale(0.98) !important;
+    }
+
+    /* Meta: Hours & Location */
+    .botg-footer-m-meta {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      font-size: 12px !important;
+      line-height: 1.5 !important;
+      color: rgba(242, 237, 227, 0.65) !important;
+      border-top: 1px solid rgba(242, 237, 227, 0.08) !important;
+      padding-top: 12px !important;
+    }
+
+    .botg-footer-m-meta-row {
+      display: flex !important;
+      gap: 8px !important;
+    }
+
+    .botg-footer-m-meta-label {
+      color: #C69B54 !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Social Circles */
+    .botg-footer-m-socials {
+      display: flex !important;
+      gap: 10px !important;
+      align-items: center !important;
+      padding-top: 4px !important;
+    }
+
+    .botg-footer-m-socials a {
+      width: 42px !important;
+      height: 42px !important;
+      border-radius: 50% !important;
+      border: 1px solid rgba(198, 155, 84, 0.35) !important;
+      background: rgba(242, 237, 227, 0.04) !important;
+      color: #FAF7F2 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .botg-footer-m-socials a:active {
+      background: #C69B54 !important;
+      color: #171512 !important;
+      border-color: #C69B54 !important;
+    }
+
+    /* 2. 2-Column Bento Nav Card */
+    .botg-footer-m-nav-bento {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 12px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-nav-col {
+      background: rgba(242, 237, 227, 0.025) !important;
+      border: 1px solid rgba(198, 155, 84, 0.16) !important;
+      border-radius: 12px !important;
+      padding: 16px 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-nav-heading {
+      font-size: 10px !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      color: #C69B54 !important;
+      font-weight: 700 !important;
+      padding-bottom: 6px !important;
+      border-bottom: 1px solid rgba(198, 155, 84, 0.15) !important;
+    }
+
+    .botg-footer-m-nav-links {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+    }
+
+    .botg-footer-m-nav-item {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 42px !important;
+      padding: 4px 6px !important;
+      color: rgba(242, 237, 227, 0.8) !important;
+      text-decoration: none !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      border-radius: 6px !important;
+      transition: background 0.15s ease, color 0.15s ease !important;
+      cursor: pointer !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-nav-item:active {
+      background: rgba(198, 155, 84, 0.15) !important;
+      color: #FAF7F2 !important;
+    }
+
+    .botg-footer-m-nav-item .arr {
+      color: #C69B54 !important;
+      font-size: 13px !important;
+      opacity: 0.7 !important;
+      transition: transform 0.15s ease !important;
+    }
+
+    .botg-footer-m-nav-item.highlight {
+      color: #C69B54 !important;
+      font-weight: 700 !important;
+    }
+
+    /* 3. Company & Policies Compact Card */
+    .botg-footer-m-company-card {
+      background: rgba(242, 237, 227, 0.02) !important;
+      border: 1px solid rgba(242, 237, 227, 0.08) !important;
+      border-radius: 12px !important;
+      padding: 14px 12px !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-company-pills {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+      justify-content: center !important;
+    }
+
+    .botg-footer-m-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 8px 12px !important;
+      min-height: 38px !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid rgba(242, 237, 227, 0.12) !important;
+      border-radius: 6px !important;
+      color: rgba(242, 237, 227, 0.75) !important;
+      font-size: 11.5px !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-pill:active {
+      background: rgba(198, 155, 84, 0.15) !important;
+      color: #FAF7F2 !important;
+      border-color: rgba(198, 155, 84, 0.4) !important;
+    }
+
+    /* 4. Territory & Legal */
+    .botg-footer-m-legal {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      gap: 8px !important;
+      padding-top: 8px !important;
+      font-size: 11.5px !important;
+      color: rgba(242, 237, 227, 0.45) !important;
+      line-height: 1.5 !important;
+    }
+
+    .botg-footer-m-territory {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      color: rgba(242, 237, 227, 0.65) !important;
+      font-size: 11.5px !important;
+    }
+
+    .botg-footer-m-territory .dot {
+      width: 6px !important;
+      height: 6px !important;
+      border-radius: 50% !important;
+      background: #22C55E !important;
+      display: inline-block !important;
+    }
+
+    .botg-footer-m-copy {
+      font-size: 11px !important;
+      color: rgba(242, 237, 227, 0.4) !important;
+    }
+  }
+
 </style>
 
 </head>
@@ -541,7 +908,7 @@
 
   <!-- FOOTER -->
   <footer style="background:#171512; color:#FAF7F2; padding:80px 30px 40px; border-top:1px solid rgba(198,155,84,.25);">
-    <div class="botg-footer-grid" style="max-width:1440px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:64px; margin-bottom:60px;">
+    <div class="botg-footer-grid botg-footer-desktop-grid" style="max-width:1440px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:64px; margin-bottom:60px;">
       
       <!-- Col 1: Brand & Socials -->
       <div style="display:flex; flex-direction:column; gap:20px;">
@@ -619,6 +986,151 @@
       </div>
 
     </div>
+
+      <!-- MOBILE FOOTER: ARCHITECTURAL CONCIERGE BENTO (<= 992px) -->
+      <div class="botg-mobile-footer mobile-only">
+        
+        <!-- 1. Luxury Brand & Concierge Card (Double-Bezel Architecture) -->
+        <div class="botg-footer-m-brand-card">
+          <div class="botg-footer-m-brand-header">
+            <div class="botg-footer-m-logo">
+              <img src="./botg-logo.jpg" alt="Beauticians On The Go - Interlocking BG Monogram">
+            </div>
+            <div>
+              <div class="botg-footer-m-brand-title">Beauticians<br>On The Go</div>
+              <div class="botg-footer-m-brand-subtitle">Private Mobile Spa &amp; Salon · Est. 2001</div>
+            </div>
+          </div>
+          
+          <!-- Trust Badges Row -->
+          <div class="botg-footer-m-trust-chips">
+            <span class="botg-footer-m-chip">✦ 25 Years Serving AZ</span>
+            <span class="botg-footer-m-chip">✦ State Licensed</span>
+            <span class="botg-footer-m-chip">✦ $2M Insured</span>
+          </div>
+
+          <!-- Quick Concierge Action Buttons (Click-to-Call & Email) -->
+          <div class="botg-footer-m-actions">
+            <a href="tel:6028032827" class="botg-footer-m-btn-call">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Call (602) 803-2827</span>
+            </a>
+            <a href="mailto:beauticiansonthego@gmail.com" class="botg-footer-m-btn-email">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span>Email Concierge</span>
+            </a>
+          </div>
+
+          <!-- Operating Hours & Valley Territory Meta -->
+          <div class="botg-footer-m-meta">
+            <div class="botg-footer-m-meta-row">
+              <span class="botg-footer-m-meta-label">Hours:</span>
+              <span>Mon–Sat 8:00 AM – 7:00 PM · Sun 8:00 AM – 6:00 PM</span>
+            </div>
+            <div class="botg-footer-m-meta-row">
+              <span class="botg-footer-m-meta-label">Hub:</span>
+              <span>2390 E Camelback Rd, Ste 130, Phoenix, AZ 85016</span>
+            </div>
+          </div>
+
+          <!-- Tactile Social Media Touchpoints -->
+          <div class="botg-footer-m-socials">
+            <a href="https://www.instagram.com/beauticiansonthego" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.yelp.com/biz/beauticians-on-the-go-phoenix-5" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.96 14.5c-.1.35-.35 1.7-1.12 3.12-.87 1.62-1.92 2.5-2.2 2.37-.3-.13-.37-1.2-.18-2.6.22-1.63.78-3.05 1.05-3.26.27-.22 1.3.08 1.95.25.32.08.55.02.5.12zm1.6-1.07c.3.17 1.67.7 3.3.73 1.84.03 3.1-.48 3.1-.8-.02-.32-.97-.93-2.36-1.52-1.6-.68-3.1-.88-3.44-.76-.33.12-.2.94-.03 1.58.08.31.2.62.43.77zm-.92-2.1c.2-.28.84-1.55 1.4-3.08.62-1.7.67-3.06.37-3.2-.3-.14-1.2.6-2.18 1.76-1.14 1.34-1.74 2.76-1.7 3.1.04.35.8.96 1.4 1.25.3.15.56.32.71.17zm-1.84 1.15c-.24-.26-1.62-.75-3.26-.8-1.83-.06-3.08.43-3.1.75.03.32.96.96 2.34 1.58 1.6.7 3.1.92 3.44.82.35-.1.24-.92.08-1.57-.08-.3-.26-.6-.5-.78zm1.08-.85c.1-.33.22-1.73.22-3.32 0-1.84-.52-3.1-.84-3.1-.33 0-.96.94-1.57 2.33-.7 1.6-.9 3.12-.78 3.46.12.35.94.27 1.6.14.33-.06.63-.12.87-.27l.5-.24z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@beauticiansonthego?_t=8fsgspReBYp&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.84 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.32 0 .63.05.92.14V9.37a6.33 6.33 0 0 0-.92-.07A6.34 6.34 0 0 0 3 15.64a6.34 6.34 0 0 0 6.34 6.36 6.34 6.34 0 0 0 6.34-6.36V8.71a8.21 8.21 0 0 0 4.91 1.62v-3.45a4.85 4.85 0 0 1-1-.19z"/></svg>
+            </a>
+            <a href="https://web.facebook.com/Beauticiansonthegosalon?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://x.com/BOTG_salon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Dual-Column Navigation Bento: Treatments & Occasions -->
+        <div class="botg-footer-m-nav-bento">
+          
+          <!-- Column A: Treatments -->
+          <div class="botg-footer-m-nav-col">
+            <div class="botg-footer-m-nav-heading">✦ Treatments</div>
+            <div class="botg-footer-m-nav-links">
+              <a href="./index.html#services" class="botg-footer-m-nav-item">
+                <span>Hair &amp; Colour</span><span class="arr">→</span>
+              </a>
+              <a href="./index.html#services" class="botg-footer-m-nav-item">
+                <span>Custom Facials</span><span class="arr">→</span>
+              </a>
+              <a href="./index.html#services" class="botg-footer-m-nav-item">
+                <span>Massage Therapy</span><span class="arr">→</span>
+              </a>
+              <a href="./index.html#services" class="botg-footer-m-nav-item">
+                <span>Botanical Nails</span><span class="arr">→</span>
+              </a>
+              <a href="./index.html#services" class="botg-footer-m-nav-item">
+                <span>Bridal &amp; Events</span><span class="arr">→</span>
+              </a>
+              <a href="./index.html#services" class="botg-footer-m-nav-item">
+                <span>Microblading</span><span class="arr">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column B: Occasions -->
+          <div class="botg-footer-m-nav-col">
+            <div class="botg-footer-m-nav-heading">✦ Occasions</div>
+            <div class="botg-footer-m-nav-links">
+              <a href="./index.html#occasions" class="botg-footer-m-nav-item">
+                <span>Weddings &amp; Bridal</span><span class="arr">→</span>
+              </a>
+              <a href="./index.html#occasions" class="botg-footer-m-nav-item">
+                <span>Corporate Wellness</span><span class="arr">→</span>
+              </a>
+              <a href="./index.html#occasions" class="botg-footer-m-nav-item">
+                <span>Spa Parties (6+)</span><span class="arr">→</span>
+              </a>
+              <a href="./index.html#occasions" class="botg-footer-m-nav-item">
+                <span>In-Care &amp; Seniors</span><span class="arr">→</span>
+              </a>
+              <a href="./index.html#occasions" class="botg-footer-m-nav-item">
+                <span>Private At Home</span><span class="arr">→</span>
+              </a>
+              <a href="./book.html" class="botg-footer-m-nav-item highlight">
+                <span>Online Booking</span><span class="arr">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3. Company & Policies Compact Hub -->
+        <div class="botg-footer-m-company-card">
+          <div class="botg-footer-m-company-pills">
+            <a href="./index.html#specialists" class="botg-footer-m-pill">Meet Specialists</a>
+            <a href="./index.html#about" class="botg-footer-m-pill">About Collective</a>
+            <a href="./cancellation.html" class="botg-footer-m-pill">Cancellation Policy</a>
+            <a href="./privacy.html" class="botg-footer-m-pill">Privacy &amp; Security</a>
+            <a href="./careers.html" class="botg-footer-m-pill">Join Our Team</a>
+            <a href="./contact.html" class="botg-footer-m-pill">Contact Concierge</a>
+          </div>
+        </div>
+
+        <!-- 4. Safe-Area Territory & Legal Notice -->
+        <div class="botg-footer-m-legal">
+          <div class="botg-footer-m-territory">
+            <span class="dot"></span> Phoenix · Scottsdale · Paradise Valley · 14 Valley Cities
+          </div>
+          <div class="botg-footer-m-copy">
+            © 2001–2026 Beauticians On The Go, LLC. All Rights Reserved.
+          </div>
+        </div>
+
+      </div>
 
     <!-- Bottom Copyright -->
     <div style="max-width:1440px; margin:0 auto; padding-top:30px; border-top:1px solid rgba(242,237,227,.12); display:flex; justify-content:space-between; font-size:12px; color:rgba(242,237,227,.45);">

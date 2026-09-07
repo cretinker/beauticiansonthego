@@ -370,6 +370,373 @@
       gap: 28px !important;
     }
   }
+
+  /* ================= LUXURY MOBILE FOOTER SYSTEM ================= */
+  .botg-mobile-footer {
+    display: none;
+  }
+
+  @media (max-width: 992px) {
+    /* Ensure footer container has safe-area bottom clearance for the floating mobile bar (~65px) */
+    footer.botg-section-pad,
+    footer {
+      padding: 56px 18px 125px !important;
+    }
+
+    /* Hide the desktop 4-column footer on mobile */
+    .botg-footer-desktop-grid {
+      display: none !important;
+    }
+
+    .botg-footer-bottom {
+      display: none !important;
+    }
+
+    /* Show the luxury mobile footer */
+    .botg-mobile-footer {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 1. Brand Card (Double-Bezel Architecture) */
+    .botg-footer-m-brand-card {
+      background: rgba(242, 237, 227, 0.03) !important;
+      border: 1px solid rgba(198, 155, 84, 0.22) !important;
+      border-radius: 16px !important;
+      padding: 22px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+      box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.45) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-brand-card::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, transparent, rgba(198, 155, 84, 0.6), transparent) !important;
+    }
+
+    .botg-footer-m-brand-header {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+    }
+
+    .botg-footer-m-logo {
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 10px !important;
+      overflow: hidden !important;
+      border: 1.5px solid rgba(198, 155, 84, 0.6) !important;
+      background: #171512 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .botg-footer-m-logo img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      transform: scale(1.48) !important;
+      filter: contrast(1.18) brightness(1.04) !important;
+      display: block !important;
+    }
+
+    .botg-footer-m-brand-title {
+      font-family: 'Bodoni Moda', serif !important;
+      font-size: 22px !important;
+      color: #FAF7F2 !important;
+      line-height: 1.15 !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .botg-footer-m-brand-subtitle {
+      font-size: 11px !important;
+      color: #C69B54 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      margin-top: 3px !important;
+      font-weight: 600 !important;
+    }
+
+    /* Trust Chips Row */
+    .botg-footer-m-trust-chips {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+
+    .botg-footer-m-chip {
+      display: inline-flex !important;
+      align-items: center !important;
+      background: rgba(198, 155, 84, 0.08) !important;
+      border: 1px solid rgba(198, 155, 84, 0.28) !important;
+      border-radius: 999px !important;
+      padding: 4px 10px !important;
+      font-size: 10.5px !important;
+      font-weight: 600 !important;
+      color: #FAF7F2 !important;
+      letter-spacing: 0.04em !important;
+    }
+
+    /* Quick Actions (Call & Email) */
+    .botg-footer-m-actions {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 10px !important;
+      margin-top: 2px !important;
+    }
+
+    .botg-footer-m-btn-call,
+    .botg-footer-m-btn-email {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      padding: 12px 10px !important;
+      min-height: 44px !important;
+      border-radius: 8px !important;
+      text-decoration: none !important;
+      font-size: 11.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      transition: all 0.2s ease !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-btn-call {
+      background: #C69B54 !important;
+      color: #171512 !important;
+      border: 1px solid #C69B54 !important;
+      box-shadow: 0 4px 14px rgba(198, 155, 84, 0.25) !important;
+    }
+
+    .botg-footer-m-btn-call:active {
+      transform: scale(0.98) !important;
+    }
+
+    .botg-footer-m-btn-email {
+      background: rgba(242, 237, 227, 0.05) !important;
+      color: #FAF7F2 !important;
+      border: 1px solid rgba(242, 237, 227, 0.18) !important;
+    }
+
+    .botg-footer-m-btn-email:active {
+      background: rgba(242, 237, 227, 0.1) !important;
+      transform: scale(0.98) !important;
+    }
+
+    /* Meta: Hours & Location */
+    .botg-footer-m-meta {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      font-size: 12px !important;
+      line-height: 1.5 !important;
+      color: rgba(242, 237, 227, 0.65) !important;
+      border-top: 1px solid rgba(242, 237, 227, 0.08) !important;
+      padding-top: 12px !important;
+    }
+
+    .botg-footer-m-meta-row {
+      display: flex !important;
+      gap: 8px !important;
+    }
+
+    .botg-footer-m-meta-label {
+      color: #C69B54 !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Social Circles */
+    .botg-footer-m-socials {
+      display: flex !important;
+      gap: 10px !important;
+      align-items: center !important;
+      padding-top: 4px !important;
+    }
+
+    .botg-footer-m-socials a {
+      width: 42px !important;
+      height: 42px !important;
+      border-radius: 50% !important;
+      border: 1px solid rgba(198, 155, 84, 0.35) !important;
+      background: rgba(242, 237, 227, 0.04) !important;
+      color: #FAF7F2 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .botg-footer-m-socials a:active {
+      background: #C69B54 !important;
+      color: #171512 !important;
+      border-color: #C69B54 !important;
+    }
+
+    /* 2. 2-Column Bento Nav Card */
+    .botg-footer-m-nav-bento {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 12px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-nav-col {
+      background: rgba(242, 237, 227, 0.025) !important;
+      border: 1px solid rgba(198, 155, 84, 0.16) !important;
+      border-radius: 12px !important;
+      padding: 16px 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-nav-heading {
+      font-size: 10px !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      color: #C69B54 !important;
+      font-weight: 700 !important;
+      padding-bottom: 6px !important;
+      border-bottom: 1px solid rgba(198, 155, 84, 0.15) !important;
+    }
+
+    .botg-footer-m-nav-links {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+    }
+
+    .botg-footer-m-nav-item {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 42px !important;
+      padding: 4px 6px !important;
+      color: rgba(242, 237, 227, 0.8) !important;
+      text-decoration: none !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      border-radius: 6px !important;
+      transition: background 0.15s ease, color 0.15s ease !important;
+      cursor: pointer !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-nav-item:active {
+      background: rgba(198, 155, 84, 0.15) !important;
+      color: #FAF7F2 !important;
+    }
+
+    .botg-footer-m-nav-item .arr {
+      color: #C69B54 !important;
+      font-size: 13px !important;
+      opacity: 0.7 !important;
+      transition: transform 0.15s ease !important;
+    }
+
+    .botg-footer-m-nav-item.highlight {
+      color: #C69B54 !important;
+      font-weight: 700 !important;
+    }
+
+    /* 3. Company & Policies Compact Card */
+    .botg-footer-m-company-card {
+      background: rgba(242, 237, 227, 0.02) !important;
+      border: 1px solid rgba(242, 237, 227, 0.08) !important;
+      border-radius: 12px !important;
+      padding: 14px 12px !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-company-pills {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+      justify-content: center !important;
+    }
+
+    .botg-footer-m-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 8px 12px !important;
+      min-height: 38px !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid rgba(242, 237, 227, 0.12) !important;
+      border-radius: 6px !important;
+      color: rgba(242, 237, 227, 0.75) !important;
+      font-size: 11.5px !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-pill:active {
+      background: rgba(198, 155, 84, 0.15) !important;
+      color: #FAF7F2 !important;
+      border-color: rgba(198, 155, 84, 0.4) !important;
+    }
+
+    /* 4. Territory & Legal */
+    .botg-footer-m-legal {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      gap: 8px !important;
+      padding-top: 8px !important;
+      font-size: 11.5px !important;
+      color: rgba(242, 237, 227, 0.45) !important;
+      line-height: 1.5 !important;
+    }
+
+    .botg-footer-m-territory {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      color: rgba(242, 237, 227, 0.65) !important;
+      font-size: 11.5px !important;
+    }
+
+    .botg-footer-m-territory .dot {
+      width: 6px !important;
+      height: 6px !important;
+      border-radius: 50% !important;
+      background: #22C55E !important;
+      display: inline-block !important;
+    }
+
+    .botg-footer-m-copy {
+      font-size: 11px !important;
+      color: rgba(242, 237, 227, 0.4) !important;
+    }
+  }
+
 </style>
 
 </head>
@@ -528,6 +895,373 @@
     .botg-hero-metrics { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
     .botg-hero-art { width: 100% !important; max-width: 100% !important; height: 280px !important; }
   }
+
+  /* ================= LUXURY MOBILE FOOTER SYSTEM ================= */
+  .botg-mobile-footer {
+    display: none;
+  }
+
+  @media (max-width: 992px) {
+    /* Ensure footer container has safe-area bottom clearance for the floating mobile bar (~65px) */
+    footer.botg-section-pad,
+    footer {
+      padding: 56px 18px 125px !important;
+    }
+
+    /* Hide the desktop 4-column footer on mobile */
+    .botg-footer-desktop-grid {
+      display: none !important;
+    }
+
+    .botg-footer-bottom {
+      display: none !important;
+    }
+
+    /* Show the luxury mobile footer */
+    .botg-mobile-footer {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 1. Brand Card (Double-Bezel Architecture) */
+    .botg-footer-m-brand-card {
+      background: rgba(242, 237, 227, 0.03) !important;
+      border: 1px solid rgba(198, 155, 84, 0.22) !important;
+      border-radius: 16px !important;
+      padding: 22px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+      box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.45) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-brand-card::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, transparent, rgba(198, 155, 84, 0.6), transparent) !important;
+    }
+
+    .botg-footer-m-brand-header {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+    }
+
+    .botg-footer-m-logo {
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 10px !important;
+      overflow: hidden !important;
+      border: 1.5px solid rgba(198, 155, 84, 0.6) !important;
+      background: #171512 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .botg-footer-m-logo img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      transform: scale(1.48) !important;
+      filter: contrast(1.18) brightness(1.04) !important;
+      display: block !important;
+    }
+
+    .botg-footer-m-brand-title {
+      font-family: 'Bodoni Moda', serif !important;
+      font-size: 22px !important;
+      color: #FAF7F2 !important;
+      line-height: 1.15 !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .botg-footer-m-brand-subtitle {
+      font-size: 11px !important;
+      color: #C69B54 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      margin-top: 3px !important;
+      font-weight: 600 !important;
+    }
+
+    /* Trust Chips Row */
+    .botg-footer-m-trust-chips {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+
+    .botg-footer-m-chip {
+      display: inline-flex !important;
+      align-items: center !important;
+      background: rgba(198, 155, 84, 0.08) !important;
+      border: 1px solid rgba(198, 155, 84, 0.28) !important;
+      border-radius: 999px !important;
+      padding: 4px 10px !important;
+      font-size: 10.5px !important;
+      font-weight: 600 !important;
+      color: #FAF7F2 !important;
+      letter-spacing: 0.04em !important;
+    }
+
+    /* Quick Actions (Call & Email) */
+    .botg-footer-m-actions {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 10px !important;
+      margin-top: 2px !important;
+    }
+
+    .botg-footer-m-btn-call,
+    .botg-footer-m-btn-email {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      padding: 12px 10px !important;
+      min-height: 44px !important;
+      border-radius: 8px !important;
+      text-decoration: none !important;
+      font-size: 11.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      transition: all 0.2s ease !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-btn-call {
+      background: #C69B54 !important;
+      color: #171512 !important;
+      border: 1px solid #C69B54 !important;
+      box-shadow: 0 4px 14px rgba(198, 155, 84, 0.25) !important;
+    }
+
+    .botg-footer-m-btn-call:active {
+      transform: scale(0.98) !important;
+    }
+
+    .botg-footer-m-btn-email {
+      background: rgba(242, 237, 227, 0.05) !important;
+      color: #FAF7F2 !important;
+      border: 1px solid rgba(242, 237, 227, 0.18) !important;
+    }
+
+    .botg-footer-m-btn-email:active {
+      background: rgba(242, 237, 227, 0.1) !important;
+      transform: scale(0.98) !important;
+    }
+
+    /* Meta: Hours & Location */
+    .botg-footer-m-meta {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      font-size: 12px !important;
+      line-height: 1.5 !important;
+      color: rgba(242, 237, 227, 0.65) !important;
+      border-top: 1px solid rgba(242, 237, 227, 0.08) !important;
+      padding-top: 12px !important;
+    }
+
+    .botg-footer-m-meta-row {
+      display: flex !important;
+      gap: 8px !important;
+    }
+
+    .botg-footer-m-meta-label {
+      color: #C69B54 !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Social Circles */
+    .botg-footer-m-socials {
+      display: flex !important;
+      gap: 10px !important;
+      align-items: center !important;
+      padding-top: 4px !important;
+    }
+
+    .botg-footer-m-socials a {
+      width: 42px !important;
+      height: 42px !important;
+      border-radius: 50% !important;
+      border: 1px solid rgba(198, 155, 84, 0.35) !important;
+      background: rgba(242, 237, 227, 0.04) !important;
+      color: #FAF7F2 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .botg-footer-m-socials a:active {
+      background: #C69B54 !important;
+      color: #171512 !important;
+      border-color: #C69B54 !important;
+    }
+
+    /* 2. 2-Column Bento Nav Card */
+    .botg-footer-m-nav-bento {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 12px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-nav-col {
+      background: rgba(242, 237, 227, 0.025) !important;
+      border: 1px solid rgba(198, 155, 84, 0.16) !important;
+      border-radius: 12px !important;
+      padding: 16px 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-nav-heading {
+      font-size: 10px !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      color: #C69B54 !important;
+      font-weight: 700 !important;
+      padding-bottom: 6px !important;
+      border-bottom: 1px solid rgba(198, 155, 84, 0.15) !important;
+    }
+
+    .botg-footer-m-nav-links {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+    }
+
+    .botg-footer-m-nav-item {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 42px !important;
+      padding: 4px 6px !important;
+      color: rgba(242, 237, 227, 0.8) !important;
+      text-decoration: none !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      border-radius: 6px !important;
+      transition: background 0.15s ease, color 0.15s ease !important;
+      cursor: pointer !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-nav-item:active {
+      background: rgba(198, 155, 84, 0.15) !important;
+      color: #FAF7F2 !important;
+    }
+
+    .botg-footer-m-nav-item .arr {
+      color: #C69B54 !important;
+      font-size: 13px !important;
+      opacity: 0.7 !important;
+      transition: transform 0.15s ease !important;
+    }
+
+    .botg-footer-m-nav-item.highlight {
+      color: #C69B54 !important;
+      font-weight: 700 !important;
+    }
+
+    /* 3. Company & Policies Compact Card */
+    .botg-footer-m-company-card {
+      background: rgba(242, 237, 227, 0.02) !important;
+      border: 1px solid rgba(242, 237, 227, 0.08) !important;
+      border-radius: 12px !important;
+      padding: 14px 12px !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-company-pills {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+      justify-content: center !important;
+    }
+
+    .botg-footer-m-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 8px 12px !important;
+      min-height: 38px !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid rgba(242, 237, 227, 0.12) !important;
+      border-radius: 6px !important;
+      color: rgba(242, 237, 227, 0.75) !important;
+      font-size: 11.5px !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-footer-m-pill:active {
+      background: rgba(198, 155, 84, 0.15) !important;
+      color: #FAF7F2 !important;
+      border-color: rgba(198, 155, 84, 0.4) !important;
+    }
+
+    /* 4. Territory & Legal */
+    .botg-footer-m-legal {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      gap: 8px !important;
+      padding-top: 8px !important;
+      font-size: 11.5px !important;
+      color: rgba(242, 237, 227, 0.45) !important;
+      line-height: 1.5 !important;
+    }
+
+    .botg-footer-m-territory {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      color: rgba(242, 237, 227, 0.65) !important;
+      font-size: 11.5px !important;
+    }
+
+    .botg-footer-m-territory .dot {
+      width: 6px !important;
+      height: 6px !important;
+      border-radius: 50% !important;
+      background: #22C55E !important;
+      display: inline-block !important;
+    }
+
+    .botg-footer-m-copy {
+      font-size: 11px !important;
+      color: rgba(242, 237, 227, 0.4) !important;
+    }
+  }
+
 </style>
 <div style="font-family:'Karla',sans-serif; color:#171512; background:#FAF7F2;">
 
