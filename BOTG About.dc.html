@@ -497,6 +497,11 @@
 
     /* Footer */
     .botg-footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+    /* About Page Mobile Optimizations */
+    .botg-tenets-grid { display: flex !important; flex-direction: column !important; gap: 20px !important; }
+    .botg-coverage-row { display: flex !important; flex-direction: column !important; gap: 12px !important; padding: 24px 0 !important; }
+
   }
 
   @media (max-width: 640px) {
@@ -519,7 +524,7 @@
           <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">The Collective Story · Established 2001</span>
         </div>
 
-        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(44px, 5.5vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
+        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
           Twenty-five years of bringing the sanctuary <span style="font-style:italic; color:#A8562F;">to your door.</span>
         </h1>
 
@@ -620,7 +625,7 @@
       
       <div style="text-align:center; max-width:720px; margin:0 auto 60px;">
         <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; font-weight:700; margin-bottom:12px;">Verified Benchmark Standards</div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:48px; line-height:1.02; color:#FAF7F2;">Our scale is built on twenty-five years of consistency.</div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 48px); line-height:1.02; color:#FAF7F2;">Our scale is built on twenty-five years of consistency.</div>
       </div>
 
       <div class="botg-metrics-5col" style=" gap:2px; background:rgba(242,237,227,.15);">
@@ -661,11 +666,11 @@
   </section>
 
   <!-- 4 · THE 4 CORE TENETS (LUXURY BENTO GRID) -->
-  <section style="padding:130px 30px; max-width:1440px; margin:0 auto;">
+  <section class="botg-section-pad" style="padding:130px 30px; max-width:1440px; margin:0 auto;">
     
     <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:60px; max-width:800px;">
       <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; font-weight:700;">Our Operating Philosophy</div>
-      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(40px, 5vw, 64px); line-height:.96; letter-spacing:-.03em;">
+      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 64px); line-height:.96; letter-spacing:-.03em;">
         Four standards that define <span style="font-style:italic; color:#A8562F;">every home visit.</span>
       </div>
       <div style="font-size:17.5px; line-height:1.7; color:#4C463E;">
@@ -673,7 +678,7 @@
       </div>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:30px;">
+    <div class="botg-tenets-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:30px;">
       
       <!-- Tenet 1 -->
       <div style="background:#E8E1D4; padding:48px 42px; border-radius:4px; display:flex; flex-direction:column; gap:20px; border-left:4px solid #C69B54;">
@@ -728,13 +733,13 @@
   </section>
 
   <!-- 5 · 25-YEAR INTERACTIVE TIMELINE (2001 TO 2026) -->
-  <section style="background:#171512; color:#FAF7F2; padding:120px 30px;">
+  <section class="botg-section-pad" style="background:#171512; color:#FAF7F2; padding:120px 30px;">
     <div style="max-width:1440px; margin:0 auto;">
       
       <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:64px; flex-wrap:wrap; gap:24px;">
         <div style="display:flex; flex-direction:column; gap:12px;">
           <div style="font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; font-weight:700;">Chronicle of Craft</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:clamp(40px, 5vw, 64px); line-height:.96; color:#FAF7F2;">
+          <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 64px); line-height:.96; color:#FAF7F2;">
             A Quarter Century of <span style="font-style:italic; color:#C69B54;">Mobile Luxury.</span>
           </div>
         </div>
@@ -796,7 +801,7 @@
   </section>
 
   <!-- 6 · WHO WE SERVE (FOUR CORE JOURNEYS) -->
-  <section style="padding:130px 30px; max-width:1440px; margin:0 auto;">
+  <section class="botg-section-pad" style="padding:130px 30px; max-width:1440px; margin:0 auto;">
     
     <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:60px; max-width:820px;">
       <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; font-weight:700;">Curated Service Journeys</div>
@@ -881,7 +886,7 @@
 
         <div style="display:flex; flex-direction:column;">
           
-          <div style="display:grid; grid-template-columns:180px 1fr; gap:36px; padding:32px 0; border-top:1px solid rgba(23,21,18,.16);">
+          <div class="botg-coverage-row" style="display:grid; grid-template-columns:180px 1fr; gap:36px; padding:32px 0; border-top:1px solid rgba(23,21,18,.16);">
             <div style="display:flex; flex-direction:column; gap:6px;">
               <div style="font-family:'Bodoni Moda',serif; font-size:26px; font-weight:600;">The Valley</div>
               <div style="font-size:12px; color:#7A736A; text-transform:uppercase; letter-spacing:.1em; font-weight:700;">Primary Fleet</div>
@@ -894,7 +899,7 @@
             </div>
           </div>
 
-          <div style="display:grid; grid-template-columns:180px 1fr; gap:36px; padding:32px 0; border-top:1px solid rgba(23,21,18,.16);">
+          <div class="botg-coverage-row" style="display:grid; grid-template-columns:180px 1fr; gap:36px; padding:32px 0; border-top:1px solid rgba(23,21,18,.16);">
             <div style="display:flex; flex-direction:column; gap:6px;">
               <div style="font-family:'Bodoni Moda',serif; font-size:26px; font-weight:600;">Arizona Escapes</div>
               <div style="font-size:12px; color:#7A736A; text-transform:uppercase; letter-spacing:.1em; font-weight:700;">Venues &amp; Resorts</div>
@@ -907,7 +912,7 @@
             </div>
           </div>
 
-          <div style="display:grid; grid-template-columns:180px 1fr; gap:36px; padding:32px 0; border-top:1px solid rgba(23,21,18,.16); border-bottom:1px solid rgba(23,21,18,.16);">
+          <div class="botg-coverage-row" style="display:grid; grid-template-columns:180px 1fr; gap:36px; padding:32px 0; border-top:1px solid rgba(23,21,18,.16); border-bottom:1px solid rgba(23,21,18,.16);">
             <div style="display:flex; flex-direction:column; gap:6px;">
               <div style="font-family:'Bodoni Moda',serif; font-size:26px; font-weight:600;">Destination</div>
               <div style="font-size:12px; color:#7A736A; text-transform:uppercase; letter-spacing:.1em; font-weight:700;">Multi-State Travel</div>
@@ -940,10 +945,10 @@
   </section>
 
   <!-- 8 · BOTTOM EXECUTIVE CTA -->
-  <section style="background:#A8562F; color:#FAF7F2; padding:120px 30px; text-align:center;">
+  <section class="botg-section-pad" style="background:#A8562F; color:#FAF7F2; padding:120px 30px; text-align:center;">
     <div style="max-width:880px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:26px;">
       <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:rgba(255,255,255,.8); font-weight:700;">Reserve Your Private Session</div>
-      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(44px, 6vw, 84px); line-height:.92; letter-spacing:-.034em;">
+      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 84px); line-height:.92; letter-spacing:-.034em;">
         Give us an address.<br>We bring the salon.
       </div>
       <div style="font-size:18.5px; line-height:1.65; color:rgba(255,255,255,.9); max-width:600px;">

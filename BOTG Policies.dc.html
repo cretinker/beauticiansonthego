@@ -4,19 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+
+<style>
+  @media (max-width: 992px) {
+    .botg-section-pad { padding: 48px 18px !important; }
+    .botg-policy-pillars { display: flex !important; flex-direction: column !important; gap: 8px !important; }
+    .botg-policy-split { display: flex !important; flex-direction: column !important; gap: 36px !important; }
+    [style*="font-family:'Bodoni Moda'"][style*="font-size:40px"] { font-size: clamp(24px, 6vw, 40px) !important; }
+  }
+</style>
 </head>
 <body>
 <x-dc>
 <div style="font-family:'Karla',sans-serif; color:#171512; background:#FAF7F2;">
 
   <!-- Hero Header -->
-  <div style="padding:120px 30px 80px; max-width:1440px; margin:0 auto;">
+  <div class="botg-section-pad" style="padding:120px 30px 80px; max-width:1440px; margin:0 auto;">
     <div style="display:flex; flex-direction:column; gap:20px; max-width:880px;">
       <div style="display:flex; align-items:center; gap:14px;">
         <div style="width:34px; height:1px; background:#A8562F;"></div>
         <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Client Transparency</div>
       </div>
-      <div style="font-family:'Bodoni Moda',serif; font-size:80px; line-height:.92; letter-spacing:-.035em;">Cancellation &amp;<br>Appointment <span style="font-style:italic; color:#A8562F;">Policies.</span></div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(30px, 8vw, 80px); line-height:.92; letter-spacing:-.035em;">Cancellation &amp;<br>Appointment <span style="font-style:italic; color:#A8562F;">Policies.</span></div>
       <div style="font-size:18px; line-height:1.72; color:#4C463E; padding-top:6px;">
         Because our licensed beauticians pack dedicated equipment, reserve transit time, and decline other appointments for your reservation, we operate under clear, written guidelines. Every detail is itemized in your quote before you confirm.
       </div>
@@ -24,9 +33,9 @@
   </div>
 
   <!-- 4 Key Policy Pillars -->
-  <div style="background:#171512; color:#FAF7F2; padding:100px 30px;">
+  <div class="botg-section-pad" style="background:#171512; color:#FAF7F2; padding:100px 30px;">
     <div style="max-width:1440px; margin:0 auto;">
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(242,237,227,.14);">
+      <div class="botg-policy-pillars" style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(242,237,227,.14);">
         
         <div style="background:#171512; padding:36px 30px 42px; display:flex; flex-direction:column; gap:12px;">
           <div style="font-family:'Bodoni Moda',serif; font-size:44px; color:#C69B54; line-height:1; font-weight:600;">48h</div>
@@ -65,8 +74,8 @@
   </div>
 
   <!-- Detailed Policy Articles -->
-  <div style="padding:120px 30px; max-width:1440px; margin:0 auto;">
-    <div style="display:grid; grid-template-columns:360px 1fr; gap:90px; align-items:start;">
+  <div class="botg-section-pad" style="padding:120px 30px; max-width:1440px; margin:0 auto;">
+    <div class="botg-policy-split" style="display:grid; grid-template-columns:360px 1fr; gap:90px; align-items:start;">
       
       <!-- Table of Contents Sidebar -->
       <div style="display:flex; flex-direction:column; gap:24px;">

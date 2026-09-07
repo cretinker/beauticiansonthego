@@ -389,6 +389,16 @@
 
   @media (max-width: 768px) {
     .botg-form-2col { grid-template-columns: 1fr !important; }
+
+    /* Booking Wizard Mobile Optimizations */
+    .botg-treatments-grid { grid-template-columns: 1fr !important; max-height: 420px !important; }
+    .botg-guest-split { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .botg-datetime-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+    .botg-contact-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+    .botg-step-actions { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
+    .botg-step-actions > div { text-align: center !important; justify-content: center !important; width: 100% !important; min-height: 48px !important; box-sizing: border-box !important; }
+    input, select, textarea { font-size: 16px !important; }
+
   }
 
   /* ================= MASTER MOBILE RESPONSIVE ENGINE (ZERO OVERFLOW) ================= */
@@ -533,7 +543,7 @@
         <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Online Booking</div>
       </div>
 
-      <div style="font-family:'Bodoni Moda',serif; font-size:48px; line-height:.96; letter-spacing:-.03em;">Reserve your<br><span style="font-style:italic; color:#A8562F;">visit.</span></div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(30px, 7.5vw, 48px); line-height:.96; letter-spacing:-.03em;">Reserve your<br><span style="font-style:italic; color:#A8562F;">visit.</span></div>
       
       <div style="font-size:14.5px; line-height:1.65; color:#4C463E;">
         Every price published up front. Pick your treatments, choose a specialist, and select your date. Nothing is charged until confirmed by our Phoenix office.
@@ -586,7 +596,7 @@
       <div style="display:flex; flex-direction:column; gap:28px;">
         <div>
           <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 1 of 5</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">Select your occasion</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.8vw, 42px); line-height:1.04;">Select your occasion</div>
           <div style="font-size:16px; line-height:1.6; color:#4C463E; margin-top:8px;">Choose the setting for your appointment to help us dispatch the right equipment and specialists:</div>
         </div>
 
@@ -602,7 +612,7 @@
           </sc-for>
         </div>
 
-        <div style="display:flex; gap:16px; align-items:center; padding-top:10px;">
+        <div class="botg-step-actions" style="display:flex; gap:16px; align-items:center; padding-top:10px;">
           <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:18px 44px; cursor:{{ nextCursor }}; transition:all .2s ease;">Continue to Treatments →</div>
           <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint1 }}</div>
         </div>
@@ -614,7 +624,7 @@
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
           <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 2 of 5</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">Choose your treatments</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.8vw, 42px); line-height:1.04;">Choose your treatments</div>
           <div style="font-size:15.5px; line-height:1.6; color:#4C463E; margin-top:8px;">{{ minNote }}</div>
         </div>
 
@@ -628,7 +638,7 @@
         </div>
 
         <!-- Treatment Selection Cards -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; max-height:480px; overflow-y:auto; padding-right:6px;">
+        <div class="botg-treatments-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; max-height:480px; overflow-y:auto; padding-right:6px;">
           <sc-for list="{{ treatmentList }}" as="t" hint-placeholder-count="12">
             <div onClick="{{ t.click }}" style="background:{{ t.bg }}; border:1px solid {{ t.border }}; color:{{ t.fg }}; padding:18px 20px; cursor:pointer; display:flex; flex-direction:column; gap:6px; transition:all .2s ease;" style-hover="border-color:#C69B54;">
               <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
@@ -645,7 +655,7 @@
         </div>
 
         <!-- Guest Headcount -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding-top:12px; border-top:1px solid rgba(23,21,18,.1);">
+        <div class="botg-guest-split" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding-top:12px; border-top:1px solid rgba(23,21,18,.1);">
           <div style="display:flex; flex-direction:column; gap:8px;">
             <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Number of guests</div>
             <div style="display:flex; align-items:center; gap:2px; background:rgba(23,21,18,.14); width:fit-content;">
@@ -663,7 +673,7 @@
           </div>
         </div>
 
-        <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
+        <div class="botg-step-actions" style="display:flex; gap:14px; align-items:center; padding-top:8px;">
           <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
           <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 44px; cursor:{{ nextCursor }}; transition:all .2s ease;">Continue to Specialist →</div>
           <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint2 }}</div>
@@ -676,7 +686,7 @@
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
           <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 3 of 5</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">Specialist &amp; setup</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.8vw, 42px); line-height:1.04;">Specialist &amp; setup</div>
           <div style="font-size:15.5px; line-height:1.6; color:#4C463E; margin-top:8px;">Request a dedicated practitioner or let us match the best available licensed specialist for your treatments:</div>
         </div>
 
@@ -701,7 +711,7 @@
           </div>
         </div>
 
-        <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
+        <div class="botg-step-actions" style="display:flex; gap:14px; align-items:center; padding-top:8px;">
           <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
           <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:18px 44px; cursor:{{ nextCursor }}; transition:all .2s ease;">Continue to Schedule →</div>
           <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint3 }}</div>
@@ -714,7 +724,7 @@
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
           <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 4 of 5</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">When &amp; where?</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.8vw, 42px); line-height:1.04;">When &amp; where?</div>
           <div style="font-size:15.5px; line-height:1.6; color:#4C463E; margin-top:8px;">We service all 16 Valley cities and surrounding retreat destinations:</div>
         </div>
 
@@ -745,7 +755,7 @@
         </div>
 
         <!-- Date & Time Slot -->
-        <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:20px;">
+        <div class="botg-datetime-grid" style="display:grid; grid-template-columns:1fr 1.2fr; gap:20px;">
           <div style="display:flex; flex-direction:column; gap:8px;">
             <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Preferred Date</div>
             <input type="date" value="{{ date }}" onChange="{{ setDate }}" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none; width:100%;">
@@ -761,7 +771,7 @@
           </div>
         </div>
 
-        <div style="display:flex; gap:14px; align-items:center; padding-top:8px;">
+        <div class="botg-step-actions" style="display:flex; gap:14px; align-items:center; padding-top:8px;">
           <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
           <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:18px 44px; cursor:{{ nextCursor }}; transition:all .2s ease;">Continue to Confirmation →</div>
           <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint4 }}</div>
@@ -774,11 +784,11 @@
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div>
           <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#A8562F; margin-bottom:8px; font-weight:700;">Step 5 of 5</div>
-          <div style="font-family:'Bodoni Moda',serif; font-size:42px; line-height:1.04;">Review &amp; reserve</div>
+          <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.8vw, 42px); line-height:1.04;">Review &amp; reserve</div>
           <div style="font-size:15.5px; line-height:1.6; color:#4C463E; margin-top:8px;">Enter your contact information for appointment confirmation and day-before scheduling updates:</div>
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+        <div class="botg-contact-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
           <div style="display:flex; flex-direction:column; gap:8px;">
             <div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7A736A; font-weight:700;">Full Name</div>
             <input value="{{ name }}" onChange="{{ setName }}" placeholder="Your first & last name" style="border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:15px 16px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">
@@ -826,7 +836,7 @@
           </div>
         </div>
 
-        <div style="display:flex; gap:14px; align-items:center;">
+        <div class="botg-step-actions" style="display:flex; gap:14px; align-items:center;">
           <div onClick="{{ back }}" style="border:1px solid rgba(23,21,18,.3); font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:18px 30px; cursor:pointer;">Back</div>
           <div onClick="{{ next }}" style="background:{{ nextBg }}; color:#F2EDE3; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:19px 48px; cursor:{{ nextCursor }}; transition:all .2s ease;">Confirm Reservation Request →</div>
           <div style="font-size:14px; color:#A8562F; font-weight:500;">{{ hint5 }}</div>
@@ -842,7 +852,7 @@
           <div style="font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:#A8562F; font-weight:700;">Reservation Received</div>
         </div>
 
-        <div style="font-family:'Bodoni Moda',serif; font-size:54px; line-height:1.0; letter-spacing:-.03em;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:clamp(30px, 8vw, 54px); line-height:1.0; letter-spacing:-.03em;">
           Your appointment is<br><span style="font-style:italic; color:#A8562F;">in motion.</span>
         </div>
 
@@ -885,7 +895,7 @@
           <div style="width:36px; height:1px; background:#A8562F;"></div>
           <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Direct Phone Concierge</div>
         </div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:.96; letter-spacing:-.028em;">Prefer we<br>call <span style="font-style:italic; color:#A8562F;">you?</span></div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.8vw, 44px); line-height:.96; letter-spacing:-.028em;">Prefer we<br>call <span style="font-style:italic; color:#A8562F;">you?</span></div>
         <div style="font-size:15.5px; line-height:1.65; color:#4C463E;">Enter your phone number and a mobile salon coordinator from our Phoenix hub will call you back to build your custom appointment.</div>
         <div style="display:flex; gap:10px; padding-top:4px;">
           <input value="{{ phone }}" onChange="{{ setPhone }}" placeholder="(602) 000-0000" style="flex:1; border:1px solid rgba(23,21,18,.25); background:#FDFBF7; padding:16px 18px; font-family:'Karla',sans-serif; font-size:15.5px; color:#171512; outline:none;">

@@ -370,6 +370,73 @@
       gap: 28px !important;
     }
   }
+
+    /* ================= UNIVERSAL SUBPAGE RESPONSIVE ENGINES ================= */
+    .botg-services-nav,
+    .botg-occasions-nav,
+    .botg-team-filter-tabs {
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      max-width: 100% !important;
+    }
+    .botg-services-nav::-webkit-scrollbar,
+    .botg-occasions-nav::-webkit-scrollbar,
+    .botg-team-filter-tabs::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    .botg-service-band,
+    .botg-service-items-grid,
+    .botg-hiring-grid,
+    .botg-process-needs-grid,
+    .botg-treatments-grid,
+    .botg-guest-split,
+    .botg-datetime-grid,
+    .botg-contact-grid,
+    .botg-policy-pillars {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+
+    .botg-occasion-details-grid,
+    .botg-visit-office-grid,
+    .botg-tenets-grid,
+    .botg-coverage-row,
+    .botg-careers-benefits,
+    .botg-careers-split,
+    .botg-contact-split,
+    .botg-contact-fields-2col,
+    .botg-policy-split {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+    }
+
+    .botg-step-actions {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 12px !important;
+    }
+    .botg-step-actions > div,
+    .botg-step-actions > a {
+      text-align: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+      min-height: 48px !important;
+      box-sizing: border-box !important;
+    }
+
+    .botg-careers-formbox,
+    .botg-inquiry-box {
+      padding: 24px 18px !important;
+    }
+
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+
 </style>
 
 </head>
@@ -424,13 +491,13 @@
       </a>
 
       <!-- Mobile Hamburger Button (book.html) -->
-      <a href="./index.html" class="mobile-nav-toggle" style="width:42px; height:42px; border-radius:4px; border:1px solid rgba(23,21,18,.25); background:#171512; color:#FAF7F2; display:none; align-items:center; justify-content:center; text-decoration:none; flex-shrink:0;">
+      <div onclick="document.getElementById('botg-mobile-modal').style.display='flex'; document.body.style.overflow='hidden';" class="mobile-nav-toggle" style="width:42px; height:42px; border-radius:4px; border:1px solid rgba(23,21,18,.25); background:#171512; color:#FAF7F2; display:none; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C69B54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
-      </a>
+      </div>
 
     </div>
   </div>
@@ -563,5 +630,96 @@
 </div>
 
 </x-dc>
+
+<!-- STANDALONE MOBILE FULLSCREEN NAVIGATION MODAL -->
+<div id="botg-mobile-modal" style="display:none; position:fixed; inset:0; width:100vw; height:100vh; height:100dvh; z-index:99999; background:#171512; flex-direction:column; overflow-y:auto; -webkit-overflow-scrolling:touch; box-sizing:border-box;">
+  
+  <!-- Sticky Mobile Nav Header -->
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid rgba(198,155,84,.25); background:rgba(23,21,18,.98); backdrop-filter:blur(16px); position:sticky; top:0; z-index:10; box-sizing:border-box;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="width:38px; height:38px; border-radius:7px; overflow:hidden; border:1.2px solid rgba(198,155,84,.55); background:#171512; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <img src="./botg-logo.jpg" alt="Logo" style="width:100%; height:100%; object-fit:cover; transform:scale(1.48); filter:contrast(1.18) brightness(1.04); display:block;">
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div style="font-family:'Bodoni Moda',serif; font-size:16px; color:#FAF7F2; font-weight:600; line-height:1.1;">Beauticians On The Go</div>
+        <div style="font-size:8px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">Mobile Salon &amp; Day Spa</div>
+      </div>
+    </div>
+    
+    <!-- Close Button (X) -->
+    <div onclick="document.getElementById('botg-mobile-modal').style.display='none'; document.body.style.overflow='';" style="width:38px; height:38px; border-radius:4px; border:1px solid rgba(198,155,84,.35); background:rgba(255,255,255,.06); color:#FAF7F2; display:flex; align-items:center; justify-content:center; cursor:pointer;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C69B54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Scrollable Mobile Nav Body -->
+  <div style="padding:24px 20px 48px; display:flex; flex-direction:column; gap:20px; flex:1; box-sizing:border-box;">
+    <div style="font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#C69B54; font-weight:700;">Menu Directory</div>
+    
+    <!-- Primary Nav Links -->
+    <div style="display:flex; flex-direction:column;">
+      <a href="./index.html" onclick="document.body.style.overflow='';" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#FAF7F2; padding:14px 0; border-bottom:1px solid rgba(242,237,227,.1); display:flex; justify-content:space-between; align-items:center; text-decoration:none;">
+        <span>Home</span>
+        <span style="font-size:16px; color:#C69B54;">→</span>
+      </a>
+      <a href="./index.html#about" onclick="document.body.style.overflow='';" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#FAF7F2; padding:14px 0; border-bottom:1px solid rgba(242,237,227,.1); display:flex; justify-content:space-between; align-items:center; text-decoration:none;">
+        <span>About</span>
+        <span style="font-size:16px; color:#C69B54;">→</span>
+      </a>
+      <a href="./index.html#services" onclick="document.body.style.overflow='';" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#FAF7F2; padding:14px 0; border-bottom:1px solid rgba(242,237,227,.1); display:flex; justify-content:space-between; align-items:center; text-decoration:none;">
+        <span>Treatments</span>
+        <span style="font-size:16px; color:#C69B54;">→</span>
+      </a>
+      <a href="./index.html#occasions" onclick="document.body.style.overflow='';" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#FAF7F2; padding:14px 0; border-bottom:1px solid rgba(242,237,227,.1); display:flex; justify-content:space-between; align-items:center; text-decoration:none;">
+        <span>Occasions</span>
+        <span style="font-size:16px; color:#C69B54;">→</span>
+      </a>
+      <a href="./index.html#team" onclick="document.body.style.overflow='';" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#FAF7F2; padding:14px 0; border-bottom:1px solid rgba(242,237,227,.1); display:flex; justify-content:space-between; align-items:center; text-decoration:none;">
+        <span>Specialists</span>
+        <span style="font-size:16px; color:#C69B54;">→</span>
+      </a>
+      <a href="./index.html#process" onclick="document.body.style.overflow='';" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#FAF7F2; padding:14px 0; border-bottom:1px solid rgba(242,237,227,.1); display:flex; justify-content:space-between; align-items:center; text-decoration:none;">
+        <span>How It Works</span>
+        <span style="font-size:16px; color:#C69B54;">→</span>
+      </a>
+      <a href="./index.html#visit" onclick="document.body.style.overflow='';" style="font-family:'Bodoni Moda',serif; font-size:22px; color:#FAF7F2; padding:14px 0; border-bottom:1px solid rgba(242,237,227,.1); display:flex; justify-content:space-between; align-items:center; text-decoration:none;">
+        <span>What We Bring</span>
+        <span style="font-size:16px; color:#C69B54;">→</span>
+      </a>
+    </div>
+
+    <!-- Direct Occasion Booking Shortcuts -->
+    <div style="background:rgba(255,255,255,.03); border:1px solid rgba(198,155,84,.25); padding:16px; border-radius:6px; display:flex; flex-direction:column; gap:10px; margin-top:6px; box-sizing:border-box;">
+      <div style="font-size:9.5px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">Direct Occasion Booking</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+        <a href="./book.html" onclick="document.body.style.overflow='';" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); padding:11px 10px; font-size:12px; font-weight:600; color:#FAF7F2; text-align:center; text-decoration:none; border-radius:3px;">★ Weddings</a>
+        <a href="./book.html" onclick="document.body.style.overflow='';" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); padding:11px 10px; font-size:12px; font-weight:600; color:#FAF7F2; text-align:center; text-decoration:none; border-radius:3px;">★ Corporate</a>
+        <a href="./book.html" onclick="document.body.style.overflow='';" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); padding:11px 10px; font-size:12px; font-weight:600; color:#FAF7F2; text-align:center; text-decoration:none; border-radius:3px;">★ Spa Parties</a>
+        <a href="./book.html" onclick="document.body.style.overflow='';" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); padding:11px 10px; font-size:12px; font-weight:600; color:#FAF7F2; text-align:center; text-decoration:none; border-radius:3px;">★ In-Care &amp; Seniors</a>
+      </div>
+    </div>
+
+    <!-- Action CTAs inside Menu -->
+    <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+      <a href="./book.html" onclick="document.body.style.overflow='';" style="background:#A8562F; color:#FAF7F2; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:16px; text-align:center; text-decoration:none; border-radius:4px; box-shadow:0 8px 24px -8px rgba(168,86,47,.7);">
+        Book Appointment Online →
+      </a>
+      <a href="tel:6028032827" style="border:1px solid rgba(198,155,84,.45); background:rgba(198,155,84,.08); color:#FAF7F2; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:14px; display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; border-radius:4px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C69B54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call (602) 803-2827</span>
+      </a>
+    </div>
+
+    <div style="font-size:11px; color:rgba(242,237,227,.45); text-align:center; margin-top:4px; line-height:1.5;">
+      Phoenix · Scottsdale · Paradise Valley · 14 Valley Cities<br>
+      Monday–Saturday 8am–7pm · Sunday 8am–6pm
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>

@@ -497,6 +497,30 @@
 
     /* Footer */
     .botg-footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+    /* Service Band & Items Grid Mobile Stacking */
+    .botg-service-band {
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: auto !important;
+    }
+    .botg-service-band > div:first-child {
+      min-height: 240px !important;
+      height: 240px !important;
+      order: 1 !important;
+    }
+    .botg-service-band > div:last-child {
+      padding: 36px 18px !important;
+      order: 2 !important;
+      gap: 14px !important;
+    }
+    .botg-service-items-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 16px 18px 36px !important;
+      gap: 0 !important;
+    }
+
   }
 
   @media (max-width: 640px) {
@@ -519,7 +543,7 @@
           <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">Master Treatment Archive · 68 Published Rates</span>
         </div>
 
-        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(44px, 5.5vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
+        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
           Every treatment itemized.<br>Know the exact price <span style="font-style:italic; color:#A8562F;">before you book.</span>
         </h1>
 
@@ -564,10 +588,10 @@
   </section>
 
   <!-- INLINE CATEGORY FILTER -->
-  <div style="background:#E8E1D4; padding:20px 30px; border-top:1px solid rgba(23,21,18,.08); border-bottom:1px solid rgba(23,21,18,.12); display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-    <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; font-weight:700; margin-right:8px;">Filter Archive:</div>
+  <div class="botg-filter-rail" style="background:#E8E1D4; padding:16px 20px; border-top:1px solid rgba(23,21,18,.08); border-bottom:1px solid rgba(23,21,18,.12); display:flex; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; gap:10px; align-items:center;">
+    <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; font-weight:700; margin-right:8px; white-space:nowrap; flex-shrink:0;">Filter Archive:</div>
     <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
-      <div onClick="{{ t.click }}" style="border:1.2px solid {{ t.border }}; background:{{ t.bg }}; color:{{ t.fg }}; padding:9px 20px; border-radius:100px; font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; transition:all .2s ease;">{{ t.label }}</div>
+      <div onClick="{{ t.click }}" style="border:1.2px solid {{ t.border }}; background:{{ t.bg }}; color:{{ t.fg }}; padding:9px 20px; border-radius:100px; font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; transition:all .2s ease; white-space:nowrap; flex-shrink:0;">{{ t.label }}</div>
     </sc-for>
   </div>
 
@@ -577,14 +601,14 @@
       <div style="border-bottom:1px solid rgba(23,21,18,.13);">
 
         <!-- band -->
-        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); min-height:460px;">
+        <div class="botg-service-band" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); min-height:460px;">
           <div style="order:{{ g.oImg }}; background-image:url({{ g.imgCss }}); background-size:cover; background-position:center; min-height:400px;"></div>
           <div style="order:{{ g.oTxt }}; padding:80px 40px; display:flex; flex-direction:column; justify-content:center; gap:22px;">
             <div style="display:flex; align-items:center; gap:14px;">
               <div style="width:34px; height:1px; background:#A8562F;"></div>
               <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">{{ g.count }} treatments</div>
             </div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.92; letter-spacing:-.034em;">{{ g.title }}</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 72px); line-height:.92; letter-spacing:-.034em;">{{ g.title }}</div>
             <div style="font-size:17px; line-height:1.7; color:#4C463E; max-width:440px;">{{ g.blurb }}</div>
             <div style="display:flex; align-items:baseline; gap:14px; padding-top:6px;">
               <div style="font-family:'Bodoni Moda',serif; font-size:44px; line-height:1; color:#A8562F; font-weight:600;">{{ g.from }}</div>
@@ -594,7 +618,7 @@
         </div>
 
         <!-- rows, two columns -->
-        <div style="padding:56px 30px 76px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0 72px;">
+        <div class="botg-service-items-grid" style="padding:56px 30px 76px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0 72px;">
           <sc-for list="{{ g.items }}" as="i" hint-placeholder-count="8">
             <div style="display:grid; grid-template-columns:1fr auto; gap:18px; padding:18px 0; border-top:1px solid rgba(23,21,18,.14); align-items:baseline;">
               <div style="display:flex; flex-direction:column; gap:3px;">
@@ -610,9 +634,9 @@
   </div>
 
   <!-- packages -->
-  <div style="background:#E8E1D4; padding:130px 30px;">
+  <div class="botg-section-pad" style="background:#E8E1D4; padding:130px 30px;">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px; margin-bottom:56px;">
-      <div style="font-family:'Bodoni Moda',serif; font-size:72px; line-height:.94; letter-spacing:-.032em;">Two treatments.<br>One afternoon<br><span style="font-style:italic; color:#A8562F;">at home.</span></div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 72px); line-height:.94; letter-spacing:-.032em;">Two treatments.<br>One afternoon<br><span style="font-style:italic; color:#A8562F;">at home.</span></div>
       <div style="font-size:16.5px; line-height:1.7; color:#4C463E; max-width:380px; padding-bottom:10px;">These three pairings account for most of what we do. Book one and your Saturday is your own again.</div>
     </div>
     <div class="botg-occasions-grid" style=" gap:2px; background:rgba(23,21,18,.14);">
@@ -633,7 +657,7 @@
   </div>
 
   <!-- fine print -->
-  <div style="background:#171512; color:rgba(242,237,227,.62); padding:110px 30px;">
+  <div class="botg-section-pad" style="background:#171512; color:rgba(242,237,227,.62); padding:110px 30px;">
     <div class="botg-team-grid" style=" gap:2px; background:rgba(242,237,227,.14);">
       <div style="background:#171512; padding:34px 32px 40px; display:flex; flex-direction:column; gap:11px;">
         <div style="font-family:'Bodoni Moda',serif; font-size:26px; color:#C69B54;">Two-treatment minimum</div>

@@ -4,19 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+
+<style>
+  @media (max-width: 992px) {
+    .botg-section-pad { padding: 48px 18px !important; }
+    .botg-contact-split { display: flex !important; flex-direction: column !important; gap: 36px !important; }
+    .botg-inquiry-box { padding: 24px 18px !important; }
+    .botg-contact-fields-2col { display: flex !important; flex-direction: column !important; gap: 14px !important; }
+    input, select, textarea { font-size: 16px !important; }
+  }
+</style>
 </head>
 <body>
 <x-dc>
 <div style="font-family:'Karla',sans-serif; color:#171512; background:#FAF7F2;">
 
   <!-- Hero Header -->
-  <div style="padding:120px 30px 80px; max-width:1440px; margin:0 auto;">
+  <div class="botg-section-pad" style="padding:120px 30px 80px; max-width:1440px; margin:0 auto;">
     <div style="display:flex; flex-direction:column; gap:20px; max-width:880px;">
       <div style="display:flex; align-items:center; gap:14px;">
         <div style="width:34px; height:1px; background:#A8562F;"></div>
         <div style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Get In Touch</div>
       </div>
-      <div style="font-family:'Bodoni Moda',serif; font-size:80px; line-height:.92; letter-spacing:-.035em;">Contact Our Central<br><span style="font-style:italic; color:#A8562F;">Dispatch &amp; Office.</span></div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(30px, 8vw, 80px); line-height:.92; letter-spacing:-.035em;">Contact Our Central<br><span style="font-style:italic; color:#A8562F;">Dispatch &amp; Office.</span></div>
       <div style="font-size:18px; line-height:1.72; color:#4C463E; padding-top:6px;">
         Whether you are planning a bridal morning, coordinating senior in-care visits, arranging corporate wellness, or booking an individual Saturday refresh, our concierge team is available 7 days a week.
       </div>
@@ -24,8 +34,8 @@
   </div>
 
   <!-- Contact Cards & Info Grid -->
-  <div style="padding:0 30px 120px; max-width:1440px; margin:0 auto;">
-    <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start;">
+  <div class="botg-section-pad" style="padding:0 30px 60px; max-width:1440px; margin:0 auto;">
+    <div class="botg-contact-split" style="display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start;">
       
       <!-- Left: Office & Dispatch Details -->
       <div style="display:flex; flex-direction:column; gap:36px;">
@@ -67,7 +77,7 @@
       </div>
 
       <!-- Right: Quick Message & Inquiry Form -->
-      <div style="background:#171512; color:#FAF7F2; padding:48px 44px; display:flex; flex-direction:column; gap:24px;">
+      <div class="botg-inquiry-box" style="background:#171512; color:#FAF7F2; padding:48px 44px; display:flex; flex-direction:column; gap:24px;">
         <div style="display:flex; flex-direction:column; gap:8px;">
           <div style="font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#C69B54; font-weight:700;">Online Inquiry</div>
           <div style="font-family:'Bodoni Moda',serif; font-size:36px; line-height:1.05;">Send a message to dispatch.</div>
@@ -79,7 +89,7 @@
             <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(242,237,227,.6); font-weight:600; margin-bottom:6px;">Your Name</div>
             <input placeholder="Full name" style="width:100%; padding:14px; background:rgba(255,255,255,.06); border:1px solid rgba(242,237,227,.2); color:#FAF7F2; font-size:15px; font-family:'Karla',sans-serif;">
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="botg-contact-fields-2col" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
             <div>
               <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(242,237,227,.6); font-weight:600; margin-bottom:6px;">Phone Number</div>
               <input placeholder="(602) 000-0000" style="width:100%; padding:14px; background:rgba(255,255,255,.06); border:1px solid rgba(242,237,227,.2); color:#FAF7F2; font-size:15px; font-family:'Karla',sans-serif;">

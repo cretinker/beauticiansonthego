@@ -497,6 +497,14 @@
 
     /* Footer */
     .botg-footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+    /* Process Needs Grid Mobile Stacking */
+    .botg-process-needs-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 36px !important;
+    }
+
   }
 
   @media (max-width: 640px) {
@@ -519,7 +527,7 @@
           <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">Seamless Dispatch Protocol · 4 Steps</span>
         </div>
 
-        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(44px, 5.5vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
+        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
           Booked in a day.<br>Delivered at <span style="font-style:italic; color:#A8562F;">your place.</span>
         </h1>
 
@@ -590,9 +598,9 @@
   </div>
 
   <!-- what we need -->
-  <div class="botg-section-pad botg-grid-2col" style="background:#171512; color:#F2EDE3; padding:120px 30px; display:grid; grid-template-columns:340px 1fr; gap:72px;">
+  <div class="botg-section-pad botg-process-needs-grid" style="background:#171512; color:#F2EDE3; padding:120px 30px; display:grid; grid-template-columns:340px 1fr; gap:72px;">
     <div style="display:flex; flex-direction:column; gap:18px;">
-      <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.03em;">What we need<br><span style="font-style:italic; color:#C69B54;">from you.</span></div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 64px); line-height:.94; letter-spacing:-.03em;">What we need<br><span style="font-style:italic; color:#C69B54;">from you.</span></div>
       <div style="font-size:16px; line-height:1.7; color:rgba(242,237,227,.65);">Four simple essentials already in your home or venue. Everything else arrives in the car.</div>
     </div>
     <div class="botg-grid-2col" style="display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:rgba(242,237,227,.15);">
@@ -627,7 +635,7 @@
           <span style="font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Plain-English Policies</span>
         </div>
 
-        <h2 style="font-family:'Bodoni Moda',serif; font-size:clamp(40px, 4vw, 56px); line-height:.96; letter-spacing:-.03em; margin:0; color:#171512;">
+        <h2 style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6vw, 56px); line-height:.96; letter-spacing:-.03em; margin:0; color:#171512;">
           Before you <span style="font-style:italic; color:#A8562F;">book.</span>
         </h2>
 
@@ -694,7 +702,7 @@
   <!-- cancellation -->
   <div class="botg-section-pad" style="background:#E8E1D4; padding:110px 30px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:32px;">
     <div style="display:flex; flex-direction:column; gap:12px; max-width:620px;">
-      <div style="font-family:'Bodoni Moda',serif; font-size:52px; line-height:1.0; letter-spacing:-.026em;">Cancellation policy</div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 52px); line-height:1.0; letter-spacing:-.026em;">Cancellation policy</div>
       <div style="font-size:16px; line-height:1.7; color:#2C2721;">Beauticians reserve travel time and turn down other bookings for every confirmed visit, so appointments operate under clear written policies. Full terms are itemized on your quote prior to payment.</div>
     </div>
     <a href="./cancellation.html" style="font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; border-bottom:1px solid #171512; padding-bottom:5px; cursor:pointer; flex-shrink:0; text-decoration:none; color:#171512;">Read the policy →</a>

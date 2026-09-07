@@ -497,6 +497,15 @@
 
     /* Footer */
     .botg-footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+    /* Occasion Details Grid Mobile Stacking */
+    .botg-occasion-details-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 36px 18px 48px !important;
+      gap: 36px !important;
+    }
+
   }
 
   @media (max-width: 640px) {
@@ -519,7 +528,7 @@
           <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">On-Location Squads · 6 Curated Occasions</span>
         </div>
 
-        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(44px, 5.5vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
+        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
           Tell us the occasion.<br>We bring the complete <span style="font-style:italic; color:#A8562F;">mobile salon.</span>
         </h1>
 
@@ -560,10 +569,10 @@
   </section>
 
   <!-- INLINE OCCASION FILTER -->
-  <div style="background:#E8E1D4; padding:20px 30px; border-top:1px solid rgba(23,21,18,.08); border-bottom:1px solid rgba(23,21,18,.12); display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-    <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; font-weight:700; margin-right:8px;">Filter Occasion:</div>
+  <div class="botg-filter-rail" style="background:#E8E1D4; padding:16px 20px; border-top:1px solid rgba(23,21,18,.08); border-bottom:1px solid rgba(23,21,18,.12); display:flex; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; gap:10px; align-items:center;">
+    <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7A736A; font-weight:700; margin-right:8px; white-space:nowrap; flex-shrink:0;">Filter Occasion:</div>
     <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
-      <div onClick="{{ t.click }}" style="border:1.2px solid {{ t.border }}; background:{{ t.bg }}; color:{{ t.fg }}; padding:9px 20px; border-radius:100px; font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; transition:all .2s ease;">{{ t.label }}</div>
+      <div onClick="{{ t.click }}" style="border:1.2px solid {{ t.border }}; background:{{ t.bg }}; color:{{ t.fg }}; padding:9px 20px; border-radius:100px; font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; transition:all .2s ease; white-space:nowrap; flex-shrink:0;">{{ t.label }}</div>
     </sc-for>
   </div>
 
@@ -578,7 +587,7 @@
               <div style="width:34px; height:1px; background:#A8562F;"></div>
               <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">{{ s.kicker }}</div>
             </div>
-            <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em; text-wrap:balance;">{{ s.head }}</div>
+            <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 64px); line-height:.94; letter-spacing:-.032em; text-wrap:balance;">{{ s.head }}</div>
             <div style="font-size:17px; line-height:1.72; color:#4C463E; max-width:480px;">{{ s.body }}</div>
             <div style="display:flex; gap:44px; padding-top:6px;">
               <div><div style="font-family:'Bodoni Moda',serif; font-size:38px; color:#A8562F; line-height:1; font-weight:600;">{{ s.statA }}</div><div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A736A; margin-top:7px; font-weight:600;">{{ s.statAL }}</div></div>
@@ -587,7 +596,7 @@
           </div>
         </div>
 
-        <div style="padding:70px 30px 80px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:90px;">
+        <div class="botg-occasion-details-grid" style="padding:70px 30px 80px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:90px;">
           <div style="display:flex; flex-direction:column; gap:20px;">
             <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#7A736A; font-weight:700;">What is included</div>
             <div style="display:flex; flex-direction:column;">
@@ -625,8 +634,8 @@
     </sc-for>
   </div>
 
-  <div style="background:#A8562F; color:#FBF7F0; padding:130px 30px; display:flex; flex-direction:column; align-items:center; gap:30px; text-align:center;">
-    <div style="font-family:'Bodoni Moda',serif; font-size:92px; line-height:.9; letter-spacing:-.036em;">Whatever the day is,<br>we can be there.</div>
+  <div class="botg-section-pad" style="background:#A8562F; color:#FBF7F0; padding:130px 30px; display:flex; flex-direction:column; align-items:center; gap:30px; text-align:center;">
+    <div style="font-family:'Bodoni Moda',serif; font-size:clamp(30px, 8vw, 92px); line-height:.9; letter-spacing:-.036em;">Whatever the day is,<br>we can be there.</div>
     <div style="font-size:18px; line-height:1.6; color:rgba(251,247,240,.82); max-width:540px;">Four questions, about two minutes. Someone from the office calls you back the same day with the plan and the number.</div>
     <div style="font-family:'Bodoni Moda',serif; font-size:34px; font-weight:600;">602-803-2827</div>
   </div>

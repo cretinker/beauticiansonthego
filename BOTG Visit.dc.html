@@ -497,6 +497,14 @@
 
     /* Footer */
     .botg-footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+    /* Visit Office Grid Mobile Stacking */
+    .botg-visit-office-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 36px !important;
+    }
+
   }
 
   @media (max-width: 640px) {
@@ -519,7 +527,7 @@
           <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#A8562F; font-weight:700;">Mobile Salon Equipment · Complete Setup</span>
         </div>
 
-        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(44px, 5.5vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
+        <h1 style="font-family:'Bodoni Moda',serif; font-size:clamp(28px, 7vw, 82px); line-height:.94; letter-spacing:-.034em; margin:0; color:#171512; text-wrap:balance;">
           Book a visit.<br>Stay in your <span style="font-style:italic; color:#A8562F;">dressing gown.</span>
         </h1>
 
@@ -571,7 +579,7 @@
           <div style="width:34px; height:1px; background:#A8562F;"></div>
           <div style="font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:#A8562F; font-weight:700;">Tactile Transparency</div>
         </div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em;">What arrives with <span style="font-style:italic; color:#A8562F;">her.</span></div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 64px); line-height:.94; letter-spacing:-.032em;">What arrives with <span style="font-style:italic; color:#A8562F;">her.</span></div>
       </div>
       <div style="font-size:16.5px; line-height:1.72; color:#4C463E; max-width:480px; padding-bottom:6px;">
         Nothing is borrowed from your house except an electrical outlet and access to a sink. Everything below comes through the door and leaves with her.
@@ -588,11 +596,11 @@
   </div>
 
   <!-- office -->
-  <div style="background:#171512; color:#F2EDE3; padding:120px 30px;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:100px;">
+  <div class="botg-section-pad" style="background:#171512; color:#F2EDE3; padding:120px 30px;">
+    <div class="botg-visit-office-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:100px;">
       <div style="display:flex; flex-direction:column; gap:22px;">
         <div style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#C69B54; font-weight:700;">Our Central Hub</div>
-        <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em;">Scheduling lives<br>in <span style="font-style:italic; color:#C69B54;">Phoenix.</span></div>
+        <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 64px); line-height:.94; letter-spacing:-.032em;">Scheduling lives<br>in <span style="font-style:italic; color:#C69B54;">Phoenix.</span></div>
         <div style="font-size:16.5px; line-height:1.72; color:rgba(242,237,227,.6); max-width:460px;">Our office coordinates booking, logistics, corporate accounts, and in-care scheduling. Our specialists are dispatched directly into the field.</div>
       </div>
       <div style="display:flex; flex-direction:column;">
@@ -608,9 +616,9 @@
   </div>
 
   <!-- before we arrive -->
-  <div style="background:#E8E1D4; padding:120px 30px;">
+  <div class="botg-section-pad" style="background:#E8E1D4; padding:120px 30px;">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:56px; margin-bottom:52px;">
-      <div style="font-family:'Bodoni Moda',serif; font-size:64px; line-height:.94; letter-spacing:-.032em;">Before we<br><span style="font-style:italic; color:#A8562F;">knock.</span></div>
+      <div style="font-family:'Bodoni Moda',serif; font-size:clamp(26px, 6.5vw, 64px); line-height:.94; letter-spacing:-.032em;">Before we<br><span style="font-style:italic; color:#A8562F;">knock.</span></div>
       <div style="font-size:16.5px; line-height:1.7; color:#4C463E; max-width:400px; padding-bottom:8px;">Four simple essentials already in your home or venue. Ready them and your appointment runs perfectly on schedule.</div>
     </div>
     <div class="botg-team-grid" style=" gap:2px; background:rgba(23,21,18,.14);">
@@ -625,8 +633,8 @@
   </div>
 
   <!-- CTA -->
-  <div style="background:#A8562F; color:#FBF7F0; padding:130px 30px; display:flex; flex-direction:column; align-items:center; gap:30px; text-align:center;">
-    <div style="font-family:'Bodoni Moda',serif; font-size:92px; line-height:.9; letter-spacing:-.036em;">Give us an address.</div>
+  <div class="botg-section-pad" style="background:#A8562F; color:#FBF7F0; padding:130px 30px; display:flex; flex-direction:column; align-items:center; gap:30px; text-align:center;">
+    <div style="font-family:'Bodoni Moda',serif; font-size:clamp(30px, 8vw, 92px); line-height:.9; letter-spacing:-.036em;">Give us an address.</div>
     <div style="font-size:18px; line-height:1.6; color:rgba(251,247,240,.82); max-width:520px;">Four questions, about two minutes. Someone calls you back the same day and nothing is charged until you approve the number.</div>
     <div onClick="{{ onQuote }}" style="background:#171512; color:#FBF7F0; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:22px 44px; cursor:pointer;" style-hover="background:#0C0A08;">Request a visit</div>
   </div>
