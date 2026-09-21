@@ -116,6 +116,32 @@
   .botg-services-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
   .botg-faq-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
 
+  /* Marquee Strip Desktop Layout */
+  .botg-marquee-strip {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: clamp(10px, 1.6vw, 24px) !important;
+    padding: 15px clamp(12px, 2vw, 24px) !important;
+    font-size: clamp(9.5px, 0.8vw, 11px) !important;
+    font-weight: 700 !important;
+    letter-spacing: clamp(0.12em, 0.18vw, 0.24em) !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  .botg-marquee-strip::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
   /* ================= WORLD-CLASS MOBILE EXPERIENCE (<= 992px) ================= */
   @media (max-width: 992px) {
     .desktop-only { display: none !important; }
@@ -346,9 +372,21 @@
     .botg-marquee-strip {
       padding: 14px 16px !important;
       gap: 16px !important;
+      font-size: 11px !important;
+      letter-spacing: 0.22em !important;
       width: 100% !important;
       max-width: 100vw !important;
       overflow-x: auto !important;
+      overflow-y: hidden !important;
+      white-space: nowrap !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+    .botg-marquee-strip::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
     }
 
     /* Subpage Timeline */
@@ -992,6 +1030,32 @@
   .botg-services-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
   .botg-faq-split { display: grid; grid-template-columns: 380px 1fr; gap: 64px; }
 
+  /* Marquee Strip Desktop Layout */
+  .botg-marquee-strip {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: clamp(10px, 1.6vw, 24px) !important;
+    padding: 15px clamp(12px, 2vw, 24px) !important;
+    font-size: clamp(9.5px, 0.8vw, 11px) !important;
+    font-weight: 700 !important;
+    letter-spacing: clamp(0.12em, 0.18vw, 0.24em) !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  .botg-marquee-strip::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
   /* ================= WORLD-CLASS MOBILE EXPERIENCE (<= 992px) ================= */
   @media (max-width: 992px) {
     .desktop-only { display: none !important; }
@@ -1222,9 +1286,21 @@
     .botg-marquee-strip {
       padding: 14px 16px !important;
       gap: 16px !important;
+      font-size: 11px !important;
+      letter-spacing: 0.22em !important;
       width: 100% !important;
       max-width: 100vw !important;
       overflow-x: auto !important;
+      overflow-y: hidden !important;
+      white-space: nowrap !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+    .botg-marquee-strip::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
     }
 
     /* Subpage Timeline */
@@ -2021,7 +2097,7 @@
     </section>
 
     <!-- 2 · VENUE MARQUEE STRIP -->
-    <div class="botg-marquee-strip" style="background:#171512; color:#C69B54; padding:16px 20px; display:flex; gap:24px; justify-content:space-between; font-size:11px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; overflow-x:auto; white-space:nowrap; width:100%; max-width:100vw; box-sizing:border-box; border-top:1px solid rgba(198,155,84,.25); border-bottom:1px solid rgba(198,155,84,.25);">
+    <div class="botg-marquee-strip" style="background:#171512; color:#C69B54; border-top:1px solid rgba(198,155,84,.25); border-bottom:1px solid rgba(198,155,84,.25); overflow-x:hidden; scrollbar-width:none; -ms-overflow-style:none;">
       <div>Private Homes</div><div>·</div><div>Hotel Suites</div><div>·</div><div>Corporate Offices</div><div>·</div><div>Wedding Venues</div><div>·</div><div>Airbnb &amp; VRBO</div><div>·</div><div>Assisted Living</div><div>·</div><div>Hospitals</div><div>·</div><div>Hospice Care</div>
     </div>
 
